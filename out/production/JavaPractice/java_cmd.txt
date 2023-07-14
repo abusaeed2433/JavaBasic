@@ -1,0 +1,4 @@
+javac ClassName.java
+java -cp D:\own\Java\Projects\CompleteJava\src assertion.Test
+
+java -cp (class-path) package_name.ClassName
