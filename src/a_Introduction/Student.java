@@ -1,4 +1,4 @@
-package a_introduction;
+package a_Introduction;
 
 public class Student extends Person{
     private final int roll;
