@@ -1,22 +1,22 @@
-#Introduction to JAVA
-##Abstraction
+# Introduction to JAVA
+## Abstraction
 Abstraction is a way of focusing on relevant details and ignoring the irrelevant details about it in a particular context.
 - Info is hidden to programmer, because it is not needed.
 - Ex: `Math.max(int,int)` function. We don't need to know the implementation details.
 - This is not for security reason.
 
-##Encapsulation
+## Encapsulation
 Encapsulation is bundling of data and 'operations on the data' into an entity called a class.
 - array: encapsulation of several elements of the same type.
 - package: bundle/encapsulate one or more logically related classes.
 - compilation unit: bundle one or more related classes.
 
-##Information hiding
+## Information hiding
 Process of hiding implementation details that are likely to change.
 - Developer hides this info intentionally by using access modifier.
 - This provides more security and prevent accidental access to data.
 
-##Example
+## Example
 Look at the implementation of Person class for more details...
 ```
 public void setAge(int age) { 
@@ -38,7 +38,7 @@ Allows creating parent-child relationship where child inherits all properties of
   ```
 
 
-##Polymorphism
+## Polymorphism
 Polymorphism is the ability of an entity to take on different meanings in different contexts. 
 
 Example: `Method overloading`, `method overriding`, `subtyping`, and `generics`
