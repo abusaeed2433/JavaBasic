@@ -42,8 +42,19 @@ An identifier in Java is a sequence of characters of unlimited length.
 - Holds a reference to an object,
 - Ex: `String s;`. Keep in mind that, here space is allocated for variable not for object.
 - Ex: `String s = new String("Saeed");`, here space is allocated separately for variable and the object it is referring.
-- Be alert while modifying object of reference type.
-- 
+  - Be alert while modifying object of reference type.
+  ```
+  private static void printHumanData(Human human){
+    System.out.println(human.getName()+" -> "+human.getAge());
+    human.setAge(24); // will modify main object
+  }
+  ```
+  Calling above function through main function
+  ```
+  Human human = new Human("Saeed",21);
+  printHumanData(human); // Saeed -> 21
+  System.out.println(human.getAge()); // 24
+  ```
 
 ## Don't forget
 ![Primitive and Reference data type](primitive_reference.png)
