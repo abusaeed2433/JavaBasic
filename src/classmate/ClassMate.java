@@ -1,19 +1,18 @@
 package classmate;
 
-import javax.annotation.processing.SupportedSourceVersion;
-import javax.swing.text.DateFormatter;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.SQLSyntaxErrorException;
-import java.text.DecimalFormat;
 import java.time.*;
-import java.time.format.*;
-import java.time.temporal.*;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.time.temporal.TemporalAccessor;
+import java.time.temporal.TemporalAdjusters;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+//added in .gitignore
 public class ClassMate {
 
     public static void main(String[] args) {
@@ -41,6 +40,7 @@ public class ClassMate {
 //        timestampTest(ts);
         long timestamp = getUtcTimeStamp("09/03/2023","10:15PM");
         System.out.println(timestamp + "  "+ts+ " "+(timestamp==ts));
+
 
     }
 
