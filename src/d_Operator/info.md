@@ -155,7 +155,7 @@ b1 = +b2 // error. bcause +b2 convert it into int. Remember Expression data type
   Integer num4 = 10000;
   System.out.println(num3==num4); // false
   ```
-  > Just remember this `num1`,`num2`, `num3`, `num4` are object of class `Integer`. Rest will be discussed later
+  > Just remember this `num1`,`num2`, `num3`, `num4` are object of class `Integer`. Rest will be discussed later in different section.
 - So, for reference data type, always use `obj1.equlas(obj2)` instead of `==`.
   ```
   Integer num3 = 10000;
