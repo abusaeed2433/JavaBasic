@@ -39,14 +39,21 @@
       - Non-static variables,
       - Every object contains separate copy of these variables,
       - Must be called using object of the class.
+      - Can be accessed using dot(`.`). Ex: `obj.method();`
     - #### Class variables:
       - Static variables,
       - Declared using the static keyword as a modifier,
       - Every object uses same copy of these variables,
       - Shared among all objects of this class,
       - Can be called using class name.
+      - Can be accessed using dot(`.`) on both object and class. Ex: `ClassName.method();`
+  - `static` as well as `non-static` fields are initialized to a default value,
+  - A numeric field (int, long, ...) is initialized to `zero(0)`,
+  - A boolean field is initialized to `false`,
+  - A reference type field is initialized to `null`,
 - ### Method
   - Represent behavior of objects of the class,
+  - see more after example.
 - ### Constructor
   - Used to create objects of the class,
 - ### Static initializer
@@ -84,6 +91,40 @@ public class Hooman {
     ...
 }
 ```
+
+- ### Method again
+  - Represent behavior of objects of the class,
+  - Is a named block of code,
+  - Method structure:
+  ```
+  <<modifiers>> <<return type>> <<method name>> (<<parameters list>>) <<throws clause>> {
+    // Body of the method goes here
+  }
+  ```
+  - `throws` is optional,
+  - Ex:
+  ```
+  public void setAge(int age) {
+     if(age < 0 || age < this.age) return;
+     this.age = age;
+     isAdult = (age>=18);
+  }
+  ```
+  - `return-type` can be any data type,
+  - `void` means doesn't return any value,
+  - Follows `camelCase` naming convention,
+  - Method signature:
+    - Combination of method `name`, its parameter’s `number, types, order`.
+    - `Modifiers`, `return-type`, and `parameter names` are not part of the signature,
+    - Ex:
+    ```
+     public int add(int num1, int num2){
+        return num1+num2;
+     }
+    ```
+    - Signature is: `add(int, int)`;
+  - Not allowed to have more than one method in a class with the same signature. 
+
 
 ## Creating instance of a class
 - Object can be created by calling its constructor.
