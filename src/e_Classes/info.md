@@ -92,17 +92,17 @@ public class Hooman {
 }
 ```
 
-- ### Method again
-  - Represent behavior of objects of the class,
-  - Is a named block of code,
-  - Method structure:
+## Method again
+- Represent behavior of objects of the class,
+- Is a named block of code,
+- Method structure:
   ```
   <<modifiers>> <<return type>> <<method name>> (<<parameters list>>) <<throws clause>> {
     // Body of the method goes here
   }
   ```
-  - `throws` is optional,
-  - Ex:
+- `throws` is optional,
+- Ex:
   ```
   public void setAge(int age) {
      if(age < 0 || age < this.age) return;
@@ -110,21 +110,23 @@ public class Hooman {
      isAdult = (age>=18);
   }
   ```
-  - `return-type` can be any data type,
-  - `void` means doesn't return any value,
-  - Follows `camelCase` naming convention,
-  - Method signature:
-    - Combination of method `name`, its parameter’s `number, types, order`.
-    - `Modifiers`, `return-type`, and `parameter names` are not part of the signature,
-    - Ex:
-    ```
-     public int add(int num1, int num2){
-        return num1+num2;
-     }
-    ```
-    - Signature is: `add(int, int)`;
-  - Not allowed to have more than one method in a class with the same signature. 
+- `return-type` can be any data type,
+- `void` means doesn't return any value,
+- Follows `camelCase` naming convention,
+- Method signature:
+  - Combination of method `name`, its parameter’s `number, types, order`.
+  - `Modifiers`, `return-type`, and `parameter names` are not part of the signature,
+  - Ex:
+  ```
+   public int add(int num1, int num2){
+      return num1+num2;
+   }
+  ```
+  - Signature is: `add(int, int)`;
+- Not allowed to have more than one method in a class with the same signature.
 
+- ### Instance Method
+- ### Class Method
 
 ## Creating instance of a class
 - Object can be created by calling its constructor.
@@ -136,6 +138,8 @@ public class Hooman {
   Hooman saeed = new Hooman("Saeed",21);
   System.out.println(saeed.isAdult()); // true
   ```
+
+## Local variable
 
 ## Null
 - A special reference type called null type,
