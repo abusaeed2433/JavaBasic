@@ -84,3 +84,31 @@ public class Hooman {
     ...
 }
 ```
+
+## Creating instance of a class
+- Object can be created by calling its constructor.
+- Ex: `new Hooman();`. This object will be automatically deleted, since we are not assigning it in any variable.
+- When you create an object using `new` keyword, it allocates memory for each `instance field` of the class.
+- Java runtime takes care of memory allocation, you don't need it.
+- Creating object and calling method:
+  ```
+  Hooman saeed = new Hooman("Saeed",21);
+  System.out.println(saeed.isAdult()); // true
+  ```
+
+## Null
+- A special reference type called null type,
+- It has no name,
+- Assignment compatible with any other reference type. Ex: 
+  ```
+  String name = null; // ok
+  Integer number = null; // ok
+  Hooman none = null; // ok
+  int count = null; // error. int is not reference type. Remember?
+  ```
+- After making `sh = null;`, the object `sh` was referring will be destroyed by JVM, since it is no longer accessible.
+  ```
+  Hooman sh = new Hooman("sh",22);
+  sh = null;
+  ```
+
