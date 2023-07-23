@@ -155,7 +155,7 @@ b1 = +b2 // error. bcause +b2 convert it into int. Remember Expression data type
   Integer num4 = 10000;
   System.out.println(num3==num4); // false
   ```
-  > Just remember this `num1`,`num2`, `num3`, `num4` are object of class `Integer`. Rest will be discussed later
+  > Just remember this `num1`,`num2`, `num3`, `num4` are object of class `Integer`. Rest will be discussed later in different section.
 - So, for reference data type, always use `obj1.equlas(obj2)` instead of `==`.
   ```
   Integer num3 = 10000;
@@ -175,5 +175,81 @@ b1 = +b2 // error. bcause +b2 convert it into int. Remember Expression data type
 
 - Logical and short circuit operator do same thing, only difference is short-circuit operator doesn't execute other condition if not needed.
   - Ex:
-  - 
+  ```
+  int i = 24;
+  int j = 48;
+  int k = 57;
+  
+  int count = 0;
+  boolean outputFromLogical = (i<48) || (j == 48 ) || (++count < 1000); --------(a)
+  System.out.println(outputFromLogical + " -> " + count); // true -> 0 
+  
+  
+  boolean outputFromShortCircuit = (i<48) | (j == 48 ) | (++count < 1000); -----(b)
+  System.out.println(outputFromShortCircuit + " -> " + count); // true -> 1
+  
+  boolean outputAnd = (i == j) && (i++ ==k); --------(c)
+  System.out.println(outputAnd+" "+i); // false 24
+  
+  boolean outputShortAnd = (i == j) & (i++ ==k); ----(d)
+  System.out.println(outputShortAnd+" "+i); // false 25
+  ```
+- > For `(a)`, it is not needed to check 2nd and 3rd condition. Because 1st is true, output will be true since or operation.
+- > For `(b)`, it will execute all conditions, surely. so count increases here
+- > Same for `(c)` & `(d)`
 
+### Ternary Operator (`? :`)
+```
+boolean-expression ? true-expression : false-expression
+int a = 5;
+int b = 55;
+int mx = a>b ? a : b;
+```
+> TRY TO AVOID THIS OPERATOR. IT'S A TYPE OF CLEVER CODE. REMEMBER, AVOID CLEVER CODE.
+
+## Operator precedence
+- `++`
+- `--`
+- `+, -`
+- `~ Bitwise complement`
+- `!`
+- `(type) Cast`
+- `*, /, %`
+- `+, -`
+- `+ String concatenation`
+- `<< Left shift`
+- `>> Signed right shift`
+- `>>> Unsigned right shift`
+- `<`
+- `<=`
+- `>`
+- `>=`
+- `instanceof Type comparison`
+- `==`
+- `!=`
+- `& Bitwise AND`
+- `& Logical AND`
+- `^ Bitwise XOR`
+- `^ Logical XOR`
+- `| Bitwise OR`
+- `| Logical OR`
+- `&& Logical short-circuit AND`
+- `|| Logical short-circuit OR`
+- `?:`
+- `= Assignment`
+- (`+=, -=, *=, /=, %=, <<=, >>=, >>>=, &=, |=,^=`)
+
+> Write code in such a way that, precedence doesn't affect calculation.
+
+## Bitwise operators:
+- `& Bitwise AND`
+- `| Bitwise OR` 
+- `^ Bitwise XOR`
+- `~ Bitwise complement (1’s complement)`
+- `<< Left shift`
+- `>> Signed right shift`
+- `>>> Unsigned right shift` 
+- `&=, !=, ^=, <<=, >>=, >>>= Compound assignment`
+> Perform operation on bit level. Works with only integers.
+
+> !!! Java does not let developers overload operators in programs !!!
