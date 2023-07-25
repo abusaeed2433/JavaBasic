@@ -46,14 +46,14 @@ An identifier in Java is a sequence of characters of unlimited length.
   ```
   private static void printHumanData(Human human){
     System.out.println(human.getName()+" -> "+human.getAge());
-    human.setAge(24); // will modify main object
+    human.setAge(26); // will modify main object
   }
   ```
   Calling above function through main function
   ```
   Human human = new Human("Saeed",21);
   printHumanData(human); // Saeed -> 21
-  System.out.println(human.getAge()); // 24
+  System.out.println(human.getAge()); // 26
   ```
 
 ## Don't forget
