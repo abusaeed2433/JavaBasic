@@ -61,7 +61,9 @@
 - ### Instance initializer,
     - For initializing variables which need some calculation,
 
+
 Let us understand these through `Hooman` class(`Hooman.java` for full definition)
+> `this` refers to current instance where control is now. More details is discussed later. 
 ```
 public class Hooman {
 
@@ -95,7 +97,7 @@ public class Hooman {
 ## Method again
 - Represent behavior of objects of the class,
 - Is a named block of code,
-- Method structure:
+- Fd structure:The formal parameters for a method are treated as local variables.
   ```
   <<modifiers>> <<return type>> <<method name>> (<<parameters list>>) <<throws clause>> {
     // Body of the method goes here
@@ -175,6 +177,13 @@ public class Hooman {
   ```
 
 ## Local variable
+- Variable declared inside `method`, `constructor`, `block`,
+- Formal parameters for a method are treated as local variables,
+- `Not` initialized by default,
+- Can't be used until it is assigned a value. Will show error instead of garbage value,
+- Must be declared before it is used,
+- If variables having same name found, local variable get precedence,
+- See `LocalVariable.java`.
 
 ## Null
 - A special reference type called null type,
