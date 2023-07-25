@@ -1,7 +1,7 @@
 package e_Classes;
 
 public class LocalVariable {
-    private static int counter;
+    private static int counter; // 0
     private String name; // default null
     private int num; // by default 0
 
@@ -26,7 +26,7 @@ public class LocalVariable {
     }
 
     public int calculateDifference(int num2){
-        // num is local since this is formal parameter of method. Remember?
+        // num2 is local since this is formal parameter of method. Remember?
         int num = 1001;
         System.out.println(num); // 1001 because local variable takes precedence over global variable
 

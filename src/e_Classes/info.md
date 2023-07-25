@@ -183,7 +183,26 @@ public class Hooman {
 - Can't be used until it is assigned a value. Will show error instead of garbage value,
 - Must be declared before it is used,
 - If variables having same name found, local variable get precedence,
-- See `LocalVariable.java`.
+- See `LocalVariable.java` for full code,
+  ```
+  public class LocalVariable {
+      private static int counter; // 0
+      private String name; // null
+      private int num; // 0
+      public static void main(String[] args) {...}
+  
+      public void assignMust(){
+          int num;
+          //System.out.println(num); // error. Not initialized.
+      }
+  
+      public int calculateDifference(int num2){
+          int num = 1001; // local
+          System.out.println(num); // 1001
+          return this.num - num2; // `this` later
+      }
+  }
+  ```
 
 ## Null
 - A special reference type called null type,
