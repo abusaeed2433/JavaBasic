@@ -29,6 +29,23 @@ public class Test {
 
         TriState triState = new TriState(SECOND);
         System.out.println(triState.state); // SECOND
+
+        birdTest();
+    }
+
+    private static void birdTest(){
+        Bird deadBird = new Bird(); // 1
+        deadBird.printDetails(); // Unknown -> Not found -> false
+
+        Bird unknownBird = new Bird(true); // 2
+        unknownBird.printDetails(); // Eagle -> Eagle -> true
+
+        Bird eagle = new Bird("Eagle", "Eagle", true); // 3
+        eagle.printDetails(); // unknown -> Not found -> true
+
+        Bird secondEagle = new Bird(eagle); // 4
+        secondEagle.printDetails(); // Eagle -> Eagle -> true
+
     }
 
     public int add(int num1, int num2){

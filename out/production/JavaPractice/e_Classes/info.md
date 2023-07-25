@@ -177,6 +177,27 @@ public class Hooman {
   Hooman.showSomeCharacter(); // best practice
   ```
 
+## Constructor
+- Used to initialize an object of a class,
+- Constructor name is the same as the simple name of the class,
+- Basic Structure(can have `throws` clause also):
+- Doesn't have return type,
+```
+<<Modifiers>> <<Constructor Name>>(<<parameters list>>){
+ // Body of constructor goes here
+}
+```
+- Ex: see `Bird.java`:
+- Overloading of constructor is possible
+  - If a class has multiple constructors, all of them must differ from the others in the `number`, `order`, or `type` of parameters.
+  - Ex: see `Bird.java`,
+- One constructor can call other constructor,
+- Access modifiers are same as others,
+- By default, JVM adds a default constructor as long as there is no constructor.
+- `default constructor` doesn't accept any parameter and does nothing. It only satisfies logic so that we can create object,
+- You can't declare a constructor static. Remember static is part of class not object,
+ 
+
 ## Creating instance of a class
 - Object can be created by calling its constructor.
 - Ex: `new Hooman();`. This object will be automatically deleted, since we are not assigning it in any variable.
@@ -234,20 +255,28 @@ public class Hooman {
 
 ## this
 - Extremely useful keyword,
-- Reference to the `current instance` of a class,
-- Can be used only in the context of an instance.
+- Reference to the `current instance` of a class. (Alert it's for `!!!instance`, not class),
+- Can be used only in the context of an instance/object.
 - Ex:
   ```
   public class TriState {
       ...
       private StateEnum state = StateEnum.FIRST;
-      public TriState(StateEnum state) {
+      public TriState(StateEnum state) { // state = SECOND is passed
           System.out.println(this.state); // FIRST
           System.out.println(state); // SECOND
-          this.state = state; // this.state refers to the global state
+          this.state = state; // this.state refers to the global state --- (a)
       }
       ...
   }
   ```
-- 
-  
+- Creating instance of above class
+  ```
+  TriState triState = new TriState(SECOND);
+  System.out.println(triState.state); ---- (b)
+  ```
+- `triState.state` in outside is same as `this.state` inside the class for a specific object of the class. See `(b)` and `(a)`. 
+- Practice yourself.
+
+>> THERE IS NO SHORTCUT OTHER THAN PRACTICING
+

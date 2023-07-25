@@ -53,9 +53,10 @@
   - A reference type field is initialized to `null`,
 - ### Method
   - Represent behavior of objects of the class,
-  - see more after example.
+  - More info available below.
 - ### Constructor
   - Used to create objects of the class,
+  - More info available below.
 - ### Static initializer
   - For initializing static variables which need some calculation,
 - ### Instance initializer,
@@ -177,6 +178,66 @@ public class Hooman {
   Hooman.showSomeCharacter(); // best practice
   ```
 
+## Constructor
+- Used to initialize an object of a class,
+- Constructor name is the same as the simple name of the class,
+- Basic Structure(can have `throws` clause also):
+- Doesn't have return type,
+```
+<<Modifiers>> <<Constructor Name>>(<<parameters list>>){
+ // Body of constructor goes here
+}
+```
+- Ex: see `Bird.java`:
+- Overloading of constructor is possible. If a class has multiple constructors, all of them must differ from the others in the `number`, `order`, or `type` of parameters,
+- One constructor can call other constructor,
+- Access modifiers are same as others,
+- By default, JVM adds a default constructor as long as there is no constructor.
+- `default constructor` doesn't accept any parameter and does nothing. It only satisfies logic so that we can create object,
+- You can't declare a constructor static. Remember static is part of class not object,
+- see `Bird.java` for full,
+  ```
+    // constructor - 1
+    public Bird() {
+      this.name = "Unknown";
+      this.species = "Not found";
+      this.canFly = false;
+    }
+  
+    // constructor - 2
+    public Bird(boolean canFly) {
+      this("unknown","Not found",canFly); // calling other constructor. Remember `this`. must be first line
+    }
+  
+    // constructor - 3
+    public Bird(String name, String species, boolean canFly) {
+      this.name = name;
+      this.species = species;
+      this.canFly = canFly;
+    }
+  
+    // constructor - 4 . Copy constructor
+    public Bird(Bird bird){
+      this.name = bird.name;
+      this.species = bird.species;
+      this.canFly = bird.canFly;
+    }
+  ```
+- Creating object using those constructors(see `birdTest()` of `Test.java`):
+  ```
+    Bird deadBird = new Bird(); // 1
+    deadBird.printDetails(); // Unknown -> Not found -> false
+  
+    Bird unknownBird = new Bird(true); // 2
+    unknownBird.printDetails(); // Eagle -> Eagle -> true
+  
+    Bird eagle = new Bird("Eagle", "Eagle", true); // 3
+    eagle.printDetails(); // unknown -> Not found -> true
+  
+    Bird secondEagle = new Bird(eagle); // 4
+    secondEagle.printDetails(); // Eagle -> Eagle -> true
+  ```
+
 ## Creating instance of a class
 - Object can be created by calling its constructor.
 - Ex: `new Hooman();`. This object will be automatically deleted, since we are not assigning it in any variable.
@@ -257,4 +318,5 @@ public class Hooman {
 - `triState.state` in outside is same as `this.state` inside the class for a specific object of the class. See `(b)` and `(a)`. 
 - Practice yourself.
 
->> THERE IS NO SHORTCUT OTHER THAN PRACTICING.
+>> THERE IS NO SHORTCUT OTHER THAN PRACTICING
+
