@@ -123,10 +123,45 @@ public class Hooman {
    }
   ```
   - Signature is: `add(int, int)`;
-- Not allowed to have more than one method in a class with the same signature.
+- Not allowed to have more than one method in a class with the same signature,
+- A class can have two types of method like variables. `instant method` and `class method`.
 
-- ### Instance Method
-- ### Class Method
+## Instance Method
+- `Non-static` method,
+- Used to implement behavior of the objects of the class,
+- Must be called using object,
+- Ex:
+  ```
+  public static void showSomeCharacter(){
+    System.out.println("General characteristics");
+    //System.out.println(name);//can't access name here
+  }
+  ```
+
+## Class Method
+- `static` method,
+- Used to implement the behavior of the class itself,
+- Can be called using object or Class name(Recommended) itself,
+- Can't access instant variables here, guess why?
+- Ex:
+  ```
+  public void showSpecificCharacter(){
+    System.out.println("Name is => "+name);
+  }
+  ```
+
+## Special `main()` method
+- Special method having `public`,`static`, `void`, method name `main` having a String array as parameter,
+  ```
+  public static void main(String[] args) {
+    // entry point of execution
+  }
+  ```
+- JVM invokes this method. If not found, then JVM does not know where to start the application. So, it throws an error stating that no main() method was found,
+- You can have as many as `main()` method in a class having different signature. But JVM will call only above one,
+- You don't need to write main method in a class if you don't want it to start from here,
+- You can also call `main()` method just like other method,
+- see `Test.java` class for example.
 
 ## Creating instance of a class
 - Object can be created by calling its constructor.

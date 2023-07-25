@@ -67,4 +67,13 @@ public class Hooman {
         return objectCounter;
     }
 
+    public static void showSomeCharacter(){
+        System.out.println("General characteristics");
+        //System.out.println(name);//can't access name here
+    }
+
+    public void showSpecificCharacter(){
+        System.out.println("Name is => "+name);
+    }
+
 }
