@@ -1,5 +1,5 @@
-package e_Classes;
-import static e_Classes.TriState.StateEnum.*;
+package e_ClassesAndObject;
+import static e_ClassesAndObject.TriState.StateEnum.*;
 public class Test {
 
 

@@ -1,4 +1,4 @@
-package e_Classes;
+package e_ClassesAndObject;
 
 public class LocalVariable {
     private static int counter; // 0
