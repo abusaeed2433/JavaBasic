@@ -167,8 +167,15 @@ public class Hooman {
 
 ## Invoking/Calling method
 - `Instance` method is invoked on an `instance of the class` using dot(`.`) notation,
-- Class method is invoked on `Class name` using dot(`.`) notation,
-- 
+- `Class method` is invoked on `Class name` using dot(`.`) notation,
+- see `main()` of `Test.java`:
+  ```
+  Hooman anik = new Hooman("Anik",22);
+  anik.showSpecificCharacter(); // ok
+  
+  anik.showSomeCharacter(); // ok
+  Hooman.showSomeCharacter(); // best practice
+  ```
 
 ## Creating instance of a class
 - Object can be created by calling its constructor.
@@ -225,3 +232,22 @@ public class Hooman {
   sh = null;
   ```
 
+## this
+- Extremely useful keyword,
+- Reference to the `current instance` of a class,
+- Can be used only in the context of an instance.
+- Ex:
+  ```
+  public class TriState {
+      ...
+      private StateEnum state = StateEnum.FIRST;
+      public TriState(StateEnum state) {
+          System.out.println(this.state); // FIRST
+          System.out.println(state); // SECOND
+          this.state = state; // this.state refers to the global state
+      }
+      ...
+  }
+  ```
+- 
+  

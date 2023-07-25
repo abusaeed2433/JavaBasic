@@ -1,5 +1,5 @@
 package e_Classes;
-
+import static e_Classes.TriState.StateEnum.*;
 public class Test {
 
 
@@ -26,6 +26,9 @@ public class Test {
 
         anik.showSomeCharacter(); // General characteristics. ok but not recommended
         Hooman.showSomeCharacter(); // General characteristics. best practice
+
+        TriState triState = new TriState(SECOND);
+        System.out.println(triState.state); // SECOND
     }
 
     public int add(int num1, int num2){

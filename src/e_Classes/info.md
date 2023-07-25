@@ -232,3 +232,29 @@ public class Hooman {
   sh = null;
   ```
 
+## this
+- Extremely useful keyword,
+- Reference to the `current instance` of a class. (Alert it's for `!!!instance`, not class),
+- Can be used only in the context of an instance/object.
+- Ex:
+  ```
+  public class TriState {
+      ...
+      private StateEnum state = StateEnum.FIRST;
+      public TriState(StateEnum state) { // state = SECOND is passed
+          System.out.println(this.state); // FIRST
+          System.out.println(state); // SECOND
+          this.state = state; // this.state refers to the global state --- (a)
+      }
+      ...
+  }
+  ```
+- Creating instance of above class
+  ```
+  TriState triState = new TriState(SECOND);
+  System.out.println(triState.state); ---- (b)
+  ```
+- `triState.state` in outside is same as `this.state` inside the class for a specific object of the class. See `(b)` and `(a)`. 
+- Practice yourself.
+
+>> THERE IS NO SHORTCUT OTHER THAN PRACTICING.
