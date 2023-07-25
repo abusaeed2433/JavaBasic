@@ -202,6 +202,7 @@
   ```
   private static void simpleGenericTest(){
     MyList<Integer> myList = new MyList<>();
+    //MyList myList = new MyList<>(); // ok but not recommended.
     myList.add(12);
     myList.add(32);
     myList.add(42);
@@ -214,5 +215,4 @@
   
   ```
 - This is simple example. Learn more by yourself if you want to.
-
 
