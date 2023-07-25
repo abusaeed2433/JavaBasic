@@ -1,4 +1,6 @@
 package e_ClassesAndObject;
+import javax.swing.plaf.synth.SynthUI;
+
 import static e_ClassesAndObject.TriState.StateEnum.*;
 public class Test {
 
@@ -31,6 +33,22 @@ public class Test {
         System.out.println(triState.state); // SECOND
 
         birdTest();
+        finalTest();
+    }
+
+    private static void finalTest(){
+        Circle circle = new Circle();
+        System.out.println(circle.getArea()); // 0.0
+
+        Circle circle1 = new Circle(4);
+        System.out.println(circle1.getArea()); // 50.264
+    }
+
+    private static double getArea(final double r){ // final parameter
+        final double pi = 3.1415; // final local variable
+        //pi = 3; error
+        //r=5;
+        return pi*r*r;
     }
 
     private static void birdTest(){
