@@ -38,6 +38,24 @@ public class Test {
         System.out.println( max() ); // 0
         System.out.println( max(1,22) ); // 22
         System.out.println( max(1,2,3,4,5,6,7,8,10) ); // 10
+
+
+        simpleGenericTest();
+
+    }
+
+    private static void simpleGenericTest(){
+        MyList<Integer> myList = new MyList<>();
+        //MyList myList = new MyList<>();
+        myList.add(12);
+        myList.add(32);
+        myList.add(42);
+        myList.add(62);
+
+        //System.out.println( myList.get(5) ); // Index out of bound
+
+        System.out.println( myList.get(1) ); // 32
+
     }
 
     private static int findMinMax(boolean findMax, int ...arr){
