@@ -165,6 +165,18 @@ public class Hooman {
 - You can also call `main()` method just like other method,
 - see `Test.java` class for example.
 
+## Invoking/Calling method
+- `Instance` method is invoked on an `instance of the class` using dot(`.`) notation,
+- `Class method` is invoked on `Class name` using dot(`.`) notation,
+- see `main()` of `Test.java`:
+  ```
+  Hooman anik = new Hooman("Anik",22);
+  anik.showSpecificCharacter(); // ok
+  
+  anik.showSomeCharacter(); // ok
+  Hooman.showSomeCharacter(); // best practice
+  ```
+
 ## Creating instance of a class
 - Object can be created by calling its constructor.
 - Ex: `new Hooman();`. This object will be automatically deleted, since we are not assigning it in any variable.

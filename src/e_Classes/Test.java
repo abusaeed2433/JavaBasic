@@ -21,6 +21,11 @@ public class Test {
         sh = null;
 
 
+        Hooman anik = new Hooman("Anik",22);
+        anik.showSpecificCharacter(); // Name is => Anik
+
+        anik.showSomeCharacter(); // General characteristics. ok but not recommended
+        Hooman.showSomeCharacter(); // General characteristics. best practice
     }
 
     public int add(int num1, int num2){
