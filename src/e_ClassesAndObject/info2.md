@@ -137,4 +137,40 @@
   public static final double PI = 3.14159;
   ```
 
-## 
+## Varargs
+- Full form: `variable-length arguments`,
+- Can be used both in method and constructor,
+- `...` is used,
+- We can pass any number of arguments, parameter will work like array. But we don't have to pass array explicitly, 
+- Ex: ( See `Test.java` ),
+  ```
+   private static int max(int... arr){
+      ...
+   }
+  ```
+- Can call like this:
+  ```
+  System.out.println( max() ); // 0
+  System.out.println( max(1,22) ); // 22
+  System.out.println( max(1,2,3,4,5,6,7,8,10) ); // 10
+  ```
+- Isn't it awesome?
+- There is two restriction
+  - A varargs method can have a maximum of one varargs,
+     ```
+     // n1 has infinite length, so n2 is not needed. error
+      void m1(String str, int...n1, int...n2) {
+       ...
+     }
+     ```
+  - The varargs must be the last argument in the argument. Same reason even though parameter type is different.
+     ```
+     void m2(int...n1, String str) {
+      ...
+     }
+    ```
+  - This is perfectly valid: ( see `Test.java`)
+     ```
+     private static int findMinMax(boolean findMax, int ...arr){...}
+     ```
+

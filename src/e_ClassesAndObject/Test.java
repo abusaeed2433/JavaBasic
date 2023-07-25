@@ -34,6 +34,39 @@ public class Test {
 
         birdTest();
         finalTest();
+
+        System.out.println( max() ); // 0
+        System.out.println( max(1,22) ); // 22
+        System.out.println( max(1,2,3,4,5,6,7,8,10) ); // 10
+    }
+
+    private static int findMinMax(boolean findMax, int ...arr){
+        if(arr.length == 0) return 0;
+
+        if(findMax) return max(arr);
+
+        int mn = Integer.MAX_VALUE;
+        for(int num : arr){
+            if(num < mn) mn = num;
+        }
+        return mn;
+    }
+
+//    private static void m1(String str, int...n1, int...n2) {
+//        // Code goes here
+//    }
+//
+//    private static void m2(int...n1, String str) {
+//      //
+//    }
+
+    private static int max(int... arr){
+        if(arr.length == 0) return 0;
+        int mx = Integer.MIN_VALUE;
+        for(int num : arr){
+            if(num > mx) mx = num;
+        }
+        return mx;
     }
 
     private static void finalTest(){

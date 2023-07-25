@@ -70,6 +70,7 @@
 
 ## final
 - prevent modification on which it is used,
+- For declaring constant,
 - Can be used in the following three contexts:
   - Variable
     - Can be assigned a value only once,
@@ -97,8 +98,55 @@
 
 ## final instance variable
 - Can be final or blank final,
-- Rules apply for initializing a blank final instance variable:
+  - Rules apply for initializing a blank final instance variable:
   - Must be initialized in `one of the` instance initializers or `all` constructors,
   - Don't be confused. Just remember that you can only assign value at once, if you try to reassign it, you will get error.
-  - All blank final variables and final reference variables are runtime constants. i.e. they are calculated at runtime,
-  - 
+- All blank final variables and final reference variables are runtime constants. i.e. they are calculated at runtime,
+- `Circle.java`
+  ```
+  public final class Circle {
+  
+      public static final double PI = 3.14159; // final
+  
+      private final double r; // blank - final
+  
+      public Circle() {
+          this.r = 0;
+      }
+  
+      public Circle(double r) {
+          this.r = r;
+      }
+  
+      public Circle(Circle c){
+          this(c.r); // this will assign value
+          //this.r = c.r; // error, since already assigned in previous line
+      }
+  
+      public double getArea(){
+          return PI * r * r;
+      }
+  
+  }
+    
+  ```
+## final class variable
+- Same like previous,
+- Good practice to use capital letter for variable naming:
+  ```
+  public static final double PI = 3.14159;
+  ```
+
+## Varargs
+- Full form: `variable-length arguments`,
+- Can be used both in method and constructor,
+- `...` is used,
+- We can pass any number of arguments, parameter will work like array. But we don't have to pass array explicitly, 
+- Ex:
+  ```
+   private static int max(int... arr){
+      ...
+   }
+  ```
+- Can call like this:
+- 
