@@ -24,7 +24,7 @@
     ```
 - Ex:
     ```
-    java -ea src/aa_Assertion/Test.java
+    java -ea src/j_Assertion/Test.java
     ```
 - Ex(See `Test.java`):
     ```
