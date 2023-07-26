@@ -22,15 +22,21 @@
 - `valueOf()` is preferred over constructors as this method caches some objects for reuse,
 - The new operator always creates a new object but,
 - `valueOf()` caches wrapper objects for primitive values between -128 and 127,
-  ```
-  Integer n1 = Integer.valueOf(20);
-  Integer n2 = Integer.valueOf(20);
-  System.out.println(n1 == n2); // true
-
-  Integer n3 = Integer.valueOf(1240);
-  Integer n4 = Integer.valueOf(1240);
-  System.out.println(n3 == n4); // false
-  ```
+    ```
+    Integer n1 = Integer.valueOf(20);
+    Integer n2 = Integer.valueOf(20);
+    
+    System.out.println(n1 == n2); // true
+    
+    Integer n3 = new Integer(20);
+    Integer n4 = new Integer(20);
+    
+    System.out.println(n3 == n4); // false, new always create new object. No caching
+    
+    Integer n5 = Integer.valueOf(1240);
+    Integer n6 = Integer.valueOf(1240);
+    System.out.println(n5 == n6); // false
+    ```
 
 ## Numeric wrapper class
 - `Byte`, `Short`, `Integer`, `Long`, `Float`, and `Double` classes are numeric wrapper classes,
@@ -88,5 +94,14 @@
     - If both operands are primitive types, they are compared as primitive types using a value comparison,
     - If both operands are reference types, their references are compared, 
     - In these two cases, no autoboxing/unboxing takes place,
-    - 
+    - Ex:
+       ```
+        Integer num1 =  1000;
+        Integer num2 =  1000;
+        System.out.println(num1 == num2); // false, reference are different
 
+        Integer num3 = 1002;
+        System.out.println(num3>num1); // true, unboxed to primitive then compared
+       ```
+
+>> AVOID CLEVER CODE
