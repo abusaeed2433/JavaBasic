@@ -14,6 +14,8 @@ public class Test {
         catchExceptionOrder(2,null,fullPath);
         catchExceptionOrder(1,"Saeed","invalid.txt");
 
+        catchMultipleException(1,null,"invalid.txt");
+
         callHandleChecked();
 
         finallyTest(fullPath);
@@ -102,6 +104,22 @@ public class Test {
         fileReader.close();
     }
 
+    private static void catchMultipleException(int y, String message, String filePath){
+        try {
+            int x = 10;
+            int result = x / y;
+
+            String lower = message.toLowerCase();
+
+            FileReader fileReader = new FileReader(filePath);
+            printFile(fileReader);
+            fileReader.close();
+        }
+        catch ( RuntimeException | IOException e){
+            System.out.println("Something went wrong");
+        }
+    }
+
     private static void catchExceptionOrder(int y, String message, String filePath){
         try{
 
@@ -123,6 +141,8 @@ public class Test {
             System.out.println("lower failed");
         }
     }
+
+
 
     private static void printFile(FileReader fileReader) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(fileReader);

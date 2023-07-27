@@ -83,6 +83,17 @@
         catch (RuntimeException e){...}
     }
     ```
+- Multiple catch block can also be written like this:
+  ```
+  private static void catchMultipleException(int y, String message, String filePath){
+      try {
+          ...
+      }
+      catch ( RuntimeException | IOException e){ // < -- - -- - --
+          System.out.println("Something went wrong");
+      }
+  }
+  ```
 
 ## Transfer of control in `try-catch`:
 - <img src="images/control_transfer_in_exception.jpg" height="220px">
