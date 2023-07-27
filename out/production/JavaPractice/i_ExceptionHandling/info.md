@@ -151,6 +151,32 @@
 ## Throwing an Exception
 - You can also throw exception if you want,
 - Ex:
+    ```
+    private static void throwMyException(int age) throws Exception{
+        if(age < 18) throw new Exception("You are baccha");
+    
+        System.out.println("fine");
+    }
+    ```
+    Can be called like:
+    ```
+    try {
+        throwMyException(20); // fine
+    }catch (Exception e){
+        System.out.println(e.getMessage());
+    }
+    ```
+  ```
+    try {
+        throwMyException(12);
+    }catch (Exception e){
+        System.out.println(e.getMessage()); // You are baccha
+    }
+    ```
+
+## Creating own Exception class
+- Custom exception can be created by inheriting/extending existing class,
+- Ex:
 - 
 
 ## finally block

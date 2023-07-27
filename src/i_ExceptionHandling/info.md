@@ -174,7 +174,17 @@
     }
     ```
 
-
+## Creating own Exception class
+- Custom exception class can be created by inheriting/extending existing class,
+- Ex: See (`MyException.java`, `MyMessage.java` and `Test.java`) 
+  ```
+  private static void testMyException(MyMessage myMessage) throws MyException{
+      if(myMessage.getMessage() == null){
+          throw new MyException(myMessage);
+      }
+      System.out.println(myMessage.getMessage()+" "+myMessage.getMessageId());
+  }
+  ```
 
 ## finally block
 - Gets executed no matter how the code in the try and catch blocks,
@@ -195,5 +205,4 @@
         }
     }
     ```
-
 

@@ -18,6 +18,24 @@ public class Test {
 
         finallyTest(fullPath);
 
+        testThrow();
+
+        try {
+            MyMessage myMessage = new MyMessage(null,2952);
+            testMyException(myMessage);
+        }catch (MyException e){
+            System.out.println(e.getMessageId()); // 2952
+        }
+    }
+
+    private static void testMyException(MyMessage myMessage) throws MyException{
+        if(myMessage.getMessage() == null){
+            throw new MyException(myMessage);
+        }
+        System.out.println(myMessage.getMessage()+" "+myMessage.getMessageId());
+    }
+
+    private static void testThrow(){
         try {
             throwMyException(20); // fine
         }catch (Exception e){
@@ -30,7 +48,6 @@ public class Test {
             System.out.println(e.getMessage()); // You are baccha
         }
     }
-
 
     private static void throwMyException(int age) throws Exception{
         if(age < 18) throw new Exception("You are baccha");
