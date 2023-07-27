@@ -13,6 +13,57 @@ public class Test {
         catchExceptionOrder(0,"Saeed",fullPath);
         catchExceptionOrder(2,null,fullPath);
         catchExceptionOrder(1,"Saeed","invalid.txt");
+
+        callHandleChecked();
+
+        finallyTest(fullPath);
+    }
+
+
+    private static void finallyTest(String filePath){
+        FileReader fileReader = null;
+        try {
+            fileReader = new FileReader(filePath);
+            printFile(fileReader);
+        }catch (IOException e){
+            System.out.println("Failed to read");
+        }
+        finally {
+            if(fileReader != null){
+                try {
+                    fileReader.close();
+                    System.out.println("finally executed");
+                }catch (IOException e){e.printStackTrace();}
+            }
+        }
+    }
+
+
+    private static void callHandleChecked(){
+        handleChecked1("invalid");
+
+        try {
+            handleChecked2("invalid");
+        }catch (IOException e){
+            System.out.println("Failed to read");
+        }
+    }
+
+
+    private static void handleChecked1(String filePath){
+        try {
+            FileReader fileReader = new FileReader(filePath);
+            printFile(fileReader);
+            fileReader.close();
+        }catch (IOException e){
+            System.out.println("Failed to read");
+        }
+    }
+
+    private static void handleChecked2(String filePath) throws IOException{
+        FileReader fileReader = new FileReader(filePath);
+        printFile(fileReader);
+        fileReader.close();
     }
 
     private static void catchExceptionOrder(int y, String message, String filePath){

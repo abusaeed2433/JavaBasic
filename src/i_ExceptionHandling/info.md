@@ -89,3 +89,83 @@
 - Only one catch block will be executed based on the type of exception thrown,
 - JVM will check each catch block from the first, as soon as it finds a catch block that can handle this exception, that block will be executed,
 
+
+## Unchecked exception
+- Compiler does not check if they are handled in the code,
+- May or may not be handled by you, compiler doesn't show error,
+- Lower possibility of occurrence,
+- Ex: (see `exception_hierarchy.jpg`)
+    - The Error class and its subclasses,
+    - The RuntimeException class all its subclasses
+- In previous example `IOException` must be handled if code inside try block can throw IOException,
+
+## Checked exception
+- Compiler checks if they are handled in the code,
+- Must be handled i.e. must have corresponding catch block, otherwise compile time error,
+- Higher possibility of occurrence,
+- Ex: (see `exception_hierarchy.jpg`) 
+  - The `Throwable` class,
+  - The `Exception` class, 
+  - Subclasses of the `Exception` class, except `RuntimeException class and its subclasses`,
+- In previous example: catch block for `ArithmeticException` & `RuntimeException` is optional,
+
+## Handling Checked Exception 
+- Can be handled in two ways,
+  - Using catch block(previous one),
+  - Adding in method signature,
+- Two ways are shown(see `Test.java`):
+    ```
+    private static void handleChecked1(String filePath){
+        try {
+            FileReader fileReader = new FileReader(filePath);
+            printFile(fileReader);
+            fileReader.close();
+        }catch (IOException e){
+            System.out.println("Failed to read");
+        }
+    }
+    ```
+  ```
+    private static void handleChecked2(String filePath) throws IOException{
+        FileReader fileReader = new FileReader(filePath);
+        printFile(fileReader);
+        fileReader.close();
+    }
+    ```
+- Can be called using:
+    ```
+    private static void callHandleChecked(){
+        handleChecked1("invalid");
+    
+        try {
+            handleChecked2("invalid");
+        }catch (IOException e){
+            System.out.println("Failed to read");
+        }
+    }
+    ```
+- What did you learn? You must handle checked exception:
+  - Either inside method using try-catch or,
+  - While calling method(somewhere in call stack) using try-catch,
+
+## finally block
+- Gets executed no matter how the code in the try and catch blocks,
+- Ex:
+    ```
+    private static void finallyTest(String filePath){
+        FileReader fileReader = null;
+        try {
+            ...
+        }catch (IOException e){...}
+        finally {
+            if(fileReader != null){
+                try {
+                    fileReader.close();
+                    System.out.println("finally executed");
+                }catch (IOException e){e.printStackTrace();}
+            }
+        }
+    }
+    ```
+
+
