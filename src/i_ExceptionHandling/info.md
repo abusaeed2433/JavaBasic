@@ -148,6 +148,34 @@
   - Either inside method using try-catch or,
   - While calling method(somewhere in call stack) using try-catch,
 
+## Throwing an Exception
+- You can also throw exception if you want,
+- Ex:
+    ```
+    private static void throwMyException(int age) throws Exception{
+        if(age < 18) throw new Exception("You are baccha");
+    
+        System.out.println("fine");
+    }
+    ```
+    Can be called like:
+    ```
+    try {
+        throwMyException(20); // fine
+    }catch (Exception e){
+        System.out.println(e.getMessage());
+    }
+    ```
+  ```
+    try {
+        throwMyException(12);
+    }catch (Exception e){
+        System.out.println(e.getMessage()); // You are baccha
+    }
+    ```
+
+
+
 ## finally block
 - Gets executed no matter how the code in the try and catch blocks,
 - Ex:

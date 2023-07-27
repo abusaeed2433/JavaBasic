@@ -17,6 +17,25 @@ public class Test {
         callHandleChecked();
 
         finallyTest(fullPath);
+
+        try {
+            throwMyException(20); // fine
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+
+        try {
+            throwMyException(12);
+        }catch (Exception e){
+            System.out.println(e.getMessage()); // You are baccha
+        }
+    }
+
+
+    private static void throwMyException(int age) throws Exception{
+        if(age < 18) throw new Exception("You are baccha");
+
+        System.out.println("fine");
     }
 
 

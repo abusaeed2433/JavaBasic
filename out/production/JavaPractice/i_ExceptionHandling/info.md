@@ -148,6 +148,29 @@
   - Either inside method using try-catch or,
   - While calling method(somewhere in call stack) using try-catch,
 
+## Throwing an Exception
+- You can also throw exception if you want,
+- Ex:
+- 
+
 ## finally block
 - Gets executed no matter how the code in the try and catch blocks,
-- 
+- Ex:
+    ```
+    private static void finallyTest(String filePath){
+        FileReader fileReader = null;
+        try {
+            ...
+        }catch (IOException e){...}
+        finally {
+            if(fileReader != null){
+                try {
+                    fileReader.close();
+                    System.out.println("finally executed");
+                }catch (IOException e){e.printStackTrace();}
+            }
+        }
+    }
+    ```
+
+
