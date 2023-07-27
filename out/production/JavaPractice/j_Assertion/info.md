@@ -1,26 +1,30 @@
 # assertion
 
 ### Introduction
-- State `xxx` in a strong, confident, and forceful way,
-- When you assert `xxx` you believe that `xxx` to be true,
-- But it does not make that `xxx` always true,
-- Sometimes you may be wrong and that `xxx` may be false, even if you assert it to be true,
-- Helps to debug code in development and testing,
+- State `something` in a strong, confident, and forceful way,
+- When you assert `something`, you believe that `something` to be true,
+- But it does not make that `something` always true,
+- Sometimes you may be wrong and that `something` may be false, even if you assert it to be true,
+
+### Why assertion
+- Helps to debug code in development and testing phase,
 - Used for detecting logical errors in a program,
-- `assert` can be written in 2 ways:
+
+### assertion
+- Can be written in 2 ways:
   - `assert booleanAssertionExpression;`
     - This form is enough in almost all cases,
   - `assert booleanAssertionExpression : errorMessageExpression;`
-    - `errorMessageExpression` allows writing custom error message. Can be any data type,
-- If the assertion expression evaluates to true, no action is taken. Code is executed normally,
+    - `errorMessageExpression`: allows writing custom error message. Can be any data type,
+- If `booleanAssertionExpression` evaluates to true, no action is taken. Code is executed normally,
 - But if evaluates to false, `java.lang.AsssertionError` is thrown,
-- Assertion is by default disabled. You must run your code using:
+- Assertion is by default disabled. You must run your code using below to see assertion in action:
     ```
     java -ea YourClassName
     ```
 - Ex:
     ```
-    java -ea src/aa_Assertion/Test.java
+    java -ea src/j_Assertion/Test.java
     ```
 - Ex(See `Test.java`):
     ```
@@ -46,4 +50,21 @@
     }
     ```
 - Must have to run using above command. Otherwise, assertion will be ignored,
-- 
+
+### Another example:
+- method definition
+  ```
+    private static int calculateAge(LocalDate localDate){
+        ...
+        return (int)age;
+    }
+  ```
+- Calling like:
+
+    ```
+    LocalDate dob = LocalDate.of(2001,3,21);
+    int age = calculateAge(dob);
+    
+    assert age >= 22;
+    System.out.println("I was right"); // executed
+    ```
