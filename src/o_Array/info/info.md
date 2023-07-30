@@ -37,3 +37,22 @@
     - If you don't assign `Maruf` and `Anik`, then program will crash at `(a)`,
 - See `Test.java`,
 
+
+## Initializing Array Elements
+- Array elements are initialized to a default value no matter it is global or local,
+- Array elements of primitive data type are initialized to the default value for their data types,
+  - Numeric array elements are initialized to zero(`0`), 
+  - boolean elements to `false`,
+- Reference type elements to `null`,
+- Ex:
+    ```
+    String[] names = new String[4];
+    printArray(names); // null null null null
+    ```
+- Explicit initializing:
+    ```
+    int[] rolls = new int[]{1,2,3,4,5}; // or
+    int[] rolls2 = {1,2,3,4,5};
+    ```
+- You cannot specify the length of an array if you specify the array initialization list,
+- The length of the array is the same as the number of values specified in the initialization list, i.e. `5` in above example,
