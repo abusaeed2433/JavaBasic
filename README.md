@@ -65,4 +65,9 @@
     <th><a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/o_Array/info.md"> Click here </a></th>
     <th><a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/o_Array"> Click here </a></th>
   </tr>
+  <tr>
+    <th>Enum</th>
+    <th><a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/r_Enum/info.md"> Click here </a></th>
+    <th><a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/r_Enum"> Click here </a></th>
+  </tr>
 </table>
