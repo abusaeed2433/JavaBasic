@@ -79,7 +79,7 @@
         return counter;
     }
     ```
-    Calling be like:
+    Calling is like:
     ```
     ArrayList<MyWeekDay> days = new ArrayList<>();
     days.add(SATURDAY);
