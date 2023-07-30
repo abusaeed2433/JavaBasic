@@ -88,4 +88,36 @@
     System.out.println(countWorkingDays(days)); // 2
     ```
 
-
+## Comparing Two Enum Constants
+- Two enum constant can be compared in 3 ways:
+  - `compareTo()` method 
+    - Returns difference in their `ordinal`,
+    - Must be of same type,
+  - `equals()` method
+    - An enum constant is equal only to itself,
+    - For comparing two enum constants of different types,
+  - `==` operator,
+    - Must be of same type,
+- Ex: See `compareEnum()` of `Test.java`:
+    ```
+    Gender gender1 = Gender.MALE;
+    Gender gender2 = Gender.FEMALE;
+    Gender gender3 = Gender.MALE;
+    
+    MyWeekDay day1 = SATURDAY;
+    MyWeekDay day2 = MONDAY;
+    MyWeekDay day3 = MONDAY;
+    
+    // compareTo
+    System.out.println(gender1.compareTo(gender2)); // -1
+    System.out.println(gender1.compareTo(gender3)); // 0
+    
+    // equals
+    System.out.println(gender1.equals(day1)); // false
+    System.out.println(day1.equals(day2)); // false
+    System.out.println(day2.equals(day2)); // true
+    
+    // ==
+    System.out.println(gender1 == gender3); // true
+    System.out.println(day1 == day3); // false
+    ```

@@ -64,4 +64,39 @@
     
     }
     ```
-- 
+- Example usage: See `Test.java`:
+    ```
+    private static int countWorkingDays(List<MyWeekDay> days){
+        int counter = 0;
+    
+        for(MyWeekDay day : days){
+            if(day.isHoliday()) continue;
+    
+            counter++;
+        }
+    
+        return counter;
+    }
+    ```
+    Calling be like:
+    ```
+    ArrayList<MyWeekDay> days = new ArrayList<>();
+    days.add(SATURDAY);
+    days.add(MONDAY);
+    days.add(THURSDAY);
+    
+    System.out.println(countWorkingDays(days)); // 2
+    ```
+
+## Comparing Two Enum Constants
+- Two enum constant can be compared in 3 ways:
+  - `compareTo()` method 
+    - Returns difference in their `ordinal`,
+    - Must be of same type,
+  - `equals()` method
+    - An enum constant is equal only to itself,
+    - For comparing two enum constants of different types,
+  - `==` operator,
+    - Must be of same type,
+    - 
+ 
