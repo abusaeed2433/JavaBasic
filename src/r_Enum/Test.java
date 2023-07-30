@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static r_Enum.MyWeekDay.*;
+import static r_Enum.CommandList.*;
 
 
 public class Test {
@@ -13,7 +14,19 @@ public class Test {
         testGenderEnum();
         testMyWeekDayEnum();
         compareEnum();
+        implementInterfaceInEnum();
     }
+
+    private static void implementInterfaceInEnum(){
+        RUN.execute(); // Running
+        JUMP.execute(); // Jumping
+    }
+
+    //nested enum
+    public enum NestedEnum{
+        MY_VALUE1,MY_VALUE2;
+    }
+
 
     private static void compareEnum(){
         Gender gender1 = Gender.MALE;

@@ -121,3 +121,63 @@
     System.out.println(gender1 == gender3); // true
     System.out.println(day1 == day3); // false
     ```
+ 
+## Nested enum type
+- You can declare a nested enum type inside a class, an interface, or another enum type, 
+- Nested enum types are implicitly static,
+    ```
+    public class Test {
+        ...
+        //nested enum
+        public enum NestedEnum{
+            MY_VALUE1,MY_VALUE2;
+        }
+        ...
+    }
+    ```
+
+## Implementing interface
+- An enum type may implement interfaces,
+- An enum type is never inherited by another enum type. So,
+- You must provide implementation for all abstract methods in that interface,
+- See `CommandList.java`, `Executable.java`:
+    ```
+    public interface Executable {
+        void execute();
+    }
+    ```
+    ```
+    public enum CommandList implements Executable{
+        RUN{
+            @Override
+            public void doNothing() { }
+        },
+        JUMP{
+            @Override
+            public void doNothing() { }
+        };
+    
+        @Override
+        public void execute() {
+            if(this.equals(RUN)){
+                System.out.println("Running");
+            }
+            else if(this.equals(JUMP)){
+                System.out.println("Jumping");
+            }
+        }
+        public abstract void doNothing();
+    }
+    ```
+    Calling is like:
+    ```
+    RUN.execute(); // Running
+    JUMP.execute(); // Jumping
+    ```
+
+## Abstract method in enum
+- Enum can have abstract method. But,
+- You must have to override it in every constant,
+- See `doNothing()` in `CommandList.java` above;
+
+different constant can have different body

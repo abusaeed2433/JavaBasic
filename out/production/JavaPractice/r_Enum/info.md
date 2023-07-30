@@ -98,5 +98,46 @@
     - For comparing two enum constants of different types,
   - `==` operator,
     - Must be of same type,
-    - 
+- Ex: See `compareEnum()` of `Test.java`:
+    ```
+    Gender gender1 = Gender.MALE;
+    Gender gender2 = Gender.FEMALE;
+    Gender gender3 = Gender.MALE;
+    
+    MyWeekDay day1 = SATURDAY;
+    MyWeekDay day2 = MONDAY;
+    MyWeekDay day3 = MONDAY;
+    
+    // compareTo
+    System.out.println(gender1.compareTo(gender2)); // -1
+    System.out.println(gender1.compareTo(gender3)); // 0
+    
+    // equals
+    System.out.println(gender1.equals(day1)); // false
+    System.out.println(day1.equals(day2)); // false
+    System.out.println(day2.equals(day2)); // true
+    
+    // ==
+    System.out.println(gender1 == gender3); // true
+    System.out.println(day1 == day3); // false
+    ```
  
+## Nested enum type
+- You can declare a nested enum type inside a class, an interface, or another enum type, 
+- Nested enum types are implicitly static,
+    ```
+    public class Test {
+        ...
+        //nested enum
+        public enum NestedEnum{
+            MY_VALUE1,MY_VALUE2;
+        }
+        ...
+    }
+    ```
+
+## Implementing interface
+- An enum type may implement interfaces,
+- An enum type is never inherited by another enum type. So,
+-  You must provide implementation for all abstract methods in that interface,
+- 
