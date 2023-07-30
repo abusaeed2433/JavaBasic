@@ -12,6 +12,24 @@ public class Test {
         arrayListTest();
         passArray();
         multiDimenArray();
+        arrayListToArray();
+    }
+
+    private static void arrayListToArray(){
+        System.out.println("------------------------------ arrayListToArray ---------------------");
+        ArrayList<String> names = new ArrayList<>();
+
+        names.add("John");
+        names.add("Jane");
+        names.add("Mary");
+
+        Object[] arr = names.toArray(); // <--------- way-1
+        printArray(arr); // John Jane Mary
+
+        String[] brr = new String[names.size()];
+        names.toArray(brr); // <------------ way-2
+        printArray(brr); // John Jane Mary
+
     }
 
     private static void multiDimenArray(){

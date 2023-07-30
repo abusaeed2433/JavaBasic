@@ -8,6 +8,7 @@
   - Those references in the elements are stored contiguously, not the objects they are referring to. 
   - The objects are stored on heap and their locations are, typically, not contiguous,
 - All arrays in Java are objects but `abstract` i.e. can't create object directly,
+- Since array are objects, so it can be assigned to other object. Rule is same,
 - Arrays are created dynamically at runtime,
 - The length of an array cannot be modified after it has been created,
 - Ex:
@@ -113,4 +114,40 @@
 
 ## Multi-Dimensional Arrays
 - Just like `C` and `C++`,
+- Ex: See `multiDimenArray()` of `Test.java`,
+    ```
+    int[][] table = new int[3][2];
+    
+    int[][] tbl = {
+            {1,2},
+            {3,4},
+            {5,6}
+    };
+    
+    for(int i=0;i<tbl.length; i++){
+        for(int j=0; j<tbl[i].length; j++){
+            System.out.print(tbl[i][j]+" ");
+        }
+        System.out.println("");
+    }
+    
+    System.out.println("---");
+    // better approach
+    for(int[] arr : tbl){
+        for(int ij : arr){
+            System.out.print(ij+" ");
+        }
+        System.out.println("");
+    }
+    /*
+    output
+    1 2
+    3 4
+    5 6
+     */
+    ```
+- All operations are like normal array. Just `don't be confused`,
+
+## Converting an ArrayList to an Array
+- Accessing array elements is faster than ArrayList,
 - 
