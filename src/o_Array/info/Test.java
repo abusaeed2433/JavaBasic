@@ -11,6 +11,41 @@ public class Test {
         arrayTest();
         arrayListTest();
         passArray();
+        multiDimenArray();
+    }
+
+    private static void multiDimenArray(){
+        System.out.println("------------------------- multiDimenArray -----------------------------");
+        int[][] table = new int[3][2];
+
+        int[][] tbl = {
+                {1,2},
+                {3,4},
+                {5,6}
+        };
+
+        for(int i=0;i<tbl.length; i++){
+            for(int j=0; j<tbl[i].length; j++){
+                System.out.print(tbl[i][j]+" ");
+            }
+            System.out.println("");
+        }
+
+        System.out.println("---");
+        // better approach
+        for(int[] arr : tbl){
+            for(int ij : arr){
+                System.out.print(ij+" ");
+            }
+            System.out.println("");
+        }
+        /*
+        output
+        1 2
+        3 4
+        5 6
+         */
+        // normal like 1D array
     }
 
     private static void passArray(){
