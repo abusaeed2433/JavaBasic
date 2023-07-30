@@ -10,8 +10,22 @@ public class Test {
         declareArray();
         arrayTest();
         arrayListTest();
+        passArray();
     }
 
+    private static void passArray(){
+        int[] arr = {1,2,23,24,25,3};
+
+        printArray(arr); // 1 2 23 24 25 3
+        resizeValues(arr);
+        printArray(arr); // 1 2 20 20 20 3
+    }
+
+    private static void resizeValues(int[] arr){
+        for(int i=0; i<arr.length; i++) {
+            if(arr[i] > 20) arr[i] = 20;
+        }
+    }
 
     private static void arrayListTest(){
         System.out.println("----------------------- arrayListTest ------------------------ ");

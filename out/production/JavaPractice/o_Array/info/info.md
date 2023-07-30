@@ -68,3 +68,26 @@
   - `Vector` is slower, `ArrayList` is faster,
 - Use `ArrayList` (my suggestion),
 - Ex:
+    ```
+    ArrayList<Integer> arr = new ArrayList<>();
+    arr.add(1);
+    arr.add(2000);
+    arr.add(3);
+    
+    Integer num1 = 1;
+    Integer num2 = 2000;
+    
+    for(int i=0; i<arr.size(); i++) System.out.print(arr.get(i)+" ");
+    System.out.println("");
+    
+    System.out.println(arr.size()); // 3
+    
+    arr.add(20);
+    arr.add(22);
+    System.out.println(arr.size()); // 5
+    ```
+
+## Passing array as parameter
+- Can be passed to method just like other variable
+
+printArray(T[] arr)

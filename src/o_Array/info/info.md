@@ -86,3 +86,28 @@
     arr.add(22);
     System.out.println(arr.size()); // 5
     ```
+
+## Passing array as parameter
+- Can be passed to method just like other variable,
+- Alert when modifying array inside called method. Remember, array are object, so modifying inside method will also modify original array,
+- Ex: `printArray(T[] arr)` in `Test.java`,
+- Ex2:
+    ```
+    private static void resizeValues(int[] arr){
+        for(int i=0; i<arr.length; i++) {
+            if(arr[i] > 20) arr[i] = 20;
+        }
+    }
+    ```
+    ```
+    private static void passArray(){
+        int[] arr = {1,2,23,24,25,3};
+    
+        printArray(arr); // 1 2 23 24 25 3
+        resizeValues(arr);
+        printArray(arr); // 1 2 20 20 20 3 
+    }
+    ```
+- Make a copy then pass to method if you are going to modify inside method,
+- Remember, `main(String[])` method takes an array as parameter,
+
