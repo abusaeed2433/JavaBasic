@@ -2,6 +2,7 @@ package r_Enum;
 
 import java.sql.SQLSyntaxErrorException;
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 
 import static r_Enum.MyWeekDay.*;
@@ -15,9 +16,31 @@ public class Test {
         testMyWeekDayEnum();
         compareEnum();
         implementInterfaceInEnum();
+        reverseLookUp();
+        rangeLookUp();
+    }
+
+    private static void rangeLookUp(){
+        System.out.println("---------------- rangeLookUp -------------");
+        EnumSet<MyWeekDay> days = EnumSet.allOf(MyWeekDay.class);
+        printArray(days.toArray()); // SATURDAY SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY
+
+        EnumSet<MyWeekDay> workingDays = EnumSet.range(SUNDAY,THURSDAY);
+        printArray(workingDays.toArray()); // SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY
+
+        EnumSet<MyWeekDay> holidays = EnumSet.complementOf(workingDays);
+        printArray(holidays.toArray()); // SATURDAY FRIDAY
+    }
+
+    private static void reverseLookUp(){
+        System.out.println("----------------- reverseLookUp -----------------------");
+        System.out.println(MyWeekDay.valueOf("SATURDAY")); // SATURDAY
+        System.out.println(MyWeekDay.values()[0]); // SATURDAY
+
     }
 
     private static void implementInterfaceInEnum(){
+        System.out.println("------------------ implementInterfaceInEnum ---------------");
         RUN.execute(); // Running
         JUMP.execute(); // Jumping
     }
@@ -29,6 +52,7 @@ public class Test {
 
 
     private static void compareEnum(){
+        System.out.println(" ------------------- compareEnum ----------------");
         Gender gender1 = Gender.MALE;
         Gender gender2 = Gender.FEMALE;
         Gender gender3 = Gender.MALE;

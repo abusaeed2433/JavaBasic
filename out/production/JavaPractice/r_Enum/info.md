@@ -39,6 +39,7 @@
     System.out.println(Gender.FEMALE.ordinal()); // 1
     System.out.println(Gender.OTHERS.ordinal()); // 2
     ```
+- Each enum constant can have different body. See `CommandList.java`, 
 
 ## Enum again
 - An enum type is actually a class type. So, 
@@ -139,5 +140,55 @@
 ## Implementing interface
 - An enum type may implement interfaces,
 - An enum type is never inherited by another enum type. So,
--  You must provide implementation for all abstract methods in that interface,
+- You must provide implementation for all abstract methods in that interface,
+- See `CommandList.java`, `Executable.java`:
+    ```
+    public interface Executable {
+        void execute();
+    }
+    ```
+    ```
+    public enum CommandList implements Executable{
+        RUN{
+            @Override
+            public void doNothing() { }
+        },
+        JUMP{
+            @Override
+            public void doNothing() { }
+        };
+    
+        @Override
+        public void execute() {
+            if(this.equals(RUN)){
+                System.out.println("Running");
+            }
+            else if(this.equals(JUMP)){
+                System.out.println("Jumping");
+            }
+        }
+        public abstract void doNothing();
+    }
+    ```
+    Calling is like:
+    ```
+    RUN.execute(); // Running
+    JUMP.execute(); // Jumping
+    ```
+
+## Abstract method in enum
+- Enum can have abstract method. But,
+- You must have to override it in every constant,
+- See `doNothing()` in `CommandList.java` above;
+
+
+## Reverse Lookup for Enum Constants
+- We can get enum constant by `name` of `ordinal`,
+    ```
+    System.out.println(MyWeekDay.valueOf("SATURDAY")); // SATURDAY
+    System.out.println(MyWeekDay.values()[0]); // SATURDAY
+    ```
+
+## Range of Enum Constants
+- Can find all enum constant between two enums,
 - 

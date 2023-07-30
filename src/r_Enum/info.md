@@ -180,3 +180,29 @@
 - Enum can have abstract method. But,
 - You must have to override it in every constant,
 - See `doNothing()` in `CommandList.java` above;
+
+
+## Reverse Lookup for Enum Constants
+- We can get enum constant by `name` of `ordinal`,
+    ```
+    System.out.println(MyWeekDay.valueOf("SATURDAY")); // SATURDAY
+    System.out.println(MyWeekDay.values()[0]); // SATURDAY
+    ```
+
+## Range of Enum Constants
+- Can find all enum constant by performing search,
+- Abstract class `EnumSet` is used for this,
+- Ex:
+    ```
+    EnumSet<MyWeekDay> days = EnumSet.allOf(MyWeekDay.class);
+    printArray(days.toArray()); // SATURDAY SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY
+    
+    EnumSet<MyWeekDay> workingDays = EnumSet.range(SUNDAY,THURSDAY);
+    printArray(workingDays.toArray()); // SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY
+    
+    EnumSet<MyWeekDay> holidays = EnumSet.complementOf(workingDays);
+    printArray(holidays.toArray()); // SATURDAY FRIDAY 
+    ``` 
+
+
+>> ENUM IS MAINLY USED FOR DECLARING CONSTANT & IT SHOULD BE ENOUGH FOR YOU
