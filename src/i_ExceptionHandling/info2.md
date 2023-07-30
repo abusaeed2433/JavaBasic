@@ -117,4 +117,63 @@
 
 
 ## The try-with-resources Block
-
+- For closing object of any resources such as `File`,
+- It can be done using `finally` also,
+- Structure
+  ```
+  try (AnyResource aRes = create the resource...) {
+   // Work with the aRes here
+  }
+  ```
+- A resource that you specify in a try-with-resources must be of the type java.lang.AutoCloseable,
+- When the program exits the try-with-resources block, the `close()` method of all the resources is called automatically,
+- Equivalent code using finally
+  ```
+  AnyResource aRes;
+  try {
+    aRes = create the resource...;
+  }
+  finally {
+    try {
+     if (aRes != null) aRes.close();
+    }
+    catch(Exception e) {
+      e.printStackTrace();
+    }
+  }
+  ```
+- So, `try-with-resource` make code simpler,
+- Ex: see `MyResource.java` & `Test2.java`
+  ```
+  public class MyResource implements AutoCloseable{
+      private MyMessage myMessage;
+      ...
+  
+      public MyResource(String message, int id, String sender) {...}
+      ...
+      
+      @Override
+      public void close() throws Exception { // must
+          myMessage = null;
+          System.out.println("Closed "+sender);
+      }
+  }
+  ```
+  ```
+  private static void testTryWithResource(){
+      try(
+              MyResource res1 = new MyResource("Hello world!",1,"Saeed");
+              MyResource res2 = new MyResource("Hi world!",2,"None");
+      ){
+          System.out.println(res1.getSender()); // Saeed
+          System.out.println(res2.getSender()); // None
+      }
+      catch (Exception e){
+          System.out.println("Something went wrong");
+      }
+      // Closed None. JVM automatically call close method on res2
+      // Closed Saeed. JVM automatically call close method on res1
+      System.out.println("Resource will be closed before this"); // Resource will be closed before this
+  }
+  ```
+- It's actually useful. Just make sure your resource class implements `AutoCloseable` & has `close()` method,

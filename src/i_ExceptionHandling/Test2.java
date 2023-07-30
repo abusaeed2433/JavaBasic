@@ -77,6 +77,23 @@ public class Test2 {
         }catch (Exception e){
             System.out.println(e.getMessage()); // Can't be zero
         }
+        testTryWithResource();
+    }
+
+    private static void testTryWithResource(){
+        try(
+                MyResource res1 = new MyResource("Hello world!",1,"Saeed");
+                MyResource res2 = new MyResource("Hi world!",2,"None");
+        ){
+            System.out.println(res1.getSender()); // Saeed
+            System.out.println(res2.getSender()); // None
+        }
+        catch (Exception e){
+            System.out.println("Something went wrong");
+        }
+        // Closed None. JVM automatically call close method on res2
+        // Closed Saeed. JVM automatically call close method on res1
+        System.out.println("Resource will be closed before this"); // Resource will be closed before this
     }
 
 }
