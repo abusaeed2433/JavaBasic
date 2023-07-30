@@ -1,12 +1,37 @@
 package o_Array.info;
 
 import java.sql.Array;
+import java.sql.SQLSyntaxErrorException;
+import java.util.ArrayList;
 
 public class Test {
 
     public static void main(String[] args) {
         declareArray();
         arrayTest();
+        arrayListTest();
+    }
+
+
+    private static void arrayListTest(){
+        System.out.println("----------------------- arrayListTest ------------------------ ");
+        ArrayList<Integer> arr = new ArrayList<>();
+        arr.add(1);
+        arr.add(2000);
+        arr.add(3);
+
+        Integer num1 = 1;
+        Integer num2 = 2000;
+
+        for(int i=0; i<arr.size(); i++) System.out.print(arr.get(i)+" ");
+        System.out.println("");
+
+        System.out.println(arr.size()); // 3
+
+        arr.add(20);
+        arr.add(22);
+        System.out.println(arr.size()); // 5
+
     }
 
     private static void arrayTest(){

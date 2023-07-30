@@ -56,3 +56,33 @@
     ```
 - You cannot specify the length of an array if you specify the array initialization list,
 - The length of the array is the same as the number of values specified in the initialization list, i.e. `5` in above example,
+
+## Limitations of Arrays
+- Cannot be expanded or shrunk after it is created,
+
+## Variable-Length Arrays
+- `ArrayList` and `Vector` are two classes in the `java.util` package that can be used whenever variable-length arrays are needed,
+- `ArrayList` and `Vector` classes work the same way except,
+  - Methods in the `Vector` class are `synchronized`(Thread safe), 
+  - Whereas methods in `ArrayList` are not `synchronized`,
+  - `Vector` is slower, `ArrayList` is faster,
+- Use `ArrayList` (my suggestion),
+- Ex:
+    ```
+    ArrayList<Integer> arr = new ArrayList<>();
+    arr.add(1);
+    arr.add(2000);
+    arr.add(3);
+    
+    Integer num1 = 1;
+    Integer num2 = 2000;
+    
+    for(int i=0; i<arr.size(); i++) System.out.print(arr.get(i)+" ");
+    System.out.println("");
+    
+    System.out.println(arr.size()); // 3
+    
+    arr.add(20);
+    arr.add(22);
+    System.out.println(arr.size()); // 5
+    ```

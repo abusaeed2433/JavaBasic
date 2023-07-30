@@ -4,6 +4,9 @@
 ## Introduction
 - A fixed-length data structure that is used to hold more than one value of the same data type,
 - All elements of an array are stored contiguously in memory,
+  - In case of a reference type array, the array elements store the references of the objects,
+  - Those references in the elements are stored contiguously, not the objects they are referring to. 
+  - The objects are stored on heap and their locations are, typically, not contiguous,
 - All arrays in Java are objects but `abstract` i.e. can't create object directly,
 - Arrays are created dynamically at runtime,
 - The length of an array cannot be modified after it has been created,
@@ -12,19 +15,56 @@
     int[] arr = new int[5];
     ```
 - Index is zero(`0`) based just like `C` or `C++`,
+- Make sure to assign values before using,
+- Ex: See `arrayTest()` of `Test.java`,
+    ```
+    String[] names = new String[4];
+    printArray(names); // null null null null
+    
+    names[0] = "Pantho";
+    names[2] = "Aslam";
+    printArray(names); // Pantho null Aslam null
+    
+    names[1] = "Maruf";
+    names[3] = "Anik";
+    
+    printArray(names); // Pantho Maruf Aslam Anik 
+    for (int i=0;i<names.length; i++){
+        names[i] = names[i].substring(0,1); // ----(a)
+    }
+    printArray(names); // P M A A 
+    ```
+    - If you don't assign `Maruf` and `Anik`, then program will crash at `(a)`,
 - See `Test.java`,
 
 
 ## Initializing Array Elements
-- Array elements are initialized to a default value no matter is it global or local,
+- Array elements are initialized to a default value no matter it is global or local,
 - Array elements of primitive data type are initialized to the default value for their data types,
   - Numeric array elements are initialized to zero(`0`), 
   - boolean elements to `false`,
-  - Reference type elements to `null`,
-  - Ex:
-      ```
-      String[] names = new String[4];
-      printArray(names); // null null null null
-      ```
-- Make sure to assign values before using. In above `names` array, all values are `null`, you mush refer values, then you can do what you want,
-- 
+- Reference type elements to `null`,
+- Ex:
+    ```
+    String[] names = new String[4];
+    printArray(names); // null null null null
+    ```
+- Explicit initializing:
+    ```
+    int[] rolls = new int[]{1,2,3,4,5}; // or
+    int[] rolls2 = {1,2,3,4,5};
+    ```
+- You cannot specify the length of an array if you specify the array initialization list,
+- The length of the array is the same as the number of values specified in the initialization list, i.e. `5` in above example,
+
+## Limitations of Arrays
+- Cannot be expanded or shrunk after it is created,
+
+## Variable-Length Arrays
+- `ArrayList` and `Vector` are two classes in the `java.util` package that can be used whenever variable-length arrays are needed,
+- `ArrayList` and `Vector` classes work the same way except,
+  - Methods in the `Vector` class are `synchronized`(Thread safe), 
+  - Whereas methods in `ArrayList` are not `synchronized`,
+  - `Vector` is slower, `ArrayList` is faster,
+- Use `ArrayList` (my suggestion),
+- Ex:
