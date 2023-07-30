@@ -39,6 +39,7 @@
     System.out.println(Gender.FEMALE.ordinal()); // 1
     System.out.println(Gender.OTHERS.ordinal()); // 2
     ```
+- Each enum constant can have different body. See `CommandList.java`, 
 
 ## Enum again
 - An enum type is actually a class type. So, 
@@ -179,5 +180,3 @@
 - Enum can have abstract method. But,
 - You must have to override it in every constant,
 - See `doNothing()` in `CommandList.java` above;
-
-different constant can have different body
