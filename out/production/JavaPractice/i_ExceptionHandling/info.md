@@ -51,7 +51,7 @@
     ```
 - All the types of exception are `class`. For example `Exception` in `(c)` is a class in java,
 - Hierarchy:
-- <img src="images/exception_hierarchy.jpg" height="220px">
+- <img src="files/exception_hierarchy.jpg" height="220px">
 - `catch(Throwable t){}` i.e. parameter of catch must be of `Throwable` or any of its subclass. Remember, object of parent class can refer object of its subclass,
 
 ## Multiple class block
@@ -83,11 +83,20 @@
         catch (RuntimeException e){...}
     }
     ```
-- Multiple catch block can also be handled like this:
-- 
+- Multiple catch block can also be written like this:
+  ```
+  private static void catchMultipleException(int y, String message, String filePath){
+      try {
+          ...
+      }
+      catch ( RuntimeException | IOException e){ // < -- - -- - --
+          System.out.println("Something went wrong");
+      }
+  }
+  ```
 
 ## Transfer of control in `try-catch`:
-- <img src="images/control_transfer_in_exception.jpg" height="220px">
+- <img src="files/control_transfer_in_exception.jpg" height="220px">
 - Only one catch block will be executed based on the type of exception thrown,
 - JVM will check each catch block from the first, as soon as it finds a catch block that can handle this exception, that block will be executed,
 
@@ -207,4 +216,3 @@
         }
     }
     ```
-
