@@ -8,6 +8,7 @@
   - Those references in the elements are stored contiguously, not the objects they are referring to. 
   - The objects are stored on heap and their locations are, typically, not contiguous,
 - All arrays in Java are objects but `abstract` i.e. can't create object directly,
+- Since array are objects, so it can be assigned to other object. Rule is same,
 - Arrays are created dynamically at runtime,
 - The length of an array cannot be modified after it has been created,
 - Ex:
@@ -147,3 +148,4 @@
     ```
 - All operations are like normal array. Just `don't be confused`,
 
+## Converting an ArrayList to an Array

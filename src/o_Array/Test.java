@@ -1,4 +1,4 @@
-package o_Array.info;
+package o_Array;
 
 import java.sql.Array;
 import java.sql.SQLSyntaxErrorException;

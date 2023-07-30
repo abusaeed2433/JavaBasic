@@ -60,4 +60,9 @@
     <th><a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/j_Assertion/info.md"> Click here </a></th>
     <th><a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/j_Assertion"> Click here </a></th>
   </tr>
+  <tr>
+    <th>Array</th>
+    <th><a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/o_Array/info.md"> Click here </a></th>
+    <th><a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/o_Array"> Click here </a></th>
+  </tr>
 </table>
