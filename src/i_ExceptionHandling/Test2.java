@@ -2,12 +2,6 @@ package i_ExceptionHandling;
 
 public class Test2 {
 
-    public static void main(String[] args) {
-        testRethrow();
-        testRethrow2(0);
-        hideTrace();
-    }
-
     public static void hideTrace() {
         try {
             m1();
@@ -65,5 +59,24 @@ public class Test2 {
 
     // -------------------- ------------------- ---------------- -------------------- ------------------------
 
+
+    private static void throwMultiple(Integer y) throws RuntimeException{
+        if(y == null) throw new NullPointerException("Can't be null");
+
+        if(y == 0) throw new ArithmeticException("Can't be zero");
+
+        System.out.println("ok");
+    }
+
+    public static void main(String[] args) {
+        testRethrow();
+        testRethrow2(0);
+        hideTrace();
+        try {
+            throwMultiple(0);
+        }catch (Exception e){
+            System.out.println(e.getMessage()); // Can't be zero
+        }
+    }
 
 }

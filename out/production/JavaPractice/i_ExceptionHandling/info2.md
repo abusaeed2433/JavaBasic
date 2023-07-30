@@ -80,11 +80,12 @@
   - Stack trace without `(a)`:
   - <img src="files/without_fill_stack_trace.jpg" height="80px">
   - Practice yourself to understand clearly,
-
-
-## Analysis of Rethrown Exceptions
+  
 
 ## Throwing too Many Exceptions
+- Can be thrown as many as exception you want,
+- 
+
 
 ## Accessing the Stack of a Thread
 
