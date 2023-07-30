@@ -40,4 +40,52 @@
     System.out.println(Gender.OTHERS.ordinal()); // 2
     ```
 
+## Enum again
+- An enum type is actually a class type. So, 
+- You can declare pretty much everything inside an enum type body that you can declare inside a class body,
+- Can't add a public or protected constructor to an enum type. If you do so, they will be automatically converted to private during compilation,
+- Ex: See `MyWeekDay.java`:
+    ```
+    public enum MyWeekDay {
+        SATURDAY(true),SUNDAY(false),MONDAY(false),
+        TUESDAY(false), WEDNESDAY(false),THURSDAY(false), FRIDAY(false);
+    
+        // see above constant carefully. They all are objects. 
+        // We are actually using constructor of this class to create constant.
+    
+        private final boolean isHoliday;
+        private MyWeekDay(boolean isHoliday){
+            this.isHoliday = isHoliday;
+        }
+    
+        public boolean isHoliday() {
+            return isHoliday;
+        }
+    
+    }
+    ```
+- Example usage: See `Test.java`:
+    ```
+    private static int countWorkingDays(List<MyWeekDay> days){
+        int counter = 0;
+    
+        for(MyWeekDay day : days){
+            if(day.isHoliday()) continue;
+    
+            counter++;
+        }
+    
+        return counter;
+    }
+    ```
+    Calling be like:
+    ```
+    ArrayList<MyWeekDay> days = new ArrayList<>();
+    days.add(SATURDAY);
+    days.add(MONDAY);
+    days.add(THURSDAY);
+    
+    System.out.println(countWorkingDays(days)); // 2
+    ```
+
 

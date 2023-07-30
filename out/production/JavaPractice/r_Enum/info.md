@@ -22,15 +22,46 @@
 - The compiler does a lot of work for an enum type and generates code for it that is essentially a class,
 - Can't create object of enum type. But,
 - It can have constructor which is called by compiler only,
+- Can be used in `switch` statement,
 
 ## Enum constant
 - All enum constants are objects of the same enum type,
+- In above `Gender` enum: `MALE`, `FEMALE`, `OTHERS` are enum constant,
 - Name is assigned to each enum constant,
 - Order number is assigned to each enum constant called `ordinal`,
-- - In above `Gender` enum: `MALE`, `FEMALE`, `OTHERS` are enum constant,
 - The `ordinal` starts with zero & it is incremented by one for enum constant,
-- Ordinal of constant of `Gender` enum is
-  - `MALE` = 0,
-  - `FEMALE` = 1,
-  - `OTHERS` = 2
+    ```
+    System.out.println(Gender.MALE.name()); // MALE
+    System.out.println(Gender.FEMALE.name()); // FEMALE
+    System.out.println(Gender.OTHERS.name()); // OTHERS
+    
+    System.out.println(Gender.MALE.ordinal());   // 0
+    System.out.println(Gender.FEMALE.ordinal()); // 1
+    System.out.println(Gender.OTHERS.ordinal()); // 2
+    ```
+
+## Enum again
+- An enum type is actually a class type. So, 
+- You can declare pretty much everything inside an enum type body that you can declare inside a class body,
+- Can't add a public or protected constructor to an enum type. If you do so, they will be automatically converted to private during compilation,
+- Ex: See `MyWeekDay.java`:
+    ```
+    public enum MyWeekDay {
+        SATURDAY(true),SUNDAY(false),MONDAY(false),
+        TUESDAY(false), WEDNESDAY(false),THURSDAY(false), FRIDAY(false);
+    
+        // see above constant carefully. They all are objects. 
+        // We are actually using constructor of this class to create constant.
+    
+        private final boolean isHoliday;
+        private MyWeekDay(boolean isHoliday){
+            this.isHoliday = isHoliday;
+        }
+    
+        public boolean isHoliday() {
+            return isHoliday;
+        }
+    
+    }
+    ```
 - 
