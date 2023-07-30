@@ -97,5 +97,24 @@
 
 
 ## Accessing the Stack of a Thread
+- Each thread is allocated a stack to store its temporary data,
+- A thread stores the state of a method invocation onto its stack,
+- When a method is called, it is pushed into the stack,
+- When method execution is completed, it is popped from stack,
+- Suppose we call a method `m1()` from `main()` then,
+  - Stack content (from `m1()`) will be 
+    - `m1()` on top,
+    - `main()` on bottom
+  - Stack content (from `main()`) will be
+    - `main()` on top
+    - Because `m1()` is completed and popped from stack,
+- For getting stack content at any given time, we can create an object of the `Throwable` class (or any `Exception` class), it captures the stack of the thread that is executing,
+  ```
+  Throwable t = new Throwable();
+  StackTraceElement[] frames = t.getStackTrace(); // will return current stack content
+  ```
+- See `StackFrameTest.java` for more,
+
 
 ## The try-with-resources Block
+

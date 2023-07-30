@@ -76,15 +76,24 @@
   }
   ```
   - Stack trace with `(a)`:
-    - <img src="files/with_fill_stack_trace.jpg" height="80px">
+    - <img src="files/with_fill_stack.jpg" height="80px">
   - Stack trace without `(a)`:
-  - <img src="files/without_fill_stack_trace.jpg" height="80px">
+  - <img src="files/without_fill_stack.jpg" height="80px">
   - Practice yourself to understand clearly,
   
 
 ## Throwing too Many Exceptions
 - Can be thrown as many as exception you want,
-- 
+- Ex:
+  ```
+  private static void throwMultiple(Integer y) throws RuntimeException{
+      if(y == null) throw new NullPointerException("Can't be null");
+  
+      if(y == 0) throw new ArithmeticException("Can't be zero");
+  
+      System.out.println("ok");
+  }
+  ```
 
 
 ## Accessing the Stack of a Thread
