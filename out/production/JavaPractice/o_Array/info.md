@@ -150,4 +150,21 @@
 
 ## Converting an ArrayList to an Array
 - Accessing array elements is faster than ArrayList,
-- 
+- You may convert when you know size won't be changed anymore,
+- No need to convert. Use `ArrayList`(Suggestion),
+- Ex: See `Test.java`:
+  ```
+  ArrayList<String> names = new ArrayList<>();
+  
+  names.add("John");
+  names.add("Jane");
+  names.add("Mary");
+  
+  Object[] arr = names.toArray(); // <--------- way-1
+  printArray(arr); // John Jane Mary
+  
+  String[] brr = new String[names.size()];
+  
+  names.toArray(brr); // <------------ way-2
+  printArray(brr); // John Jane Mary
+  ```
