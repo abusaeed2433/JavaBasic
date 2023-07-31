@@ -1,6 +1,8 @@
 
 # Interface
 
+> BROAD AND CONFUSING TOPIC. PRACTICE MORE
+
 ## Introduction
 - Very important concept,
 - Used for communicating between objects,
