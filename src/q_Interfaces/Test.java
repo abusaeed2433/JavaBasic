@@ -1,5 +1,9 @@
 package q_Interfaces;
 
+import q_Interfaces.solution.Duck2;
+import q_Interfaces.solution.Person2;
+import q_Interfaces.solution.Walkable;
+
 import java.lang.reflect.Method;
 
 public class Test {
@@ -8,6 +12,24 @@ public class Test {
         intro();
         solution1();
         solution2();
+        idealSolution();
+    }
+
+    private static void idealSolution(){
+        System.out.println("--------------- idealSolution --------------");
+        Walkable[] arr = new Walkable[4];
+        arr[0] = new Person2("Abu");
+        arr[1] = new Person2("Saeed");
+        arr[2] = new Person2("John");
+
+        arr[3] = new Duck2("duck1");
+        letAllWalkTogether(arr);
+    }
+
+    private static void letAllWalkTogether(Walkable[] arr){
+        for(Walkable obj : arr){
+            obj.walk();
+        }
     }
 
     private static void letDuckWalk(Duck[] list){
