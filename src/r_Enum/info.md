@@ -138,7 +138,7 @@
     ```
 
 ## Implementing interface
-- An enum type may implement interfaces,
+- An enum type may implement q_Interfaces,
 - An enum type is never inherited by another enum type. So,
 - You must provide implementation for all abstract methods in that interface,
 - See `CommandList.java`, `Executable.java`:

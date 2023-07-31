@@ -79,7 +79,7 @@
         return counter;
     }
     ```
-    Calling be like:
+    Calling is like:
     ```
     ArrayList<MyWeekDay> days = new ArrayList<>();
     days.add(SATURDAY);
@@ -138,7 +138,7 @@
     ```
 
 ## Implementing interface
-- An enum type may implement interfaces,
+- An enum type may implement q_Interfaces,
 - An enum type is never inherited by another enum type. So,
 - You must provide implementation for all abstract methods in that interface,
 - See `CommandList.java`, `Executable.java`:
@@ -190,5 +190,19 @@
     ```
 
 ## Range of Enum Constants
-- Can find all enum constant between two enums,
-- 
+- Can find all enum constant by performing search,
+- Abstract class `EnumSet` is used for this,
+- Ex:
+    ```
+    EnumSet<MyWeekDay> days = EnumSet.allOf(MyWeekDay.class);
+    printArray(days.toArray()); // SATURDAY SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY FRIDAY
+    
+    EnumSet<MyWeekDay> workingDays = EnumSet.range(SUNDAY,THURSDAY);
+    printArray(workingDays.toArray()); // SUNDAY MONDAY TUESDAY WEDNESDAY THURSDAY
+    
+    EnumSet<MyWeekDay> holidays = EnumSet.complementOf(workingDays);
+    printArray(holidays.toArray()); // SATURDAY FRIDAY 
+    ``` 
+
+
+>> ENUM IS MAINLY USED FOR DECLARING CONSTANT & IT SHOULD BE ENOUGH FOR YOU
