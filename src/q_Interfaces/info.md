@@ -105,16 +105,18 @@
 
 ## Ideal solution for above problem
 - We can create an interface named `Walkable` then implement this to `Person2` and `Duck2` class,
-- Ex:
+- `Person` and `Person2` are same,
+- `Duck` and `Duck2` are same,
+- `Person2` & `Duck2` are created for separating this solution from earlier only,
+- Ex: See `solution` package,
   ```
   private static void idealSolution(){
-      System.out.println("--------------- idealSolution --------------");
-      Walkable[] arr = new Walkable[4];
+      Walkable[] arr = new Walkable[4]; // <----- See variable type
       arr[0] = new Person2("Abu");
       arr[1] = new Person2("Saeed");
       arr[2] = new Person2("John");
   
-      arr[3] = new Duck2("duck1");
+      arr[3] = new Duck2("duck1"); // <------- Duck2
       letAllWalkTogether(arr);
   }
   ```
