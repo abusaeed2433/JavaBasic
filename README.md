@@ -70,4 +70,17 @@
     <th><a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/r_Enum/info.md"> Click here </a></th>
     <th><a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/r_Enum"> Click here </a></th>
   </tr>
+
+  <tr>
+    <th>Interface</th>
+    <th>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/q_Interfaces/info.md" > Part-1 </a>
+      <br>
+    </th>
+    <th>
+      <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/q_Interfaces/problemAndSolution"> Click here(1) </a>
+      <br>
+    </th> 
+  </tr>
+
 </table>
