@@ -50,4 +50,16 @@
         int DOUBLE_CLICK_INTERVAL = 500; // ms
     }
     ```
-- See
+- Can be used like this: See `Test.java`
+  ```
+  private static void testConstantField(){
+      System.out.println(Clickable.SINGLE_CLICK); // 1
+  
+      System.out.println(Clickable.DOUBLE_CLICK_INTERVAL); // 500
+  
+      //Clickable.DOUBLE_CLICK = 10; // error since implicitly final
+          
+  }
+  ```
+
+## Methods Declarations
