@@ -25,3 +25,12 @@
     }
     ```
 
+## Declaring Interface Members
+- An interface can have three types of members,
+  - Constant fields,
+  - Abstract, static, and default methods,
+  - Static types (nested interfaces and classes)
+- All members of an interface are implicitly public,
+- An interface cannot have `mutable`(changeable) instance and class variables. Because we can't create object of an interface,
+
+
