@@ -3,6 +3,8 @@
 
 > BROAD AND CONFUSING TOPIC. PRACTICE MORE
 
+> Codes are in `problemAndSolution` package
+
 ## Introduction
 - Very important concept,
 - Used for communicating between objects,
@@ -35,69 +37,69 @@
 
 ## Some Solution of above problem
 - Solution-1: 
-  - Using Object class array instead of Person class array,
+  - Using `Object` class array instead of `Person` class array,
   - See `solution1()`, `letThemWalkUpdated()`, and `getWalkMethod()` in `Test.java`,
-  ```
-  private static Method getWalkMethod(Object obj) {
-      ...
-      walkMethod = c.getMethod("walk"); // <--- concrete method name is used
-      ...
-  }
-  ```
-  `getWalkMethod(Object)` return the reference of `walk()` method if available in parameter class
-  ```
-  private static void letThemWalkUpdated(Object[] list){
-      for(Object  obj : list) {
-          Method walkMethod = getWalkMethod(obj); // getting method reference
-          ...
-          walkMethod.invoke(obj); // calling walk method on the obj
-          ...
-      }
-  }
-  ```
-  ```
-  private static void solution1(){
-      Object[] persons = new Object[4];
-      ...
-      letThemWalkUpdated(persons);
-  }
-  ```
+     ```
+     private static Method getWalkMethod(Object obj) {
+         ...
+         walkMethod = c.getMethod("walk"); // <--- concrete method name is used
+         ...
+     }
+     ```
+    `getWalkMethod(Object)` return the reference of `walk()` method if available in parameter class
+    ```
+    private static void letThemWalkUpdated(Object[] list){
+        for(Object  obj : list) {
+            Method walkMethod = getWalkMethod(obj); // getting method reference
+            ...
+            walkMethod.invoke(obj); // calling walk method on the obj
+            ...
+        }
+    }
+    ```
+    ```
+    private static void solution1(){
+        Object[] persons = new Object[4];
+        ...
+        letThemWalkUpdated(persons);
+    }
+    ```
   - Problem here is: it will stop working if method name is changed,
   - It is also confusing and hard to debug,
 
 - Solution-2:
   - Use different function for `Person` and `Duck` class,
-  ```
-  private static void letDuckWalk(Duck[] list){
-      for(Duck duck : list) {
-          if(duck == null) continue;
-          duck.walk();
-      }
-  }
-  ```
-  ```
-  private static void letPersonWalk(Person[] list){
-      for(Person person : list) {
-          if(person == null) continue;
-          person.walk();
-      }
-  }
-  ```
-  ```
-  private static void solution2(){
-      Person[] persons = new Person[3];
-      persons[0] = new Person("Jack");
-      persons[1] = new Person("Jeff");
-      persons[2] = new Person("John");
-      letPersonWalk(persons); // <-------
+    ```
+    private static void letDuckWalk(Duck[] list){
+        for(Duck duck : list) {
+            if(duck == null) continue;
+            duck.walk();
+        }
+    }
+    ```
+    ```
+    private static void letPersonWalk(Person[] list){
+        for(Person person : list) {
+            if(person == null) continue;
+            person.walk();
+        }
+    }
+    ```
+    ```
+    private static void solution2(){
+        Person[] persons = new Person[3];
+        persons[0] = new Person("Jack");
+        persons[1] = new Person("Jeff");
+        persons[2] = new Person("John");
+        letPersonWalk(persons); // <-------
 
-      Duck[] ducks = new Duck[3];
-      ducks[0] = new Duck("Ab");
-      ducks[1] = new Duck("Bc");
-      ducks[2] = new Duck("Ka");
-      letDuckWalk(ducks); // <----------
-  }
-  ```
+        Duck[] ducks = new Duck[3];
+        ducks[0] = new Duck("Ab");
+        ducks[1] = new Duck("Bc");
+        ducks[2] = new Duck("Ka");
+        letDuckWalk(ducks); // <----------
+    }
+    ```
   - It's not good solution at all since we need to write different function for every class,
 
 - Solution-3:
@@ -110,7 +112,7 @@
 - `Person` and `Person2` are same,
 - `Duck` and `Duck2` are same,
 - `Person2` & `Duck2` are created for separating this solution from earlier only,
-- Ex: See `solution` package,
+- Ex: `Test.java`
   ```
   private static void idealSolution(){
       Walkable[] arr = new Walkable[4]; // <----- See variable type
@@ -137,13 +139,13 @@
 - A class can implement one or more interfaces using the keyword `implements` in its declaration,
 - By implementing an interface, a class guarantees that it will provide an implementation for all methods declared in the interface or the class will declare itself abstract,
 - Can't create object of an interface type,
-- Ex: See `solution/Walkable.java`:
+- Ex: See `Walkable.java`:
   ```
   public interface Walkable {
       void walk();
   }
   ```
-- See `solution/Person2.java` & `solution/Duck2.java`:
+- See `Person2.java` & `Duck2.java`:
   ```
   public class Person2 implements Walkable{
       private String name;
