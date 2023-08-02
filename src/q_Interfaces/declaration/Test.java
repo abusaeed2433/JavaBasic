@@ -4,6 +4,20 @@ public class Test {
 
     public static void main(String[] args) {
         testConstantField();
+        staticMethodTest();
+        defaultMethodTest();
+    }
+
+    private static void defaultMethodTest(){
+        Clickable myItem = new MyItem();
+        myItem.requestSingleClick(); // Single click
+    }
+
+    private static void staticMethodTest(){
+        Clickable.printConstant();
+
+        Clickable c = new MyItem();
+        //c.printConstant(); // error
     }
 
     private static void testConstantField(){
