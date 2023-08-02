@@ -74,12 +74,12 @@
   <tr>
     <th>Interface</th>
     <th>
-      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/q_Interfaces/info.md" > Part-1 </a>
-      <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/q_Interfaces/info.md" > Part-1 </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/q_Interfaces/info2.md" > Part-2 </a> <br>
     </th>
     <th>
-      <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/q_Interfaces/problemAndSolution"> Click here(1) </a>
-      <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/q_Interfaces/problemAndSolution"> Click here(1) </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/q_Interfaces/declaration"> Click here(2) </a> <br>
     </th> 
   </tr>
 
