@@ -1,7 +1,9 @@
 
 # interface part-2
 
-> Codes are in `declaration` package
+> CODES ARE IN `declaration` PACKAGE
+
+> Try to understand basic structure with `field` and `Abstract methods`. You can ignore from 3-lines separator
 
 ## Declaring an Interface
 - Can be declared as 
@@ -78,6 +80,9 @@
            void onViewDoubleClick() throws RuntimeException;
        }
        ```
+    <hr>
+    <hr>
+    <hr>
   - Static methods,
     - They are implicitly public,
     - Must be called on interface name,
@@ -148,4 +153,53 @@
     - See we haven't overridden `requestSingleClick()` method in `MyItem.java`,
     - But we can override if we want to. It's optional,
 
-
+## Nested Type Declarations
+- Declared inside an interface,
+- Can declare a `class`, `interface`, `enum`, and `annotation` as nested types,
+- As we know, an `interface` and a `class` define new reference types, so do a `nested-interface` and a `nested-class`,
+- Sometimes it makes more sense to define nested type. For example: declaring `Card` interface inside `ATM` interface. Existence of `Card` makes more sense inside `ATM` and it isn't needed outside also,
+- A nested interface is always accessed through its enclosing interface(outer interface),
+- All nested types are implicitly `public` and `static`,
+- You can also declare class inside interface. But it's not common. Though it can be used for organizing related entities,
+- Nested type increases code readability and helps to organize code,
+- Nested interface example: See `ATM.java` and `MyAccount.java`,
+  ```
+  public interface ATM {
+      
+      boolean login(int account);
+      boolean deposit(double amount);
+      boolean withdraw(double amount); 
+      double getBalance();
+      
+      interface Card {
+          String getNumber();
+          String getSecurityCode();
+          LocalDate getExpirationDate();
+          String getCardHolderName();
+      }   
+  }
+  ```
+- Nested class example: See `Job.java` and `Test.java`,
+  ```
+  public interface Job {
+  
+      class EmptyJob implements Job {
+          private EmptyJob() {
+              // Do not allow outside to create its object
+          }
+          public void runJob() {
+              System.out.println("Nothing");
+          }
+      }
+  
+      Job EMPTY_JOB = new EmptyJob(); // constant
+      void runJob();
+  }
+  ```
+  Calling like this:
+  ```
+  private static void nestedClassTest(){
+      ...
+      Job.EMPTY_JOB.runJob();
+  }
+  ```

@@ -107,20 +107,20 @@
     - Provides a default implementation for the method,
     - Declared with `default` keyword,
     - Optional to override `default` method in a `class` that implements the interface,
-    - One reason
-      - Suppose you have developed an interface and used it in many place,
+    - One reason why to use `default` method,
+      - Suppose you have developed an interface and used it in many places,
       - You want to add a new method in the interface,
       - If you add a new method, you will have to override this method in every class that implements the interface,
-      - Solution is to add a default method by providing a default implementation,
+      - Solution is to add a `default` method by providing a default implementation,
       - Since `default` method is optional to override. So,
-      - You can add any number of default method without modifying existing code,
-    - Have access to the keyword this in the same way as class,
+      - You can add any number of `default` method without modifying existing code,
+    - Have access to the keyword `this` in the same way as class,
     - Ex: See `Clickable.java`, `MyItem.java ` & `Test.java`,
       ```
       public interface Clickable {
          ...
          default void requestSingleClick(){
-             this.onViewSingleClick(); //
+             this.onViewSingleClick();
          }
       }
       ```
@@ -142,10 +142,36 @@
       ```
       private static void defaultMethodTest(){
          Clickable myItem = new MyItem();
-         myItem.requestSingleClick();
+         myItem.requestSingleClick(); // Single click
       }
       ```
     - See we haven't overridden `requestSingleClick()` method in `MyItem.java`,
     - But we can override if we want to. It's optional,
-    - 
+
+
+## Nested Type Declarations
+- Declared inside an interface,
+- Can declare a `class`, `interface`, `enum`, and `annotation` as nested types,
+- As we know, an `interface` and a `class` define new reference types, so do a `nested-interface` and a `nested-class`,
+- Sometimes it makes more sense to define nested interface. For example: declaring `Card` interface inside `ATM` class,
+- A nested interface is always accessed through its enclosing interface(outer interface),
+- All nested types are implicitly `public` and `static`,
+- You can also declare class inside interface. But it's not common. Though it can be used for organizing related entities,
+- Nested interface example: See `ATM.java`,
+  ```
+  public interface ATM {
       
+      boolean login(int account);
+      boolean deposit(double amount);
+      boolean withdraw(double amount); 
+      double getBalance();
+      
+      interface Card {
+          String getNumber();
+          String getSecurityCode();
+          LocalDate getExpirationDate();
+          String getCardHolderName();
+      }   
+  }
+  ```
+- Nested class example: See
