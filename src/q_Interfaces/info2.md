@@ -162,7 +162,7 @@
 - All nested types are implicitly `public` and `static`,
 - You can also declare class inside interface. But it's not common. Though it can be used for organizing related entities,
 - Nested type increases code readability and helps to organize code,
-- Nested interface example: See `ATM.java` and `MyAccount.java`,
+- Nested interface example: See `ATM.java` and `MyAccount.java`(implementing multiple interface is discussed later),
   ```
   public interface ATM {
       
