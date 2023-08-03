@@ -47,20 +47,6 @@
       swimmer.swim(); // calling function
   }
   ```
-- A variable of an interface type refers to an object in memory whose class implements that interface,
-- Variable of interface type:
-  - Can be `null`,
-  - Can access constant field,
-  - Instant & static variable are initialized to `null` by default,
-  - Ex: See `Test.java`,
-    ```
-    private static void testOperationOnVariable(){
-        Swimmable swimmable = null; // can be null
-        System.out.println(swimmable);
-  
-        swimmable = new Swimmer("Tamim",60);
-        double speed = swimmable.DEFAULT_SPEED; // can access constant field
-        System.out.println(speed); // 20.0
-          
-    }
-    ```
+
+- ### What type of object in memory does a variable of an interface type refer to?
+  - 
