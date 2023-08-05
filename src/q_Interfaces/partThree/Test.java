@@ -7,6 +7,20 @@ public class Test {
         testOperationOnVariable();
         variableTest();
         methodOverriding();
+        subSuperTest();
+    }
+
+    private static void subSuperTest(){
+        System.out.println("------------------- subSuperTest -----------------------");
+        Clickable clickable = new MyCustom();
+        requestClick(clickable); // Clicked in clickable
+
+        MyCustom myCustom = new MyCustom();
+        requestClick(myCustom); // Clicked in clickable
+    }
+
+    private static void requestClick(Clickable clickable){
+        clickable.onClicked();
     }
 
     private static void methodOverriding(){
