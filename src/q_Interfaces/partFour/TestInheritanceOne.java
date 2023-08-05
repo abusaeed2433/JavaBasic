@@ -12,15 +12,32 @@ public class TestInheritanceOne {
         singerWriter.write(); // Writing...
     }
 
+    interface SingerPlayer extends Singer, Player{
+
+        //double getRate(); // ok
+
+//        @Override
+//        default double getRate() { // ok
+//            // own implementation
+//            return 0;
+//        }
+
+        @Override
+        default double getRate(){
+            return Player.super.getRate();
+        }
+
+    }
+
+    interface SingerWriter extends Singer, Writer {
+        // No code
+    }
+
     static class MySinger implements CharitySinger {
         @Override
         public void sing() {
             System.out.println("Singing free...");
         }
-    }
-
-    interface SingerWriter extends Singer, Writer {
-        // No code
     }
 
     interface CharitySinger extends Singer { // no problem

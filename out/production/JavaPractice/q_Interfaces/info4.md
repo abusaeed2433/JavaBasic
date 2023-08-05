@@ -84,4 +84,47 @@
   - 3 abstract methods from the `Writer` interface,
   - Inherits methods `setRate()` and `getRate()` twice. One from `Writter` and one from `Writter`,
   - This doesn't even cause any problem as both methods are abstract,
-  - 
+- Example usage:
+  ```
+  public class MyWriterSinger implements TestInheritanceOne.SingerWriter {
+  
+      private double rate;
+  
+      @Override
+      public void sing() {
+          System.out.println("Singing...");
+      }
+  
+      @Override
+      public void write() {
+          System.out.println("Writing...");
+      }
+  
+      @Override
+      public void setRate(double rate) {
+          this.rate = rate;
+      }
+  
+      @Override
+      public double getRate() {
+          return rate;
+      }
+  }
+  ```
+- Calling like below:
+  ```
+  SingerWriter singerWriter = new MyWriterSinger();
+  singerWriter.sing();  // Singing...
+  singerWriter.write(); // Writing...
+  ```
+- There is also no problem in this example,
+
+
+## Example-3
+- It is possible that the same person is a `Singer` as well as a `Player`,
+  ```
+  interface SingerPlayer extends Singer, Player{
+          
+  }
+  ```
+- 
