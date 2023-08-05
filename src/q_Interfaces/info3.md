@@ -158,6 +158,10 @@
       public void onClicked() {}
   }
   ```
+- General rule of thumb:
+  - If it makes sense to you, it's ok,
+  - If `overriding-method` in class relaxes the restrictions declared in the interface, then ok. Otherwise, not ok,
+  - `relaxes` means ignoring some exception like shown in above example,
 - Ignore all of these. Override method as it is defined in `interface`,
 
 
