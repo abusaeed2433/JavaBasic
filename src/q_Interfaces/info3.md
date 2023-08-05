@@ -64,3 +64,63 @@
           
     }
     ```
+
+## Implementing an Interface
+- An `interface` defines a `specification` for objects about how they will communicate with other objects, i.e,
+- `interface` specifies how communication will be made between objects. i.e,
+- `interface` specifies method and `implementing-class` provides `implementation` for that method,
+- A `specification` is a set of statements,
+- `implementation` is the realization/execution of those statements,
+- When a class implements an `interface` is known as `implementing-class`,
+- `implementing-class` must provide implementations for all `abstract` methods of the interface if the class is not `abstract` itself,
+- `implementing-class` can also override `default` method of an `interface`,
+- Ex: See `Swimmable.java` & `Swimmer.java`:
+  ```
+  public interface Swimmable {
+      ...
+      void swim();
+  }
+  ```
+  implementing class definition is like
+  ```
+  public class Swimmer implements Swimmable{
+      ...
+      @Override
+      public void swim() { // must have to provide implementation
+          System.out.println("Swimming...");
+      }
+  
+  }
+  ```
+- As discussed earlier, variable of `interface` can hold object of `implementing-class` &
+- Assignment rules are similar to object assignment rules,
+- Ex:
+  ```
+  private static void variableTest(){
+      Swimmable tuna = new Swimmer("Tuna",22);
+      Swimmable dolphin = new Swimmer("Dolphin",23);
+  
+      Swimmer shark = new Swimmer("Shark",45);
+  
+      tuna = dolphin; // valid
+      dolphin = tuna; // valid
+  
+      tuna = shark; // valid
+      dolphin = shark; // valid
+  
+  
+      shark = tuna; // invalid
+      shark = dolphin; // invalid
+  
+  }
+  ```
+
+## Implementing Interface Methods
+- 
+
+
+
+
+
+
+
