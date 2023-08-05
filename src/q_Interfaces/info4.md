@@ -198,6 +198,33 @@ When a class inherits a method with the same signature from multiple path(`class
     - Will generate compile time error if you do so,
     - For ensuring backward-compatibility,
     
-- If not resolved, then the most specific superinterface wins,
+- If not resolved, then the **most specific superinterface wins**,
+  - Make a list of all choices of the method with the same signature that are available from different `superinterfaces`,
+  - Remove all methods from the list that have been overridden by others in the list,
+  - If you are left with only one choice, that is the method the class will inherit,
+  - In short, child class will get precedence,
+  - Ex: See `Clickable.java`, `EventListener.java` & `Test.java`,
+    ```
+    public interface Clickable {
+      default void onClicked(){
+          System.out.println("Clicked in clickable");
+      }
+    }
+    ```
+    ```
+    public interface EventListener extends Clickable{
+      @Override
+      default void onClicked() {
+          System.out.println("click from event listener");
+      }
+    }
+    ```
+    Calling like this:
+    ```
+    private static void conflictTest2(){
+        new MyEvent().onClicked(); // click from event listener
+    }
+    ```
+
 - If still not resolved, the class must override the conflicting method,
 

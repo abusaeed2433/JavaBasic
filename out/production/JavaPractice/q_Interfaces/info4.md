@@ -193,7 +193,15 @@ When a class inherits a method with the same signature from multiple path(`class
     - So, it doesn't make sense if an interface override such method,
     - Such method will never be called since method of `Object` class will get precedence,
     - That's why it is not allowed to override `Object` class method in interface,
-
-- If not resolved, then the most specific superinterface wins,
+  - `default` method can't be final. Because,
+    - They are intended to be overridden in classes,
+    - Will generate compile time error if you do so,
+    - For ensuring backward-compatibility,
+    
+- If not resolved, then the **most specific superinterface wins**,
+  - Make a list of all choices of the method with the same signature that are available from different `superinterfaces`,
+  - Remove all methods from the list that have been overridden by others in the list,
+  - If you are left with only one choice, that is the method the class will inherit,
+  - 
 - If still not resolved, the class must override the conflicting method,
 
