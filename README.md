@@ -76,10 +76,16 @@
     <th>
       <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/q_Interfaces/info.md" > Part-1 </a> <br>
       <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/q_Interfaces/info2.md" > Part-2 </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/q_Interfaces/info3.md" > Part-3 </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/q_Interfaces/info4.md" > Part-4 </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/q_Interfaces/info5.md" > Part-5(incomplete) </a> <br>
     </th>
     <th>
       <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/q_Interfaces/problemAndSolution"> Click here(1) </a> <br>
       <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/q_Interfaces/declaration"> Click here(2) </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/q_Interfaces/partThree"> Click here(3) </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/q_Interfaces/partFour"> Click here(4) </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/q_Interfaces/partFive"> Click here(5) </a> <br>
     </th> 
   </tr>
 
