@@ -6,7 +6,21 @@ public class Test {
         testReferenceType();
         testOperationOnVariable();
         variableTest();
+        methodOverriding();
     }
+
+    private static void methodOverriding(){
+        MyView myView = new MyView();
+
+        myView.onClicked();
+        try {
+            myView.onPressed();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+
 
     private static void variableTest(){
         Swimmable tuna = new Swimmer("Tuna",22);

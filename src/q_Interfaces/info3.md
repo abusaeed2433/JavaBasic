@@ -116,7 +116,50 @@
   ```
 
 ## Implementing Interface Methods
-- 
+- `implementing-class` must provide implementation for abstract method in `interface`,
+- Methods in an `interface` are implicitly public,
+- Implementing `throws` clause is optional in `implementing-class`. But,
+- You can't throw any exception that are not listed in interface,
+- Ex: `MyCheckedException.java`, `Pressable.java` & `MyView.java`,
+  ```
+  public class MyCheckedException extends Exception{  
+      public MyCheckedException() {
+          // does nothing
+      }
+  }
+  ```
+  ```
+  public interface Pressable {
+      int LONG_PRESS_DURATION = 200; // ms
+  
+      void onPressed() throws IOException;
+      void onClicked();
+  }
+  ```
+  ```
+  public class MyView implements Pressable{
+  //    @Override
+  //    public void onPressed() {} // ok. dropping exception
+
+  
+      @Override
+      public void onPressed() throws IOException {}
+  
+  
+  //    @Override
+  //    public void onPressed() throws Exception {} // error. Can't throw new exception
+
+  
+  //    @Override
+  //    public void onClicked() throws MyCheckedException{} // invalid. can't add checked exception
+
+  
+      @Override
+      public void onClicked() {}
+  }
+  ```
+- Ignore all of these. Override method as it is defined in `interface`,
+
 
 
 
