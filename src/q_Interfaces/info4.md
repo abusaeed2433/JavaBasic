@@ -157,7 +157,7 @@
 
 ## Inheriting Conflicting Implementations
 When a class inherits a method with the same signature from multiple path(`class`, `interface` or `combination`), Java uses the `3` simple rules in order to resolve the conflict,
-- The superclass always wins, i.e.
+- **The superclass always wins**, i.e.
   - Method of superclass will be inherited,
   - Method of interfaces will be ignored,
   - Remember, multiple inheritance using class is not possible. So there can have maximum one parent-class,
@@ -226,5 +226,24 @@ When a class inherits a method with the same signature from multiple path(`class
     }
     ```
 
-- If still not resolved, the class must override the conflicting method,
+- If still not resolved, **the class must override the conflicting method**,
+  - Nothing important here,
+  - Just override the method that has same signature and coming from two different interface,
+  - Ex: See `MyEvent2.java`,
+    ```
+    public class MyEvent2 implements Clickable,Pressable{
+    
+      @Override
+      public void onPressed() throws IOException {
+        
+      }
 
+      @Override
+      public void onClicked() {
+          Clickable.super.onClicked(); 
+      }
+      
+    }
+    ```
+    - After overriding `onClicked`, we are calling `onClicked` of `Clickable` interface,
+    - We can implement our own logic also,
