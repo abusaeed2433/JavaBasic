@@ -166,8 +166,41 @@
 
 
 
-
-
-
+## Implementing Multiple Interfaces
+- A class can implement multiple `interfaces`,
+- Must have to override all `abstract` methods of all `interfaces`,
+- Ex: See `Clickable.java`, `Pressable.java` & `MyCustom.java`,
+  ```
+  public interface Clickable {
+      default void onClicked(){...}
+  }
+  ```
+  ```
+  public interface Pressable {
+      ...
+      void onPressed() throws IOException;
+      void onClicked();
+  }
+  ```
+  ```
+  public class MyCustom implements Clickable,Pressable{
+      
+      @Override
+      public void onPressed() throws IOException {}
+  
+      @Override
+      public void onClicked() {
+          Clickable.super.onClicked(); // <----------(a) 
+      }   
+  }
+  ```
+  - In statement `(a)`, it is calling `onClicked()` method of `Clickable` interface,
+  - We have defined `onClicked()` in both in `Clickable` and `Pressable` interface,
+  - In `Clickable` interface, we have provided a default implementation of `onClicked()` method,
+  - We are calling the default implementation of `Clickable` interface when overriding in `MyCustom` class,
+  - You can provide your own implementation instead of calling the default method,
+- You can implement multiple interfaces in a class & those interface may contain some common method,
+- There is no problem if interfaces contain common method. Because we are providing our own implementation by overriding that method in `implementing-class`,
+- There is no such problem like `Diamond-problem` in implementing multiple interfaces,
 
 
