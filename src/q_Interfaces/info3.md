@@ -204,3 +204,12 @@
 - There is no such problem like `Diamond-problem` in implementing multiple interfaces,
 
 
+## Partially Implementing an Interface
+- A class can partially implement an `interface` iff it is declared as `abstract`,
+- Remember, `abstract-class` can have abstract method,
+- So, if a class implement few methods of an interface, then it will have to be `abstract`,
+- When a class inherit this `abstract-class`, it has to override all methods,
+- Simple concept. Don't be confused,
+- Ex: see by yourself,
+
+
