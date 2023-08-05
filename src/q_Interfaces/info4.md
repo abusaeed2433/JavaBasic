@@ -154,3 +154,46 @@
   ```
 - Overriding method can be `abstract` or `default`. It can also call parent implementation of the method. See uncommented method in above example,
 
+
+## Inheriting Conflicting Implementations
+When a class inherits a method with the same signature from multiple path(`class`, `interface` or `combination`), Java uses the `3` simple rules in order to resolve the conflict,
+- The superclass always wins, i.e.
+  - Method of superclass will be inherited,
+  - Method of interfaces will be ignored,
+  - Remember, multiple inheritance using class is not possible. So there can have maximum one parent-class,
+  - Ex: See `MultipleClick.java`, `Clickable.java` & `Test.java`,
+    ```
+    public interface Clickable {
+  
+        default void onClicked(){
+            System.out.println("Clicked in clickable");
+        }
+    }
+    ```
+    ```
+    class ClickDetector{
+        public void onClicked(){ // should be public
+            System.out.println("Calling from click detector");
+        }
+    }
+  
+    public class MultipleClick extends ClickDetector implements Clickable {
+  
+    }
+    ```
+    Calling like this:
+    ```
+    private static void conflictTest1(){
+        MultipleClick mc = new MultipleClick();
+        mc.onClicked(); //Calling from click detector
+    }
+    ```
+  - `interface` can't override `Object` class method. Why? 
+    - Because `Object` class is the forefather of all classes,
+    - So, it doesn't make sense if an interface override such method,
+    - Such method will never be called since method of `Object` class will get precedence,
+    - That's why it is not allowed to override `Object` class method in interface,
+
+- If not resolved, then the most specific superinterface wins,
+- If still not resolved, the class must override the conflicting method,
+

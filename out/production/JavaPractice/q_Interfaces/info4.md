@@ -127,4 +127,41 @@
           
   }
   ```
-- 
+  - Above code generates this compile-time-error: `Player and Singer are incompatible; interface SingerPlayer inherits abstract and default for getRate() from types Player and Singer`,
+  - Error is because `getRate()` method,
+  - `getRate()` is abstract in `Writer` and default in `Player`. So,
+  - The compiler cannot decide which method to inherit.
+- This error will also occur if any or both of the method is `default`,
+- This error can be solved by overriding the method in `sub-interface`,
+- So, new implementation of `SinglePlayer` become: See `TestInheritenceOne.java`,
+  ```
+  interface SingerPlayer extends Singer, Player{
+  
+      //double getRate(); // ok
+  
+  //    @Override
+  //    default double getRate() { // ok
+  //        // own implementation
+  //        return 0;
+  //    }
+  
+      @Override
+      default double getRate(){
+          return Player.super.getRate();
+      }
+  
+  }
+  ```
+- Overriding method can be `abstract` or `default`. It can also call parent implementation of the method. See uncommented method in above example,
+
+
+## Inheriting Conflicting Implementations
+When a class inherits a method with the same signature from multiple path(`class`, `interface` or `combination`), Java uses the `3` simple rules in order to resolve the conflict,
+- The superclass always wins, i.e.
+  - Method of superclass will be inherited,
+  - Method of interfaces will be ignored,
+  - Remember, multiple inheritance using class is not possible. So there can have maximum one parent-class,
+  - 
+- If not resolved, then the most specific superinterface wins,
+- If still not resolved, the class must override the conflicting method,
+
