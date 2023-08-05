@@ -225,4 +225,21 @@
   }
   ```
   - Here `MyCustom` class is like subtype, and `Clickable`, `Pressable` are like supertype,
-
+  
+- Ex: See `Test.java`,
+  ```
+  private static void requestClick(Clickable clickable){
+      clickable.onClicked();
+  }
+  ```
+  ```
+  private static void subSuperTest(){
+      Clickable clickable = new MyCustom();
+      requestClick(clickable); // Clicked in clickable
+  
+      MyCustom myCustom = new MyCustom();
+      requestClick(myCustom); // Clicked in clickable
+  }
+  ```
+  - Here parameter of `requestClick` method is of `Clickable` type. But,
+  - We can pass object of `MyCustom` class. Remember `Substitution rule`,

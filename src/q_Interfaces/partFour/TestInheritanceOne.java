@@ -6,6 +6,10 @@ public class TestInheritanceOne {
         CharitySinger singer = new MySinger();
         singer.setRate(345);
         System.out.println(singer.getRate());
+
+        SingerWriter singerWriter = new MyWriterSinger();
+        singerWriter.sing();  // Singing...
+        singerWriter.write(); // Writing...
     }
 
     static class MySinger implements CharitySinger {
@@ -15,6 +19,9 @@ public class TestInheritanceOne {
         }
     }
 
+    interface SingerWriter extends Singer, Writer {
+        // No code
+    }
 
     interface CharitySinger extends Singer { // no problem
 
@@ -29,10 +36,6 @@ public class TestInheritanceOne {
 
     }
 
-
-    interface SingerWriter extends Singer, Writer {
-        // No code
-    }
 
     interface Singer {
         void sing();
