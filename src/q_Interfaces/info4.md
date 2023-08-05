@@ -1,5 +1,7 @@
-# Interface inheritance
 
+# interface part-4
+
+> CODES ARE IN `partFour` PACKAGE
 
 ## Interface inheritance
 - Can inherit another one or multiple interfaces,
