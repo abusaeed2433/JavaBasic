@@ -57,7 +57,41 @@
   - `1` from it own class,
   - `1` from its superclass `Object`. Remember, `Object` class is superclass of all class,
   - `2` from implementing two interfaces,
-- It may be useful if we want to give access to particular method of a class,
-- 
+- It may be useful if we want to give access to some particular method of a class,
+- One simple example: See `Test.java`,
+  ```
+  private static void startWalking(Walkable walkable){
+      walkable.walk(); // Can't access other method
+      ...
+  }
+  ```
+  Calling like this
+  ```
+  Turtle turti = new Turtle("Turti");
+  startWalking(turti); // Turti is walking...
+  ```
 
 ## Dynamic Binding and Interfaces
+- Java uses `dynamic-binding`when a method is invoked using a variable of an interface type,
+- See this example:
+  ```
+  Walkable oogway = new Turtle("Oogway");
+  oogway.walk();
+  ```
+  - The variable `oogway` has two types:
+    - a `compile-time` type which is `Walkable`,
+    - a `runtime-type` which is `Turtle`,
+  - While compiling `oogway.walk()`, 
+    - The compiler verifies that the call is valid according to compile-type,
+  - While executing `oogway.walk()`, the runtime decides the implementation of the `walk()` method to invoke as follows:
+    - Gets info about the class of the object to which `oogway` is referring. Here it is `Turtle`,
+    - Then it looks for `walk()` method in that class. If not found, it will keep looking its ancestor class,
+    - If still not found, then it searches in all `super-interfaces` implemented by classes that were searched earlier. Now,
+      - If one specific `default` method is found, then execute it,
+      - If multiple `default` methods are found, then `IncompatibleClassChangeError` is thrown,
+      - If an abstract method is found, an `AbstractMethodError` is thrown,
+    - If still not found, then `NoSuchMethodError` is thrown,
+
+
+>> If, at first, you do not succeed, call it version 1.0. ― Khayri R.R. Woulfe
+
