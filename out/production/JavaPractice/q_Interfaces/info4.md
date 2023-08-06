@@ -1,5 +1,7 @@
-# Interface inheritance
 
+# interface part-4
+
+> CODES ARE IN `partFour` PACKAGE
 
 ## Interface inheritance
 - Can inherit another one or multiple interfaces,
@@ -157,7 +159,7 @@
 
 ## Inheriting Conflicting Implementations
 When a class inherits a method with the same signature from multiple path(`class`, `interface` or `combination`), Java uses the `3` simple rules in order to resolve the conflict,
-- The superclass always wins, i.e.
+- **The superclass always wins**, i.e.
   - Method of superclass will be inherited,
   - Method of interfaces will be ignored,
   - Remember, multiple inheritance using class is not possible. So there can have maximum one parent-class,
@@ -202,6 +204,48 @@ When a class inherits a method with the same signature from multiple path(`class
   - Make a list of all choices of the method with the same signature that are available from different `superinterfaces`,
   - Remove all methods from the list that have been overridden by others in the list,
   - If you are left with only one choice, that is the method the class will inherit,
-  - 
-- If still not resolved, the class must override the conflicting method,
+  - In short, child class will get precedence,
+  - Ex: See `Clickable.java`, `EventListener.java` & `Test.java`,
+    ```
+    public interface Clickable {
+      default void onClicked(){
+          System.out.println("Clicked in clickable");
+      }
+    }
+    ```
+    ```
+    public interface EventListener extends Clickable{
+      @Override
+      default void onClicked() {
+          System.out.println("click from event listener");
+      }
+    }
+    ```
+    Calling like this:
+    ```
+    private static void conflictTest2(){
+        new MyEvent().onClicked(); // click from event listener
+    }
+    ```
 
+- If still not resolved, **the class must override the conflicting method**,
+  - Nothing important here,
+  - Just override the method that has same signature and coming from two different interface,
+  - Ex: See `MyEvent2.java`,
+    ```
+    public class MyEvent2 implements Clickable,Pressable{
+    
+      @Override
+      public void onPressed() throws IOException {
+        
+      }
+
+      @Override
+      public void onClicked() {
+          Clickable.super.onClicked(); 
+      }
+      
+    }
+    ```
+    - After overriding `onClicked`, we are calling `onClicked` of `Clickable` interface,
+    - We can implement our own logic also,
