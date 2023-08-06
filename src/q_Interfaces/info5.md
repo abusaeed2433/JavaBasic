@@ -142,6 +142,59 @@
 
 
 ## Comparing Objects
+`java.lang.Comparable` and `java.util.Comparator` are two commonly used interfaces for ordering objects,
+### Comparable
+- A class implements the `Comparable`, if objects of the class need to be compared for sorting purposes,
+- The ordering on the objects of a class imposed by `Comparable` interface is also called the class’s natural ordering,
+- Contains an `abstract` `compareTo()` method that takes one parameter,
+- The `compareTo()` method 
+  - Doesn't handle `null` values,
+  - Returns zero(`0`), if the two objects are considered equal,
+  - Returns a negative integer(`< 0`), if the object is less than the parameter,
+  - Returns a positive integer(`> 0`), if the object is greater than the parameter,
+- `Comparable` interface is:
+  ```
+  public interface Comparable<T> {
+     public int compareTo(T o);
+  }
+  ```
+- Ex: See `Student.java`, `Test.java`
+  ```
+  public class Student implements Comparable<Student>{
+      private int roll;
+      private String name;
+      private String email;
+      private double height;
+      ...
+      @Override
+      public int compareTo(Student o) {
+          // our own logic
+          return roll - o.roll; // sorting based on roll
+      }
+  }
+  ```
+  Using like this:
+  ```
+  private static void comparableTest(){
+      // using Bard
+      Student student1 = new Student(112, "Rakib Hasan", "rakibhasan@gmail.com", 1.75);
+      Student student2 = new Student(23, "Sadia Akter", "sadiaakter@gmail.com", 1.65);
+      Student student3 = new Student(34, "Ariful Islam", "arifulislam@gmail.com", 1.80);
+      Student student4 = new Student(4, "Tasnim Akhter", "tasnimakhter@gmail.com", 1.55);
+      Student student5 = new Student(54, "Rafi Ahmed", "rafi@gmail.com", 1.70);
+      Student student6 = new Student(15, "Sumaiya Khatun", "sumaiya@gmail.com", 1.60);
+  
+      List<Student> students = new ArrayList<>();
+      students.add(student1); students.add(student2); students.add(student3);
+      students.add(student4); students.add(student5); students.add(student6);
+  
+      printRolls(students); // Rakib(112) Sadia(23) Ariful(34) Tasnim(4) Rafi(54) Sumaiya(15)
+      Collections.sort(students);
+      printRolls(students); // Tasnim(4) Sumaiya(15) Sadia(23) Ariful(34) Rafi(54) Rakib(112)
+  }
+  ```
+
+### Comparator
 
 ## Polymorphism—One Object, Many Views
 
