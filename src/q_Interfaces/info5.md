@@ -266,7 +266,3 @@
   }
   ```
 - See `comparatorTestSimplified()` & `comparatorMultipleMinimized()` for minimized version of above 2 example,
-
-## Polymorphism—One Object, Many Views
-
-## Dynamic Binding and Interfaces
