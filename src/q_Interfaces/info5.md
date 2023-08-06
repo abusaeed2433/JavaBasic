@@ -41,18 +41,30 @@
     ```
     - Because `MunificentGiver` implements `Munificent` interface,
   - Ex-2:
-  ```
+    ```
     Giver giver = new Giver();
     System.out.println (giver instanceof Munificent); // false
     ```
+    - Because `Giver` class doesn't implement `Munificent` interface,
+  - Ex-3:
     ```
     Giver kim = new StingyGiver();
     System.out.println(kim instanceof Munificent); // false
     ```
+    - Because `StingyGiver` & `Giver`(parent of `StingyGiver`) class doesn't implement `Munificent` interface,
+  - Ex-4:
     ```
     StingyGiver jim = new StingyGiver();
     //System.out.println(jim instanceof Munificent);
     ```
+    - `compile-time` error. Because
+    - Right side(`Munificent`) is not assignment compatible to left side(`StingyGiver`),
+    - How can the compiler be so sure about this possibility? It is easy,
+    - `StingyGiver` class is `final`, which means it cannot be `subclassed`,
+    - Variable `jim` whose `compile-time` type is `StingyGiver` can only refer to an object whose class is `StingyGiver`,
+    - The compiler also knows that the `StingyGiver` class and none of its ancestor classes implement the `Munificent` interface,
+    - With all these reasoning, the compiler determines that you have a logical error in your program & you need to fix it,
+
 
 ## Marker Interfaces
 
