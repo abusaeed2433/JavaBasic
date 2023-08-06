@@ -57,18 +57,7 @@
   - `1` from it own class,
   - `1` from its superclass `Object`. Remember, `Object` class is superclass of all class,
   - `2` from implementing two interfaces,
-- It may be useful if we want to give access to some particular method of a class,
-- One simple example: See `Test.java`,
-  ```
-  private static void startWalking(Walkable walkable){
-      walkable.walk(); // Can't access other method
-      ...
-  }
-  ```
-  Calling like this
-  ```
-  Turtle turti = new Turtle("Turti");
-  startWalking(turti); // Turti is walking...
-  ```
+- It may be useful if we want to give access to particular method of a class,
+- 
 
 ## Dynamic Binding and Interfaces
