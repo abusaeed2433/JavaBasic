@@ -1,4 +1,4 @@
-package q_Interfaces.declaration;
+package q_Interfaces.partTwo;
 
 public class Test {
 

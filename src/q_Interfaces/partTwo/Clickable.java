@@ -1,4 +1,4 @@
-package q_Interfaces.declaration;
+package q_Interfaces.partTwo;
 
 public interface Clickable {
     int SINGLE_CLICK = 1;

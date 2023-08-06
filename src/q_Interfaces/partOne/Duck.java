@@ -1,4 +1,4 @@
-package q_Interfaces.problemAndSolution;
+package q_Interfaces.partOne;
 
 public class Duck {
     private String name;

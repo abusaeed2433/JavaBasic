@@ -1,14 +1,11 @@
-package q_Interfaces.problemAndSolution;
+package q_Interfaces.partOne;
 
-public class Person2 implements Walkable{
+public class Person {
     private String name;
-    public Person2(String name) {
+    public Person(String name) {
         this.name = name;
     }
-
-    @Override
     public void walk() {
         System.out.println(name + " (a person) is walking.");
     }
-
 }

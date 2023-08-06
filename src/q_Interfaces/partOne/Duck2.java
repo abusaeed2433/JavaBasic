@@ -1,4 +1,4 @@
-package q_Interfaces.problemAndSolution;
+package q_Interfaces.partOne;
 
 public class Duck2 implements Walkable{
     private String name;

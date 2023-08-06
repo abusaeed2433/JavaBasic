@@ -13,14 +13,14 @@ import q_Interfaces.without_not.Walkable;
 
 import java.util.Random;
 
-public class MainNotUsed {
+public class MainExtra {
 
     public static void main(String[] args) {
         //new Main().withoutInterface();
         //new Main().withoutInterface2();
         //new Main().withInterface();
         //new Main().interfaceConflict();
-        new MainNotUsed().randomTest();
+        new MainExtra().randomTest();
 
     }
 
