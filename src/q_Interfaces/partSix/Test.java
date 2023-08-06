@@ -9,6 +9,11 @@ public class Test {
         startWalking(turti); // Turti is walking...
     }
 
+    private static void dynamicBindingTest(){
+        Walkable oogway = new Turtle("Oogway");
+        oogway.walk();
+    }
+
     private static void testPolymorphic(){
         Turtle turti = new Turtle("Turti");
 
