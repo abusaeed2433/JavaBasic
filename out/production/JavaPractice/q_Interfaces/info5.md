@@ -194,6 +194,22 @@
   }
   ```
 
+### Comparator
+- Used for specifying an ordering different from the ordering specified by the `Comparable` interface,
+- `Comparator` interface is:
+  ```
+  public interface Comparator<T> {
+     int compare(T o1, T o2);
+     boolean equals(Object obj);
+     // Default and static methods are not shown here
+  }
+  ```
+  - `equals()` method is optional because it is inherited from `Object` class,
+  - `compare()` method takes `2` parameters and
+    - returns zero(`0`) if equal,
+    - returns a negative integer(`< 0`) if `1st` argument is less,
+    - returns a positive integer(`> 0`) if `2nd` argument is less,
+
 ## Polymorphism—One Object, Many Views
 
 ## Dynamic Binding and Interfaces

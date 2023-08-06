@@ -25,6 +25,10 @@ public class Student implements Comparable<Student>{
         return name.substring(0,name.indexOf(" "));
     }
 
+    public String getLastName(){
+        return name.substring(name.lastIndexOf(" ")+1,name.length());
+    }
+
     public String getName() {
         return name;
     }

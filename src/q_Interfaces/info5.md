@@ -195,6 +195,77 @@
   ```
 
 ### Comparator
+- Used for specifying an ordering different from the ordering specified by the `Comparable` interface,
+- `Comparator` interface is:
+  ```
+  public interface Comparator<T> {
+     int compare(T o1, T o2);
+     boolean equals(Object obj);
+     // Default and static methods are not shown here
+  }
+  ```
+  - `equals()` method is optional because it is inherited from `Object` class,
+  - `compare()` method takes `2` parameters and
+    - returns zero(`0`) if equal,
+    - returns a negative integer(`< 0`) if `1st` argument is less,
+    - returns a positive integer(`> 0`) if `2nd` argument is less,
+- Ex`(` Sort by `firstName` `)`: See `Test.java`,
+  ```
+  private static void comparatorTest1(){
+      List<Student> list = getStudentList(); // create an list of 7 Students
+  
+      class FirstNameComparator implements Comparator<Student>{
+          @Override
+          public int compare(Student o1, Student o2) {
+              return o1.getFirstName().compareTo(o2.getFirstName());
+          }
+      };
+  
+      FirstNameComparator comparator = new FirstNameComparator();
+  
+      printNames(list); // before sorting
+      // Rakib Hasan, Sadia Akter, Ariful Islam, Tasnim Akhter, Rafi Ahmed, Sumaiya Khatun, Sumaiya Akter,
+  
+      Collections.sort(list,comparator);
+  
+      printNames(list); // sorted by first name
+      // Ariful Islam, Rafi Ahmed, Rakib Hasan, Sadia Akter, Sumaiya Khatun, Sumaiya Akter, Tasnim Akhter,
+  }
+  ```
+- Ex`(` Sort by `firsName` then `lastName` `)`: See `Test.java`,
+  ```
+  private static void comparatorMultiple(){  
+      List<Student> list = getStudentList(); // create an list of 7 Students
+      List<Student> list2 = getStudentList(); // create an list of 7 Students
+  
+      Comparator<Student> firstNameComparator = new Comparator<Student>() {
+          @Override
+          public int compare(Student o1, Student o2) {
+              return o1.getFirstName().compareTo(o2.getFirstName());
+          }
+      };
+  
+      Comparator<Student> lastNameComparator = new Comparator<Student>() {
+          @Override
+          public int compare(Student o1, Student o2) {
+              return o1.getLastName().compareTo(o2.getLastName());
+          }
+      };
+  
+      printNames(list);
+      // Rakib Hasan, Sadia Akter, Ariful Islam, Tasnim Akhter, Rafi Ahmed, Sumaiya Khatun, Sumaiya Akter,
+  
+  
+      list2.sort(firstNameComparator);
+      printNames(list2); // using firstName name. this is list2, not list
+      // Ariful Islam, Rafi Ahmed, Rakib Hasan, Sadia Akter, Sumaiya Khatun, Sumaiya Akter, Tasnim Akhter,
+  
+      list.sort(firstNameComparator.thenComparing(lastNameComparator));
+      printNames(list);
+      // Ariful Islam, Rafi Ahmed, Rakib Hasan, Sadia Akter, Sumaiya Akter, Sumaiya Khatun, Tasnim Akhter,
+  }
+  ```
+- See `comparatorTestSimplified()` & `comparatorMultipleMinimized()` for minimized version of above 2 example,
 
 ## Polymorphism—One Object, Many Views
 
