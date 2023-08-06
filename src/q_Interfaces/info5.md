@@ -130,6 +130,16 @@
     - Otherwise, it throws an exception at runtime,
 
 
+## Functional interface
+- Contains only one `abstract` method,
+- Ex: `StringListener.java`,
+  ```
+  public interface StringListener {
+      void onDateSet(String date);
+  }
+  ```
+  - Can be used for passing date from a date-picker class to another class,
+
 
 ## Comparing Objects
 
