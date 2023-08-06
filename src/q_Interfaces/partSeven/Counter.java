@@ -6,13 +6,13 @@ import java.util.concurrent.TimeUnit;
 
 public class Counter {
 
-    private int delayBetween = 2000;
+    private final int delayBetween;
 
     private int maxCountValue;
     private int currentValue = 1;
-    private boolean isRunning;
+    private boolean isRunning, isInPauseState;
 
-    private final static ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+    private ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
     private final CounterListener listener;
 
     public Counter(int delayBetween,CounterListener listener) {
@@ -21,22 +21,70 @@ public class Counter {
     }
 
     public void startCounter(int maxCountValue){
-        this.maxCountValue = maxCountValue;
+        if(isInPauseState){
+            listener.onMessageFound("Counter is in pause state");
+            return;
+        }
         if(isRunning) {
             listener.onMessageFound("Counter already running");
             return;
         }
+
+        currentValue = 0;
+        this.maxCountValue = maxCountValue;
         startRunning();
         isRunning = true;
     }
 
     public void stopCounter(){
-        if(!isRunning) return;
+        if(!isRunning) {
+            listener.onMessageFound("Counter not running");
+            return;
+        }
 
         isRunning = false;
-        executor.shutdown();
-        currentValue = 1;
+        isInPauseState = false;
+
+        shutdownNow();
+
+        currentValue = 0;
         listener.onMessageFound("Counter stopped");
+    }
+
+    private void shutdownNow(){
+        executor.shutdownNow();
+        executor = Executors.newSingleThreadScheduledExecutor();
+    }
+
+    public void pause(){
+        if(!isRunning){
+            listener.onMessageFound("Counter not running");
+            return;
+        }
+
+        if(isInPauseState){
+            listener.onMessageFound("Already in pause");
+            return;
+        }
+
+        listener.onMessageFound("Counter paused");
+        isInPauseState = true;
+        shutdownNow();
+    }
+
+    public void resume(){
+        if(!isRunning){
+            listener.onMessageFound("Counter not started");
+            return;
+        }
+
+        if(!isInPauseState){
+            listener.onMessageFound("Counter is running...");
+            return;
+        }
+
+        isInPauseState = false;
+        startRunning();
     }
 
     private void startRunning(){
@@ -49,23 +97,11 @@ public class Counter {
                 currentValue++;
                 listener.onTimeChanged(currentValue);
                 if(currentValue >= maxCountValue) {
+                    listener.onMessageFound("Counting completed");
                     isRunning = false;
-                    executor.shutdown();
+                    shutdownNow();
                 }
             }
         },0, delayBetween,TimeUnit.MILLISECONDS);
     }
-
-    public void changeCounterValue(int maxCountValue) {
-        this.maxCountValue = maxCountValue;
-    }
-
-    public void setDelayBetween(int delayBetween) {
-        this.delayBetween = delayBetween;
-    }
-
-    public CounterListener getListener() {
-        return listener;
-    }
-
 }
