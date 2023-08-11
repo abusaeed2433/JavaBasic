@@ -181,8 +181,8 @@ public class Hooman {
 ## Constructor
 - Used to initialize an object of a class,
 - Constructor name is the same as the simple name of the class,
-- Basic Structure(can have `throws` clause also):
 - Doesn't have return type,
+- Basic Structure(can have `throws` clause also):
 ```
 <<Modifiers>> <<Constructor Name>>(<<parameters list>>){
  // Body of constructor goes here
