@@ -232,7 +232,7 @@ public class Hooman {
     unknownBird.printDetails(); // Eagle -> Eagle -> true
   
     Bird eagle = new Bird("Eagle", "Eagle", true); // 3
-    eagle.printDetails(); // unknown -> Not found -> true
+    eagle.printDetails(); // Eagle -> Eagle -> true
   
     Bird secondEagle = new Bird(eagle); // 4
     secondEagle.printDetails(); // Eagle -> Eagle -> true
