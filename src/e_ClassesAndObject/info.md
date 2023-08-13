@@ -181,8 +181,8 @@ public class Hooman {
 ## Constructor
 - Used to initialize an object of a class,
 - Constructor name is the same as the simple name of the class,
-- Basic Structure(can have `throws` clause also):
 - Doesn't have return type,
+- Basic Structure(can have `throws` clause also):
 ```
 <<Modifiers>> <<Constructor Name>>(<<parameters list>>){
  // Body of constructor goes here
@@ -232,7 +232,7 @@ public class Hooman {
     unknownBird.printDetails(); // Eagle -> Eagle -> true
   
     Bird eagle = new Bird("Eagle", "Eagle", true); // 3
-    eagle.printDetails(); // unknown -> Not found -> true
+    eagle.printDetails(); // Eagle -> Eagle -> true
   
     Bird secondEagle = new Bird(eagle); // 4
     secondEagle.printDetails(); // Eagle -> Eagle -> true
