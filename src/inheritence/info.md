@@ -66,4 +66,42 @@
 - Members of a class are 
   - All members that are declared inside the body of the class & 
   - Members that it inherits from the superclass,
+  
+## Upcasting and Down-casting
+- `subclass` can always be cast into `superclass`(`upcasting`),
+- `super-class` can be cast into `subclass` iff the variable of `superclass` refers object of the `subclass`(`downcasting`),
+- Ex:
+    ```
+    private static void testUpDownCasting(){
+        Employee abulKalam = new Employee(1, "Abul Kalam", 50000);
+    
+        Employee employee = new Manager(2,"Employee",20034,10000);
+    
+        Manager atikurRahman = new Manager(1, "Atikur Rahman", 80000, 10000);
+    
+        Employee emp;
+        emp = atikurRahman; // upCasting
+    
+        Manager manager;
+        //manager = abulKalam; // compile error
+        //manager = employee; // compile error
+    
+        //manager = (Manager)abulKalam; // runtime error <-------(a)
+    
+        manager = (Manager) employee; // fine - Down-casting <----(b)
+    
+    }
+    ```
+- While `down-casting`, 
+  - Make sure the variable(`employee`) is holding the object of the class(`Manager`) to which(`Manager`) you are going to cast,
+    <img src="files/type_check.jpg" height="140px">
+  
+  - In `(a)`, `runtime-error` is thrown. Because,
+    - `compile-time` check is passed,
+    - Failed at runtime check,
+    - See above image
 
+
+
+
+    
