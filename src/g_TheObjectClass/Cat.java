@@ -1,6 +1,6 @@
 package g_TheObjectClass;
 
-public class Cat {
+public class Cat implements Cloneable{
     private String name;
 
     public Cat(String name) {
@@ -13,5 +13,15 @@ public class Cat {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    @Override
+    protected Object clone(){
+        try {
+            return super.clone();
+        }catch (CloneNotSupportedException e){
+            e.printStackTrace();
+            return null;
+        }
     }
 }

@@ -1,6 +1,6 @@
 
 
-# Object
+# Object part-1
 
 ## Introduction
 - Available in `java.lang` package,
@@ -190,7 +190,7 @@
 ## String Representation of an Object
 - The string representation of an object,
 - Contain enough information about the state of the object,
-- Mainly used for debugging purpose,
+- Used for debugging purpose(Advanced debugging tools are available though),
 - Has a default implementation, but not much useful,
   - Ex: See `defaultEqualsTo()` of `Test.java`,
     ```
@@ -204,13 +204,42 @@
     }
     ```
 - Let's override according to our need,
-- 
-- 
-
-
-
-
-
-
-
-
+- Ex(custom implementation): See `Student.java`,
+  ```
+  public class Student {
+      private final int roll;
+      private final String name;
+      private int age;
+      private double height;
+      ...
+  
+      @Override
+      public String toString() {
+          //return super.toString(); // default
+          return "roll: " + roll + ", " + "name: " + name + ", " + "age: " + age + ", " + "height: " + height;
+      }
+  }
+  ```
+  Using like this: See `customEqualsTo()` of `Test.java`,
+  ```
+  private static void customEqualsTo() {
+  
+      Student atik = new Student(38,"Atik",22,168);
+      System.out.println(atik.toString()); // roll: 38, name: Atik, age: 22, height: 168.0
+  
+  
+      Student galib = new Student(35,"Galib",22,-173);
+  
+      int heightInFeet = (int)(galib.getHeight() / 39);
+      System.out.println(heightInFeet); // negative so, must have some problem with value
+  
+      //finding that problem
+      System.out.println(galib.toString()); // roll: 35, name: Galib, age: 22, height: -173.0
+  
+      galib.setHeight(173); // fixing
+  
+      heightInFeet = (int)(galib.getHeight() / 39);
+      System.out.println(heightInFeet); // fine
+  }
+  ```
+  

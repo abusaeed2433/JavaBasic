@@ -9,6 +9,46 @@ public class Test {
         equalsTest();
         defaultEqualsTo();
         customEqualsTo();
+
+        cloneTest();
+        cloneTest2();
+    }
+
+    private static void cloneTest2(){
+        System.out.println("-------------------- cloneTest2 ---------------");
+
+        Human tomal = new Human("Tomal","Loki");
+
+        System.out.println(tomal); // owner: Tomal, catName: Loki
+
+        Human copied = (Human) tomal.clone();
+
+        System.out.println(copied); // owner: Tomal, catName: Loki
+
+        copied.setName("Totomal");
+        System.out.println(tomal); // owner: Tomal, catName: Loki
+        System.out.println(copied); // owner: Totomal, catName: Loki
+
+        copied.setCatName("kilo");
+        System.out.println(tomal); // owner: Tomal, catName: kilo <--------------------
+        System.out.println(copied);// owner: Totomal, catName: kilo <-------------------
+
+    }
+
+    private static void cloneTest(){
+        System.out.println("-------------------- cloneTest ---------------");
+
+        Student who = new Student(269,"who",23,173);
+
+        System.out.println(who); // roll: 269, name: who, age: 23, height: 173.0
+
+        Student copied = (Student) who.clone();
+
+        System.out.println(copied); // roll: 269, name: who, age: 23, height: 173.0
+
+        copied.setAge(30);
+        System.out.println(copied); // roll: 269, name: who, age: 30, height: 173.0
+        System.out.println(who); // roll: 269, name: who, age: 23, height: 173.0
     }
 
     private static void customEqualsTo() {

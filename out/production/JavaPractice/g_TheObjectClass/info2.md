@@ -114,22 +114,6 @@
       }
   }
   ```
-  Result is(Perfectly fine):
-  ```
-  private static void cloneTest2(){
-      Human tomal = new Human("Tomal","Loki");
-      System.out.println(tomal); // owner: Tomal, catName: Loki
+  Result is:
+- 
   
-      Human copied = (Human) tomal.clone();
-      System.out.println(copied); // owner: Tomal, catName: Loki
-  
-      copied.setName("Totomal");
-      System.out.println(tomal); // owner: Tomal, catName: Loki
-      System.out.println(copied); // owner: Totomal, catName: Loki
-  
-      copied.setCatName("kilo");
-      System.out.println(tomal); // owner: Tomal, catName: Loki
-      System.out.println(copied);// owner: Totomal, catName: kilo
-  }
-  ```
-

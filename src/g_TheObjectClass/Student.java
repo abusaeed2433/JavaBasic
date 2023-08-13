@@ -1,6 +1,6 @@
 package g_TheObjectClass;
 
-public class Student {
+public class Student implements Cloneable{
     private final int roll;
     private final String name;
     private int age;
@@ -85,5 +85,13 @@ public class Student {
         return "roll: " + roll + ", " + "name: " + name + ", " + "age: " + age + ", " + "height: " + height;
     }
 
-}
+    @Override
+    protected Object clone() {
+        try {
+            return super.clone();
+        }catch (CloneNotSupportedException e){
+            return null;
+        }
+    }
 
+}
