@@ -84,4 +84,76 @@
   - Opposite of above is not true. i.e. if `x.hashCode() = y.hashCode()` then `x.equals(y)` may not be true,
   - `hashCode()` should generate same value if it is called on same object,
   - Use only those instance variables to compute hash code for an object, which are also used in `equals()` method to check for equality,
-- See 
+- See `hashCode()` of `Student.java`,
+  ```
+  public class Student {
+      private final int roll;
+      private final String name;
+      private int age;
+      private double height;
+  
+      ...
+  
+      @Override
+      public int hashCode() {
+  //        return super.hashCode(); // default implementation
+          int hash = 37;
+  
+          int code = roll;
+          hash += 17 * hash + code;
+  
+          code = (name == null ? 0 : name.length());
+          hash += 17 * hash + code;
+  
+          code = age;
+          hash += 17 * hash + code;
+  
+          code = (int)height;
+          hash += 17 * hash + code;
+  
+          return hash;
+      }
+      ...
+  }
+  ```
+
+
+## Comparing Objects for Equality
+- All objects have a unique identity,
+- The memory address at which an object is allocated can be treated as its identity,
+- Ex: See `Student.java`,
+```
+package g_TheObjectClass;
+
+public class Student {
+    private final int roll;
+    private final String name;
+    private int age;
+    private double height;
+    ...
+    @Override
+    public int hashCode() { ... }
+    
+    @Override
+    public boolean equals(Object obj) {
+//        return super.equals(obj); // default implementation
+
+        if(this == obj){ // same reference
+            return true;
+        }
+
+        if(!(obj instanceof Student)) { // object of different classes
+            return false;
+        }
+        
+        if(hashCode() != obj.hashCode()){ // different hashCode, so can't be same
+            return false;
+        }
+        
+        Student item = (Student)obj;
+
+        return roll == item.roll && name.equals(item.name) && age == item.age && height == item.height;
+    }
+
+}
+```

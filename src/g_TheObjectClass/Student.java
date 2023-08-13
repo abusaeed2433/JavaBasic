@@ -69,6 +69,10 @@ public class Student {
             return false;
         }
 
+        if(hashCode() != obj.hashCode()){ // different hashCode, so can't be same
+            return false;
+        }
+
         Student item = (Student)obj;
 
         return roll == item.roll && name.equals(item.name) && age == item.age && height == item.height;
