@@ -135,38 +135,54 @@
 - All objects have a unique identity,
 - The memory address at which an object is allocated can be treated as its identity,
 - Ex: See `Student.java`,
-```
-package g_TheObjectClass;
-
-public class Student {
-    private final int roll;
-    private final String name;
-    private int age;
-    private double height;
-    ...
-    @Override
-    public int hashCode() { ... }
-    
-    @Override
-    public boolean equals(Object obj) {
-//        return super.equals(obj); // default implementation
-
-        if(this == obj){ // same reference
-            return true;
-        }
-
-        if(!(obj instanceof Student)) { // object of different classes
-            return false;
-        }
-        
-        if(hashCode() != obj.hashCode()){ // different hashCode, so can't be same
-            return false;
-        }
-        
-        Student item = (Student)obj;
-
-        return roll == item.roll && name.equals(item.name) && age == item.age && height == item.height;
-    }
-
-}
-```
+  ```
+  public class Student {
+      private final int roll;
+      private final String name;
+      private int age;
+      private double height;
+      ...
+      @Override
+      public int hashCode() { ... }
+      
+      @Override
+      public boolean equals(Object obj) {
+          //return super.equals(obj); // default implementation
+  
+          if(this == obj){ // same reference
+              return true;
+          }
+  
+          if(!(obj instanceof Student)) { // object of different classes
+              return false;
+          }
+          
+          if(hashCode() != obj.hashCode()){ // different hashCode, so can't be same
+              return false;
+          }
+          
+          Student item = (Student)obj;
+  
+          return roll == item.roll && name.equals(item.name) && age == item.age && height == item.height;
+      }
+  
+  }
+  ```
+  Using like this. See `equalsTest()` of `Test.java`,
+  ```
+  private static void equalsTest(){
+  
+      Student saeed = new Student(57,"Saeed",21,170);
+      Student jakaria = new Student(56,"Jakaria",22,171);
+      Student saeedAgain = new Student(57,"Saeed",21,170);
+  
+      Cat cat = new Cat("Happy");
+  
+      System.out.println(jakaria.equals(jakaria)); // same reference - true
+  
+      System.out.println(cat.equals(saeed)); // object of different classes - false
+      System.out.println(saeed.equals(jakaria)); // different hashCode - false
+  
+      System.out.println(saeed.equals(saeedAgain)); // fine - true
+  }
+  ```
