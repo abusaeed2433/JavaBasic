@@ -39,3 +39,16 @@
         System.out.println(b.hashCode()); // executed successfully
     }
     ```
+
+## Inheritance and Hierarchical Relationship
+- `is-a` relationship must exist in inheritance,
+- All classes in an inheritance chain form a tree-like structure, which is known as an `inheritance-hierarchy` or a `class-hierarchy`,
+- All classes in Java have a `superclass` except the `Object` class,
+- Example inheritance hierarchy:
+  <img src="files/inheritance_hierarchy.jpg" height="200px">
+
+- `Object` class is the `ancestor` implicitly,
+- From above hierarchy,
+  - `FullTimeManager` is an `Employee`,
+  - `Programmar` is an `Employee`,
+  - `Programmar` is an `Object` etc.
