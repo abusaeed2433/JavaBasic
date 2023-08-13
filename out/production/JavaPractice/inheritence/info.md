@@ -23,19 +23,4 @@
 ## Object Class is the Default Superclass
 - `extends Object` is implicitly added for `first` `Parent` class,
 - Any class can access code of `Object` class without extending it since it is implicitly extended to `Object` class,
-- Ex:
-    ```
-    class A{ } // A extends Object class implicitly
-    class B extends Object{} // explicitly
-    ```
-  Using like this: See `testForefatherObject()` in `Common.java`
-    ```
-    private static void testForefatherObject(){
-        A a = new A();
-        B b = new B();
-    
-        // hashCode() is defined in Object class
-        System.out.println(a.hashCode()); // executed successfully
-        System.out.println(b.hashCode()); // executed successfully
-    }
-    ```
+- 

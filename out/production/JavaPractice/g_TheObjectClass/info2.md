@@ -162,4 +162,47 @@
   - Can be shared without worrying about changes,
   - Testing an immutable class is easy,
   - Thread safe since can't be changed,
-  - 
+- Ex of mutable class: See `immutableTest()` in `Test.java`,
+  ```
+  private static void immutableTest(){
+      Cat cat = new Cat("Oscar");
+      System.out.println(cat.getName()); // Oscar
+  
+      cat.setName("Billi"); // state changed < - - - - -
+      System.out.println(cat.getName()); // Billi
+  }
+  ```
+- Immutable version of `Cat` class will be like this. See `GammaCat.java`,
+  ```
+  public class GammaCat {
+      private final String name; // <------- final optional though
+  
+      public GammaCat(String name) { this.name = name; }
+  
+      public String getName() { return name; }
+      
+      @Override
+      protected Object clone(){
+          try {
+              return super.clone();
+          }catch (CloneNotSupportedException e){
+              e.printStackTrace();
+              return null;
+          }
+      }
+  
+      @Override
+      protected void finalize() throws Throwable {
+          System.out.println(name);
+      }
+  
+  }
+  ```
+  just remove the ways that can make changes in variable. Here `setName()` is removed,
+- If you want to make your class `immutable` and your class contains reference of any other classes, then make sure to make those reference classes `immutable`,
+- For ex: for making `Human` class immutable, you have to make `Cat` class immutable also,
+- So, for making a class `immutable`,
+  - Make all instance variable `final`,(Optional, but compiler will ensure immutability),
+  - Make all references class `immutable`,
+  - Remove methods that can change variables state(Setter methods),
+
