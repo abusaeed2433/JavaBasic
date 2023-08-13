@@ -52,3 +52,18 @@
   - `FullTimeManager` is an `Employee`,
   - `Programmar` is an `Employee`,
   - `Programmar` is an `Object` etc.
+
+
+## Things Inherited by a Subclass
+- A subclass `doesn't` inherit everything from its superclass. But,
+- A subclass may use, directly or indirectly, everything from its superclass,
+- A subclass inherits `non-private members`(`protected`, package-level and `public`) of its superclass,
+  - `public`: always inherited,
+  - `protected`: inherited no matter it is in same package or not,
+  - package-level: inherited only if `subclass` & `superclass` is in same package,
+
+- `Constructors` and `initializers` aren't members of a class, they are not inherited,
+- Members of a class are 
+  - All members that are declared inside the body of the class & 
+  - Members that it inherits from the superclass,
+
