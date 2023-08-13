@@ -1,6 +1,6 @@
 
 
-# Object
+# Object part-1
 
 ## Introduction
 - Available in `java.lang` package,
@@ -242,13 +242,4 @@
       System.out.println(heightInFeet); // fine
   }
   ```
-
-
-
-
-
-
-
-
-
-
+  
