@@ -148,3 +148,61 @@
   - **It is not even guaranteed that a finalizer will run at all. So avoid relying on it for cleanup,**
   - Deprecated and will be removed in the future,
 - Ex: Try yourself like `finalizeTest()` in `Test.java`,
+
+
+## Immutable objects
+- Object whose state `cannot be changed` after it is created,
+- A class whose objects are `immutable` is called an `immutable-class`,
+- If an object’s state `can be changed` after it has been created, it is called a mutable object, and its class is called a `mutable-class`,
+- Two views of an object’s state:
+  - `internal`: Defined by the actual values of its instance variables at a point in time,
+  - `external`: Defined by the values that the users of the object see at a point in time, 
+- `An immutable object` means `external immutability`,
+- Advantages:
+  - Can be shared without worrying about changes,
+  - Testing an immutable class is easy,
+  - Thread safe since can't be changed,
+- Ex of mutable class: See `immutableTest()` in `Test.java`,
+  ```
+  private static void immutableTest(){
+      Cat cat = new Cat("Oscar");
+      System.out.println(cat.getName()); // Oscar
+  
+      cat.setName("Billi"); // state changed < - - - - -
+      System.out.println(cat.getName()); // Billi
+  }
+  ```
+- Immutable version of `Cat` class will be like this. See `GammaCat.java`,
+  ```
+  public class GammaCat {
+      private final String name; // <------- final optional though
+  
+      public GammaCat(String name) { this.name = name; }
+  
+      public String getName() { return name; }
+      
+      @Override
+      protected Object clone(){
+          try {
+              return super.clone();
+          }catch (CloneNotSupportedException e){
+              e.printStackTrace();
+              return null;
+          }
+      }
+  
+      @Override
+      protected void finalize() throws Throwable {
+          System.out.println(name);
+      }
+  
+  }
+  ```
+  just remove the ways that can make changes in variable. Here `setName()` is removed,
+- If you want to make your class `immutable` and your class contains reference of any other classes, then make sure to make those reference classes `immutable`,
+- For ex: for making `Human` class immutable, you have to make `Cat` class immutable also,
+- So, for making a class `immutable`,
+  - Make all instance variable `final`,(Optional, but compiler will ensure immutability),
+  - Make all references class `immutable`,
+  - Remove methods that can change variables state(Setter methods),
+

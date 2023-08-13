@@ -1,5 +1,7 @@
 package g_TheObjectClass;
 
+import javax.annotation.processing.SupportedSourceVersion;
+
 public class Test {
 
     public static void main(String[] args) {
@@ -13,6 +15,17 @@ public class Test {
         cloneTest();
         cloneTest2();
         finalizeTest();
+
+        immutableTest();
+    }
+
+    private static void immutableTest(){
+        System.out.println("---------------- immutableTest -----------------");
+        Cat cat = new Cat("Oscar");
+        System.out.println(cat.getName()); // Oscar
+
+        cat.setName("Billi"); // state changed
+        System.out.println(cat.getName()); // Billi
     }
 
     private static void finalizeTest(){
@@ -24,9 +37,6 @@ public class Test {
 
         for(int i=0; i<MAX; i++) {
             cats[i] = null;
-            try {
-                Thread.sleep(500);
-            }catch (Exception ignored){}
         }
     }
 
