@@ -7,6 +7,42 @@ public class Test {
         testGetClass();
         hashTest();
         equalsTest();
+        defaultEqualsTo();
+        customEqualsTo();
+    }
+
+    private static void customEqualsTo() {
+        System.out.println("-------------------- customEqualsTo ---------------");
+
+        Student atik = new Student(38,"Atik",22,168);
+
+        System.out.println(atik.toString()); // roll: 38, name: Atik, age: 22, height: 168.0
+
+
+        Student galib = new Student(35,"Galib",22,-173);
+
+        int heightInFeet = (int)(galib.getHeight() / 39);
+        System.out.println(heightInFeet); // negative so, must have some problem with value
+
+        //finding that problem
+        System.out.println(galib.toString()); // roll: 35, name: Galib, age: 22, height: -173.0
+
+        galib.setHeight(173); // fixing
+
+        heightInFeet = (int)(galib.getHeight() / 39);
+        System.out.println(heightInFeet); // fine
+
+    }
+
+
+    private static void defaultEqualsTo(){
+        System.out.println("-------------------- defaultEqualsTo ---------------");
+        Cat cat = new Cat("Happy 3X");
+
+        System.out.println(cat.toString()); // g_TheObjectClass.Cat@4dd8dc3
+        System.out.println(cat); // g_TheObjectClass.Cat@4dd8dc3
+
+        //above two statements are equivalent
     }
 
 

@@ -78,5 +78,12 @@ public class Student {
         return roll == item.roll && name.equals(item.name) && age == item.age && height == item.height;
     }
 
+
+    @Override
+    public String toString() {
+        //return super.toString();
+        return "roll: " + roll + ", " + "name: " + name + ", " + "age: " + age + ", " + "height: " + height;
+    }
+
 }
 

@@ -116,44 +116,101 @@
       ...
   }
   ```
+  Using like this. See `hashTest()` of `Test.java`,
+  ```
+  private static void hashTest(){
+  
+      Student saeed = new Student(57,"Saeed",21,170);
+      Student jakaria = new Student(56,"Jakaria",22,171);
+      Student saeedAgain = new Student(57,"Saeed",21,170);
+  
+      System.out.println(saeed.hashCode()); // 4218704
+      System.out.println(jakaria.hashCode()); // 4213539
+      System.out.println(saeedAgain.hashCode()); // 4218704
+  }
+  ```
 
 
 ## Comparing Objects for Equality
 - All objects have a unique identity,
 - The memory address at which an object is allocated can be treated as its identity,
 - Ex: See `Student.java`,
-```
-package g_TheObjectClass;
+  ```
+  public class Student {
+      private final int roll;
+      private final String name;
+      private int age;
+      private double height;
+      ...
+      @Override
+      public int hashCode() { ... }
+      
+      @Override
+      public boolean equals(Object obj) {
+          //return super.equals(obj); // default implementation
+  
+          if(this == obj){ // same reference
+              return true;
+          }
+  
+          if(!(obj instanceof Student)) { // object of different classes
+              return false;
+          }
+          
+          if(hashCode() != obj.hashCode()){ // different hashCode, so can't be same
+              return false;
+          }
+          
+          Student item = (Student)obj;
+  
+          return roll == item.roll && name.equals(item.name) && age == item.age && height == item.height;
+      }
+  
+  }
+  ```
+  Using like this. See `equalsTest()` of `Test.java`,
+  ```
+  private static void equalsTest(){
+  
+      Student saeed = new Student(57,"Saeed",21,170);
+      Student jakaria = new Student(56,"Jakaria",22,171);
+      Student saeedAgain = new Student(57,"Saeed",21,170);
+  
+      Cat cat = new Cat("Happy");
+  
+      System.out.println(jakaria.equals(jakaria)); // same reference - true
+  
+      System.out.println(cat.equals(saeed)); // object of different classes - false
+      System.out.println(saeed.equals(jakaria)); // different hashCode - false
+  
+      System.out.println(saeed.equals(saeedAgain)); // fine - true
+  }
+  ```
 
-public class Student {
-    private final int roll;
-    private final String name;
-    private int age;
-    private double height;
-    ...
-    @Override
-    public int hashCode() { ... }
-    
-    @Override
-    public boolean equals(Object obj) {
-//        return super.equals(obj); // default implementation
+## String Representation of an Object
+- The string representation of an object,
+- Contain enough information about the state of the object,
+- Mainly used for debugging purpose,
+- Has a default implementation, but not much useful,
+  - Ex: See `defaultEqualsTo()` of `Test.java`,
+    ```
+    private static void defaultEqualsTo(){
+        Cat cat = new Cat("Happy 3X");
 
-        if(this == obj){ // same reference
-            return true;
-        }
+        System.out.println(cat.toString()); // g_TheObjectClass.Cat@4dd8dc3
+        System.out.println(cat); // g_TheObjectClass.Cat@4dd8dc3
 
-        if(!(obj instanceof Student)) { // object of different classes
-            return false;
-        }
-        
-        if(hashCode() != obj.hashCode()){ // different hashCode, so can't be same
-            return false;
-        }
-        
-        Student item = (Student)obj;
-
-        return roll == item.roll && name.equals(item.name) && age == item.age && height == item.height;
+        //above two statements are equivalent
     }
+    ```
+- Let's override according to our need,
+- 
+- 
 
-}
-```
+
+
+
+
+
+
+
