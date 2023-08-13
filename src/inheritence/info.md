@@ -103,5 +103,53 @@
 
 
 
+## The `instanceof` Operator
+- Can be used for making sure that `downcast` will succeed,
+- An object is considered an instance of a class if 
+  - That object is of that class type, or 
+  - its direct or indirect descendant type, 
+- You can use the `instanceof` operator to check if an object is an instance of a class or not,
+- It performs both `compile-time` and `runtime` check,
+- See <a href="https://github.com/abusaeed2433/JavaBasic/blob/66e6efc7f943f2414b38900a9303db3a12894e9b/src/q_Interfaces/info5.md#the-instanceof-operator">instanceof at interface</a> for more,
+- Ex: See `instanceofTest()` in `Test.java`,
+  ```
+  static private void instanceOfTest(){
+      Employee abulKalam = new Employee(1, "Abul Kalam", 50000);
+      Employee employee = new Manager(2,"Employee",20034,10000);
+  
+      Manager manager;
+  
+      if(employee instanceof Manager){
+          manager = (Manager) employee; // executed
+      }
+      else{
+          System.out.println("Can't down-cast");
+      }
+  
+      if(abulKalam instanceof Manager){
+          manager = (Manager)abulKalam;
+      }
+      else{
+          System.out.println("Can't down-cast"); // executed
+      }
+  }
+  ```
 
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

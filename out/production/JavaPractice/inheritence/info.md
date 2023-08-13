@@ -70,4 +70,64 @@
 ## Upcasting and Down-casting
 - `subclass` can always be cast into `superclass`(`upcasting`),
 - `super-class` can be cast into `subclass` iff the variable of `superclass` refers object of the `subclass`(`downcasting`),
+- Ex:
+    ```
+    private static void testUpDownCasting(){
+        Employee abulKalam = new Employee(1, "Abul Kalam", 50000);
+    
+        Employee employee = new Manager(2,"Employee",20034,10000);
+    
+        Manager atikurRahman = new Manager(1, "Atikur Rahman", 80000, 10000);
+    
+        Employee emp;
+        emp = atikurRahman; // upCasting
+    
+        Manager manager;
+        //manager = abulKalam; // compile error
+        //manager = employee; // compile error
+    
+        //manager = (Manager)abulKalam; // runtime error <-------(a)
+    
+        manager = (Manager) employee; // fine - Down-casting <----(b)
+    
+    }
+    ```
+- While `down-casting`, 
+  - Make sure the variable(`employee`) is holding the object of the class(`Manager`) to which(`Manager`) you are going to cast,
+    <img src="files/type_check.jpg" height="140px">
+  
+  - In `(a)`, `runtime-error` is thrown. Because,
+    - `compile-time` check is passed,
+    - Failed at runtime check,
+    - See above image
+
+
+
+## The `instanceof` Operator
+- Can be used for making sure that `downcast` will succeed,
+- An object is considered an instance of a class if 
+  - That object is of that class type, or 
+  - its direct or indirect descendant type, 
+- You can use the `instanceof` operator to check if an object is an instance of a class or not,
+- It performs both `compile-time` and `runtime` check,
+- See <a href="https://github.com/abusaeed2433/JavaBasic/blob/66e6efc7f943f2414b38900a9303db3a12894e9b/src/q_Interfaces/info5.md#the-instanceof-operator">instanceof at interface</a> for more,
 - 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

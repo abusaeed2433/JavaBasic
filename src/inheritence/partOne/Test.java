@@ -1,10 +1,37 @@
 package inheritence.partOne;
 
+import javax.management.openmbean.TabularData;
+
 public class Test {
 
     public static void main(String[] args) {
         testUpcasting();
         testUpDownCasting();
+        instanceOfTest();
+    }
+
+    static private void instanceOfTest(){
+        System.out.println("--------------- instanceOfTest -------------------");
+
+        Employee abulKalam = new Employee(1, "Abul Kalam", 50000);
+
+        Employee employee = new Manager(2,"Employee",20034,10000);
+
+        Manager manager;
+
+        if(employee instanceof Manager){
+            manager = (Manager) employee; // executed
+        }
+        else{
+            System.out.println("Can't down-cast");
+        }
+
+        if(abulKalam instanceof Manager){
+            manager = (Manager)abulKalam;
+        }
+        else{
+            System.out.println("Can't down-cast"); // executed
+        }
     }
 
     private static void testUpDownCasting(){
