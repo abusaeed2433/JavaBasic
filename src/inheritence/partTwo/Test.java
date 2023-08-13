@@ -6,6 +6,26 @@ public class Test {
         basicBindingTest();
 
         earlyBindingTest();
+        lateBindingTest();
+    }
+
+    private static void lateBindingTest(){
+        System.out.println("----------------- lateBindingTest --------------");
+
+        Parent parent = new Parent();
+        Child child = new Child();
+
+        parent.print(); // Parent printing...
+
+        child.print(); // Child printing...
+
+        ((Parent)child).print(); // Child printing...
+
+
+        parent = child; // Upcasting
+
+        parent.print(); // Child printing...
+
     }
 
     private static void earlyBindingTest(){

@@ -44,24 +44,73 @@
       - Also known as `dynamic-binding`,
 
 
-
 ## Early binding
-- Made by the compiler at `compile-time`,
-- Used for the following types of methods and fields of a class in Java:
-  - All types of fields: `static` and `non-static`,
+- Done by the compiler at `compile-time`,
+- Only used for the following types of `methods` and `fields` of a class in Java:
+  - All `static` and `non-static` fields,
   - `Static` methods,
-  - `Non-static` final methods,
-- In early binding, a method or a field is accessed based on the declared type,
-- Ex:
+  - `Non-static-final` methods,
+- In early binding, a `method` or a `field` is accessed based on the declared type,
+- Ex: See `Parent.java`, `Child.java`, `earlyBindingTest()` in `Test.java`:
     ```
-    Parent parent = new Child();
-    parent.print(); <------ (a)
+    public class Parent {
+        private String name;
+        public static int id = 0;
+    
+        public final void send(){
+            System.out.println("Parent sending...");
+        }
+    
+        public static void run(){
+            System.out.println("Parent running...");
+        }
+    
+        public void print(){
+            System.out.println("Parent printing...");
+        }
+    }
     ```
-  For above `(a)`, according to `early-binding`, `print()` method of `Parent` class will be called. Remember code is executed at runtime not compile-time,
-- Ex
+    ```
+    public class Child extends Parent{
+        private String type;
+        public static int id = 1;
+    
+        public static void run(){
+            System.out.println("Child running...");
+        }
+    
+        public void print(){
+            System.out.println("Child printing...");
+        }
+    }
+    ```
+    ```
+    private static void earlyBindingTest(){
+        Parent parent = new Parent(); 
+        parent.send(); // Parent sending...
+        parent.run(); // Parent running...
+        System.out.println(parent.id); // 0
+    
+        parent = new Child(); 
+        parent.send(); // Parent sending...
+        parent.run(); // Parent running...
+        System.out.println(parent.id); // 0
+    
+    
+        Child child = new Child(); 
+        child.send(); // Child sending...
+        child.run(); // Child running...
+        System.out.println(child.id); // 1
+    
+        ((Parent)child).send(); // Parent sending...
+        ((Parent)child).run(); // Parent running...
+        System.out.println(((Parent)child).id); // 0
+    }
+    ```
+  - As you can see, it doesn't matter which object the variable is referring,
+  - `methods` and `fields` are always accessed based on the variable type,
 
 
-
-
-
- 
+## Late Binding
+- Used for `non-static`, `non-final` methods,
+- 
