@@ -12,6 +12,22 @@ public class Test {
 
         cloneTest();
         cloneTest2();
+        finalizeTest();
+    }
+
+    private static void finalizeTest(){
+        System.out.println("------------------ finalizeTest ---------------");
+
+        int MAX = 20;
+        Cat[] cats = new Cat[MAX];
+        for(int i=0; i<MAX; i++) cats[i] = new Cat(i+"");
+
+        for(int i=0; i<MAX; i++) {
+            cats[i] = null;
+            try {
+                Thread.sleep(500);
+            }catch (Exception ignored){}
+        }
     }
 
     private static void cloneTest2(){

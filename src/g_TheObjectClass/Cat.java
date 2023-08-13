@@ -24,4 +24,9 @@ public class Cat implements Cloneable{
             return null;
         }
     }
+
+    @Override
+    protected void finalize() throws Throwable {
+        System.out.println(name);
+    }
 }

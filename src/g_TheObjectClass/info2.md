@@ -133,3 +133,18 @@
   }
   ```
 
+## Finalizing an Object
+- Sometimes an object uses resources that need to be released when the object is destroyed,
+- In Java, you create objects, but you cannot destroy objects,
+- `Garbage Collector` handles object destruction part. But,
+- It gives a trigger before destroying object by calling `finalize()` method,
+- `finalize()` method:
+  - Structure:
+    ```
+    protected void finalize() throws Throwable {
+    ```
+  - Doesn't do anything,
+  - is called when `garbage collector` determines that no reference exists for the object,
+  - **It is not even guaranteed that a finalizer will run at all. So avoid relying on it for cleanup,**
+  - Deprecated and will be removed in the future,
+- Ex: Try yourself like `finalizeTest()` in `Test.java`,

@@ -114,6 +114,36 @@
       }
   }
   ```
-  Result is:
-- 
+  Result is(Perfectly fine):
+  ```
+  private static void cloneTest2(){
+      Human tomal = new Human("Tomal","Loki");
+      System.out.println(tomal); // owner: Tomal, catName: Loki
   
+      Human copied = (Human) tomal.clone();
+      System.out.println(copied); // owner: Tomal, catName: Loki
+  
+      copied.setName("Totomal");
+      System.out.println(tomal); // owner: Tomal, catName: Loki
+      System.out.println(copied); // owner: Totomal, catName: Loki
+  
+      copied.setCatName("kilo");
+      System.out.println(tomal); // owner: Tomal, catName: Loki
+      System.out.println(copied);// owner: Totomal, catName: kilo
+  }
+  ```
+
+## Finalizing an Object
+- Sometimes an object uses resources that need to be released when the is destroyed,
+- In Java, you create objects, but you cannot destroy objects,
+- `Garbage Collector` handles object destruction part. But,
+- It gives a trigger before destroying object by calling `finalize()` method,
+- `finalize()` method:
+  - Structure:
+    ```
+    protected void finalize() throws Throwable {
+    ```
+  - Doesn't do anything,
+  - is called when `garbage collector` determines that no reference exists for the object,
+  - It is not even guaranteed that a finalizer will run at all. So avoid relying on it for cleanup,
+  - Deprecated and will be removed in future,
