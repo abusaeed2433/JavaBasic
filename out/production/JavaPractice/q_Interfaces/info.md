@@ -1,9 +1,9 @@
 
-# Interface
+# interface part-1
 
 > BROAD AND CONFUSING TOPIC. PRACTICE MORE
 
-> Codes are in `problemAndSolution` package
+> Codes are in `partOne` package
 
 ## Introduction
 - Very important concept,

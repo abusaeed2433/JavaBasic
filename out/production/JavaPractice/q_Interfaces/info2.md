@@ -1,7 +1,7 @@
 
 # interface part-2
 
-> CODES ARE IN `declaration` PACKAGE
+> CODES ARE IN `partTwo` PACKAGE
 
 > Try to understand basic structure with `field` and `Abstract methods`. You can ignore from 3-lines separator
 

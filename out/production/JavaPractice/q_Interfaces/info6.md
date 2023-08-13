@@ -93,5 +93,4 @@
     - If still not found, then `NoSuchMethodError` is thrown,
 
 
->> If, at first, you do not succeed, call it version 1.0. ― Khayri R.R. Woulfe
-
+>> IF IT WERE TOO EASY, EVERYONE WOULD DO IT.
