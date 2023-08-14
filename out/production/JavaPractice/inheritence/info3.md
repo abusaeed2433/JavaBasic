@@ -55,6 +55,47 @@
 - For primitive data type,
   - `return-type` of both methods must be the same,
 - For reference data type,
-  - `return-type` of the `overriding-method` must be assignment compatible to the `return-type` of the `overridden-method`,
+  - `return-type` of the `overriding-method` must be assignment compatible to the `return-type` of the `overridden-method`, i.e.,
+  - `Child-type` should be assignment compatible to `Parent-type`,
 - Ex:
+  ```
+  public class Parent {
+      ...
+      int getOne(){ return 1; }
+      Parent getThis(){ return this; }
+      ...
+  }
+  ```
+  ```
+  public class Child extends Parent{
+      ...
+      @Override
+      int getOne(){ return -1; }
+      @Override
+      Child getThis(){ return this; }
+      ...
+  }
+  ```
+  Using like this: See `overridingRule4()` in `Test.java`,
+  ```
+  private static void overridingRule4(){
+      Parent parent = new Parent();
+      System.out.println(parent.getOne()); // 1
+  
+      parent = new Child();
+      System.out.println(parent.getThis()); // Child
+  }
+  ```
+
+### Rule-5:
+- The access level of the `overriding-method` must be at least the `same or more relaxed` than that of the `overridden-method`,
+- `private` members can't be overridden since they are not inherited,
+- See this:
+- <img src="files/relaxed_overriding_method.jpg" height="160px"/>
+
+
+### Rule-6:
+- The `overriding-method` can't add a new exception to the list of exceptions in the `overridden-method`,
+- It may remove one or all exceptions, 
+- It may replace an exception with another exception,
 - 
