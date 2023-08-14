@@ -95,7 +95,79 @@
 
 
 ### Rule-6:
-- The `overriding-method` can't add a new exception to the list of exceptions in the `overridden-method`,
-- It may remove one or all exceptions, 
-- It may replace an exception with another exception,
-- 
+- The `overriding-method` can't add a new exception to the list of exceptions in the `overridden-method`,`(a)`
+- It may remove one or all exceptions, `(b)`
+- It may replace an exception with another exception, But exception must be child of `overridden-method` exception, `(c)`
+- Ex: See `CheckedException1.java`, `CheckedException2.java`, `CheckedException11.java`, `Father.java`, `Son.java`, 
+  ```
+  public class CheckedException1 extends Exception{ }
+  ```
+  ```
+  public class CheckedException2 extends Exception{ }
+  ```
+  ```
+  public class CheckedException11 extends CheckedException1{ }
+  ```
+  ```
+  public class Father {
+      public void calc(int x) throws CheckedException1, IOException {
+          System.out.println("Father");
+          if(x == -1) throw new CheckedException1();
+          if(x == 0) throw new IOException();
+      }
+  }
+  ```
+  ```
+  public class Son extends Father{
+  
+  //    @Override
+  //    public void calc(int x) throws CheckedException11, IOException {//fine (c)
+  //        System.out.println("Son");
+  //    }
+  
+  
+  //    @Override
+  //    public void calc(int x) throws CheckedException2{ // error <------(a)
+  //        System.out.println("Son");
+  //    }
+  
+  
+  //    @Override
+  //    public void calc(int x) throws CheckedException1{ // valid (b)
+  //        System.out.println("Son");
+  //    }
+  
+      @Override
+      public void calc(int x){ // valid (b)
+          System.out.println("Son");
+      }
+  }
+  ```
+
+## Overriding summary
+- Main things 
+  - Name of the method: `same`,
+  - Number of parameters: `same`,
+  - Type of parameters: `same`,
+  - Order of parameters: `same`,
+  - Return type: `same` or `child` of `overridden-method` `return-type`,
+  - Access level: `same` or `less`,
+  - List of checked exceptions: `same` or `less`,
+- Ex: `access-level` of `overridden-method` should be `same` or `less` restrictive than `access-level` of `overriding-method`,
+- You will get `compile-time` error if you make any error. So don't worry,
+- Golden rule about method overriding: 
+  - `Whatever code is written using the superclass type must also work with the subclass type`,
+
+
+## Accessing overridden method
+- A subclass can use the keyword `super` to call the `overridden-method` of the superclass,
+- Ex: See `Son.java`,
+  ```
+  @Override
+  public void calc(int x) throws CheckedException1, IOException {
+      super.calc(x); // calling calc(int) of Father class
+  }
+  ```
+
+
+>> Basic overriding knowledge is enough in almost most of the cases
