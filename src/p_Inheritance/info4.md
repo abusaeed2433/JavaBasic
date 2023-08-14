@@ -127,6 +127,62 @@
   ```
 
 
+## Method hiding
+- `Child` class inherits all non-private static methods of `Parent` class,
+- Redefining a static method in `Child` class hide the static method in `Parent` class,
+- The redefined static method in a subclass is said to hide the static method of its superclass,
+- Recall that redefining a non-static method in a class is called `method overriding`, not `method-hidiing`,
+- Redefining rules are same as method overriding rules,
+- Remember, early binding is used for static methods,
+- Ex: See `SuperClass.java`, `SubClass.java` & `testHidingBasic()` in `Test.java`,
+  ```
+  public class SuperClass {
+      public static void print() {
+          System.out.println("Super.print()");
+      }
+  }
+  ```
+  ```
+  public class SubClass extends SuperClass{
+      public static void print() {
+          System.out.println("Sub.print()");
+      }
+  }
+  ```
+  ```
+  private static void testHidingBasic(){
+  
+      SuperClass spr = new SuperClass();
+      SubClass sub = new SubClass();
+  
+      SuperClass.print(); // Super.print()
+      spr.print(); // Super.print()
+    
+      SubClass.print(); // Sub.print()
+      sub.print(); // Sub.print()
+
+      ((SuperClass) sub).print(); // Super.print() <----(a)
+  
+      spr = sub;
+      spr.print(); // Super.print() <---------------(b)
+      ((SubClass) spr).print(); // Sub.print()  
+  }
+  ```
+- Explanation of above example:
+  - All are normally executed till `(a)`,
+  - At `(a)`, 
+    - The `compile-time` type of the `sub` variable is `SubClass`,
+    - After typecasting, the `compile-time` type of `(SuperClass)sub` becomes `SuperClass`,
+    - So `print()` of `SuperClass` is being called,
+  - At `(b)`,
+    - After `spr = sub;`, `compile-time` type of `spr` is still `SuperClass`,
+    - So, `print()` of `SuperClass` is being called,
+  - Last one is similar to `(b)`,
+  
+- A static method of a class cannot hide an instance method of its superclass
+- It just hides the `Parent` class implementation of a static method, Nothing more,
+- **Remember, always call static method using ClassName,**
+
 
 
 

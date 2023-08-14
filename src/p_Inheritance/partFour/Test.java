@@ -3,12 +3,37 @@ package p_Inheritance.partFour;
 public class Test {
 
     public static void main(String[] args) {
-
         testOverload();
-
         testConstructorSequence();
-
         testConstructorParameter();
+        testHidingBasic();
+
+    }
+
+    private static void testHidingBasic(){
+        System.out.println("----------------- testHidingBasic ----------------------");
+
+        SuperClass spr = new SuperClass();
+        SubClass sub = new SubClass();
+
+        SuperClass.print(); // Super.print()
+        spr.print(); // Super.print()
+
+        System.out.println("---------------------------");
+
+        SubClass.print(); // Sub.print()
+        sub.print(); // Sub.print()
+
+        System.out.println("---------------------------");
+
+        ((SuperClass) sub).print(); // Super.print() <----(a)
+
+        System.out.println("---------------------------");
+
+        spr = sub;
+        spr.print(); // Super.print() <---------------(b)
+        ((SubClass) spr).print(); // Sub.print()
+
 
     }
 

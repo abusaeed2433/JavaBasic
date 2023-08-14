@@ -96,9 +96,91 @@
   - Is automatically added by compiler,
   - Must be the first statement of a constructor,
 - If constructor of `Parent` class takes some parameter then simply pass those inside `super(here)`,
-- Ex:
+- Ex: See `Vehicle.java`, `Car.java` and `testConstructorParameter()` in `Test.java`,
+  ```
+  public class Vehicle {
+      String brand;
+      public Vehicle(String brand) {
+          this.brand = brand;
+      }
+      ...
+  }
+  ```
+  ```
+  public class Car extends Vehicle{
+      int noOfDoors;
+      public Car(String brand, int noOfDoors) {
+          super(brand); // <------------ calling parent class constructor and passing brand value
+          this.noOfDoors = noOfDoors;
+      }
+      ...
+  }
+  ```
+  Using like this:
+  ```
+  private static void testConstructorParameter(){
+      Car myCar = new Car("Toyota", 4);
+  
+      System.out.println(myCar.brand); // Toyota
+      System.out.println(myCar.noOfDoors); // 4
+  }
+  ```
 
 
+## Method hiding
+- `Child` class inherits all non-private static methods of `Parent` class,
+- Redefining a static method in `Child` class hide the static method in `Parent` class,
+- The redefined static method in a subclass is said to hide the static method of its superclass,
+- Recall that redefining a non-static method in a class is called `method overriding`, not `method-hidiing`,
+- Redefining rules are same as method overriding rules,
+- Remember, early binding is used for static methods,
+- Ex: See `SuperClass.java`, `SubClass.java` & `testHidingBasic()` in `Test.java`,
+  ```
+  public class SuperClass {
+      public static void print() {
+          System.out.println("Super.print()");
+      }
+  }
+  ```
+  ```
+  public class SubClass extends SuperClass{
+      public static void print() {
+          System.out.println("Sub.print()");
+      }
+  }
+  ```
+  ```
+  private static void testHidingBasic(){
+  
+      SuperClass spr = new SuperClass();
+      SubClass sub = new SubClass();
+  
+      SuperClass.print(); // Super.print()
+      spr.print(); // Super.print()
+    
+      SubClass.print(); // Sub.print()
+      sub.print(); // Sub.print()
+
+      ((SuperClass) sub).print(); // Super.print() <----(a)
+  
+      spr = sub;
+      spr.print(); // Super.print() <---------------(b)
+      ((SubClass) spr).print(); // Sub.print()  
+  }
+  ```
+- Explanation of above example:
+  - All are normally executed till `(a)`,
+  - At `(a)`, 
+    - The `compile-time` type of the `sub` variable is `SubClass`,
+    - After typecasting, the `compile-time` type of `(SuperClass)sub` becomes `SuperClass`,
+    - So `print()` of `SuperClass` is being called,
+  - At `(b)`,
+    - After `spr = sub;`, `compile-time` type of `spr` is still `SuperClass`,
+    - So, `print()` of `SuperClass` is being called,
+  - Last one is similar to `(b)`,
+  
+- A static method of a class cannot hide an instance method of its superclass
+- 
 
 
 
