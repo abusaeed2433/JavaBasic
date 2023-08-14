@@ -1,4 +1,4 @@
-package inheritence;
+package p_Inheritance;
 
 public class Child extends Parent {
 

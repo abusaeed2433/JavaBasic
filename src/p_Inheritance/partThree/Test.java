@@ -1,4 +1,4 @@
-package inheritence.partThree;
+package p_Inheritance.partThree;
 
 public class Test {
 

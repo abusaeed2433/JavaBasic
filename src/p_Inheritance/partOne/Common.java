@@ -1,4 +1,4 @@
-package inheritence.partOne;
+package p_Inheritance.partOne;
 
 public class Common {
 

@@ -1,6 +1,4 @@
-package inheritence.partOne;
-
-import javax.management.openmbean.TabularData;
+package p_Inheritance.partOne;
 
 public class Test {
 

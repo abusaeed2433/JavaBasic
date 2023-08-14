@@ -74,10 +74,19 @@
     <th><a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/o_Array/info.md"> Click here </a></th>
     <th><a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/o_Array"> Click here </a></th>
   </tr>
+
   <tr>
-    <th>Enum</th>
-    <th><a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/r_Enum/info.md"> Click here </a></th>
-    <th><a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/r_Enum"> Click here </a></th>
+    <th>Inheritance</th>
+    <th>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/p_Inheritance/info.md" > Part-1 </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/p_Inheritance/info2.md" > Part-2 </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/p_Inheritance/info3.md" > Part-3 </a> <br>
+    </th>
+    <th>
+      <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/p_Inheritance/partOne"> Click here(1) </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/p_Inheritance/partTwo"> Click here(2) </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/p_Inheritance/partThree"> Click here(3) </a> <br>
+    </th> 
   </tr>
 
   <tr>
@@ -100,6 +109,12 @@
       <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/q_Interfaces/partSix"> Click here(6) </a> <br>
       <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/q_Interfaces/partSeven"> Click here(7) </a> <br>
     </th> 
+  </tr>
+
+  <tr>
+    <th>Enum</th>
+    <th><a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/r_Enum/info.md"> Click here </a></th>
+    <th><a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/r_Enum"> Click here </a></th>
   </tr>
 
 </table>

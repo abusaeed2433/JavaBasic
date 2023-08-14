@@ -1,4 +1,4 @@
-package inheritence.partTwo;
+package p_Inheritance.partTwo;
 
 public class Test {
 
