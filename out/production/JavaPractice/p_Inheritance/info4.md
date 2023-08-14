@@ -180,11 +180,18 @@
   - Last one is similar to `(b)`,
   
 - A static method of a class cannot hide an instance method of its superclass
+- It just hides the `Parent` class implementation of a static method, Nothing more,
+- **Remember, always call static method using ClassName,**
+
+
+## Field Hiding
+- A field (`static` or `non-static`) in a `subclass` hides the inherited field with the same name in its `superclass`,
+- Occurs solely based on the field `name`,
+- The `type of the field` and its `access level` doesn't matter,
+- Remember, `early-binding` is used for field access,
+- Use `super` keyword to access the hidden fields of the `superclass`,
+- Ex: 
 - 
-
-
-
-
 
 
 

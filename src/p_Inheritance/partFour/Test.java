@@ -7,6 +7,18 @@ public class Test {
         testConstructorSequence();
         testConstructorParameter();
         testHidingBasic();
+        testFieldHiding();
+    }
+
+    private static void testFieldHiding(){
+        System.out.println("----------------- testFieldHiding ----------------------");
+
+        Mother mother = new Mother("Rumi");
+        Daughter daughter = new Daughter("Tisha");
+
+        mother.printFormattedName(); // MRS Rumi
+        daughter.printFormattedName(); // MISS Tisha
+        daughter.printParentField(); // Don't know
 
     }
 
