@@ -1,5 +1,5 @@
 
-# inheritance part-3
+# inheritance part-4
 > Codes are in `partFour` package
 
 ## Method overloading
