@@ -96,35 +96,9 @@
   - Is automatically added by compiler,
   - Must be the first statement of a constructor,
 - If constructor of `Parent` class takes some parameter then simply pass those inside `super(here)`,
-- Ex: See `Vehicle.java`, `Car.java` and `testConstructorParameter()` in `Test.java`,
-  ```
-  public class Vehicle {
-      String brand;
-      public Vehicle(String brand) {
-          this.brand = brand;
-      }
-      ...
-  }
-  ```
-  ```
-  public class Car extends Vehicle{
-      int noOfDoors;
-      public Car(String brand, int noOfDoors) {
-          super(brand); // <------------ calling parent class constructor and passing brand value
-          this.noOfDoors = noOfDoors;
-      }
-      ...
-  }
-  ```
-  Using like this:
-  ```
-  private static void testConstructorParameter(){
-      Car myCar = new Car("Toyota", 4);
-  
-      System.out.println(myCar.brand); // Toyota
-      System.out.println(myCar.noOfDoors); // 4
-  }
-  ```
+- Ex:
+
+
 
 
 

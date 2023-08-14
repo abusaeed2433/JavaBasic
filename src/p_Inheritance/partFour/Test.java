@@ -4,6 +4,36 @@ public class Test {
 
     public static void main(String[] args) {
 
+        testOverload();
+
+        testConstructorSequence();
+
+        testConstructorParameter();
+
+    }
+
+    private static void testConstructorParameter(){
+        System.out.println("------------------ testConstructorParameter -----------------------");
+
+        Car myCar = new Car("Toyota", 4);
+
+        System.out.println(myCar.brand); // Toyota
+        System.out.println(myCar.noOfDoors); // 4
+
+    }
+
+
+    private static void testConstructorSequence(){
+        System.out.println("------------------ testConstructorSequence -----------------------");
+        Child child = new Child();
+        /*
+         Output
+         parent constructor
+         Child constructor
+        */
+    }
+
+    private static void testOverload(){
         System.out.println( add(5,10) ); // 15
         System.out.println( add(5.0,10) ); // 15.8
 
@@ -12,7 +42,6 @@ public class Test {
         myMath.sub(5.0,2); // fine
         myMath.sub(5,2.0); // fine
         //myMath.sub(5,5); // ambiguous - compile-time error
-
     }
 
 
