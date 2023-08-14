@@ -113,4 +113,36 @@
 
 ## Late Binding
 - Used for `non-static`, `non-final` methods,
-- 
+- Ex: See `lateBindingTest()` in `Test.java`,
+    ```
+    private static void lateBindingTest(){
+    
+        Parent parent = new Parent();
+        Child child = new Child();
+    
+        parent.print(); //(1) Parent printing...
+    
+        child.print(); //(2) Child printing...
+    
+        ((Parent)child).print();(3) // Child printing...
+    
+    
+        parent = child; // Upcasting
+    
+        parent.print();(4) // Child printing...
+    
+    }
+    ```
+- At `(1)` & `(2)`, it is simply fine, i.e., calling method on object to which variable is referring,
+- At `(3)`, 
+  - When you use a typecast such as `(Parent)child`, the object to which `child` refers to at runtime does not change,
+  - Using a typecast, all you say is that you want to use the object to which `child` variable refers as an object of `Parent` type. However, the object itself never changes,
+  - Since object is not changed and referring to `Child` class object, so `print()` of `Child` class is called,
+- At `(4)`, this is similar to `(3)`. Referring `Child` class object, so calling `Child` class method,
+
+- Late binding may cause little performance overhead,
+  - Because method call are resolved runtime,
+  - But this is actually made negligible by using `virtual method table`,
+- Provides a huge benefit to implement `polymorphism`,
+
+>> It's not hard, just try by yourself
