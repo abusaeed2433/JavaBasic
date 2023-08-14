@@ -1,5 +1,5 @@
 
-# inheritance part-3
+# inheritance part-4
 > Codes are in `partFour` package
 
 ## Method overloading
@@ -190,14 +190,52 @@
 - The `type of the field` and its `access level` doesn't matter,
 - Remember, `early-binding` is used for field access,
 - Use `super` keyword to access the hidden fields of the `superclass`,
-- Ex: 
-- 
-
-
-
-
-
-
-
-
-
+- Ex: See `Mother.java`, `Daughter.java` & `testFieldHiding()` in `Test.java`,
+  ```
+  public class Mother {
+      private static final String PREFIX = "MRS";
+      protected String name;
+  
+      public Mother(String name) {
+          this.name = name;
+      }
+  
+      public void printFormattedName(){
+          System.out.println(PREFIX+" "+name);
+      }
+      ...
+  }
+  ```
+  ```
+  public class Daughter extends Mother{
+      private static final String PREFIX = "MISS";
+      private String name;
+  
+      public Daughter(String name) {
+          super("Don't know");
+          this.name = name;
+      }
+  
+      public void printParentField(){
+          System.out.println(super.name);
+      }
+  
+      public void printFormattedName(){
+          System.out.println(PREFIX+" "+name); // will use daughter name. hide name of Daughter
+      }
+      ...
+  }
+  ```
+  Using like this:
+  ```
+  private static void testFieldHiding(){
+   
+      Mother mother = new Mother("Rumi");
+      Daughter daughter = new Daughter("Tisha");
+  
+      mother.printFormattedName(); // MRS Rumi
+      daughter.printFormattedName(); // MISS Tisha
+      daughter.printParentField(); // Don't know
+  
+  }
+  ```
