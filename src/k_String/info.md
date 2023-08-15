@@ -56,3 +56,39 @@
 - Not used too much,
 
 
+## CharSequence
+- Is an `interface` in the `java.lang package`,
+- `String`, `StringBuffer`, and `StringBuilder` implements `CharSequence` interface. So, these can be used wherever `Charsequence` is required,
+- Ex: See `charSequenceTest()` in `Test.java`,
+    ```
+    private static void printWithLength(CharSequence cs){
+        System.out.println(cs+" -> "+cs.length());
+    }
+    ```
+    ```
+    private static void charSequenceTest(){
+        String name = "Hello S";
+        printWithLength(name); // Hello S -> 7
+    
+        StringBuffer buffer = new StringBuffer("Buffer"); // will be discussed later
+        printWithLength(buffer); // Buffer -> 6
+    
+        StringBuilder builder = new StringBuilder("Builder"); // will be discussed later
+        printWithLength(builder); // Builder -> 7
+    }
+    ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

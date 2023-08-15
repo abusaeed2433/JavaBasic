@@ -36,4 +36,43 @@
 - Valid to use all `escape sequence characters` to form a string literal,
 - A character can also be represented as a `Unicode escape` in the form `\uxxxx`,
   - `x` is a hexadecimal digit,
+- Ex: See `escapeTest()` in `Test.java`,
+    ```
+    private static void escapeTest(){
+        System.out.println( "hello" ); // hello
+    
+        System.out.println( "he\nllo" );
+        // he
+        // llo
+    
+        System.out.println( "100%" ); // 100%
+        System.out.println( "Said by \"Unknown\"" ); // Said by "Unknown"
+    
+        System.out.println("Apple"); // Apple
+        System.out.println("\u0041pple"); // Apple
+    
+    }
+    ```
+- Not used too much,
+
+
+## CharSequence
+- Is an `interface` in the `java.lang package`,
+- `String`, `StringBuffer`, and `StringBuilder` implement `CharSequence` interface. So, these can be used wherever `Charsequence` is required,
+- Ex:
 - 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
