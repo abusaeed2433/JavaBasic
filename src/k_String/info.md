@@ -173,16 +173,95 @@
     - 2nd character is different. So return `'B'-'b'` which is `66-98 = -32`,
     - Doesn't check any other character,
 
-  
-  
 
+    
+## String Pool
+- Java maintains a pool of all `string literals`,
+- To minimize the memory usage and for better performance,
+- It creates a `String object` in the `string pool` for every string literal it finds in a program,
+- When it encounters a string literal,
+  - It looks for a `string object` in the `string pool` with the identical content,
+    - If it doesn't find a match in the `string pool`, 
+      - It creates a new `String object` with that content and adds it to the `string pool`,
+      - Then, it replaces the `string literal` with the reference of the newly created `String object` in pool,
+    - If it finds a match in the `string pool`, 
+      - It replaces the `string literal` with the reference of the `String object` found in the pool,
+- For below statement:
+    ```
+    String str = new String("Hello"); // <---------(a)
+    ```
+  - Here `"Hello"` is a `String literal`,
+  - `"Hello"` is not in `String pool` initially,
+  - So `String object`(say `x`) having content `Hello` will be created and added to `String pool`,
+  - Above statement will be like:
+    ```
+    String str = new String(x);
+    ```
+  - Since we are using `new String()`, So another `String object` will be created on the `heap memory`,
+  - So total `2` String objects will be created for `(a)`,
+- For these `2` statements below,
+    ```
+    String str1 = new String("Hello"); // <---------(c)
+    String str2 = new String("Hello");// <----------(d)
+    ```
+  - Assuming before executing those statements, `String pool` doesn't contain `"Hello"`,
+  - How many `Sting` objects will be created ?
+  - Answer is `3`. Because
+    - For `(c)`, `2` string objects will be created,(explained earlier),
+    - For `(d)`,
+      - `"Hello"` String literal already exists in `String pool`, So no String object will be created in `String pool`,
+      - Since `new String()` is used in `(d)`, So a `String object` will be created in `heap memory`,
+  - Total `3` `String object` will be created,
 
+- Another ex: See `stringPoolTest()` in `Test.java`,
+    ```
+    private static void stringPoolTest(){
+        String rohit = "Rohit"; // added to pool
+        String salma = "Salma"; // added to pool
+    
+        String rohitAgain = "Rohit"; // not added
+        String rohitNew = new String("Rohit"); // not added to pool, but created in heap
+    
+        System.out.println(rohit == salma); // false
+        System.out.println(rohit == rohit); // true
+        System.out.println(rohit == rohitAgain); // true, since referring same object in String pool
+        System.out.println(rohit == rohitNew); // false, Remember new always creates new object
+    
+        String added = "Have" + "Fun"; // added to pool
+        String together = "HaveFun"; // not added to pool
+    
+        System.out.println(added == together); // true, since ("Have" + "Fun") is evaluated at compile time and result "HaveFun" is added to pool
+    
+        final String constStr = "Constant"; // constStr is a constant since final
+        String s1 = constStr + " is pooled"; // "Constant is pooled" will be added to the string pool
+    
+        String res1 = "Constant is pooled"; // not added to pool
+        System.out.println(s1 == res1); // true
+    
+    
+        String varStr = "Variable"; // varStr is not a constant since not final
+        String s2 = varStr + " is not pooled";
+    
+        String res2 = "Variable is not pooled"; // added to pool
+        System.out.println(s2 == res2); // false
+    }
+    ```
+  - If you have confusion, practice by yourself. Also see the links provided in last part of `String`,
 
+- `intern()` method:
+  - Called as `str.intern()`,
+  - If `str` is found in pool, then returns that reference,
+  - If `str` isn't found in pool, then create an object in the `String pool` & return reference of the created object,
+  - Ex: See `internTest()` in `Test.java`,
+    ```
+    private static void internTest(){
+        String var = "My variable";
+        String s2 = (var + " is actually pooled").intern(); // added to pool
+    
+        String res = "My variable is actually pooled";
+        System.out.println(s2 == res); // true. without intern() output is false
+    }
+    ```
 
-
-
-
-
-
-
+>> Actually you don't need to understand all of these
 

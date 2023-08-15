@@ -3,6 +3,7 @@ package k_String.partOne;
 public class Test {
 
     public static void main(String[] args) {
+
         escapeTest();
         charSequenceTest();
         stringConstructorTest();
@@ -11,6 +12,56 @@ public class Test {
         immutableTest();
 
         stringCompareTo();
+
+        stringPoolTest();
+        internTest();
+
+    }
+
+    private static void internTest(){
+        System.out.println("---------------------- internTest ---------------------");
+
+        String var = "My variable";
+        String s2 = (var + " is actually pooled").intern(); // added to pool
+
+        String res = "My variable is actually pooled";
+        System.out.println(s2 == res); // true. without intern() output is false
+    }
+
+    private static void stringPoolTest(){
+        System.out.println("---------------- stringPoolTest -------------------------");
+
+        // Bard
+        String rohit = "Rohit";
+        String salma = "Salma";
+
+        String rohitAgain = "Rohit";
+        String rohitNew = new String("Rohit");
+
+        System.out.println(rohit == salma); // false
+        System.out.println(rohit == rohit); // true
+        System.out.println(rohit == rohitAgain); // true, since referring same object in String pool
+        System.out.println(rohit == rohitNew); // false, Remember new always creates new object
+
+
+        String added = "Have" + "Fun";
+        String together = "HaveFun";
+
+        System.out.println(added == together); // true, since ("Have" + "Fun") is evaluated at compile time and result "HaveFun" is added to pool
+
+
+        final String constStr = "Constant"; // constStr is a constant since final
+        String s1 = constStr + " is pooled"; // "Constant is pooled" will be added to the string pool
+
+        String res1 = "Constant is pooled";
+        System.out.println(s1 == res1); // true
+
+
+        String varStr = "Variable"; // varStr is not a constant since not final
+        String s2 = varStr + " is not pooled";
+
+        String res2 = "Variable is not pooled";
+        System.out.println(s2 == res2); // false
 
     }
 
