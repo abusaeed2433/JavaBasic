@@ -88,8 +88,8 @@
     System.out.println( code.trim() ); // hello pluto
     ```
 - ### Replacing part of string,
-  - `.replace(oldStr, new)`, `replaceAll(regex,new)`,
-  - I will discuss `regex` later insha'Allah if I can,
+  - `.replace(oldStr, new)`, `replaceAll(n_Regex,new)`,
+  - I will discuss `n_Regex` later insha'Allah if I can,
   - Ex:
     ```
     String greeting = "Hello old man, Hello";
@@ -106,11 +106,11 @@
     ```
 
 - ### Splitting string:
-  - `.split(regex)`,
+  - `.split(n_Regex)`,
   - Ex:
     ```
      String strVowels = "a,e,i,o,u";
-     String[] vowels = strVowels.split(","); //split(regex)
+     String[] vowels = strVowels.split(","); //split(n_Regex)
     ```
 - ### Joining string:
   - `String.join(sep, str1,str2.....)`,
