@@ -201,3 +201,32 @@
       System.out.println(builder); // This is 5
   }
   ```
+## Language-Sensitive String Comparison
+- For comparing strings based on the `dictionary order`,
+- Use `compare()` method of the `java.text.Collator` for this,
+- `compare()` in `java.text.Collator`:
+  - Returns `0` if equals,
+  - Returns `-1` if `1st` one comes before `2nd` one,
+  - Returns `1` if `1st` one comes after `2nd` one,
+- Ex: See `dictCompare()` in `Test.java`,
+  ```
+  private static void dictCompare(){
+  
+      String str1 = "abc";
+      String str2 = "bcd";
+      String str3 = "Bcd";
+  
+      Collator collator = Collator.getInstance(Locale.US);
+  
+      int res;
+  
+      res = collator.compare(str1,str2);
+      System.out.println(res); // -1 since abc is before bcd
+  
+      res = collator.compare(str2,str1);
+      System.out.println(res); // 1 since bcd is after abc
+  
+      res = collator.compare(str2,str3);
+      System.out.println(res); // -1 since bcd is before Bcd
+  }
+  ```

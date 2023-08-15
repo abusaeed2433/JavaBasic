@@ -1,5 +1,6 @@
 package k_String.partTwo;
 
+import java.text.Collator;
 import java.util.Arrays;
 import java.util.Locale;
 
@@ -14,6 +15,29 @@ public class Test {
         stringBuilderTest();
         stringBufferTest();
         concatenateTest();
+
+        dictCompare();
+    }
+
+    private static void dictCompare(){
+        System.out.println("----------------------- dictCompare -----------------------");
+
+        String str1 = "abc";
+        String str2 = "bcd";
+        String str3 = "Bcd";
+
+        Collator collator = Collator.getInstance(Locale.US);
+
+        int res;
+
+        res = collator.compare(str1,str2);
+        System.out.println(res); // -1 since abc is before bcd
+
+        res = collator.compare(str2,str1);
+        System.out.println(res); // 1 since bcd is after abc
+
+        res = collator.compare(str2,str3);
+        System.out.println(res); // -1 since bcd is before Bcd
 
     }
 

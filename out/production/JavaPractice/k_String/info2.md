@@ -183,4 +183,29 @@
 
 ## String concatenation
 - Can be concatenated using `+` operator,
-- 
+- Better to use `StringBuilder` or `StringBuffer` since multiple objects are not being created,
+- Ex: See `concatenateTest()` in `Test.java`,
+  ```
+  private static void concatenateTest(){
+      int num = 5;
+  
+      String total = "This ";
+      total += "is ";
+      total += String.valueOf(num);
+  
+      System.out.println(total); // This is 5
+  
+      // better approach since multiple objects are not created
+      StringBuilder builder = new StringBuilder();
+      builder.append("This ").append("is ").append(num);
+      System.out.println(builder); // This is 5
+  }
+  ```
+## Language-Sensitive String Comparison
+- For comparing strings based on the `dictionary order`,
+- Use `compare()` method of the `java.text.Collator` for this,
+- `compare()` in `java.text.Collator`:
+  - Returns `0` if equals,
+  - Returns `-1` if `1st` one comes before `2nd` one,
+  - Returns `1` if `1st` one comes after `2nd` one,
+- See 
