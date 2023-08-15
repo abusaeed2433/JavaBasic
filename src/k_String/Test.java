@@ -1,6 +1,5 @@
-package string;
+package k_String;
 
-import java.lang.reflect.Field;
 import java.text.Collator;
 import java.util.Locale;
 
