@@ -189,7 +189,7 @@
   ```
 
 ## String Representation of an Object
-- The string representation of an object,
+- The k_String representation of an object,
 - Contain enough information about the state of the object,
 - Used for debugging purpose(Advanced debugging tools are available though),
 - Has a default implementation, but not much useful,
