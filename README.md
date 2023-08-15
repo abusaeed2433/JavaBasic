@@ -86,7 +86,7 @@
     </th>
     <th>
         <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/k_String/partOne"> Click here(1) </a> <br>
-        <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/k_String/partTwo"> Click here(1) </a> <br>
+        <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/k_String/partTwo"> Click here(2) </a> <br>
     </th>
   </tr>
 
