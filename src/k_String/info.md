@@ -67,7 +67,7 @@
     ```
     ```
     private static void charSequenceTest(){
-        String name = "Hello S";
+        String name = new String("Hello S");
         printWithLength(name); // Hello S -> 7
     
         StringBuffer buffer = new StringBuffer("Buffer"); // will be discussed later
@@ -102,7 +102,39 @@
     ```
   
 
+## Some properties of String
+ - Every `String` has an `integer` length,
+   - `length()` method returns number(`int`) of character on that `String` object,
+   - Ex:
+     ```
+     String name = new String("Hello March");
+     System.out.println(name.length()); // 11
+     ```
+ - All string `literals` are objects of the `String` class,
+   - All `methods` of the `String` class can be used with `String literals` directly,
+   - Ex:
+     ```
+     String msg = "This is Pluto"; // "This is Pluto" is an object
+     System.out.println(msg.length()); // 13
+     System.out.println("This is Pluto".length()); // 13
+     ```
 
+## String Objects Are Immutable
+- You cannot modify the content of a String object,
+- Can be shared without worrying about them getting modified,
+- Same String object can be referred by multiple variables, since immutable,
+- Ex: See `immutableTest()` in `Test.java`,
+    ```
+    private static void immutableTest(){
+    
+        String var1 = "Test Case";
+        String var2 = var1.substring(0,4);
+    
+        System.out.println(var1); // Test Case
+        System.out.println(var2); // Test
+    }
+    ```
+- Whenever you modify a `String`, new `String` is created with the result, performed on 1st `String`,
 
 
 

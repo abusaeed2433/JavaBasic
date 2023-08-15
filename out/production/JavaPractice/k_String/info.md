@@ -67,7 +67,7 @@
     ```
     ```
     private static void charSequenceTest(){
-        String name = "Hello S";
+        String name = new String("Hello S");
         printWithLength(name); // Hello S -> 7
     
         StringBuffer buffer = new StringBuffer("Buffer"); // will be discussed later
@@ -81,9 +81,49 @@
 
 ## Creating String Objects
 - `String` class contains `many constructors` that can be used for creating `String` object,
-- Ex: (Very few constructor)
-- 
+- Ex(Very few constructor): See `stringConstructorTest()` in `Test.java`,
+    ```
+    private static void stringConstructorTest(){
+        String name;
+    
+        name = new String(); // empty String
+        System.out.println(name); //
+    
+        name = new String("Hello");
+        System.out.println(name); // Hello
+    
+        char[] chars = {'1','2','3','4','a','b','d'};
+        name = new String(chars);
+        System.out.println(name); // 1234abd
+    
+        name = new String(chars,3,3); // start from index - 3 & take 3 characters from index-3
+        System.out.println(name); // 4ab
+    }
+    ```
+  
 
+## Some properties of String
+ - Every `String` has an `integer` length,
+   - `length()` method returns number(`int`) of character on that `String` object,
+   - Ex:
+     ```
+     String name = new String("Hello March");
+     System.out.println(name.length()); // 11
+     ```
+ - All string `literals` are objects of the `String` class,
+   - All `methods` of the `String` class can be used with `String literals` directly,
+   - Ex:
+     ```
+     String msg = "This is Pluto"; // "This is Pluto" is an object
+     System.out.println(msg.length()); // 13
+     System.out.println("This is Pluto".length()); // 13
+     ```
+
+## String Objects Are Immutable
+- You cannot modify the content of a String object,
+- Can be shared without worrying about them getting modified,
+- Same String object can be referred by multiple variables, since immutable,
+- 
 
 
 

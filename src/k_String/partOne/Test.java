@@ -6,6 +6,33 @@ public class Test {
         escapeTest();
         charSequenceTest();
         stringConstructorTest();
+
+        somePropertiesTest();
+        immutableTest();
+
+    }
+
+    private static void immutableTest(){
+        System.out.println("------------------- immutableTest -----------------------");
+
+        String var1 = "Test Case";
+        String var2 = var1.substring(0,4);
+
+        System.out.println(var1); // Test Case
+        System.out.println(var2); // Test
+    }
+
+    private static void somePropertiesTest(){
+        System.out.println("---------------------- somePropertiesTest -----------------");
+
+        String name = new String("Hello March");
+        System.out.println(name.length()); // 11
+
+        String msg = "This is Pluto"; // "This is Pluto" is an object
+        System.out.println(msg.length()); // 13
+        System.out.println("This is Pluto".length()); // 13
+
+
     }
 
     private static void stringConstructorTest(){
@@ -36,7 +63,7 @@ public class Test {
     private static void charSequenceTest(){
         System.out.println("--------------------- charSequenceTest -----------------------");
 
-        String name = "Hello S";
+        String name = new String("Hello S");
         printWithLength(name); // Hello S -> 7
 
         StringBuffer buffer = new StringBuffer("Buffer"); // will be discussed later
