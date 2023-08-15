@@ -181,7 +181,34 @@
 - Use whatever you need based on your need,
 - In both example, nested object(`part`) can't exist without the existence of main(`whole`) object, since `Engine` and `MobileDisplay` are created inside the `Car` and `Mobile` class,
 
+## aggregation vs composition
+<table>
 
+<tr>
+  <th>Aspect</th>
+  <th>Aggregation</th>
+  <th>Composition</th>
+</tr>
+
+<tr>
+  <td>Relationship</td>
+  <td>Indicates Has-a relationship</td>
+  <td>Indicates part-of relationship</td>
+</tr>
+
+<tr>
+<td>Lifespan</td>
+<td>Both object has independent life-cycle</td>
+<td>Lifecycle of part is dependent on whole</td>
+</tr>
+
+<tr>
+<td>Example</td>
+<td>Peron has an Address</td>
+<td>Engine is part of Car</td>
+</tr>
+
+</table>
 
 ## inheritance or composition ?
 - Both let you share the code,
