@@ -123,6 +123,11 @@
 
 **RE = Regular Expression**
 
+## Steps for using RE
+- Find regex and compile using `Pattern` class,
+- Create a `Matcher` object from `Pattern` object for matching operation,
+- Perform required operations on `Matcher` object,
+
 ## Compiling Regular Expressions (`Pattern`)
 - A `Pattern` holds the `compiled form` of a RE,
 - It(`Pattern`) is `immutable`,
@@ -153,4 +158,44 @@
     ```
   
 
-
+## Matching the Pattern
+- Following methods are available for matching:
+  - `find()`:
+    - Used to find a `match` for the `pattern` in the `input`,
+    - If the find succeeds, it returns `true`, else `false`,
+    - `first call` to this method starts the search for the `pattern` at the `beginning` of the input,
+    - If the previous call to this method was successful, the `next call` to this method starts the search after the `previous match`,
+  - `start()`:
+    - Returns the `start index` of the `previous match`, 
+    - It is used after a successful `find()` method call,
+  - `end()`:
+    - Returns the `index` of the `last character` in the matched string `plus one`,
+    - So, `end() - start()` gives you the matched string of user input,
+  - `group()`:
+    - Returns the found `string` by the previous successful `find()` method call,
+- Ex: See `performRegexOperation1()` in `Test.java`,
+    ```
+    private static void performRegexOperation1(){
+    
+        String regex = "[ABO][+-]";
+        Pattern pattern = Pattern.compile(regex);
+    
+        String input = "O+A+B+O-MNB-"; // <------ input to find pattern
+        Matcher matcher = pattern.matcher(input);
+    
+        while (matcher.find()){
+            String bg = matcher.group(); // or
+            String sameBg = input.substring(matcher.start(),matcher.end());
+    
+            System.out.println(bg+" = "+sameBg);
+        }
+    }
+    ```
+    ```
+    Output
+    O+ = O+
+    A+ = A+
+    B+ = B+
+    O- = O-
+    B- = B-
+    ```

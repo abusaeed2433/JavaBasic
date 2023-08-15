@@ -7,18 +7,33 @@ public class Test {
 
     public static void main(String[] args) {
         basicRegex();
-        compileRegex();
+        performRegexOperation1();
     }
 
-    private static void compileRegex(){
+    private static void performRegexOperation1(){
         System.out.println("--------------- compileRegex -------------------");
 
         String regex = "[ABO][+-]";
         Pattern pattern = Pattern.compile(regex);
 
-        String input = "O+";
+        String input = "O+A+B+O-MNB-";
         Matcher matcher = pattern.matcher(input);
 
+        while (matcher.find()){
+            String bg = matcher.group(); // or
+            String sameBg = input.substring(matcher.start(),matcher.end());
+
+            System.out.println(bg+" = "+sameBg);
+        }
+
+        /*
+        output
+        O+ = O+
+        A+ = A+
+        B+ = B+
+        O- = O-
+        B- = B-
+         */
 
     }
 

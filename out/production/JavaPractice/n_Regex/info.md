@@ -81,7 +81,96 @@
   - Ex: `@`,`+`,
 
 
-## Ex-1 (Basic): 
+## Ex-1 (Basic): See `basicRegex()` in `Test.java`,
+- Everything will be explained later,
+   ```
+    private static void basicRegex(){
+    
+        String regex = "[ABO][+-]";
+        Pattern pattern = Pattern.compile(regex);
+    
+        String[] arr = {"A+","AB-","B-","O"};
+    
+        for(String bg : arr) {
+            Matcher matcher = pattern.matcher(bg);
+    
+            if(matcher.matches()){ System.out.println(bg+" passed"); }
+            else{ System.out.println(bg+" failed"); }
+        }
+    
+    }
+    ```
+- Output:
+    ```
+    A+ passed
+    AB- failed
+    B- passed
+    O failed
+    ```
+
+## More Powers to Regular Expressions
+- `java.util.regex` contains three classes to support the full version of regular expressions,
+- `3` classes are:
+  - `Pattern`,
+    - Holds the compiled form of a regular expression,
+    - Compiled form facilitate faster string matching,
+  - `Matcher`,
+    - Associates the string to be matched with a `Pattern`,
+    - It performs the actual match,
+  - `PatternSyntaxException`,
+    - Represents an `error` in a malformed regular expression,
 
 
-a
+**RE = Regular Expression**
+
+## Steps for using RE
+- Find regex and compile using `Pattern` class,
+- Create a `Matcher` object from `Pattern` object for matching operation,
+- Perform required operations on `Matcher` object,
+
+## Compiling Regular Expressions (`Pattern`)
+- A `Pattern` holds the `compiled form` of a RE,
+- It(`Pattern`) is `immutable`,
+- It can be shared,
+- It has no public `constructor`,
+- `Pattern` class contains a `static compile()` method, which returns a `Pattern object`,
+- Two overloaded version of `compile()` method in `Pattern` class:
+  - `static Pattern compile(String regex)`,
+  - `static Pattern compile(String regex, int flags)`
+- Ex:
+    ```
+    String regex = "[ABO][+-]";
+    Pattern pattern = Pattern.compile(regex);
+    Pattern pattern1 = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
+    ```
+
+## Creating a `Matcher`:
+- Used to `perform a match` on a sequence of characters by interpreting the compiled pattern held in a `Pattern object`,
+- It(`Matcher`) has no `public constructor`,
+- `matcher()` method of the `Pattern` class is used to get an instance of the `Matcher` class,
+- Ex:
+    ```
+    String regex = "[ABO][+-]";
+    Pattern pattern = Pattern.compile(regex);
+            
+    String input = "O+";
+    Matcher matcher = pattern.matcher(input);
+    ```
+  
+
+## Matching the Pattern
+- Following methods are available for matching:
+  - `find()`:
+    - Used to find a `match` for the `pattern` in the `input`,
+    - If the find succeeds, it returns `true`, else `false`,
+    - `first call` to this method starts the search for the `pattern` at the `beginning` of the input,
+    - If the previous call to this method was successful, the `next call` to this method starts the search after the `previous match`,
+  - `start()`:
+    - Returns the `start index` of the `previous match`, 
+    - It is used after a successful `find()` method call,
+  - `end()`:
+    - Returns the `index` of the `last character` in the matched string `plus one`,
+    - So, `end() - start()` gives you the matched string of user input,
+  - `group()`:
+    - Returns the found `string` by the previous successful `find()` method call,
+  - 
