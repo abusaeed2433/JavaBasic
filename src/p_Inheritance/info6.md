@@ -181,3 +181,8 @@
 - Use whatever you need based on your need,
 - In both example, nested object(`part`) can't exist without the existence of main(`whole`) object, since `Engine` and `MobileDisplay` are created inside the `Car` and `Mobile` class,
 
+
+
+## inheritance or composition ?
+- Both let you share the code,
+- Whenever you are in doubt in choosing between `composition` and `inheritance`, give preference to `composition`,
