@@ -5,6 +5,27 @@ public class Test {
     public static void main(String[] args) {
         escapeTest();
         charSequenceTest();
+        stringConstructorTest();
+    }
+
+    private static void stringConstructorTest(){
+        System.out.println("--------------------- constructorTest ---------------------");
+
+        String name;
+
+        name = new String(); // empty String
+        System.out.println(name); //
+
+        name = new String("Hello");
+        System.out.println(name); // Hello
+
+        char[] chars = {'1','2','3','4','a','b','d'};
+        name = new String(chars);
+        System.out.println(name); // 1234abd
+
+        name = new String(chars,3,3); // start from index - 3 & take 3 characters from index-3
+        System.out.println(name); // 4ab
+
     }
 
 
