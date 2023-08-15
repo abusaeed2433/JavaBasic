@@ -92,6 +92,8 @@
       <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/p_Inheritance/info3.md" > Part-3 </a> <br>
       <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/p_Inheritance/info4.md" > Part-4 </a> <br>
       <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/p_Inheritance/info5.md" > Part-5 </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/p_Inheritance/info6.md" > Part-6 </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/p_Inheritance/info7.md" > Part-7 </a> <br>
     </th>
     <th>
       <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/p_Inheritance/partOne"> Click here(1) </a> <br>
@@ -99,6 +101,8 @@
       <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/p_Inheritance/partThree"> Click here(3) </a> <br>
       <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/p_Inheritance/partFour"> Click here(4) </a> <br>
       <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/p_Inheritance/partFive"> Click here(5) </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/p_Inheritance/partSix"> Click here(6) </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/p_Inheritance/partSeven"> Click here(7) </a> <br>
     </th> 
   </tr>
 
