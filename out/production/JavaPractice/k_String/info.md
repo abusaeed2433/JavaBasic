@@ -213,7 +213,7 @@
       - Since `new String()` is used in `(d)`, So a `String object` will be created in `heap memory`,
   - Total `3` `String object` will be created,
 
-- Another ex:
+- Another ex: See `stringPoolTest()` in `Test.java`,
     ```
     private static void stringPoolTest(){
         String rohit = "Rohit"; // added to pool
@@ -252,12 +252,16 @@
   - Called as `str.intern()`,
   - If `str` is found in pool, then returns that reference,
   - If `str` isn't found in pool, then create an object in the `String pool` & return reference of the created object,
-  - 
+  - Ex: See `internTest()` in `Test.java`,
+    ```
+    private static void internTest(){
+        String var = "My variable";
+        String s2 = (var + " is actually pooled").intern(); // added to pool
+    
+        String res = "My variable is actually pooled";
+        System.out.println(s2 == res); // true. without intern() output is false
+    }
+    ```
 
+>> Actually you don't need to understand all of these
 
-
-
-
-
-
-a
