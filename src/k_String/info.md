@@ -137,6 +137,45 @@
 - Whenever you modify a `String`, new `String` is created with the result, performed on 1st `String`,
 
 
+## Comparing Two Strings
+- Remember, strings are object. So `==` can't be used for comparing,
+- `int compareTo(String)` can be used for comparing two string objects,
+- `int compareTo(String)`:
+  - Returns an integer,
+  - Zero(`0`): If both are `equals`, 
+  - Positive integer(`>0`): `1st` one is lexicographically `larger` than `2nd`,
+  - Negative integer(`<0`): `1st` one is lexicographically `smaller` than `2nd`,
+  - It keeps comparing character by character, if different character is found, it returns `ascii value of that char in 1st` - `ascii value of that char at 2nd`
+- Ex: See `stringCompareTo()` in `Test.java`,
+    ```
+    private static void stringCompareTo(){
+        String val1 = "abc";
+        String val2 = "abc";
+        String val3 = "aBc";
+        String val4 = "zbd";
+        String val5 = "abcd";
+    
+        System.out.println(val1.compareTo(val2)); // 0
+    
+        System.out.println(val1.compareTo(val3)); // 32
+    
+        System.out.println(val3.compareTo(val1)); // -32 <-----------(a)
+    
+        System.out.println(val1.compareTo(val4)); // -25
+        System.out.println(val4.compareTo(val1)); // 25
+    
+        System.out.println(val1.compareTo(val5)); // -1
+        System.out.println(val5.compareTo(val1)); // 1
+    }
+    ```
+  - At `(a)`, `val3 = "aBc"`, `val1 = "abc"` then `val3.compareTo(val1)`:
+    - 1st character is same, continue
+    - 2nd character is different. So return `'B'-'b'` which is `66-98 = -32`,
+    - Doesn't check any other character,
+
+  
+  
+
 
 
 

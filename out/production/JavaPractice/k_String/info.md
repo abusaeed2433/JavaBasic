@@ -123,8 +123,31 @@
 - You cannot modify the content of a String object,
 - Can be shared without worrying about them getting modified,
 - Same String object can be referred by multiple variables, since immutable,
-- 
+- Ex: See `immutableTest()` in `Test.java`,
+    ```
+    private static void immutableTest(){
+    
+        String var1 = "Test Case";
+        String var2 = var1.substring(0,4);
+    
+        System.out.println(var1); // Test Case
+        System.out.println(var2); // Test
+    }
+    ```
+- Whenever you modify a `String`, new `String` is created with the result, performed on 1st `String`,
 
+
+## Comparing Two Strings
+- Remember, strings are object. So `==` can't be used for comparing,
+- `int compareTo(String)` can be used for comparing two string objects,
+- `int compareTo(String)`:
+  - Returns an integer,
+  - Zero(`0`): If both are `equals`, 
+  - Positive integer(`>0`): `1st` one is lexicographically `larger` than `2nd`,
+  - Negative integer(`<0`): `1st` one is lexicographically `smaller` than `2nd`,
+  - It keeps comparing character by character, if different character is found, it returns `ascii value of that char in 1st` - `ascii value of that char at 2nd`
+- Ex: See `stringCompareTo()` in `Test.java`,
+- 
 
 
 

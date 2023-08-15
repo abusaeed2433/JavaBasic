@@ -10,6 +10,31 @@ public class Test {
         somePropertiesTest();
         immutableTest();
 
+        stringCompareTo();
+
+    }
+
+    private static void stringCompareTo(){
+        System.out.println("------------------- stringCompareTo ---------------------");
+
+        String val1 = "abc";
+        String val2 = "abc";
+        String val3 = "aBc";
+        String val4 = "zbd";
+        String val5 = "abcd";
+
+        System.out.println(val1.compareTo(val2)); // 0
+
+        System.out.println(val1.compareTo(val3)); // 32
+
+        System.out.println(val3.compareTo(val1)); // -32
+
+        System.out.println(val1.compareTo(val4)); // -25
+        System.out.println(val4.compareTo(val1)); // 25
+
+        System.out.println(val1.compareTo(val5)); // -1
+        System.out.println(val5.compareTo(val1)); // 1
+
     }
 
     private static void immutableTest(){
