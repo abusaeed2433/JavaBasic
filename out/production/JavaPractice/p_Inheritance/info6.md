@@ -140,44 +140,6 @@
       mobile.showData(); // @@@@@@@@@@@@@@@@
   }
   ```
-- In above example, you can't use `MobileDisplay` outside `Mobile` class. But it may be needed to use `MobileDisplay` others,
 
-- Ex-2: See `Engine.java`, `Car.java`, `testComposition2()` in `Test.java`,
-  ```
-  public class Engine {
-      private String type;
-      ...
-  }
-  ```
-  ```
-  public class Car {
-      private String brand;
-      private Engine engine;
-  
-      public Car(String brand, String engineType) {
-          this.brand = brand;
-          this.engine = new Engine(engineType); // creating here
-      }
-  
-      public String getBrand() {
-          return brand;
-      }
-  
-      public Engine getEngine() {
-          return engine;
-      }
-  
-  }
-  ```
-  Using like this:
-  ```
-  private static void testComposition2(){
-  
-      Car myCar = new Car("Toyota", "Gasoline");
-      System.out.println(myCar.getBrand()); // Toyota
-      System.out.println(myCar.getEngine().getType()); // Gasoline
-  }
-  ```
-- Use whatever you need based on your need,
-- In both example, nested object(`part`) can't exist without the existence of main(`whole`) object, since `Engine` and `MobileDisplay` are created inside the `Car` and `Mobile` class,
-
+- Ex-2: See `Car.java`, `Engine.java`, `testComposition2()` in `Test.java`,
+- 
