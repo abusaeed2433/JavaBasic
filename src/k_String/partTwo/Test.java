@@ -9,6 +9,85 @@ public class Test {
 
         testFewOperations();
 
+        testSwitchExpression();
+
+        stringBuilderTest();
+        stringBufferTest();
+    }
+
+    private static void stringBufferTest(){
+        System.out.println("------------------- stringBufferTest ----------------------");
+
+        StringBuffer buffer = new StringBuffer();
+        buffer.append("This is buffer-").append(5).append(". ");
+
+        String phone = "0179210xxxx";
+
+        buffer.append("His phone number is: ").append(phone).append(", Bg:").append('O');
+
+        System.out.println(buffer); // This is buffer-5. His phone number is: 0179210xxxx, Bg:O
+
+        buffer.insert(0,"Hello, ");
+        System.out.println(buffer); // Hello, This is buffer-5. His phone number is: 0179210xxxx, Bg:O
+
+        buffer.delete(0,7);
+        System.out.println(buffer); // This is buffer-5. His phone number is: 0179210xxxx, Bg:O
+
+        buffer.reverse();
+        System.out.println(buffer); // O:gB ,xxxx0129710 :si rebmun enohp siH .5-redliub si sihT
+
+        // palindrome check
+        String toCheck = "Step on no pets";
+
+        StringBuffer b1 = new StringBuffer(toCheck).reverse();
+        System.out.println(toCheck.equalsIgnoreCase(b1.toString())); // true
+
+    }
+
+    private static void stringBuilderTest(){
+        System.out.println("------------------- stringBuilderTest ----------------------");
+
+        StringBuilder builder = new StringBuilder();
+        builder.append("This is builder-").append(5).append(". ");
+
+        String phone = "0179210xxxx";
+
+        builder.append("His phone number is: ").append(phone).append(", Bg:").append('O');
+
+        System.out.println(builder); // This is builder-5. His phone number is: 0179210xxxx, Bg:O
+
+        builder.insert(0,"Hello, ");
+        System.out.println(builder); // Hello, This is builder-5. His phone number is: 0179210xxxx, Bg:O
+
+        builder.delete(0,7);
+        System.out.println(builder); // This is builder-5. His phone number is: 0179210xxxx, Bg:O
+
+        builder.reverse();
+        System.out.println(builder); // O:gB ,xxxx0129710 :si rebmun enohp siH .5-redliub si sihT
+
+        // palindrome check
+        String toCheck = "Step on no pets";
+
+        StringBuilder b1 = new StringBuilder(toCheck).reverse();
+        System.out.println(toCheck.equalsIgnoreCase(b1.toString())); // true
+
+    }
+
+    private static void testSwitchExpression(){
+        System.out.println("----------------- testSwitchExpression -----------------");
+
+
+        String status = "on";
+
+        switch (status){ // status mustn't be null
+            case "on":
+                System.out.println("on"); //executed
+                break;
+            case "off": // check if status.equals("off")
+                System.out.println("off");
+                break;
+        }
+
     }
 
     private static void testFewOperations(){

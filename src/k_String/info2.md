@@ -120,3 +120,64 @@
     System.out.println(joined); // A,E,I,O,U
     ```
 
+
+## String in switch statement
+- `switch` can't be null,
+- `case` must be string literal,
+- `case` can't be variable,
+- It is basically an `if-else` ladder,
+- Ex: See `testSwitchExpression()` in `Test.java`,
+  ```
+  private static void testSwitchExpression(){
+          
+      String status = "on";
+  
+      switch (status){ // status mustn't be null
+          case "on":
+              System.out.println("on"); //executed
+              break;
+          case "off": // check if status.equals("off")
+              System.out.println("off");
+              break;
+      }
+  
+  }
+  ```
+
+
+## StringBuilder & StringBuffer
+- Similar like `String` but `mutable`,
+- Content can be changed without creating new object,
+- `StringBuffer` is `thread-safe`, but `StringBuilder` is not,
+- `StringBuffer` may be slower than `StringBuilder`,
+- Ex: See `stringBuilderTest()` in `Test.java`,
+  ```
+  private static void stringBuilderTest(){
+  
+      StringBuilder builder = new StringBuilder();
+      builder.append("This is builder-").append(5).append(". ");
+  
+      String phone = "0179210xxxx";
+  
+      builder.append("His phone number is: ").append(phone).append(", Bg:").append('O');
+  
+      System.out.println(builder); // This is builder-5. His phone number is: 0179210xxxx, Bg:O
+  
+      builder.insert(0,"Hello, ");
+      System.out.println(builder); // Hello, This is builder-5. His phone number is: 0179210xxxx, Bg:O
+  
+      builder.delete(0,7);
+      System.out.println(builder); // This is builder-5. His phone number is: 0179210xxxx, Bg:O
+  
+      builder.reverse();
+      System.out.println(builder); // O:gB ,xxxx0129710 :si rebmun enohp siH .5-redliub si sihT
+  
+      // palindrome check
+      String toCheck = "Step on no pets";
+  
+      StringBuilder b1 = new StringBuilder(toCheck).reverse();
+      System.out.println(toCheck.equalsIgnoreCase(b1.toString())); // true
+  }
+  ```
+- All methods are same in `StringBuffer`. See `stringBufferTest()` in `Test.java`,
+
