@@ -139,4 +139,18 @@
     Pattern pattern1 = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
     ```
 
+## Creating a `Matcher`:
+- Used to `perform a match` on a sequence of characters by interpreting the compiled pattern held in a `Pattern object`,
+- It(`Matcher`) has no `public constructor`,
+- `matcher()` method of the `Pattern` class is used to get an instance of the `Matcher` class,
+- Ex:
+    ```
+    String regex = "[ABO][+-]";
+    Pattern pattern = Pattern.compile(regex);
+            
+    String input = "O+";
+    Matcher matcher = pattern.matcher(input);
+    ```
+  
+
 

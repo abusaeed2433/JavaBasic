@@ -15,7 +15,10 @@ public class Test {
 
         String regex = "[ABO][+-]";
         Pattern pattern = Pattern.compile(regex);
-        Pattern pattern1 = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
+
+        String input = "O+";
+        Matcher matcher = pattern.matcher(input);
+
 
     }
 
