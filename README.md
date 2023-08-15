@@ -79,6 +79,18 @@
   </tr>
 
   <tr>
+    <th>String</th>
+    <th>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/k_String/info.md" > Part-1 </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/k_String/info2.md" > Part-2 </a> <br>
+    </th>
+    <th>
+        <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/k_String/partOne"> Click here(1) </a> <br>
+        <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/k_String/partTwo"> Click here(1) </a> <br>
+    </th>
+  </tr>
+
+  <tr>
     <th>Array</th>
     <th><a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/o_Array/info.md"> Click here </a></th>
     <th><a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/o_Array"> Click here </a></th>
