@@ -121,5 +121,22 @@
     - Represents an `error` in a malformed regular expression,
 
 
+**RE = Regular Expression**
+
+## Compiling Regular Expressions (`Pattern`)
+- A `Pattern` holds the `compiled form` of a RE,
+- It(`Pattern`) is `immutable`,
+- It can be shared,
+- It has no public `constructor`,
+- `Pattern` class contains a `static compile()` method, which returns a `Pattern object`,
+- Two overloaded version of `compile()` method in `Pattern` class:
+  - `static Pattern compile(String regex)`,
+  - `static Pattern compile(String regex, int flags)`
+- Ex:
+    ```
+    String regex = "[ABO][+-]";
+    Pattern pattern = Pattern.compile(regex);
+    Pattern pattern1 = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
+    ```
 
 

@@ -7,6 +7,16 @@ public class Test {
 
     public static void main(String[] args) {
         basicRegex();
+        compileRegex();
+    }
+
+    private static void compileRegex(){
+        System.out.println("--------------- compileRegex -------------------");
+
+        String regex = "[ABO][+-]";
+        Pattern pattern = Pattern.compile(regex);
+        Pattern pattern1 = Pattern.compile(regex,Pattern.CASE_INSENSITIVE);
+
     }
 
     private static void basicRegex(){
