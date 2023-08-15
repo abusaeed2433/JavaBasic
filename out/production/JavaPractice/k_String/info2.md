@@ -150,5 +150,37 @@
 - Content can be changed without creating new object,
 - `StringBuffer` is `thread-safe`, but `StringBuilder` is not,
 - `StringBuffer` may be slower than `StringBuilder`,
-- Ex: `StringBuilder`
+- Ex: See `stringBuilderTest()` in `Test.java`,
+  ```
+  private static void stringBuilderTest(){
+  
+      StringBuilder builder = new StringBuilder();
+      builder.append("This is builder-").append(5).append(". ");
+  
+      String phone = "0179210xxxx";
+  
+      builder.append("His phone number is: ").append(phone).append(", Bg:").append('O');
+  
+      System.out.println(builder); // This is builder-5. His phone number is: 0179210xxxx, Bg:O
+  
+      builder.insert(0,"Hello, ");
+      System.out.println(builder); // Hello, This is builder-5. His phone number is: 0179210xxxx, Bg:O
+  
+      builder.delete(0,7);
+      System.out.println(builder); // This is builder-5. His phone number is: 0179210xxxx, Bg:O
+  
+      builder.reverse();
+      System.out.println(builder); // O:gB ,xxxx0129710 :si rebmun enohp siH .5-redliub si sihT
+  
+      // palindrome check
+      String toCheck = "Step on no pets";
+  
+      StringBuilder b1 = new StringBuilder(toCheck).reverse();
+      System.out.println(toCheck.equalsIgnoreCase(b1.toString())); // true
+  }
+  ```
+- All methods are same in `StringBuffer`. See `stringBufferTest()` in `Test.java`,
+
+## String concatenation
+- Can be concatenated using `+` operator,
 - 

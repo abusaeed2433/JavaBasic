@@ -13,6 +13,24 @@ public class Test {
 
         stringBuilderTest();
         stringBufferTest();
+        concatenateTest();
+
+    }
+
+    private static void concatenateTest(){
+        System.out.println("------------------ concatenateTest ------------------------");
+        int num = 5;
+
+        String total = "This ";
+        total += "is ";
+        total += String.valueOf(num);
+
+        System.out.println(total); // This is 5
+
+        // better approach since multiple objects are not created
+        StringBuilder builder = new StringBuilder();
+        builder.append("This ").append("is ").append(num);
+        System.out.println(builder); // This is 5
     }
 
     private static void stringBufferTest(){

@@ -181,3 +181,23 @@
   ```
 - All methods are same in `StringBuffer`. See `stringBufferTest()` in `Test.java`,
 
+## String concatenation
+- Can be concatenated using `+` operator,
+- Better to use `StringBuilder` or `StringBuffer` since multiple objects are not being created,
+- Ex: See `concatenateTest()` in `Test.java`,
+  ```
+  private static void concatenateTest(){
+      int num = 5;
+  
+      String total = "This ";
+      total += "is ";
+      total += String.valueOf(num);
+  
+      System.out.println(total); // This is 5
+  
+      // better approach since multiple objects are not created
+      StringBuilder builder = new StringBuilder();
+      builder.append("This ").append("is ").append(num);
+      System.out.println(builder); // This is 5
+  }
+  ```
