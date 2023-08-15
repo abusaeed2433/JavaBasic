@@ -88,8 +88,8 @@
     System.out.println( code.trim() ); // hello pluto
     ```
 - ### Replacing part of string,
-  - `.replace(oldStr, new)`, `replaceAll(regex,new)`,
-  - I will discuss `regex` later insha'Allah if I can,
+  - `.replace(oldStr, new)`, `replaceAll(n_Regex,new)`,
+  - I will discuss `n_Regex` later insha'Allah if I can,
   - Ex:
     ```
     String greeting = "Hello old man, Hello";
@@ -106,11 +106,11 @@
     ```
 
 - ### Splitting string:
-  - `.split(regex)`,
+  - `.split(n_Regex)`,
   - Ex:
     ```
      String strVowels = "a,e,i,o,u";
-     String[] vowels = strVowels.split(","); //split(regex)
+     String[] vowels = strVowels.split(","); //split(n_Regex)
     ```
 - ### Joining string:
   - `String.join(sep, str1,str2.....)`,
@@ -208,4 +208,25 @@
   - Returns `0` if equals,
   - Returns `-1` if `1st` one comes before `2nd` one,
   - Returns `1` if `1st` one comes after `2nd` one,
-- See 
+- Ex: See `dictCompare()` in `Test.java`,
+  ```
+  private static void dictCompare(){
+  
+      String str1 = "abc";
+      String str2 = "bcd";
+      String str3 = "Bcd";
+  
+      Collator collator = Collator.getInstance(Locale.US);
+  
+      int res;
+  
+      res = collator.compare(str1,str2);
+      System.out.println(res); // -1 since abc is before bcd
+  
+      res = collator.compare(str2,str1);
+      System.out.println(res); // 1 since bcd is after abc
+  
+      res = collator.compare(str2,str3);
+      System.out.println(res); // -1 since bcd is before Bcd
+  }
+  ```

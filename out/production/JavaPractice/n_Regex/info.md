@@ -81,45 +81,7 @@
   - Ex: `@`,`+`,
 
 
-## Ex-1 (Basic): See `basicRegex()` in `Test.java`,
-- Everything will be explained later,
-   ```
-    private static void basicRegex(){
-    
-        String regex = "[ABO][+-]";
-        Pattern pattern = Pattern.compile(regex);
-    
-        String[] arr = {"A+","AB-","B-","O"};
-    
-        for(String bg : arr) {
-            Matcher matcher = pattern.matcher(bg);
-    
-            if(matcher.matches()){ System.out.println(bg+" passed"); }
-            else{ System.out.println(bg+" failed"); }
-        }
-    
-    }
-    ```
-- Output:
-    ```
-    A+ passed
-    AB- failed
-    B- passed
-    O failed
-    ```
-
-## More Powers to Regular Expressions
-- `java.util.regex` contains three classes to support the full version of regular expressions,
-- `3` classes are:
-  - `Pattern`,
-    - Holds the compiled form of a regular expression,
-    - Compiled form facilitate faster string matching,
-  - `Matcher`,
-    - Associates the string to be matched with a `Pattern`,
-    - It performs the actual match,
-  - `PatternSyntaxException`,
-    - Represents an `error` in a malformed regular expression,
+## Ex-1 (Basic): 
 
 
-
-
+a
