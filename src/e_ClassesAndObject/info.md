@@ -1,5 +1,7 @@
 
-# Class
+
+# Classes and Object part-1
+> Codes are in `partOne` package
 
 ## class
 - Basic unit of Object-Oriented Programming paradigm(pattern),

@@ -1,4 +1,4 @@
-package e_ClassesAndObject;
+package e_ClassesAndObject.partOne;
 
 public class Hooman {
 

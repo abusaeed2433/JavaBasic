@@ -1,4 +1,7 @@
 
+# Classes and Object part-2
+> Codes are in `partTwo` package
+
 ## Local variable
 - Variable declared inside `method`, `constructor`, `block`,
 - Formal parameters for a method are treated as local variables,

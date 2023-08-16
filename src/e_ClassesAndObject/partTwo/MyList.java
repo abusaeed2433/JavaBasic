@@ -1,4 +1,4 @@
-package e_ClassesAndObject;
+package e_ClassesAndObject.partTwo;
 
 import java.util.ArrayList;
 import java.util.List;

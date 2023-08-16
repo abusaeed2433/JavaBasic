@@ -1,34 +1,13 @@
-package e_ClassesAndObject;
-import javax.swing.plaf.synth.SynthUI;
+package e_ClassesAndObject.partTwo;
 
-import static e_ClassesAndObject.TriState.StateEnum.*;
+import e_ClassesAndObject.Circle;
+import e_ClassesAndObject.partOne.Bird;
+
+import static e_ClassesAndObject.partTwo.TriState.StateEnum.SECOND;
+
 public class Test {
 
-
-
     public static void main(String[] args) {
-
-        //creating object
-        Hooman saeed = new Hooman("Saeed",21);
-        System.out.println(saeed.isAdult()); // true
-
-        // null
-        String name = null;
-        Integer number = null;
-        Hooman none = null;
-        //int count = null; //compile time error
-        //none.getAge(); // runtime exception
-
-        Hooman sh = new Hooman("sh",22);
-        sh = null;
-
-
-        Hooman anik = new Hooman("Anik",22);
-        anik.showSpecificCharacter(); // Name is => Anik
-
-        anik.showSomeCharacter(); // General characteristics. ok but not recommended
-        Hooman.showSomeCharacter(); // General characteristics. best practice
-
         TriState triState = new TriState(SECOND);
         System.out.println(triState.state); // SECOND
 
@@ -39,9 +18,7 @@ public class Test {
         System.out.println( max(1,22) ); // 22
         System.out.println( max(1,2,3,4,5,6,7,8,10) ); // 10
 
-
         simpleGenericTest();
-
     }
 
     private static void simpleGenericTest(){
@@ -116,9 +93,4 @@ public class Test {
         secondEagle.printDetails(); // Eagle -> Eagle -> true
 
     }
-
-    public int add(int num1, int num2){
-        return num1+num2;
-    }
-
 }

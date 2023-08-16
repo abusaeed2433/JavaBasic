@@ -1,4 +1,7 @@
 
+# Classes and Object part-3
+> Codes are in `partThree` package
+
 # Parameter passing in java
 
 ## Before passing parameter, let us clear these concepts
@@ -9,7 +12,7 @@
   - Stores the reference of the object which is located in Heap,
 
 - 1st one is primitive, 2nd one is reference
-<img src="primitive_and_reference_data.png" height="200px" alt="Primitive & Reference data type">
+<img src="files/primitive_and_reference_data.png" height="200px" alt="Primitive & Reference data type">
 
 - Every variable name has two things associated with it: 
   - a memory address(`lvalue`),
@@ -44,7 +47,6 @@
 
 - see `Student.java` and try to understand the code.
 - See this image also
-<img src="primitive_reference_passing.png" height="180px" alt="Primitive & Reference data type">
+<img src="files/primitive_reference_passing.png" height="180px" alt="Primitive & Reference data type">
 
 >> BELIEVE ME, UNDERSTANDING THIS WILL MAKE YOUR LIFE EASIER
-

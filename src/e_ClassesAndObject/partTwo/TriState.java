@@ -1,4 +1,4 @@
-package e_ClassesAndObject;
+package e_ClassesAndObject.partTwo;
 
 public class TriState {
 
