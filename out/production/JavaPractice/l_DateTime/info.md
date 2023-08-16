@@ -52,4 +52,74 @@
       - Also contains classes that act like `date-time adjusters`,
     - `java.time.zone`: 
       - contains classes supporting time zones and zone rules
-- Ex: 
+- Ex: See `basicExample()` in `Test.java`: (Will be explained later),
+    ```
+    private static void basicExample(){
+        LocalDate ld = LocalDate.of(2023, Month.MARCH,23);
+        System.out.println(ld); // 2023-03-23
+    
+        LocalDate newDate = ld.plusDays(9);
+        System.out.println(newDate); // 2023-04-01
+    
+        System.out.println( newDate.getDayOfWeek() ); // SATURDAY
+        System.out.println( newDate.getMonthValue() ); // 4
+    }
+    ```
+
+## The `ofXXX()` Methods
+- Allow creating object,
+- Ex:
+    ```
+    LocalDate date1 = LocalDate.now(); 
+    LocalDate date2 = LocalDate.of(2023,4,23); 
+    LocalDate date3 = LocalDate.ofEpochDay(1000);
+    LocalDate date4 = LocalDate.ofYearDay(2023,140);
+    ```
+## The `from()` Methods
+- A `static factory method`, similar to an `of()` method,
+- Create object from another `argument`. `argument` should have necessary value for converting,
+- Ex:
+    ```
+    LocalDate date6 = LocalDate.now();
+    LocalDate date7 = LocalDate.from(date6);
+            
+    LocalDateTime ldt = LocalDateTime.now();
+    LocalDate date8 = LocalDate.from(ldt);
+    ```
+    - Here `ldt` has `Date` component, so it can be used for creating `LocalDate` object,
+
+## The `withXXX()` Methods
+- Most classes in the Date-Time API are `immutable`,
+- For changing some field you need to use something like `withXXX`,
+- A `withXXX()` method `returns a copy` of an object with the `specified field changed`,
+- Ex:
+    ```
+    LocalDate date9 = LocalDate.of(2023,Month.AUGUST,16);
+    LocalDate date10 = date9.withYear(2024);
+    System.out.println(date9); // 2023-08-16
+    System.out.println(date10);// 2024-08-16
+    
+    LocalDate date11 = date9.withMonth(3);
+    System.out.println(date11); // 2023-03-16
+    ```
+
+## The `getXXX()` Methods
+- Returns the specified `component` of the object,
+- Ex:
+    ```
+    LocalDate date = LocalDate.of(2023,Month.AUGUST,16);
+    
+    System.out.println( date.getYear() ); // 2023
+    
+    System.out.println( date.getMonth() ); // AUGUST
+    System.out.println( date.getMonthValue() ); // 8
+    
+    System.out.println( date.getDayOfMonth() ); // 16
+    System.out.println( date.getDayOfWeek() ); // WEDNESDAY
+    
+    System.out.println( date.get(ChronoField.DAY_OF_YEAR) ); // 228
+    ```
+
+## The `toXXX()` Methods
+- Converts an object to a related XXX type,
+- 
