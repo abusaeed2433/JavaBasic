@@ -173,4 +173,29 @@
     - So, `end() - start()` gives you the matched string of user input,
   - `group()`:
     - Returns the found `string` by the previous successful `find()` method call,
-  - 
+- Ex: See `performRegexOperation1()` in `Test.java`,
+    ```
+    private static void performRegexOperation1(){
+    
+        String regex = "[ABO][+-]";
+        Pattern pattern = Pattern.compile(regex);
+    
+        String input = "O+A+B+O-MNB-"; // <------ input to find pattern
+        Matcher matcher = pattern.matcher(input);
+    
+        while (matcher.find()){
+            String bg = matcher.group(); // or
+            String sameBg = input.substring(matcher.start(),matcher.end());
+    
+            System.out.println(bg+" = "+sameBg);
+        }
+    }
+    ```
+    ```
+    Output
+    O+ = O+
+    A+ = A+
+    B+ = B+
+    O- = O-
+    B- = B-
+    ```
