@@ -88,6 +88,16 @@
   </tr>
 
   <tr>
+    <th>Basic formatting</th>
+    <th>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/m_Formatter/info.md" > Click here </a> <br>
+    </th>
+    <th>
+        <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/m_Formatter"> Click here </a> <br>
+    </th>
+  </tr>
+
+  <tr>
     <th>Regex</th>
     <th>
       <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/n_Regex/info.md" > Part-1 </a> <br> 
