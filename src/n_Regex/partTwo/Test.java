@@ -14,6 +14,64 @@ public class Test {
         boundaryMatcher1();
         boundaryMatcher1Manually();
 
+        groupTest();
+        groupTest2();
+    }
+
+    private static void groupTest2(){
+        System.out.println("------------------- groupTest2 -----------------------------------");
+
+        /*
+            will find phone number,
+            find code & number from that phone number,
+            format the number & print
+        */
+
+        String phones = "+8801792101111, +8801234567890, +++8804324567890,+-+2101234";
+
+        String regex = "(\\+\\d{3})(\\d+)\\b"; // \ is used before +, since + has special meaning
+        Pattern pattern = Pattern.compile(regex);
+
+        Matcher matcher = pattern.matcher(phones);
+
+        while (matcher.find()){
+            String found = matcher.group(0); // or .group()
+
+            String code = matcher.group(1);
+            String num = matcher.group(2);
+
+            System.out.println(code+" - "+num);
+        }
+
+        /*
+        +880 - 1792101111
+        +880 - 1234567890
+        +880 - 4324567890
+        +210 - 1234
+        */
+
+    }
+
+
+    private static void groupTest(){
+        System.out.println("------------------ groupTest -------------------------------------");
+
+        String regex = "((AB)(CD))(XY)";
+        String input = "ABCDXY";
+
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(input);
+
+        int total = matcher.groupCount();
+
+        System.out.println(total);
+        matcher.find();
+
+        for(int i=0; i<=total; i++){
+            System.out.println(matcher.group(i));
+        }
+
+
     }
 
     private static void boundaryMatcher1Manually(){

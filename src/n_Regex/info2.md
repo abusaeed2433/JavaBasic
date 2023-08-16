@@ -180,3 +180,52 @@
   apple from 17 to 22
   apple from 55 to 60
   ```
+
+## Groups and Back Referencing
+- A `group` is created inside a RE by enclosing one or more characters inside `parentheses()`,
+- Ex: `(ab)`, `ab(z)`,
+- Each group in a RE has a `group number`,
+- `Group number` starts at `1`,
+- `groupCount()` that returns total number of groups found in `Matcher`,
+- There is a `special group`,
+  - Called `group 0`,
+  - It refers to the `entire RE`,
+  - This `group 0` is not reported by the `groupCount()` method,
+- For regex `((AB)(CD))(XY)`:
+  - `group-0`: `ABCDXY`
+  - `group-1`: `ABCD`
+  - `group-2`: `AB`
+  - `group-3`: `CD`
+  - `group-4`: `XY`
+
+- For finding group, find left parenthesis(`(`), then find the `corresponding `right parenthesis(`)`),
+- Ex: See `groupTest2()` in `Test.java`, 
+  - Will find phone number,
+  - Find code & number from that phone number,
+  - Format the number & print
+  ```
+  private static void groupTest2(){
+      String phones = "+8801792101111, +8801234567890, +8804324567890,+2101234";
+  
+      String regex = "(\\+\\d{3})(\\d+)\\b"; // \ is used before +, since + has special meaning
+      Pattern pattern = Pattern.compile(regex);
+  
+      Matcher matcher = pattern.matcher(phones);
+  
+      while (matcher.find()){
+          // String found = matcher.group(0); // or .group(); phone num
+  
+          String code = matcher.group(1);
+          String num = matcher.group(2);
+  
+          System.out.println(code+" - "+num);
+      }
+  }
+  ```
+  Output:
+  ```
+  +880 - 1792101111
+  +880 - 1234567890
+  +880 - 4324567890
+  +210 - 1234
+  ```
