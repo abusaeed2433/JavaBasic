@@ -135,3 +135,64 @@
             
     System.out.println( date.toEpochDay() ); // 19585
     ```
+
+## The `atXXX()` Methods
+- Lets you build a `new datetime object` from an `existing datetime object` by supplying `some additional` pieces of information,
+- `withXXX()` changes field and return same type of object. But
+- `atXXX()` may return different type by taking additional info,
+- Ex:
+    ```
+    LocalDate date2 = LocalDate.of(2023,Month.AUGUST,16);
+    System.out.println(date2); // 2023-08-16
+    
+    LocalDateTime dateTime2 = date2.atTime(23,10);
+    System.out.println(dateTime2); // 2023-08-16T23:10
+    
+    ZonedDateTime zonedDateTime2 = dateTime2.atZone(ZoneOffset.UTC);
+    System.out.println(zonedDateTime2); // 2023-08-16T23:10Z
+    ```
+
+## The `plusXXX()` and `minusXXX()` Methods
+- Returns a copy after adding or subtracting a component value,
+- Ex:
+    ```
+    LocalDate date3 = LocalDate.of(2023,Month.AUGUST,16);
+    System.out.println(date3); // 2023-08-16
+    
+    LocalDate date4 = date3.plusDays(15);
+    System.out.println(date4); // 2023-08-31
+    
+    LocalDate date5 = date3.plusMonths(35);
+    System.out.println(date5); // 2026-07-16
+    ```
+
+## The `multipliedBy()`, `dividedBy()`, `negated()` Methods
+- Don't make sense on `dates` and `times`,
+- Applicable to `Duration` and `Period`,
+- Ex:
+    ```
+    Duration d = Duration.ofSeconds(200);
+    System.out.println(d); // PT3M20S <-- 3min 20sec
+    
+    Duration d1 = d.multipliedBy(2);
+    System.out.println(d1); // PT6M40S
+    
+    Duration d2 = d.dividedBy(4);
+    System.out.println(d2); // PT50S
+    
+    Duration d3 = d.negated();
+    System.out.println(d3); // PT-3M-20S
+    ```
+
+
+
+
+
+
+
+
+
+
+
+
+a

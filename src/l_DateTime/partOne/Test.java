@@ -1,9 +1,6 @@
 package l_DateTime.partOne;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Month;
+import java.time.*;
 import java.time.temporal.ChronoField;
 import java.time.temporal.TemporalAccessor;
 
@@ -43,6 +40,46 @@ public class Test {
         System.out.println(time1); // 23:10
 
         System.out.println( date.toEpochDay() ); // 19585
+
+
+        System.out.println("-------------- atXXX() ---------------------");
+
+        LocalDate date2 = LocalDate.of(2023,Month.AUGUST,16);
+        System.out.println(date2); // 2023-08-16
+
+        LocalDateTime dateTime2 = date2.atTime(23,10);
+        System.out.println(dateTime2); // 2023-08-16T23:10
+
+        ZonedDateTime zonedDateTime2 = dateTime2.atZone(ZoneOffset.UTC);
+        System.out.println(zonedDateTime2); // 2023-08-16T23:10Z
+
+
+        System.out.println("-------------- plusXXX() & minusXXX() -------------");
+
+        LocalDate date3 = LocalDate.of(2023,Month.AUGUST,16);
+        System.out.println(date3); // 2023-08-16
+
+        LocalDate date4 = date3.plusDays(15);
+        System.out.println(date4); // 2023-08-31
+
+        LocalDate date5 = date3.plusMonths(35);
+        System.out.println(date5); // 2026-07-16
+
+
+        System.out.println("------- multipliedBy(), dividedBy(), negated() ------");
+
+        Duration d = Duration.ofSeconds(200);
+        System.out.println(d); // PT3M20S <-- 3min 20sec
+
+        Duration d1 = d.multipliedBy(2);
+        System.out.println(d1); // PT6M40S
+
+        Duration d2 = d.dividedBy(4);
+        System.out.println(d2); // PT50S
+
+        Duration d3 = d.negated();
+        System.out.println(d3); // PT-3M-20S
+
 
     }
 
