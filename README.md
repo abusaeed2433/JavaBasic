@@ -91,12 +91,13 @@
     <th>Regex</th>
     <th>
       <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/n_Regex/info.md" > Part-1 </a> <br> 
-      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/n_Regex/info2.md" > Part-1(Soon) </a> <br> 
-      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/n_Regex/info.md" > Part-1(Soon) </a> <br> 
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/n_Regex/info2.md" > Part-2 </a> <br> 
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/n_Regex/info3.md" > Part-3 </a> <br> 
     </th>
     <th>
         <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/n_Regex/partOne"> Click here(1) </a> <br>
-        <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/n_Regex/partTwo"> Click here(2)(Soon) </a> <br>
+        <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/n_Regex/partTwo"> Click here(2) </a> <br>
+        <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/n_Regex/partThree"> Click here(3) </a> <br>
     </th>
   </tr>
 
