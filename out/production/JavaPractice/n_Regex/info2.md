@@ -42,4 +42,55 @@
   [s] -> failed
   2] -> failed
   [5] -> passed
+  [O] -> failed. This capital 'O', not zero
   ```
+
+
+## Quantifiers in Regular Expressions
+- We can specify `number of times` a character appear,
+- These are the quantifiers
+  <table>
+  <tr> <th>Quantifiers</th> <th>Meaning</th> </tr>
+  <tr> <th>*</th> <th>Zero or more times</th> </tr>
+  <tr> <th>+</th> <th>One or more times</th> </tr>
+  <tr> <th>?</th> <th>Once or not at all</th> </tr>
+
+  <tr> <th>{m}</th> <th>Exactly m times</th> </tr>
+  <tr> <th>{m, }</th> <th>At least m times</th> </tr>
+  <tr> <th>{m, n}</th> <th>At least m, but not more than n times</th> </tr>
+  </table>
+- `quantifiers` must follow a `character` or `character class` for which it specifies the quantity. Ex: `\d+`,
+- Ex-1: See `quantifierTest1()` in `Test.java`,
+  ```
+  private static void quantityTest(){
+  
+      // matches the format `fName lName`, where fName at least 3 letter and lName 5 to 10 letters. Ex: Salim Shakib
+  
+      String regex = "[a-zA-Z]{3,} [A-Za-z]{5,10}";
+      Pattern pattern = Pattern.compile(regex);
+  
+      String[] arr = { "Ibne Sina", "Shujoy Kundu",
+              "Hasib Hasan Hasib Hasan",
+              "Mahir Abrar", "gd n8"
+      };
+  
+      for(String name : arr){
+          Matcher matcher = pattern.matcher(name);
+          if(matcher.matches()){
+              System.out.println(name+" -> passed");
+          }
+          else{
+              System.out.println(name+" -> failed");
+          }
+      }
+  }
+  ```
+  Output:
+  ```
+  Ibne Sina -> failed
+  Shujoy Kundu -> passed
+  Hasib Hasan Hasib Hasan -> failed
+  Mahir Abrar -> passed
+  gd n8 -> failed
+  ```
+- Ex-2: See `quantifierTest2()` in `Test.java`,

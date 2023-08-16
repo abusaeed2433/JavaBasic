@@ -8,6 +8,74 @@ public class Test {
     public static void main(String[] args) {
 
         backslashTest();
+        quantityTest1();
+        quantityTest2();
+
+    }
+
+    private static void quantityTest2(){
+        System.out.println("---------------------- quantityTest2 ---------------------");
+
+        // Word containing small letter && contain single small 's' only once or not at all
+
+        String regex = "[a-rt-z]*s?[a-rt-z]*";
+        Pattern pattern = Pattern.compile(regex);
+
+        String[] arr = {"amskn","sssla","substr","ms","s"};
+
+        for(String str : arr){
+            Matcher matcher = pattern.matcher(str);
+
+            if(matcher.matches()){
+                System.out.println(str+" -> passed");
+            }
+            else{
+                System.out.println(str+" -> failed");
+            }
+
+        }
+        /*
+        amskn -> passed
+        sssla -> failed
+        substr -> failed
+        ms -> passed
+        s -> passed
+         */
+    }
+
+    private static void quantityTest1(){
+        System.out.println("------------------ quantityTest1 -------------------------");
+
+        // matches the format `fName lName`, where fName at least 3 letter and lName 5 to 10 letters. Ex: Salim Shakib
+
+        String regex = "[a-zA-Z]{3,} [A-Za-z]{5,10}";
+        Pattern pattern = Pattern.compile(regex);
+
+        String[] arr = {
+                "Ibne Sina",
+                "Shujoy Kundu",
+                "Hasib Hasan Hasib Hasan",
+                "Mahir Abrar",
+                "gd n8"
+        };
+
+        for(String name : arr){
+            Matcher matcher = pattern.matcher(name);
+            if(matcher.matches()){
+                System.out.println(name+" -> passed");
+            }
+            else{
+                System.out.println(name+" -> failed");
+            }
+        }
+
+        /*
+        Ibne Sina -> failed
+        Shujoy Kundu -> passed
+        Hasib Hasan Hasib Hasan -> failed
+        Mahir Abrar -> passed
+        gd n8 -> failed
+        */
 
     }
 
