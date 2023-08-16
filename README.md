@@ -92,6 +92,7 @@
     <th>
       <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/n_Regex/info.md" > Part-1 </a> <br> 
       <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/n_Regex/info2.md" > Part-1(Soon) </a> <br> 
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/n_Regex/info.md" > Part-1(Soon) </a> <br> 
     </th>
     <th>
         <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/n_Regex/partOne"> Click here(1) </a> <br>
