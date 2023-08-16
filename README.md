@@ -88,6 +88,18 @@
   </tr>
 
   <tr>
+    <th>Date-Time</th>
+    <th>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/l_DateTime/info.md" > Part-1 </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/l_DateTime/info2.md" > More coming </a> <br>
+    </th>
+    <th>
+        <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/l_DateTime/partOne"> Click here(1) </a> <br>
+        <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/l_DateTime/partTwo"> Coming </a> <br>
+    </th>
+  </tr>
+
+  <tr>
     <th>Basic formatting</th>
     <th>
       <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/m_Formatter/info.md" > Click here </a> <br>
