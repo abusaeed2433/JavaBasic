@@ -35,7 +35,7 @@
     <th>
       <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/e_ClassesAndObject/info.md" > Part-1 </a> <br>
       <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/e_ClassesAndObject/info2.md" > Part-2 </a> <br>
-      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/e_ClassesAndObject/info3.md" > Part-2 </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/e_ClassesAndObject/info3.md" > Part-3 </a> <br>
     </th>
     <th>
         <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/e_ClassesAndObject/partOne"> Click here(1) </a> <br>
