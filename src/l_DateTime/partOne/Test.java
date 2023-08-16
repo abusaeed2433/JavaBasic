@@ -88,16 +88,32 @@ public class Test {
 
         System.out.println("--------- ofXXX() -------------------------");
         LocalDate date1 = LocalDate.now();
+        System.out.println(date1); // 2023-08-16
+
         LocalDate date2 = LocalDate.of(2023,4,23);
+        System.out.println(date2); // 2023-04-23
+
         LocalDate date3 = LocalDate.ofEpochDay(1000);
+        System.out.println(date3); // 1972-09-27
+
         LocalDate date4 = LocalDate.ofYearDay(2023,140);
+        System.out.println(date4); // 2023-05-20
+
 
         System.out.println("--------- from() -------------------------");
+
         LocalDate date6 = LocalDate.now();
+        System.out.println(date6); // 2023-08-16
+
         LocalDate date7 = LocalDate.from(date6);
+        System.out.println(date7); // 2023-08-16
 
         LocalDateTime ldt = LocalDateTime.now();
+        System.out.println(ldt); // 2023-08-16T23:33:54.223464
+
         LocalDate date8 = LocalDate.from(ldt);
+        System.out.println(date8); // 2023-08-16
+
 
         System.out.println("-------------- withXXX() -------------------");
         LocalDate date9 = LocalDate.of(2023,Month.AUGUST,16);

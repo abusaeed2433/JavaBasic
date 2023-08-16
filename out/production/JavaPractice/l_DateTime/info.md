@@ -70,10 +70,17 @@
 - Allow creating object,
 - Ex:
     ```
-    LocalDate date1 = LocalDate.now(); 
-    LocalDate date2 = LocalDate.of(2023,4,23); 
+    LocalDate date1 = LocalDate.now();
+    System.out.println(date1); // 2023-08-16
+
+    LocalDate date2 = LocalDate.of(2023,4,23);
+    System.out.println(date2); // 2023-04-23
+
     LocalDate date3 = LocalDate.ofEpochDay(1000);
+    System.out.println(date3); // 1972-09-27
+
     LocalDate date4 = LocalDate.ofYearDay(2023,140);
+    System.out.println(date4); // 2023-05-20
     ```
 ## The `from()` Methods
 - A `static factory method`, similar to an `of()` method,
@@ -166,11 +173,23 @@
     System.out.println(date5); // 2026-07-16
     ```
 
-## The multipliedBy(), dividedBy(), and negated() Methods
+## The `multipliedBy()`, `dividedBy()`, `negated()` Methods
 - Don't make sense on `dates` and `times`,
 - Applicable to `Duration` and `Period`,
 - Ex:
-- 
+    ```
+    Duration d = Duration.ofSeconds(200);
+    System.out.println(d); // PT3M20S <-- 3min 20sec
+    
+    Duration d1 = d.multipliedBy(2);
+    System.out.println(d1); // PT6M40S
+    
+    Duration d2 = d.dividedBy(4);
+    System.out.println(d2); // PT50S
+    
+    Duration d3 = d.negated();
+    System.out.println(d3); // PT-3M-20S
+    ```
 
 
 
