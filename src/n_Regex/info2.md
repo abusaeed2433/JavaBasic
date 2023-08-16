@@ -127,3 +127,56 @@
   ```
 
 
+## Matching Boundaries
+- Finding location of match,
+- Ex: Replacing `apple` with `orange`:
+  ```
+  I have an apple and five pineapples // input 
+  I have an orange and five pineapples // replaced
+  ```
+- Boundary matchers in java:
+  <img src="files/boundary_matcher.jpg" height="200px">
+- Remember, A word character is defined by `[a-zA-Z_0-9]`,
+- `A word boundary` is a `zero-width match` that matches the following:
+  - Between a `word character` and a `non-word character`,
+  - `Start of the string` and a `word character`,
+  - A `word character` and the `end of the string`,
+- Similarly, a `non-word boundary` matches the following:
+  - The `empty string`,
+  - Between two word characters,
+  - Between two non-word characters,
+  - Between a non-word character and the start,
+  - Between a non-word character and end of the string,
+- For matching `apple` in earlier sentence regex should be `\bapple\b`,
+- Ex-1: See `boundaryMatcher1()` in `Test.java`,
+  ```
+  private static void boundaryMatcher1(){
+      String input = "I have an apple and five pineapples";
+  
+      String regex = "\\bapple\\b"; // Use \\b to get \b inside the string literal
+      String replacedWith = "orange";
+  
+      String output = input.replaceAll(regex,replacedWith);
+      System.out.println(output); // I have an orange and five pineapples
+  }
+  ```
+- Ex-2: See `boundaryMatcher1Manually()` in `Test.java`,
+  ```
+  private static void boundaryMatcher1Manually(){
+      String input = "apple, I have an apple, and five pineapples & two more apple";
+  
+      String regex = "\\bapple\\b";
+      Pattern pattern = Pattern.compile(regex);
+      Matcher matcher = pattern.matcher(input);
+
+      while (matcher.find()){
+          System.out.println(matcher.group()+" from "+matcher.start()+" to "+matcher.end());
+      }  
+  }
+  ```
+  Output:
+  ```
+  apple from 0 to 5
+  apple from 17 to 22
+  apple from 55 to 60
+  ```

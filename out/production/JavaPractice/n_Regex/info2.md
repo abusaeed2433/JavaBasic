@@ -61,11 +61,11 @@
   </table>
 - `quantifiers` must follow a `character` or `character class` for which it specifies the quantity. Ex: `\d+`,
 - Ex-1: See `quantifierTest1()` in `Test.java`,
+  - Will match word of the format `fName lName`. where, 
+  - `fName` is at least `3` letter, and 
+  - `lName` is `5 to 10` letters
   ```
   private static void quantityTest(){
-  
-      // matches the format `fName lName`, where fName at least 3 letter and lName 5 to 10 letters. Ex: Salim Shakib
-  
       String regex = "[a-zA-Z]{3,} [A-Za-z]{5,10}";
       Pattern pattern = Pattern.compile(regex);
   
@@ -94,3 +94,59 @@
   gd n8 -> failed
   ```
 - Ex-2: See `quantifierTest2()` in `Test.java`,
+- Will match word
+  - consists of `small letter` and
+  - contain small `s` only one or not at all
+  ```
+  private static void quantityTest2(){
+      String regex = "[a-rt-z]*s?[a-rt-z]*";
+      Pattern pattern = Pattern.compile(regex);
+  
+      String[] arr = {"amskn","sssla","substr","ms","s"};
+  
+      for(String str : arr){
+          Matcher matcher = pattern.matcher(str);
+  
+          if(matcher.matches()){
+              System.out.println(str+" -> passed");
+          }
+          else{
+              System.out.println(str+" -> failed");
+          }
+  
+      }
+  }
+  ```
+  Output:
+  ```
+  amskn -> passed
+  sssla -> failed
+  substr -> failed
+  ms -> passed
+  s -> passed
+  ```
+
+
+## Matching Boundaries
+- Finding location of match,
+- Ex: Replacing `apple` with `orange`:
+  ```
+  I have an apple and five pineapples // input 
+  I have an orange and five pineapples // replaced
+  ```
+- Boundary matchers in java:
+  <img src="files/boundary_matcher.jpg" height="200px">
+- Remember, A word character is defined by `[a-zA-Z_0-9]`,
+- `A word boundary` is a `zero-width match` that matches the following:
+  - Between a `word character` and a `non-word character`,
+  - `Start of the string` and a `word character`,
+  - A `word character` and the `end of the string`,
+- Similarly, a `non-word boundary` matches the following:
+  - The `empty string`,
+  - Between two word characters,
+  - Between two non-word characters,
+  - Between a non-word character and the start,
+  - Between a non-word character and end of the string,
+- For matching `apple` in earlier sentence regex should be `\bapple\b`,
+- Ex: see `boundaryMatcher1()` in `Test.java`,
+- 

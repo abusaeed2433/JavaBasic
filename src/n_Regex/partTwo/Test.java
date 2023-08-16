@@ -11,7 +11,46 @@ public class Test {
         quantityTest1();
         quantityTest2();
 
+        boundaryMatcher1();
+        boundaryMatcher1Manually();
+
     }
+
+    private static void boundaryMatcher1Manually(){
+        System.out.println("--------------------- boundaryMatcher1Manually -------------------");
+
+        String input = "apple, I have an apple, and five pineapples & two more apple";
+
+        String regex = "\\bapple\\b";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(input);
+
+        while (matcher.find()){
+            System.out.println(matcher.group()+" from "+matcher.start()+" to "+matcher.end());
+        }
+
+        /*
+        output
+        apple from 0 to 5
+        apple from 17 to 22
+        apple from 55 to 60
+         */
+
+    }
+
+    private static void boundaryMatcher1(){
+        System.out.println("--------------------- boundaryMatcher1 -------------------");
+
+        String input = "I have an apple and five pineapples";
+
+        String regex = "\\bapple\\b"; // Use \\b to get \b inside the string literal
+        String replacedWith = "orange";
+
+        String output = input.replaceAll(regex,replacedWith);
+        System.out.println(output); // I have an orange and five pineapples
+
+    }
+
 
     private static void quantityTest2(){
         System.out.println("---------------------- quantityTest2 ---------------------");
