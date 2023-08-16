@@ -33,11 +33,14 @@
   <tr>
     <th>Class & Object</th>
     <th>
-      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/e_ClassesAndObject/info.md" > Part-1 </a>
-      <br>
-      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/e_ClassesAndObject/info2.md" > Part-2 </a>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/e_ClassesAndObject/info.md" > Part-1 </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/e_ClassesAndObject/info2.md" > Part-2 </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/e_ClassesAndObject/info3.md" > Part-2 </a> <br>
     </th>
-    <th><a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/e_ClassesAndObject"> Click here </a></th>
+    <th>
+        <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/e_ClassesAndObject/partOne"> Click here(1) </a> <br>
+        <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/e_ClassesAndObject/partTwo"> Click here(2) </a> <br>
+        <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/e_ClassesAndObject/partThree"> Click here(3) </a> <br>
   </tr>
 
   <tr>
@@ -48,12 +51,6 @@
       <a href="https://github.com/abusaeed2433/JavaBasic/blob/main/src/g_TheObjectClass/info2.md" > Part-2 </a>
     </th>
     <th><a href="https://github.com/abusaeed2433/JavaBasic/tree/main/src/g_TheObjectClass"> Click here </a></th>
-  </tr>
-
-  <tr>
-    <th>Parameter passing</th>
-    <th><a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/f_ParameterPassing/info.md"> Click here </a></th>
-    <th><a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/f_ParameterPassing"> Click here </a></th>
   </tr>
 
   <tr>
