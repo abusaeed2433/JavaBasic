@@ -1,7 +1,7 @@
 
 # DateTime part-1
 
-> Codes are in `partOnr` package
+> Codes are in `partOne` package
 
 
 ## Introduction
