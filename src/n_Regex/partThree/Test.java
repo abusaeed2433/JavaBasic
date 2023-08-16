@@ -9,6 +9,40 @@ public class Test {
 
         groupNameTest();
         resetTest();
+        solution();
+    }
+
+    private static void solution(){
+        System.out.println("------------------------ solution ------------------------");
+
+        String input = "A train carrying 125 men and women was traveling at the speed of 100 miles per hour. "+
+                "The train fare was 75 dollars per person.";
+
+        String regex = "\\b\\d+\\b";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(input);
+
+        StringBuilder output = new StringBuilder();
+
+        while (matcher.find()){
+            String text = matcher.group();
+            int num = Integer.parseInt(text);
+
+            String replaceWith;
+
+            if(num == 100) replaceWith = "a hundred";
+            else if(num < 100) replaceWith = "less than a hundred";
+            else replaceWith = "more than a hundred";
+
+            matcher.appendReplacement(output,replaceWith);
+
+            //System.out.println(num);
+
+        }
+
+        matcher.appendTail(output); // rest of the part
+
+        System.out.println(output);
 
     }
 
