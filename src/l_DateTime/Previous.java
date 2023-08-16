@@ -1,4 +1,4 @@
-package dateTime;
+package l_DateTime;
 
 import java.text.SimpleDateFormat;
 import java.time.*;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Set;
 
-public class Test {
+public class Previous {
 
     public static void main(String[] args) {
         //new Test().start();
@@ -27,7 +27,7 @@ public class Test {
         //new Test().timestampTest();
         //String time = "06:00PM";
         //System.out.println( new Test().getTimeStamp(time) );
-        new Test().timeTest();
+        new Previous().timeTest();
     }
 
     private void timeTest(){
