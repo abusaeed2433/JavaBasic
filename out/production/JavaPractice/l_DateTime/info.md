@@ -52,16 +52,4 @@
       - Also contains classes that act like `date-time adjusters`,
     - `java.time.zone`: 
       - contains classes supporting time zones and zone rules
-- Ex: See `basicExample()` in `Test.java`: (Will be explained later),
-    ```
-    private static void basicExample(){
-        LocalDate ld = LocalDate.of(2023, Month.MARCH,23);
-        System.out.println(ld); // 2023-03-23
-    
-        LocalDate newDate = ld.plusDays(9);
-        System.out.println(newDate); // 2023-04-01
-    
-        System.out.println( newDate.getDayOfWeek() ); // SATURDAY
-        System.out.println( newDate.getMonthValue() ); // 4
-    }
-    ```
+- Ex: 

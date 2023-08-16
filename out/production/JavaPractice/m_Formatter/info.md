@@ -77,4 +77,25 @@
 ## Printf-style Formatting
 - `java.util.Formatter` class supports `printf-style` formatting,
 - Similar to `printf()` in `C`,
-- 
+- Ex: See `printfStyleFormatting()` in `Test.java`,
+  ```
+  private static void printfStyleFormatting(){
+      // Formatting strings
+      System.out.printf("%1$4s, %2$4s, and %3$6s %n", "Fu", "Hu", "Lo"); //  Fu,   Hu, and     Lo
+  
+      //formatting numbers
+      //takes space on left side
+      System.out.printf("%1$4d, %2$4d, %3$4d %n", 10, 100, 1000); //  10,  100, 1000
+  
+      //takes space on right side
+      System.out.printf("%1$-4d, %2$-4d, %3$-4d %n", 1, 10, 100); //1   , 10  , 100
+  }
+  ```
+- `%1$4s`:
+  - `1` means it will use the first string provided by user. `"Fu"` for `1st` `println()`,
+  - `4` means total `4` character will be taken.
+    - Space will be added on left(`4`),
+    - Space will be added on right( if negative is used),
+  - `s` means `String`,
+  
+>> It's disturbing. Learn yourself if you want more. Not really useful.
