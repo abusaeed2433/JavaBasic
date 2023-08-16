@@ -9,63 +9,31 @@ import java.util.function.Function;
 public class CP {
 
     public static void main(String[] args) throws IOException {
-        StringBuilder output = new StringBuilder();
-//        Scanner sc = new Scanner(System.in);
-        Reader sc = new Reader();
-        int t = sc.nextInt();
-
-        main:
-        while (t-- > 0){
-            int n = sc.nextInt();
-            int[] arr = new int[n+1];
-            int[] brr = new int[n+1];
-
-            for(int i=1; i<=n; i++) arr[i] = sc.nextInt();
-            boolean allSame = true;
-            for(int i=1; i<=n; i++) {
-                brr[i] = sc.nextInt();
-                if(arr[i] != brr[i]) allSame = false;
-            }
-
-            int m = sc.nextInt();
-            Map<Integer,Integer> map = new HashMap<>();
-            for(int i=1; i<=m; i++) {
-                int tmp = sc.nextInt();
-                map.put(tmp,map.getOrDefault(tmp,0)+1);
-            }
-
-            Stack<Integer> stack = new Stack<>();
-            Map<Integer,Integer> mapStack = new HashMap<>();
-            for(int i=n; i>0; i--){
-
-                //if(arr[i] == brr[i]) continue;
-
-                if(arr[i] < brr[i]){
-                    output.append("NO").append('\n');
-                    continue main;
-                }
-
-                while (!stack.isEmpty() && stack.peek() < brr[i]){
-                    mapStack.remove(stack.pop());
-                }
-
-                if(arr[i] != brr[i] && !mapStack.containsKey(brr[i])){
-                    if(map.getOrDefault(brr[i],0) <= 0){
-                        output.append("NO\n");
-                        continue main;
-                    }
-                    map.put(brr[i],map.get(brr[i])-1);
-                    stack.push(brr[i]);
-                    mapStack.put(brr[i],1);
-                }
-            }
-
-            output.append("YES").append('\n');
-        }
-
-        System.out.println(output);
+        String[] arr = {"eat","tea","tan","ate","nat","bat"};
+        new CP().groupAnagrams(arr);
     }
 
+    public List<List<String>> groupAnagrams(String[] strs) {
+        Map<String,List<String>> map = new HashMap<>();
+
+        for(String s : strs){
+            String key = getKey(s);
+            map.computeIfAbsent(key, ss -> new ArrayList<>()).add(s);
+        }
+
+        List<List<String>> ans = new ArrayList<>();
+        for (Map.Entry<String,List<String>> entry : map.entrySet()) {
+            if(entry.getValue() != null) ans.add(entry.getValue());
+        }
+        return ans;
+    }
+
+    private String getKey(String s){
+        char[] arr = s.toCharArray();
+        Arrays.sort(arr);
+
+        return Arrays.toString(arr);
+    }
 
 
     private static void print(String str){

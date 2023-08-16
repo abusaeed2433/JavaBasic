@@ -38,3 +38,43 @@
     }
     ```
 - Ex(`DecimalFormat`): see `decimalFormat()` in `Test.java`,
+    ```
+    private static void decimalFormat(){
+        double num = 175.570354;
+    
+        String pattern = "####.####"; // my custom pattern
+        DecimalFormat format = new DecimalFormat();
+        format.applyPattern(pattern); // applying my pattern
+    
+        String sn = format.format(num);
+        System.out.println(sn); // 175.5704
+    
+        pattern = "0000.0000";
+        format.applyPattern(pattern);
+  
+        sn = format.format(num);
+        System.out.println(sn); // 0175.5704
+    
+  
+        num = -125.53;
+        pattern = "#.##";
+        format.applyPattern(pattern);
+    
+        sn = format.format(num);
+        System.out.println(sn);// -125.53
+  
+    
+        num = 12.53;
+        pattern = "#.##;(#.##)"; // left part of semicolon is for positive number, right part for negative number
+        format.applyPattern(pattern);
+        sn = format.format(num); System.out.println(sn); // 12.53
+    
+        num = -12.53;
+        sn = format.format(num); System.out.println(sn); // (12:53)
+    }
+    ```
+
+## Printf-style Formatting
+- `java.util.Formatter` class supports `printf-style` formatting,
+- Similar to `printf()` in `C`,
+- 

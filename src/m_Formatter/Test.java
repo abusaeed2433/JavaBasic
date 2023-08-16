@@ -10,6 +10,23 @@ public class Test {
 
         numberFormat();
         decimalFormat();
+        printfStyleFormatting();
+
+    }
+
+    private static void printfStyleFormatting(){
+        System.out.println("--------------------- printfStyleFormatting ---------------");
+
+        // Formatting strings
+        System.out.printf("%1$4s, %2$4s, and %3$6s %n", "Fu", "Hu", "Lo"); //  Fu,   Hu, and     Lo
+
+        //formatting numbers
+        //takes space on left side
+        System.out.printf("%1$4d, %2$4d, %3$4d %n", 10, 100, 1000); //  10,  100, 1000
+
+        //takes space on right side
+        System.out.printf("%1$-4d, %2$-4d, %3$-4d %n", 1, 10, 100); //1   , 10  , 100
+
     }
 
     private static void decimalFormat(){
