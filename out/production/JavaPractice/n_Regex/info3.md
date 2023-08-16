@@ -1,5 +1,5 @@
 
-# Regex part-4
+# Regex part-3
 
 > Codes are in `partThree` package
 
@@ -135,7 +135,28 @@
           matcher.appendReplacement(output,replaceWith);
       }
   
-      matcher.appendTail(output); // rest of the part
-      System.out.println(output); // a hundred A train carrying more than a hundred men and women was traveling at the speed of a hundred miles per hour. The train fare was less than a hundred dollars per person.
+      matcher.appendTail(output); // rest of the part <-----------(a)
+      System.out.println(output); // A train carrying more than a hundred men and women was traveling at the speed of a hundred miles per hour. The train fare was less than a hundred dollars per person.
   }
   ```
+- In above solution, body of while loop will be executed 3 times,
+- Content of `output` in each iteration is given:
+- `1st` iteration:
+  ```
+  A train carrying more than a hundred
+  ```
+- `2nd` iteration:
+  ```
+  A train carrying more than a hundred men and women was traveling at the speed of a hundred
+  ```
+- `3rd` iteration:
+  ```
+  A train carrying more than a hundred men and women was traveling at the speed of a hundred miles per hour. The train fare was less than a hundred
+  ```
+- Outside while loop, at point `(a)`,
+  ```
+  A train carrying more than a hundred men and women was traveling at the speed of a hundred miles per hour. The train fare was less than a hundred dollars per person.
+  ```
+
+>> Do you still remember the image while starting regex? 🐱
+

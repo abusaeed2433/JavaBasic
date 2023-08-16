@@ -1,75 +1,78 @@
-package formatter;
+package m_Formatter;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-public class Formatter {
+public class Test {
 
     public static void main(String[] args) {
-        //new Formatter().numberFormat();
-        new Formatter().decimalFormat();
+
+        numberFormat();
+        decimalFormat();
     }
 
-    private void decimalFormat(){
-        double num = 175.570;
+    private static void decimalFormat(){
+        System.out.println("-------------------- decimalFormat ------------------------");
 
-        String pattern = "####.####";
+        double num = 175.570354;
+
+        String pattern = "####.####"; // my custom pattern. maximum
         DecimalFormat format = new DecimalFormat();
-        format.applyPattern(pattern);
+        format.applyPattern(pattern); // applying my pattern
+
         String sn = format.format(num);
-        System.out.println(sn); // 175.57
+        System.out.println(sn); // 175.5704
 
         pattern = "0000.0000";
         format.applyPattern(pattern);
         sn = format.format(num);
-        System.out.println(sn); // 0175.5700
+        System.out.println(sn); //0175.5704
 
         num = -125.53;
         pattern = "#.##";
         format.applyPattern(pattern);
+
         sn = format.format(num);
         System.out.println(sn);// -125.53
 
         num = 12.53;
-        pattern = "#.##;#.##";
+        pattern = "#.##;(#.##)"; // left part of semicolon is for positive number, right part for negative number
         format.applyPattern(pattern);
         sn = format.format(num); System.out.println(sn); // 12.53
 
         num = -12.53;
-        sn = format.format(num); System.out.println(sn); // -12.53
-
-
-        num = 12.53;
-        pattern = "#.##;(#.##)";
-        format.applyPattern(pattern);
-        sn = format.format(num); System.out.println(sn); // 12.53
-
-        num = -12.53;
-        sn = format.format(num); System.out.println(sn); // (12.53) idk whats happening here
+        sn = format.format(num); System.out.println(sn); // (12:53)
 
     }
 
-    private void numberFormat(){
-        double num = 175570;
+    private static void numberFormat(){
+
+        System.out.println("---------------------- numberFormat ----------------------");
 
         //------------   default locale USA -----------
         NumberFormat format = NumberFormat.getNumberInstance();
+
+        double num = 175570;
         String sn = format.format(num);
         System.out.println(sn); // 175,570
 
         NumberFormat format1 = NumberFormat.getCurrencyInstance();
-        String st = format1.format(num);
+
+        double num1 = 175570;
+        String st = format1.format(num1);
         System.out.println(st); // $175,570.00
 
 
         //-------------------   BD locale --------------
-        format = NumberFormat.getNumberInstance(new Locale("en","BD"));
-        sn = format.format(num);
+        NumberFormat format2 = NumberFormat.getNumberInstance(new Locale("en","BD"));
+
+        double num2 = 175570;
+        sn = format2.format(num2);
         System.out.println(sn); // 175,570
 
-        format1 = NumberFormat.getCurrencyInstance(new Locale("en","bd"));
-        st = format1.format(num);
+        NumberFormat format3 = NumberFormat.getCurrencyInstance(new Locale("en","bd"));
+        st = format3.format(num);
         System.out.println(st); // BDT175,570.00
 
         // if wrong locale is used then
@@ -77,5 +80,6 @@ public class Formatter {
         // Currency: �175,570.00
 
     }
+
 
 }
