@@ -57,3 +57,196 @@
     String strTime = time.format(DateTimeFormatter.ISO_TIME);
     System.out.println(strTime); // 11:12:13
     ```
+
+
+## Using user-defined patterns
+- Most commonly used methods in the `DateTimeFormatter` class is the `ofPattern()` method,
+- `ofPattern()`:
+  - Takes `pattern` and `locale`(optional),
+  - Returns a `DateTimeFormatter object` with the `specified pattern and locale`,
+- Here formatting is performed based on a `pattern`,
+  - A `pattern` is a sequence of characters that have `special meanings`,
+- Some widely used special characters are:
+    <table>
+    
+    <tr> <th>Symbol</th> <th>Description</th> <th>Example</th> </tr>
+    
+    <tr>
+     <th>y</th> <th>Year of era.<br>Always positive for AD & BC</th> 
+     <th>
+      <table>
+        <tr> <th>yy</th> <th>23</th> </tr>
+        <tr> <th>yyyy</th> <th>2023</th> </tr>
+        <tr> <th>yyyyy</th> <th>02023</th> </tr>
+      </table>
+    </tr>
+    
+    <tr>
+     <th>D</th> <th>Day of year (1 -366)</th> 
+     <th>
+      <table>
+        <tr> <th>D</th> <th>150</th> </tr>
+      </table>
+    </tr>
+    
+    <tr>
+     <th>M</th> <th>Month of year</th> 
+     <th> 
+       <table>
+        <tr> <th>M</th> <th>5</th> </tr>
+        <tr> <th>MM</th> <th>05</th> </tr>
+        <tr> <th>MMM</th> <th>Jul</th> </tr>
+        <tr> <th>MMMM</th> <th>July</th> </tr>
+       </table>
+     </th>
+    </tr>
+    
+    <tr>
+     <th>d</th> <th>Day of month</th> 
+     <th> 
+       <table>
+        <tr> <th>d</th> <th>23</th> </tr>
+       </table>
+     </th>
+    </tr>
+    
+    <tr>
+     <th>W</th> <th>Week of month</th> 
+     <th> 
+       <table>
+        <tr> <th>W</th> <th>5</th> </tr>
+       </table>
+     </th>
+    </tr>
+    
+    <tr>
+     <th>E</th> <th>Day of week</th> 
+     <th> 
+       <table>
+        <tr> <th>E</th> <th>7</th> </tr>
+        <tr> <th>EE</th> <th>07</th> </tr>
+        <tr> <th>EEE</th> <th>Sun</th> </tr>
+        <tr> <th>EEEEE</th> <th>Sunday</th> </tr>
+       </table>
+     </th>
+    </tr>
+    
+    <tr>
+     <th>a</th> <th>AM/PM of day</th> 
+     <th> 
+       <table>
+        <tr> <th>a</th> <th>AM</th> </tr>
+        <tr> <th>a</th> <th>PM</th> </tr>
+       </table>
+     </th>
+    </tr>
+    
+    <tr>
+     <th>h</th> <th>Clock hour of AM/PM (1-12)</th> 
+     <th> 
+       <table>
+        <tr> <th>h</th> <th>5</th> </tr>
+       </table>
+     </th>
+    </tr>
+    
+    <tr>
+     <th>k</th> <th>Clock hour of AM/PM (1-24)</th> 
+     <th> 
+       <table>
+        <tr> <th>k</th> <th>9</th> </tr>
+       </table>
+     </th>
+    </tr>
+    
+    <tr>
+     <th>H</th> <th>Hour of day (0-23)</th> 
+     <th> 
+       <table>
+        <tr> <th>H</th> <th>7</th> </tr>
+        <tr> <th>HH</th> <th>07</th> </tr>
+       </table>
+     </th>
+    </tr>
+    
+    <tr>
+     <th>m</th> <th>Minute of hour</th> 
+     <th> 
+       <table>
+        <tr> <th>mm</th> <th>30</th> </tr>
+       </table>
+     </th>
+    </tr>
+    
+    <tr>
+     <th>s</th> <th>Second of minute</th> 
+     <th> 
+       <table>
+        <tr> <th>ss</th> <th>12</th> </tr>
+       </table>
+     </th>
+    </tr>
+    
+    <tr>
+     <th>V</th> <th>Time zone ID</th> 
+     <th> 
+       <table>
+        <tr> <th>VV</th> <th>America/Chicago</th> </tr>
+       </table>
+     </th>
+    </tr>
+    
+    <tr>
+     <th>Z</th> <th>Zone offset</th> 
+     <th> 
+       <table>
+        <tr> <th>Z</th> <th>-0500</th> </tr>
+        <tr> <th>ZZ</th> <th>-0500</th> </tr>
+        <tr> <th>ZZZ</th> <th>-05:00</th> </tr>
+        <tr> <th>ZZZZ</th> <th>GMT-05:00</th> </tr>
+       </table>
+     </th>
+    </tr>
+    
+    <tr>
+     <th>'</th> <th>Escape for text<br>Text within single quotes is output directly</th> 
+     <th> 
+       <table>
+        <tr> <th>'Hello'</th> <th>Hello</th> </tr>
+        <tr> <th>'Hello' MMMM</th> <th>Hello July</th> </tr>
+       </table>
+     </th>
+    </tr>
+    
+    <tr>
+     <th>''</th> <th>A single quote</th> 
+     <th> 
+       <table>
+        <tr> <th>'''Hello''' MMMM</th> <th>'Hello' July</th> </tr>
+       </table>
+     </th>
+    </tr>
+    
+    </table>
+
+- Ex:
+    ```
+    LocalDate date = LocalDate.of(2023, Month.AUGUST,17);
+    
+    String pattern = "ddMMM yy";
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+    
+    String strDate = formatter.format(date);
+    System.out.println(strDate); // 17Aug 23
+    
+    
+    LocalDateTime ldt = LocalDateTime.of(2023,Month.AUGUST,17,19,16);
+    
+    String fullPattern = "ddMM yy 'at' hh:mm:ssa";
+    DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern(fullPattern);
+    
+    String formatted = formatter1.format(ldt);
+    System.out.println(formatted); // 1708 23 at 07:16:00PM
+    ```
+
+
