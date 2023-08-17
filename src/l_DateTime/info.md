@@ -76,7 +76,7 @@
     LocalDate date2 = LocalDate.of(2023,4,23);
     System.out.println(date2); // 2023-04-23
 
-    LocalDate date3 = LocalDate.ofEpochDay(1000);
+    LocalDate date3 = LocalDate.ofEpochDay(1000); // epoch means time from Midnight January 1, 1970 UTC
     System.out.println(date3); // 1972-09-27
 
     LocalDate date4 = LocalDate.ofYearDay(2023,140);
