@@ -171,8 +171,7 @@
   
   LocalDate localDate3 = localDate.with(TemporalAdjusters.next(DayOfWeek.THURSDAY));
   System.out.println(localDate3); // 2023-08-24
+  
+  LocalDate localDate4 = localDate3.with(TemporalAdjusters.lastDayOfMonth());
+  System.out.println(localDate4); // 2023-08-31
   ```
-
-
-
-
