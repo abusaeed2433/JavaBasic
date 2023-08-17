@@ -252,7 +252,18 @@
 ## Using the DateTimeFormatterBuilder class
 - Previous one is enough for all cases,
 - Ex:
-- 
+    ```
+    DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+            .appendLiteral("My birthday in ")
+            .appendValue(ChronoField.YEAR)
+            .appendLiteral(" is not on ")
+            .appendText(ChronoField.DAY_OF_WEEK, TextStyle.FULL_STANDALONE)
+            .toFormatter();
+    
+    LocalDate ld = LocalDate.of(2023, Month.MARCH, 22);
+    String str = ld.format(formatter);
+    System.out.println(str); // My birthday in 2023 is not on Wednesday
+    ```
 
 ## Using Locale Specific Formats
 - Uses predefined format for which is locale specific,
