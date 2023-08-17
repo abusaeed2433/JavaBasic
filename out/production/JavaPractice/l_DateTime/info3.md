@@ -82,4 +82,32 @@
     ```
     ZonedDateTime = LocalDateTime + ZoneId
     ```
--
+- Ex: See `testZonedDateTime()` in `Test.java`,
+    ```
+    ZoneId zoneId = ZoneId.of("+06:00");
+    
+    ZonedDateTime zdt = ZonedDateTime.of(2023,3,21,11,12,12,0,zoneId);
+    System.out.println( zdt ); // 2023-03-21T11:12:12+06:00
+    
+    ZoneOffset offset = zdt.getOffset();
+    System.out.println( offset ); // +06:00
+    
+    ZoneId id = zdt.getZone();
+    System.out.println( id ); // +06:00
+    
+    LocalDate localDate = zdt.toLocalDate();
+    System.out.println( localDate ); // 2023-03-21
+    
+    LocalTime localTime = zdt.toLocalTime();
+    System.out.println( localTime ); // 11:12:12
+    
+    OffsetDateTime offsetTime = zdt.toOffsetDateTime();
+    System.out.println( offsetTime ); // 2023-03-21T11:12:12+06:00
+            
+    LocalDateTime localDateTime = zdt.toLocalDateTime();
+    System.out.println( localDateTime ); // 2023-03-21T11:12:12
+    ```
+
+## Same Instant, Different Times
+- Can `Instant` can have different time because of different `zone`,
+- 

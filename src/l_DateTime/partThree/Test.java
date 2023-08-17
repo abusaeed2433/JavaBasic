@@ -8,6 +8,24 @@ public class Test {
         dateTimeDateTime();
         zoneTimeDateTime();
         testZonedDateTime();
+        zoneConversion();
+    }
+
+    private static void zoneConversion(){
+        System.out.println("-------------------- zoneConversion ------------------------");
+
+        LocalDateTime ldt = LocalDateTime.of(2023, Month.MARCH, 14, 17, 30);
+        ZoneId zoneSaudi = ZoneId.of("Asia/Riyadh");
+
+        ZonedDateTime zdt = ZonedDateTime.of(ldt, zoneSaudi); // <------------------(1)
+        System.out.println( zdt ); // 2023-03-14T17:30+03:00[Asia/Riyadh]
+
+        ZoneId zoneDhaka = ZoneId.of("Asia/Dhaka");
+        ZonedDateTime zdt2 = zdt.withZoneSameInstant(zoneDhaka); // <---------------(2)
+        System.out.println( zdt2 ); // 2023-03-14T20:30+06:00[Asia/Dhaka]
+
+        ZonedDateTime zdt3 = zdt.withZoneSameInstant(ZoneId.of("Z")); // utc
+        System.out.println( zdt3 ); // 2023-03-14T14:30Z
     }
 
     private static void testZonedDateTime(){
