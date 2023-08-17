@@ -1,7 +1,7 @@
 
 # DateTime part-1
 
-> Codes are in `partOnr` package
+> Codes are in `partOne` package
 
 
 ## Introduction
@@ -76,7 +76,7 @@
     LocalDate date2 = LocalDate.of(2023,4,23);
     System.out.println(date2); // 2023-04-23
 
-    LocalDate date3 = LocalDate.ofEpochDay(1000);
+    LocalDate date3 = LocalDate.ofEpochDay(1000); // epoch means time from Midnight January 1, 1970 UTC
     System.out.println(date3); // 1972-09-27
 
     LocalDate date4 = LocalDate.ofYearDay(2023,140);
@@ -88,10 +88,16 @@
 - Ex:
     ```
     LocalDate date6 = LocalDate.now();
+    System.out.println(date6); // 2023-08-16
+
     LocalDate date7 = LocalDate.from(date6);
-            
+    System.out.println(date7); // 2023-08-16
+
     LocalDateTime ldt = LocalDateTime.now();
+    System.out.println(ldt); // 2023-08-16T23:33:54.223464
+
     LocalDate date8 = LocalDate.from(ldt);
+    System.out.println(date8); // 2023-08-16
     ```
     - Here `ldt` has `Date` component, so it can be used for creating `LocalDate` object,
 
@@ -190,16 +196,3 @@
     Duration d3 = d.negated();
     System.out.println(d3); // PT-3M-20S
     ```
-
-
-
-
-
-
-
-
-
-
-
-
-a

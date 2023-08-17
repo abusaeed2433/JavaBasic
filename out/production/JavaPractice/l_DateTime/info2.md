@@ -40,22 +40,4 @@
   System.out.println( duration1.get(ChronoUnit.NANOS) ); // 0
   ```
 - Ex(compare):
-  ```
-  Instant instant = Instant.ofEpochSecond(86420);
-  Instant instant1 = Instant.ofEpochSecond(86420*2);
-  
-  System.out.println( instant.isBefore(instant1) ); // true
-  System.out.println( instant.isAfter(instant1) ); // false
-  
-  Instant instant2 = Instant.ofEpochSecond(86420);
-  System.out.println( instant.equals(instant2) ); // true
-  
-  Duration duration = Duration.ofSeconds(100);
-  Instant instant3 = instant2.plus(duration);
-  System.out.println(instant3); // 1970-01-02T00:02:00Z
-  
-  
-  Duration duration1 = Duration.ofDays(120);
-  Duration duration2 = duration1.plusDays(120);
-  System.out.println(duration2); // PT5760H
-  ```
+- 
