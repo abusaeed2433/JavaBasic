@@ -2,7 +2,10 @@ package l_DateTime.partFive;
 
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.time.format.FormatStyle;
+import java.time.format.TextStyle;
+import java.time.temporal.ChronoField;
 import java.util.Date;
 
 public class Test {
@@ -104,7 +107,20 @@ public class Test {
 
         }
 
-    }
+        {
+            System.out.println("----------- Using the DateTimeFormatterBuilder class -----------");
+            DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                    .appendLiteral("My birthday in ")
+                    .appendValue(ChronoField.YEAR)
+                    .appendLiteral(" is not on ")
+                    .appendText(ChronoField.DAY_OF_WEEK, TextStyle.FULL_STANDALONE)
+                    .toFormatter();
 
+            LocalDate ld = LocalDate.of(2023, Month.MARCH, 22);
+            String str = ld.format(formatter);
+            System.out.println(str); // My birthday in 2023 is not on Wednesday
+        }
+
+    }
 
 }
