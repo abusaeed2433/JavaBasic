@@ -110,4 +110,18 @@
 
 ## Same Instant, Different Times
 - Can `Instant` can have different time because of different `zone`,
-- 
+- Ex: See `zoneConversion()` in `Test.java`,
+    ```
+    LocalDateTime ldt = LocalDateTime.of(2023, Month.MARCH, 14, 17, 30);
+    ZoneId zoneSaudi = ZoneId.of("Asia/Riyadh");
+    
+    ZonedDateTime zdt = ZonedDateTime.of(ldt, zoneSaudi); // <-----------(1)
+    System.out.println( zdt ); // 2023-03-14T17:30+03:00[Asia/Riyadh]
+    
+    ZoneId zoneDhaka = ZoneId.of("Asia/Dhaka");
+    ZonedDateTime zdt2 = zdt.withZoneSameInstant(zoneDhaka); // <--------(2)
+    System.out.println( zdt2 ); // 2023-03-14T20:30+06:00[Asia/Dhaka]
+    
+    ZonedDateTime zdt3 = zdt.withZoneSameInstant(ZoneId.of("Z")); // utc
+    System.out.println( zdt3 ); // 2023-03-14T14:30Z
+    ```
