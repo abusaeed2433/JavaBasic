@@ -3,6 +3,8 @@ package l_DateTime.partFour;
 import java.time.*;
 import java.time.format.TextStyle;
 import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalAdjuster;
+import java.time.temporal.TemporalAdjusters;
 import java.time.temporal.TemporalAmount;
 import java.util.Locale;
 
@@ -16,6 +18,25 @@ public class Test {
 //        pdConversion();
         calculateElapsed();
         calculateDayName();
+        testAdjuster();
+    }
+
+    private static void testAdjuster(){
+        System.out.println("---------------- testAdjuster ------------------------------");
+
+        LocalDate localDate = LocalDate.of(2023,Month.AUGUST,17);
+
+        LocalDate localDate1 = localDate.with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
+        System.out.println(localDate1); // 2023-08-19
+
+        LocalDate localDate2 = localDate.with(TemporalAdjusters.nextOrSame(DayOfWeek.THURSDAY));
+        System.out.println(localDate2); // 2023-08-17
+
+        LocalDate localDate3 = localDate.with(TemporalAdjusters.next(DayOfWeek.THURSDAY));
+        System.out.println(localDate3); // 2023-08-24
+
+        LocalDate localDate4 = localDate3.with(TemporalAdjusters.lastDayOfMonth());
+        System.out.println(localDate4); // 2023-08-31
     }
 
     private static void calculateDayName(){

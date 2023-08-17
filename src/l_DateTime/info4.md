@@ -154,9 +154,27 @@
   2027-08-17 -> Tuesday
   ```
 
+### Temporal = Something related to date and time
 
-
-
+## Adjusting Dates
+- Sometimes we need to find date of `first Monday of the month`, `the next Tuesday` etc,
+- Can be done using `TemporalAdjuster` interface,
+- Ex:
+  ```
+  LocalDate localDate = LocalDate.of(2023,Month.AUGUST,17);
+  
+  LocalDate localDate1 = localDate.with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
+  System.out.println(localDate1); // 2023-08-19
+  
+  LocalDate localDate2 = localDate.with(TemporalAdjusters.nextOrSame(DayOfWeek.THURSDAY));
+  System.out.println(localDate2); // 2023-08-17
+  
+  LocalDate localDate3 = localDate.with(TemporalAdjusters.next(DayOfWeek.THURSDAY));
+  System.out.println(localDate3); // 2023-08-24
+  
+  LocalDate localDate4 = localDate3.with(TemporalAdjusters.lastDayOfMonth());
+  System.out.println(localDate4); // 2023-08-31
+  ```
 
 
 

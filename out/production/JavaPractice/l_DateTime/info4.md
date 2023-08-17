@@ -128,11 +128,50 @@
     - Represent `Year` and `Month` both,
   - `MonthDay`:
     - Represent `Month` and `Day`,
-- 
+- Ex: See `calculateDayName()` in `Test.java`,
+  ```
+  private static void calculateDayName(){
+      MonthDay spDate = MonthDay.of(Month.AUGUST,17);
+  
+      Year year = Year.of(2023);
+  
+      for(int i=0; i<5; i++){
+  
+          LocalDate date = year.plusYears(i).atMonthDay(spDate);
+  
+          String strDate = date.toString();
+          String dayName = date.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.US);
+          System.out.println(strDate+" -> "+dayName);
+      }
+  }
+  ```
+  Output:
+  ```
+  2023-08-17 -> Thursday
+  2024-08-17 -> Saturday
+  2025-08-17 -> Sunday
+  2026-08-17 -> Monday
+  2027-08-17 -> Tuesday
+  ```
 
+### Temporal = Something related to date and time
 
-
-
+## Adjusting Dates
+- Sometimes we need to find date of `first Monday of the month`, `the next Tuesday` etc,
+- Can be done using `TemporalAdjuster` interface,
+- Ex:
+  ```
+  LocalDate localDate = LocalDate.of(2023,Month.AUGUST,17);
+  
+  LocalDate localDate1 = localDate.with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
+  System.out.println(localDate1); // 2023-08-19
+  
+  LocalDate localDate2 = localDate.with(TemporalAdjusters.nextOrSame(DayOfWeek.THURSDAY));
+  System.out.println(localDate2); // 2023-08-17
+  
+  LocalDate localDate3 = localDate.with(TemporalAdjusters.next(DayOfWeek.THURSDAY));
+  System.out.println(localDate3); // 2023-08-24
+  ```
 
 
 
