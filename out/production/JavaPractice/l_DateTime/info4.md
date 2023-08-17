@@ -99,4 +99,41 @@
   - `Hours` between a `LocalDate` and a `LocalDateTime` not possible, since `LocalDate` doesn't have `hours`, 
   - If such parameters are passed to the methods, a `runtime exception` is thrown,
 - For calculating, specified `end date/time` should be `convertible` to the start `date/time`,
+- Ex: See `calculateElapsed()` in `Test.java`,
+  ```
+  private static void calculateElapsed(){
+  
+      LocalTime t1 = LocalTime.of(7,12);
+      LocalTime t2 = LocalTime.of(11,12);
+  
+      long hours = t1.until(t2, ChronoUnit.HOURS);
+      System.out.println( hours ); // 4
+  
+      long hrs = ChronoUnit.HOURS.between(t1,t2);
+      System.out.println( hrs ); // 4
+  
+  }
+  ```
+
+## Partials
+- A partial is a `date`, `time`, or `datetime` that doesn't fully specify an `instant` on a timeline,
+- Makes sense to `humans`,
+- `LocalDate`, `LocalTime`, `LocalDateTime`, and `OffsetTime` are examples of `partials` since they can't be converted to `Instant`. But,
+- `OffsetDateTime` and `ZonedDateTime` aren't partials. Since they can be converted into `Instant` without providing extra info,
+- We have some other partials like for expressing Birthday(Has only Day & Month),
+- `3` more partials are:
+  - `Year`:
+    - Represent only year,
+  - `YearMonth`:
+    - Represent `Year` and `Month` both,
+  - `MonthDay`:
+    - Represent `Month` and `Day`,
 - 
+
+
+
+
+
+
+
+

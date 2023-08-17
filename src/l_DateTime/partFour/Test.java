@@ -1,8 +1,10 @@
 package l_DateTime.partFour;
 
 import java.time.*;
+import java.time.format.TextStyle;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAmount;
+import java.util.Locale;
 
 public class Test {
 
@@ -13,6 +15,34 @@ public class Test {
         testDuration();
 //        pdConversion();
         calculateElapsed();
+        calculateDayName();
+    }
+
+    private static void calculateDayName(){
+        System.out.println("------------------ calculateDayName -------------------------");
+
+        MonthDay spDate = MonthDay.of(Month.AUGUST,17);
+
+        Year year = Year.of(2023);
+
+        for(int i=0; i<5; i++){
+
+            LocalDate date = year.plusYears(i).atMonthDay(spDate);
+
+            String strDate = date.toString();
+            String dayName = date.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.US);
+
+            System.out.println(strDate+" -> "+dayName);
+        }
+
+        /*
+        2023-08-17 -> Thursday
+        2024-08-17 -> Saturday
+        2025-08-17 -> Sunday
+        2026-08-17 -> Monday
+        2027-08-17 -> Tuesday
+        */
+
     }
 
     private static void calculateElapsed(){

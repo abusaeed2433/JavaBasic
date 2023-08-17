@@ -114,3 +114,50 @@
   
   }
   ```
+
+## Partials
+- A partial is a `date`, `time`, or `datetime` that doesn't fully specify an `instant` on a timeline,
+- Makes sense to `humans`,
+- `LocalDate`, `LocalTime`, `LocalDateTime`, and `OffsetTime` are examples of `partials` since they can't be converted to `Instant`. But,
+- `OffsetDateTime` and `ZonedDateTime` aren't partials. Since they can be converted into `Instant` without providing extra info,
+- We have some other partials like for expressing Birthday(Has only Day & Month),
+- `3` more partials are:
+  - `Year`:
+    - Represent only year,
+  - `YearMonth`:
+    - Represent `Year` and `Month` both,
+  - `MonthDay`:
+    - Represent `Month` and `Day`,
+- Ex: See `calculateDayName()` in `Test.java`,
+  ```
+  private static void calculateDayName(){
+      MonthDay spDate = MonthDay.of(Month.AUGUST,17);
+  
+      Year year = Year.of(2023);
+  
+      for(int i=0; i<5; i++){
+  
+          LocalDate date = year.plusYears(i).atMonthDay(spDate);
+  
+          String strDate = date.toString();
+          String dayName = date.getDayOfWeek().getDisplayName(TextStyle.FULL, Locale.US);
+          System.out.println(strDate+" -> "+dayName);
+      }
+  }
+  ```
+  Output:
+  ```
+  2023-08-17 -> Thursday
+  2024-08-17 -> Saturday
+  2025-08-17 -> Sunday
+  2026-08-17 -> Monday
+  2027-08-17 -> Tuesday
+  ```
+
+
+
+
+
+
+
+
