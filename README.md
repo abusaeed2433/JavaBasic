@@ -103,7 +103,7 @@
         <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/l_DateTime/partThree"> Click here(3) </a> <br>
         <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/l_DateTime/partFour"> Click here(4) </a> <br>
         <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/l_DateTime/partFive"> Click here(5) </a> <br>
-        <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/l_DateTime/partSiz"> Click here(6) </a> <br>
+        <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/l_DateTime/partSix"> Click here(6) </a> <br>
     </th>
   </tr>
 
