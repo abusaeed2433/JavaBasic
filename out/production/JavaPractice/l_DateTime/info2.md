@@ -151,5 +151,22 @@ Some `enums` representing `constants` for date and time components are:
     ```
 
 - ### ChronoUnit
+  - All constants are:
+    ```
+    [Nanos, Micros, Millis, Seconds, Minutes, Hours, HalfDays, Days, Weeks, Months, Years, Decades, Centuries, Millennia, Eras, Forever]
+    ```
   - Ex:
-  - 
+    ```
+    LocalDate date = LocalDate.of(2023, Month.MARCH, 11);
+    System.out.println(date); // 2023-03-11
+  
+    LocalDate date1 = date.plus(10,ChronoUnit.DAYS);
+    System.out.println(date1); // 2023-03-21
+  
+    LocalDate date2 = date.plus(12,ChronoUnit.YEARS);
+    System.out.println(date2); // 2035-03-11
+  
+    LocalDate date3 = date.plus(2,ChronoUnit.DECADES);
+    System.out.println(date3); // 2043-03-11
+    ```
+
