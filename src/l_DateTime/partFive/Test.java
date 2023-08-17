@@ -38,6 +38,25 @@ public class Test {
             System.out.println( strTime ); // 11:12:13
 
         }
+
+        {
+            System.out.println("----------- Using the format() method of the datetime classes -----------");
+
+            LocalDate date = LocalDate.of(2023, Month.AUGUST,17);
+            String strDate;
+
+            strDate = date.format(DateTimeFormatter.ISO_DATE);
+            System.out.println(strDate); // 2023-08-17
+
+            strDate = date.format(DateTimeFormatter.ISO_WEEK_DATE);
+            System.out.println(strDate); // 2023-W33-4
+
+            LocalTime time = LocalTime.of(11,12,13);
+            String strTime = time.format(DateTimeFormatter.ISO_TIME);
+            System.out.println(strTime); // 11:12:13
+
+        }
+
     }
 
 
