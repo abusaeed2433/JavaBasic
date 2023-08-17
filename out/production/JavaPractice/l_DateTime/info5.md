@@ -230,5 +230,30 @@
     </table>
 
 - Ex:
+    ```
+    LocalDate date = LocalDate.of(2023, Month.AUGUST,17);
+    
+    String pattern = "ddMMM yy";
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern(pattern);
+    
+    String strDate = formatter.format(date);
+    System.out.println(strDate); // 17Aug 23
+    
+    
+    LocalDateTime ldt = LocalDateTime.of(2023,Month.AUGUST,17,19,16);
+    
+    String fullPattern = "ddMM yy 'at' hh:mm:ssa";
+    DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern(fullPattern);
+    
+    String formatted = formatter1.format(ldt);
+    System.out.println(formatted); // 1708 23 at 07:16:00PM
+    ```
+
+## Using the DateTimeFormatterBuilder class
+
+## Using Locale Specific Formats
+- Uses predefined format for which is locale specific,
+- Ex:
+- 
 
 

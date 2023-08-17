@@ -249,4 +249,30 @@
     System.out.println(formatted); // 1708 23 at 07:16:00PM
     ```
 
+## Using the DateTimeFormatterBuilder class
+
+## Using Locale Specific Formats
+- Uses predefined format for which is locale specific,
+- Ex:
+    ```
+    LocalDate ld = LocalDate.of(2023, Month.AUGUST, 17);
+    
+    DateTimeFormatter fmt = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
+    System.out.println( fmt.format(ld) ); // 8/17/23
+    
+    
+    LocalTime localTime = LocalTime.of(11,12,13);
+    
+    DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM);
+    System.out.println( formatter.format(localTime) );
+    
+    
+    LocalDateTime ldt = LocalDateTime.of(ld,localTime);
+    
+    ZonedDateTime zdt = ldt.atZone(ZoneId.of("+06:00"));
+    
+    DateTimeFormatter formatter1 = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL);
+    System.out.println( formatter1.format(zdt) ); // Thursday, August 17, 2023 at 11:12:13 AM +06:00
+    ```
+
 

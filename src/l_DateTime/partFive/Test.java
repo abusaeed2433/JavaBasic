@@ -1,10 +1,8 @@
 package l_DateTime.partFive;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.time.Month;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
 import java.util.Date;
 
 public class Test {
@@ -12,6 +10,32 @@ public class Test {
     public static void main(String[] args) {
 
         testFormatter();
+        localeSpecific();
+
+    }
+
+
+    private static void localeSpecific(){
+        System.out.println("--------------------- localeSpecific ---------------------");
+
+        LocalDate ld = LocalDate.of(2023, Month.AUGUST, 17);
+
+        DateTimeFormatter fmt = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
+        System.out.println( fmt.format(ld) ); // 8/17/23
+
+
+        LocalTime localTime = LocalTime.of(11,12,13);
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM);
+        System.out.println( formatter.format(localTime) );
+
+
+        LocalDateTime ldt = LocalDateTime.of(ld,localTime);
+
+        ZonedDateTime zdt = ldt.atZone(ZoneId.of("+06:00"));
+
+        DateTimeFormatter formatter1 = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.FULL);
+        System.out.println( formatter1.format(zdt) ); // Thursday, August 17, 2023 at 11:12:13 AM +06:00
 
     }
 
