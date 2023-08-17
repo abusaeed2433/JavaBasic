@@ -1,14 +1,88 @@
 package l_DateTime.partFour;
 
-import java.time.Clock;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.*;
+import java.time.temporal.TemporalAmount;
 
 public class Test {
 
     public static void main(String[] args) {
 
         testClock();
+        testPeriod();
+        testDuration();
+//        pdConversion();
+    }
+
+    private static void pdConversion(){ // error
+        System.out.println("------------------ pdConversion ------------------------");
+
+        Duration duration = Duration.ofDays(10);
+
+        // duration to period
+        Period period = Period.from(duration);
+        System.out.println(period);
+
+        // period to duration
+        duration = Duration.from(period);
+        System.out.println( duration );
+
+    }
+
+    private static void testDuration(){
+        System.out.println("---------------- testDuration() ----------------");
+
+        Duration duration;
+        duration = Duration.ofDays(10);
+        System.out.println( duration ); // PT240H
+
+        duration = duration.negated();
+        System.out.println( duration ); // PT-240H
+
+        duration = duration.negated();
+        System.out.println( duration ); // PT-240H
+
+        System.out.println("-----------------------");
+
+        duration = duration.plusMinutes(160);
+        System.out.println( duration ); // PT242H40M
+
+        duration = duration.minusMinutes(20);
+        System.out.println( duration ); // PT242H20M
+
+        duration = duration.multipliedBy(2);
+        System.out.println( duration ); // PT484H40M
+
+    }
+
+    private static void testPeriod(){
+        System.out.println("--------------- testPeriod ---------------------");
+
+        Period period;
+        period = Period.of(1,1,1);
+        System.out.println( period ); // P1Y1M1D <--- 1year 1month 1day
+
+        period = Period.ofDays(10);
+        System.out.println( period ); // P10D <--- 10days
+
+        period = period.negated();
+        System.out.println( period ); // P-10D
+
+        period = period.negated();
+        System.out.println( period ); // P10D
+
+        System.out.println("-----------------------");
+
+        period = period.plusMonths(16);
+        System.out.println( period ); // P16M10D
+
+        period = period.minusMonths(4);
+        System.out.println( period ); // P12M10D
+
+        period = period.multipliedBy(2);
+        System.out.println( period ); // P24M20D
+
+        period = period.normalized();
+        System.out.println( period ); // P2Y20D <-- only year & month are normalized
 
     }
 
