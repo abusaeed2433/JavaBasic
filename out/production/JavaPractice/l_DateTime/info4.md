@@ -87,5 +87,16 @@
       System.out.println( duration ); // PT484H40M
   }
   ```
-- Ex(Conversion): See `pdConversion()` in `Test.java`,
+
+## Period Between Two Dates and Times
+- For computing amount of time elapsed between two `dates`, `times`, and `datetime`,
+- There are two ways:
+  - `between()` method on one of the constants in the `ChronoUnit` enum,
+    - Returns the amount of time elapsed from the `first` argument to the `second` argument,
+    - Will return `negative` is `2nd` argument is before `1st`,
+  - `until()` method on one of the datetime-related classes,
+- It isn't always possible to compute the amount of time elapsed between two dates and times. For example:
+  - `Hours` between a `LocalDate` and a `LocalDateTime` not possible, since `LocalDate` doesn't have `hours`, 
+  - If such parameters are passed to the methods, a `runtime exception` is thrown,
+- For calculating, specified `end date/time` should be `convertible` to the start `date/time`,
 - 

@@ -88,4 +88,29 @@
   }
   ```
 
-
+## Period Between Two Dates and Times
+- For computing amount of time elapsed between two `dates`, `times`, and `datetime`,
+- There are two ways:
+  - `between()` method on one of the constants in the `ChronoUnit` enum,
+    - Returns the amount of time elapsed from the `first` argument to the `second` argument,
+    - Will return `negative` is `2nd` argument is before `1st`,
+  - `until()` method on one of the datetime-related classes,
+- It isn't always possible to compute the amount of time elapsed between two dates and times. For example:
+  - `Hours` between a `LocalDate` and a `LocalDateTime` not possible, since `LocalDate` doesn't have `hours`, 
+  - If such parameters are passed to the methods, a `runtime exception` is thrown,
+- For calculating, specified `end date/time` should be `convertible` to the start `date/time`,
+- Ex: See `calculateElapsed()` in `Test.java`,
+  ```
+  private static void calculateElapsed(){
+  
+      LocalTime t1 = LocalTime.of(7,12);
+      LocalTime t2 = LocalTime.of(11,12);
+  
+      long hours = t1.until(t2, ChronoUnit.HOURS);
+      System.out.println( hours ); // 4
+  
+      long hrs = ChronoUnit.HOURS.between(t1,t2);
+      System.out.println( hrs ); // 4
+  
+  }
+  ```

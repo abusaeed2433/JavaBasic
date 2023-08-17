@@ -1,6 +1,7 @@
 package l_DateTime.partFour;
 
 import java.time.*;
+import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAmount;
 
 public class Test {
@@ -11,6 +12,21 @@ public class Test {
         testPeriod();
         testDuration();
 //        pdConversion();
+        calculateElapsed();
+    }
+
+    private static void calculateElapsed(){
+        System.out.println("------------------- calculateElapsed -------------------");
+
+        LocalTime t1 = LocalTime.of(7,12);
+        LocalTime t2 = LocalTime.of(11,12);
+
+        long hours = t1.until(t2, ChronoUnit.HOURS);
+        System.out.println( hours ); // 4
+
+        long hrs = ChronoUnit.HOURS.between(t1,t2);
+        System.out.println( hrs ); // 4
+
     }
 
     private static void pdConversion(){ // error
