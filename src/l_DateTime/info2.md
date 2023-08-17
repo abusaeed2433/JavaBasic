@@ -109,3 +109,64 @@
 ## Human scale date time components
 <img src="files/human_scale_date_time.jpg" height="300px">
 
+
+## Useful Datetime-Related `Enums`
+Some `enums` representing `constants` for date and time components are:
+- ### Month
+  - Contains `12` constants to represents the `12` months of the year,
+  - Ex:
+    ```
+    System.out.println( EnumSet.allOf(Month.class) );
+    // [JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER]
+
+    LocalDate localDate = LocalDate.of(2023, Month.MARCH, 11);
+    System.out.println(localDate); // 2023-03-11
+    ```
+- ### DayOfWeek
+  - `7` constants to represent `seven days` of the week,
+  - Ex:
+    ```
+    System.out.println(EnumSet.allOf(DayOfWeek.class));
+    // [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY]
+
+    LocalDate localDate = LocalDate.of(2023, Month.MARCH, 1);
+    System.out.println(localDate.getDayOfWeek()); // WEDNESDAY
+    ```
+
+- ### ChronoField
+  - The `ChronoField` enum contains a long list of constants, They are
+    ```
+    [NanoOfSecond, NanoOfDay, MicroOfSecond, MicroOfDay, MilliOfSecond, MilliOfDay, SecondOfMinute, SecondOfDay, MinuteOfHour, MinuteOfDay, HourOfAmPm, ClockHourOfAmPm, HourOfDay, ClockHourOfDay, AmPmOfDay, DayOfWeek, AlignedDayOfWeekInMonth, AlignedDayOfWeekInYear, DayOfMonth, DayOfYear, EpochDay, AlignedWeekOfMonth, AlignedWeekOfYear, MonthOfYear, ProlepticMonth, YearOfEra, Year, Era, InstantSeconds, OffsetSeconds]
+    ```
+  - Ex:
+    ```
+    LocalDate localDate = LocalDate.of(2023, Month.MARCH, 11);
+
+    System.out.println( localDate.get(ChronoField.YEAR) ); // 2023
+    System.out.println( localDate.get(ChronoField.MONTH_OF_YEAR) ); // 3
+    System.out.println( localDate.get(ChronoField.DAY_OF_MONTH) ); // 11
+
+    System.out.println( localDate.get(ChronoField.DAY_OF_YEAR) ); // 70
+    System.out.println( localDate.get(ChronoField.YEAR_OF_ERA) ); // 2023
+    ```
+
+- ### ChronoUnit
+  - All constants are:
+    ```
+    [Nanos, Micros, Millis, Seconds, Minutes, Hours, HalfDays, Days, Weeks, Months, Years, Decades, Centuries, Millennia, Eras, Forever]
+    ```
+  - Ex:
+    ```
+    LocalDate date = LocalDate.of(2023, Month.MARCH, 11);
+    System.out.println(date); // 2023-03-11
+  
+    LocalDate date1 = date.plus(10,ChronoUnit.DAYS);
+    System.out.println(date1); // 2023-03-21
+  
+    LocalDate date2 = date.plus(12,ChronoUnit.YEARS);
+    System.out.println(date2); // 2035-03-11
+  
+    LocalDate date3 = date.plus(2,ChronoUnit.DECADES);
+    System.out.println(date3); // 2043-03-11
+    ```
+

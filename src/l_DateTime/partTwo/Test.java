@@ -4,6 +4,8 @@ import java.time.*;
 import java.time.format.TextStyle;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
+import java.util.Arrays;
+import java.util.EnumSet;
 import java.util.Locale;
 
 public class Test {
@@ -11,6 +13,65 @@ public class Test {
     public static void main(String[] args) {
         testInstantDuration();
         testZone();
+        testEnum();
+    }
+
+
+    private static void testEnum(){
+        System.out.println("---------------- testEnum -------------------------------");
+
+        {
+            System.out.println("------------ Month ------------------");
+            System.out.println(EnumSet.allOf(Month.class));
+            // [JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER]
+
+            LocalDate localDate = LocalDate.of(2023, Month.MARCH, 11);
+            System.out.println(localDate); // 2023-03-11
+        }
+
+        {
+            System.out.println("------------- DayOfWeek --------------");
+            System.out.println(EnumSet.allOf(DayOfWeek.class));
+            // [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY]
+
+            LocalDate localDate = LocalDate.of(2023, Month.MARCH, 1);
+            System.out.println(localDate.getDayOfWeek()); // WEDNESDAY
+        }
+
+        {
+            System.out.println("------------- ChronoField -------------");
+            System.out.println(EnumSet.allOf(ChronoField.class));
+
+            LocalDate localDate = LocalDate.of(2023, Month.MARCH, 11);
+
+            System.out.println( localDate.get(ChronoField.YEAR) ); // 2023
+            System.out.println( localDate.get(ChronoField.MONTH_OF_YEAR) ); // 3
+            System.out.println( localDate.get(ChronoField.DAY_OF_MONTH) ); // 11
+
+            System.out.println( localDate.get(ChronoField.DAY_OF_YEAR) ); // 70
+            System.out.println( localDate.get(ChronoField.YEAR_OF_ERA) ); // 2023
+
+        }
+
+        {
+            System.out.println("------------ ChronoUnit -----------------");
+            System.out.println(EnumSet.allOf(ChronoUnit.class));
+            // [Nanos, Micros, Millis, Seconds, Minutes, Hours, HalfDays, Days, Weeks, Months, Years, Decades, Centuries, Millennia, Eras, Forever]
+
+            LocalDate date = LocalDate.of(2023, Month.MARCH, 11);
+            System.out.println(date); // 2023-03-11
+
+            LocalDate date1 = date.plus(10,ChronoUnit.DAYS);
+            System.out.println(date1); // 2023-03-21
+
+            LocalDate date2 = date.plus(12,ChronoUnit.YEARS);
+            System.out.println(date2); // 2035-03-11
+
+            LocalDate date3 = date.plus(2,ChronoUnit.DECADES);
+            System.out.println(date3); // 2043-03-11
+
+        }
+
     }
 
 

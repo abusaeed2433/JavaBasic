@@ -89,7 +89,67 @@
   - `(3rd)`Zone ID is specified by using a `region`, 
     - For example, `Asia/Dhaka`,
 - Ex:
+  ```
+  ZoneId zoneId = ZoneId.of("+06:00");
+  System.out.println(zoneId); // +06:00
+  ZonedDateTime zonedDateTime = ZonedDateTime.now(zoneId);
+  System.out.println(zonedDateTime); // 2023-08-17T11:44:59.644430500+06:00 <---- See +06:00
+  
+  ZoneId zoneId1 = ZoneId.of("UTC+06:00");
+  System.out.println(zoneId1); // UTC+06:00
+  ZonedDateTime zonedDateTime1 = ZonedDateTime.now(zoneId1);
+  System.out.println(zonedDateTime1); // 2023-08-17T11:46:04.027586300+06:00[UTC+06:00] <---- See +06:00
+  
+  ZoneId zoneId2 = ZoneId.of("Asia/Dhaka");
+  System.out.println(zoneId2); // Asia/Dhaka
+  ZonedDateTime zonedDateTime2 = ZonedDateTime.now(zoneId2);
+  System.out.println(zonedDateTime2); // 2023-08-17T11:46:04.027586300+06:00[Asia/Dhaka] <---- See +06:00
+  ```
 
 ## Human scale date time components
 <img src="files/human_scale_date_time.jpg" height="300px">
 
+
+## Useful Datetime-Related `Enums`
+Some `enums` representing `constants` for date and time components are:
+- ### Month
+  - Contains `12` constants to represents the `12` months of the year,
+  - Ex:
+    ```
+    System.out.println( EnumSet.allOf(Month.class) );
+    // [JANUARY, FEBRUARY, MARCH, APRIL, MAY, JUNE, JULY, AUGUST, SEPTEMBER, OCTOBER, NOVEMBER, DECEMBER]
+
+    LocalDate localDate = LocalDate.of(2023, Month.MARCH, 11);
+    System.out.println(localDate); // 2023-03-11
+    ```
+- ### DayOfWeek
+  - `7` constants to represent `seven days` of the week,
+  - Ex:
+    ```
+    System.out.println(EnumSet.allOf(DayOfWeek.class));
+    // [MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY]
+
+    LocalDate localDate = LocalDate.of(2023, Month.MARCH, 1);
+    System.out.println(localDate.getDayOfWeek()); // WEDNESDAY
+    ```
+
+- ### ChronoField
+  - The `ChronoField` enum contains a long list of constants, They are
+    ```
+    [NanoOfSecond, NanoOfDay, MicroOfSecond, MicroOfDay, MilliOfSecond, MilliOfDay, SecondOfMinute, SecondOfDay, MinuteOfHour, MinuteOfDay, HourOfAmPm, ClockHourOfAmPm, HourOfDay, ClockHourOfDay, AmPmOfDay, DayOfWeek, AlignedDayOfWeekInMonth, AlignedDayOfWeekInYear, DayOfMonth, DayOfYear, EpochDay, AlignedWeekOfMonth, AlignedWeekOfYear, MonthOfYear, ProlepticMonth, YearOfEra, Year, Era, InstantSeconds, OffsetSeconds]
+    ```
+  - Ex:
+    ```
+    LocalDate localDate = LocalDate.of(2023, Month.MARCH, 11);
+
+    System.out.println( localDate.get(ChronoField.YEAR) ); // 2023
+    System.out.println( localDate.get(ChronoField.MONTH_OF_YEAR) ); // 3
+    System.out.println( localDate.get(ChronoField.DAY_OF_MONTH) ); // 11
+
+    System.out.println( localDate.get(ChronoField.DAY_OF_YEAR) ); // 70
+    System.out.println( localDate.get(ChronoField.YEAR_OF_ERA) ); // 2023
+    ```
+
+- ### ChronoUnit
+  - Ex:
+  - 
