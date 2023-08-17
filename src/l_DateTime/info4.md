@@ -175,7 +175,3 @@
   LocalDate localDate4 = localDate3.with(TemporalAdjusters.lastDayOfMonth());
   System.out.println(localDate4); // 2023-08-31
   ```
-
-
-
-
