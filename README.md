@@ -91,11 +91,19 @@
     <th>Date-Time</th>
     <th>
       <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/l_DateTime/info.md" > Part-1 </a> <br>
-      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/l_DateTime/info2.md" > More coming </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/l_DateTime/info2.md" > Part-2 </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/l_DateTime/info3.md" > Part-3 </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/l_DateTime/info4.md" > Part-4 </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/l_DateTime/info5.md" > Part-5 </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/l_DateTime/info6.md" > Part-6 </a> <br>
     </th>
     <th>
         <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/l_DateTime/partOne"> Click here(1) </a> <br>
-        <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/l_DateTime/partTwo"> Coming </a> <br>
+        <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/l_DateTime/partTwo"> Click here(2) </a> <br>
+        <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/l_DateTime/partThree"> Click here(3) </a> <br>
+        <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/l_DateTime/partFour"> Click here(4) </a> <br>
+        <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/l_DateTime/partFive"> Click here(5) </a> <br>
+        <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/l_DateTime/partSiz"> Click here(6) </a> <br>
     </th>
   </tr>
 
