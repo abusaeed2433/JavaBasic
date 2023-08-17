@@ -59,3 +59,53 @@
   Duration duration2 = duration1.plusDays(120);
   System.out.println(duration2); // PT5760H
   ```
+
+## The `ZoneOffset` Class
+- Represents a `fixed zone offset` from `UTC` time zone,
+- `ISO-8601 standards` support zone offsets between `-12:00 to +14:00`. But, 
+- To avoid any problems in future if the zone offset gets extended, the `Date-Time API` supports zone offsets between `-18:00 to +18:00`,
+- Ex:
+  ```
+  ZonedDateTime zdt = ZonedDateTime.now(ZoneId.of("Asia/Dhaka"));
+  ZoneOffset zoneOffset = ZoneOffset.from(zdt);
+  System.out.println(zoneOffset); // +06:00
+  
+  System.out.println(ZoneOffset.UTC); // Z
+  System.out.println(ZoneOffset.MIN); // -18:00
+  System.out.println(ZoneOffset.MAX); // +18:00
+  ```
+
+## The `ZoneId` Class
+- Represents a combination of a `zone offset` and the `rules for changing the zone offset`,
+- `ZoneId = ZoneOffset + ZoneRules`,
+- A time zone has a unique textual ID, which can be specified in `three formats`:
+  - `(1st)`Specified in terms of `zone offset`. It can be 
+    - `Z` (`UTC 0`),
+    - `+hh:mm:ss`,
+    - `-hh:mm:ss`,
+    - For example: `+06:00`,
+  - `(2nd)`Zone ID is prefixed with `UTC`, `GMT`, or `UT` and followed by a `zone offset`,
+    - For example: `UTC+06:00`,
+  - `(3rd)`Zone ID is specified by using a `region`, 
+    - For example, `Asia/Dhaka`,
+- Ex:
+  ```
+  ZoneId zoneId = ZoneId.of("+06:00");
+  System.out.println(zoneId); // +06:00
+  ZonedDateTime zonedDateTime = ZonedDateTime.now(zoneId);
+  System.out.println(zonedDateTime); // 2023-08-17T11:44:59.644430500+06:00 <---- See +06:00
+  
+  ZoneId zoneId1 = ZoneId.of("UTC+06:00");
+  System.out.println(zoneId1); // UTC+06:00
+  ZonedDateTime zonedDateTime1 = ZonedDateTime.now(zoneId1);
+  System.out.println(zonedDateTime1); // 2023-08-17T11:46:04.027586300+06:00[UTC+06:00] <---- See +06:00
+  
+  ZoneId zoneId2 = ZoneId.of("Asia/Dhaka");
+  System.out.println(zoneId2); // Asia/Dhaka
+  ZonedDateTime zonedDateTime2 = ZonedDateTime.now(zoneId2);
+  System.out.println(zonedDateTime2); // 2023-08-17T11:46:04.027586300+06:00[Asia/Dhaka] <---- See +06:00
+  ```
+
+## Human scale date time components
+<img src="files/human_scale_date_time.jpg" height="300px">
+

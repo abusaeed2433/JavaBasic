@@ -40,4 +40,56 @@
   System.out.println( duration1.get(ChronoUnit.NANOS) ); // 0
   ```
 - Ex(compare):
-- 
+  ```
+  Instant instant = Instant.ofEpochSecond(86420);
+  Instant instant1 = Instant.ofEpochSecond(86420*2);
+  
+  System.out.println( instant.isBefore(instant1) ); // true
+  System.out.println( instant.isAfter(instant1) ); // false
+  
+  Instant instant2 = Instant.ofEpochSecond(86420);
+  System.out.println( instant.equals(instant2) ); // true
+  
+  Duration duration = Duration.ofSeconds(100);
+  Instant instant3 = instant2.plus(duration);
+  System.out.println(instant3); // 1970-01-02T00:02:00Z
+  
+  
+  Duration duration1 = Duration.ofDays(120);
+  Duration duration2 = duration1.plusDays(120);
+  System.out.println(duration2); // PT5760H
+  ```
+
+## The `ZoneOffset` Class
+- Represents a `fixed zone offset` from `UTC` time zone,
+- `ISO-8601 standards` support zone offsets between `-12:00 to +14:00`. But, 
+- To avoid any problems in future if the zone offset gets extended, the `Date-Time API` supports zone offsets between `-18:00 to +18:00`,
+- Ex:
+  ```
+  ZonedDateTime zdt = ZonedDateTime.now(ZoneId.of("Asia/Dhaka"));
+  ZoneOffset zoneOffset = ZoneOffset.from(zdt);
+  System.out.println(zoneOffset); // +06:00
+  
+  System.out.println(ZoneOffset.UTC); // Z
+  System.out.println(ZoneOffset.MIN); // -18:00
+  System.out.println(ZoneOffset.MAX); // +18:00
+  ```
+
+## The `ZoneId` Class
+- Represents a combination of a `zone offset` and the `rules for changing the zone offset`,
+- `ZoneId = ZoneOffset + ZoneRules`,
+- A time zone has a unique textual ID, which can be specified in `three formats`:
+  - `(1st)`Specified in terms of `zone offset`. It can be 
+    - `Z` (`UTC 0`),
+    - `+hh:mm:ss`,
+    - `-hh:mm:ss`,
+    - For example: `+06:00`,
+  - `(2nd)`Zone ID is prefixed with `UTC`, `GMT`, or `UT` and followed by a `zone offset`,
+    - For example: `UTC+06:00`,
+  - `(3rd)`Zone ID is specified by using a `region`, 
+    - For example, `Asia/Dhaka`,
+- Ex:
+
+## Human scale date time components
+<img src="files/human_scale_date_time.jpg" height="300px">
+

@@ -1,14 +1,48 @@
 package l_DateTime.partTwo;
 
-import java.time.Duration;
-import java.time.Instant;
+import java.time.*;
+import java.time.format.TextStyle;
 import java.time.temporal.ChronoField;
 import java.time.temporal.ChronoUnit;
+import java.util.Locale;
 
 public class Test {
 
     public static void main(String[] args) {
         testInstantDuration();
+        testZone();
+    }
+
+
+    private static void testZone(){
+        System.out.println("---------------------- testZone -------------------------");
+
+        ZonedDateTime zdt = ZonedDateTime.now(ZoneId.of("Asia/Dhaka"));
+        ZoneOffset zoneOffset = ZoneOffset.from(zdt);
+        System.out.println(zoneOffset); // +06:00
+
+        System.out.println(ZoneOffset.UTC); // Z
+        System.out.println(ZoneOffset.MIN); // -18:00
+        System.out.println(ZoneOffset.MAX); // +18:00
+
+
+        System.out.println("------------ zoneId ----------------------");
+        ZoneId zoneId = ZoneId.of("+06:00");
+        System.out.println(zoneId); // +06:00
+        ZonedDateTime zonedDateTime = ZonedDateTime.now(zoneId);
+        System.out.println(zonedDateTime); // 2023-08-17T11:44:59.644430500+06:00 <---- See +06:00
+
+        ZoneId zoneId1 = ZoneId.of("UTC+06:00");
+        System.out.println(zoneId1); // UTC+06:00
+        ZonedDateTime zonedDateTime1 = ZonedDateTime.now(zoneId1);
+        System.out.println(zonedDateTime1); // 2023-08-17T11:46:04.027586300+06:00[UTC+06:00] <---- See +06:00
+
+        ZoneId zoneId2 = ZoneId.of("Asia/Dhaka");
+        System.out.println(zoneId2); // Asia/Dhaka
+        ZonedDateTime zonedDateTime2 = ZonedDateTime.now(zoneId2);
+        System.out.println(zonedDateTime2); // 2023-08-17T11:46:04.027586300+06:00[Asia/Dhaka] <---- See +06:00
+
+
     }
 
     private static void testInstantDuration() {
