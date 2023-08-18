@@ -4,7 +4,6 @@ public class Student {
     private int roll;
     private String name;
     private double height;
-    private JustListener justListener;
 
     public Student(int roll, String name, double height) {
         this.roll = roll;
