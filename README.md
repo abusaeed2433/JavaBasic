@@ -187,4 +187,16 @@
     <th><a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/r_Enum"> Click here </a></th>
   </tr>
 
+  <tr>
+    <th>Main changes<br>from java (9-17)</th>
+    <th><a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/y_JavaSeventeen/info.md"> Click here </a></th>
+    <th><a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/y_JavaSeventeen/partOne"> Click here </a></th>
+  </tr>
+
+  <tr>
+    <th>Few Questions<br>Will continue</th>
+    <th><a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/z_Others/info.md"> Click here </a></th>
+    <th><a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/z_Others/Test.java"> Click here </a></th>
+  </tr>
+
 </table>
