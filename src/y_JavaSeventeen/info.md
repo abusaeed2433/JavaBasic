@@ -123,3 +123,39 @@
           THis is second line.
           Continue like that""";
   ```
+
+
+## Record
+- Previous way:
+  ```
+  public class Person {
+      final String name;
+      final int age;
+  
+      public Person(String name, int age) {
+          this.name = name;
+          this.age = age;
+      }
+  
+      public String getName() {
+          return name;
+      }
+  
+      public int getAge() {
+          return age;
+      }
+  }
+  ```
+  New way:
+  ```
+  public record PersonRecord(String name, int age) { }
+  ```
+  Using like this:
+  ```
+  Person person = new Person("Saeed",2345);
+  
+  PersonRecord record = new PersonRecord("Saeed",2345);
+  
+  System.out.println(person.getName() + " - " + record.name()); // Saeed - Saeed
+  System.out.println(person.getAge() + " - " + record.age()); // 2345 - 2345
+  ```

@@ -9,6 +9,20 @@ public class Test {
         switchTest();
         instanceofTest();
         multilineString();
+        recordTest();
+    }
+
+    private static void recordTest(){
+        System.out.println("------------- recordTest -------------------------------------");
+
+        Person person = new Person("Saeed",2345);
+
+        PersonRecord record = new PersonRecord("Saeed",2345);
+
+        System.out.println(person.getName() + " - " + record.name()); // Saeed - Saeed
+
+        System.out.println(person.getAge() + " - " + record.age()); // 2345 - 2345
+
     }
 
     private static void multilineString(){

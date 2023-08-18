@@ -96,5 +96,67 @@
   - with `three quotation marks`, then
   - `a new line`, then 
   - your text as you write normally,
-- Ex:
-- 
+- Ex(Earlier way):
+  ```
+  String formattedTextEarlier = "This is first line.\n"+
+          "THis is second line.\n"+
+          "Continue like that";
+  System.out.println(formattedTextEarlier);
+  ```
+  New way:
+  ```
+  String formattedText = """
+          This is first line.
+          THis is second line.
+          Continue like that""";
+  System.out.println(formattedText);
+  ```
+  Output:
+  ```
+  This is first line.
+  THis is second line.
+  Continue like that
+  ```
+  Below one is `invalid` since uou can't write just after first `"""`,
+  ```
+  String formattedText2 = """This is first line.
+          THis is second line.
+          Continue like that""";
+  ```
+
+
+## Record
+- Previous way:
+  ```
+  public class Person {
+      final String name;
+      final int age;
+  
+      public Person(String name, int age) {
+          this.name = name;
+          this.age = age;
+      }
+  
+      public String getName() {
+          return name;
+      }
+  
+      public int getAge() {
+          return age;
+      }
+  }
+  ```
+  New way:
+  ```
+  public record PersonRecord(String name, int age) { }
+  ```
+  Using like this:
+  ```
+  Person person = new Person("Saeed",2345);
+  
+  PersonRecord record = new PersonRecord("Saeed",2345);
+  
+  System.out.println(person.getName() + " - " + record.name());
+  
+  System.out.println(person.getAge() + " - " + record.age());
+  ```
