@@ -58,11 +58,13 @@
   <tr>
     <th>Exception Handling</th>
     <th>
-      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/i_ExceptionHandling/info.md" > Part-1 </a>
-      <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/i_ExceptionHandling/info.md" > Part-1 </a> <br>
       <a href="https://github.com/abusaeed2433/JavaPractice/blob/main/src/i_ExceptionHandling/info2.md" > Part-2 </a>
     </th>
-    <th><a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/i_ExceptionHandling"> Click here </a></th>
+    <th>
+      <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/i_ExceptionHandling/partOne"> Click here(1) </a> <br>
+      <a href="https://github.com/abusaeed2433/JavaPractice/tree/main/src/i_ExceptionHandling/partTwo"> Click here(2) </a>
+    </th>
   </tr>
 
   <tr>
