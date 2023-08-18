@@ -66,3 +66,27 @@
     // partTimeStudent
   }
   ```
+
+## Sealed Classes
+- Another way to `disable inheritance` introduced in `Java 17`,
+- Allows you to define a class and exactly `what classes can subclass it`,
+- Subclass of Sealed class must define their status: `final`, `sealed`, or `non-sealed`,
+- Ex(Sealed class):
+  ```
+  public abstract sealed class Security permits Lock, Pin, Password { }
+  ```
+  Inheriting `sealed-class`:
+  ```
+  final class Lock extends Security{ } // no class can inherit it
+
+  non-sealed class Pin extends Security{ } // any class can inherit it
+
+  sealed class Password extends Security permits MyPassword{ } // same as sealed
+  ```
+  Inhering `subclass` of `sealed-class`,
+  ```
+  final class MyPassword extends Password{} // inherited above sealed class
+  
+  class MyPin extends Pin{} // Since Pin class can be inherited by any class
+  ```
+  
