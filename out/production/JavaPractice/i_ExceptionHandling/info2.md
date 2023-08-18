@@ -1,5 +1,6 @@
 
-# Exception part-2
+# Exception handling part-2
+> Codes are in `partTwo` package
 
 ## Rethrowing an Exception
 - Can be rethrown i.e. can be thrown from `catch` block,
@@ -17,7 +18,7 @@
     }
     ```
 - Rethrown exceptions must be caught from another outer `try-catch` block,
-- Ex: (see `Test2.java`)
+- Ex: See `rethrowException()` in `Test.java`,
   ```
   private static void rethrowException(int y){
       try{
@@ -27,7 +28,7 @@
       }
   }
   ```
-  When calling
+  When calling(See `testRethrow()` in `Test.java`),
   ```
   try {
       rethrowException(0);
@@ -48,7 +49,7 @@
   }
   ```
 - Location of exception can also be hidden by using `fillInStackTrace()` method,
-- Ex: see `Test2.java`:
+- Ex: See `m2()`, `m1()` & `hideTrace()` in  `Test.java`,
   ```
   public static void hideTrace() {
       try {
@@ -84,7 +85,7 @@
 
 ## Throwing too Many Exceptions
 - Can be thrown as many as exception you want,
-- Ex:
+- Ex: See `throwMultiple()` in `Test.java`,
   ```
   private static void throwMultiple(Integer y) throws RuntimeException{
       if(y == null) throw new NullPointerException("Can't be null");
@@ -159,6 +160,7 @@
       }
   }
   ```
+  See `testTryWithResource()` in `Test.java`,
   ```
   private static void testTryWithResource(){
       try(

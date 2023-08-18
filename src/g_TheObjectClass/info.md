@@ -1,6 +1,8 @@
 
 
 # Object part-1
+> Codes are in `partOnr` package
+
 
 ## Introduction
 - Available in `java.lang` package,

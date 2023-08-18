@@ -1,4 +1,4 @@
-package i_ExceptionHandling;
+package i_ExceptionHandling.partOne;
 
 public class MyException extends Exception{
 

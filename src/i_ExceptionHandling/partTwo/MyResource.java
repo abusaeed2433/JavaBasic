@@ -1,4 +1,6 @@
-package i_ExceptionHandling;
+package i_ExceptionHandling.partTwo;
+
+import i_ExceptionHandling.partOne.MyMessage;
 
 public class MyResource implements AutoCloseable{
 

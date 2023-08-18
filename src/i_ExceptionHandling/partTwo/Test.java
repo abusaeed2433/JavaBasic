@@ -1,6 +1,6 @@
-package i_ExceptionHandling;
+package i_ExceptionHandling.partTwo;
 
-public class Test2 {
+public class Test {
 
     public static void hideTrace() {
         try {
@@ -79,6 +79,7 @@ public class Test2 {
         }
         testTryWithResource();
     }
+
 
     private static void testTryWithResource(){
         try(

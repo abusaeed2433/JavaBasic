@@ -1,9 +1,10 @@
 
-# Exception handling
+# Exception handling part-1
+> Codes are in `partOne` package
 
 ## Exception
 - A condition that may arise during the execution when a normal path of execution is not defined,
-- Ex:
+- Ex: See `firstTest()` in `Test.java`
     ```
     private static void firstTest(int y){
         int x = 10;
@@ -13,7 +14,7 @@
     ```
 - In above example, 3rd line inside method won't be executed because `2nd line break normal execution`, since integer can't be divided b zero(`0`),
 - Above example can be written using `if-else`, but it will make code complex if there are many such condition,
-- Equivalence `if-else` code:
+- Equivalence `if-else` code(See `firstTestBadSolution()` in `Test.java`):
     ```
     private static void firstTestBadSolution(int y){
         int x = 10;
@@ -27,7 +28,7 @@
         }
     }
     ```
-- Solution to above problem:
+- Solution to above problem(See `firstTestSolution()` in `Test.java`): 
     ```
     private static void firstTestSolution(int y){
         int x = 10;
@@ -83,7 +84,7 @@
         catch (RuntimeException e){...}
     }
     ```
-- Multiple catch block can also be written like this:
+- Multiple catch block can also be written like this: See `catchMultipleException()` in `Test.java`,
   ```
   private static void catchMultipleException(int y, String message, String filePath){
       try {
@@ -124,7 +125,7 @@
 - Can be handled in two ways,
   - Using catch block(previous one),
   - Adding in method signature,
-- Two ways are shown(see `Test.java`):
+- Two ways are shown: See `handleChecked1()` & `handleChecked2()` in `Test.java`,
     ```
     private static void handleChecked1(String filePath){
         try {
@@ -143,7 +144,7 @@
         fileReader.close();
     }
     ```
-- Can be called using:
+- Can be called using: See `callHandleChecked()` in `Test.java`,
     ```
     private static void callHandleChecked(){
         handleChecked1("invalid");
@@ -161,7 +162,7 @@
 
 ## Throwing an Exception
 - You can also throw exception if you want,
-- Ex:
+- Ex: See `throwMyException()` in `Test.java`,
     ```
     private static void throwMyException(int age) throws Exception{
         if(age < 18) throw new Exception("You are baccha");
@@ -169,7 +170,7 @@
         System.out.println("fine");
     }
     ```
-    Can be called like:
+    Can be called like: See `testThrow()` in `Test.java`,
     ```
     try {
         throwMyException(20); // fine
@@ -187,7 +188,7 @@
 
 ## Creating own Exception class
 - Custom exception class can be created by inheriting/extending existing class,
-- Ex: See (`MyException.java`, `MyMessage.java` and `Test.java`) 
+- Ex: See (`MyException.java`, `MyMessage.java` and `testMyException()` in `Test.java`) 
   ```
   private static void testMyException(MyMessage myMessage) throws MyException{
       if(myMessage.getMessage() == null){
@@ -199,7 +200,7 @@
 
 ## finally block
 - Gets executed no matter how the code in the try and catch blocks,
-- Ex:
+- Ex: See `finallyTest()` in `Test.java`,
     ```
     private static void finallyTest(String filePath){
         FileReader fileReader = null;

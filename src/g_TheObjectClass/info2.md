@@ -1,5 +1,6 @@
 
 # Object part-2
+> Codes are in `partTwo` package
 
 ## Cloning Objects
 - Java doesn't provide an automatic mechanism to clone (make a copy) an object,

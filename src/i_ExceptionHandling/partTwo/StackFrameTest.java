@@ -1,4 +1,4 @@
-package i_ExceptionHandling;
+package i_ExceptionHandling.partTwo;
 
 public class StackFrameTest {
     public static void main(String[] args) {

@@ -41,11 +41,12 @@
   <tr>
     <th>Object and Object class</th>
     <th>
-      <a href="https://github.com/abusaeed2433/JavaBasic/blob/main/src/g_TheObjectClass/info.md" > Part-1 </a>
-      <br>
+      <a href="https://github.com/abusaeed2433/JavaBasic/blob/main/src/g_TheObjectClass/info.md" > Part-1 </a> <br>
       <a href="https://github.com/abusaeed2433/JavaBasic/blob/main/src/g_TheObjectClass/info2.md" > Part-2 </a>
     </th>
-    <th><a href="https://github.com/abusaeed2433/JavaBasic/tree/main/src/g_TheObjectClass"> Click here </a></th>
+    <th><a href="https://github.com/abusaeed2433/JavaBasic/tree/main/src/g_TheObjectClass/partOne"> Click here(1) </a> <br>
+        <a href="https://github.com/abusaeed2433/JavaBasic/tree/main/src/g_TheObjectClass/partTwo"> Click here(2) </a>
+    </th>
   </tr>
 
   <tr>
