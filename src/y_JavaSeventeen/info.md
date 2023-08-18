@@ -49,3 +49,20 @@
     System.out.println(message); // like return
     ```
 
+## `instanceof` pattern matching
+- Till now, we do like this
+  ```
+  Student student = new PartTimeStudent(12,"Imran",5.5,12);
+  PartTimeStudent partTimeStudent;
+  if(student instanceof PartTimeStudent){
+    partTimeStudent = (PartTimeStudent)student; 
+  }
+  ```
+- Above can be simplified like this:
+  ```
+  Student student = new PartTimeStudent(12,"Imran",5.5,12);
+          
+  if(student instanceof PartTimeStudent partTimeStudent){
+    // partTimeStudent
+  }
+  ```

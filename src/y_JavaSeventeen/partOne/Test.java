@@ -7,6 +7,23 @@ public class Test {
     public static void main(String[] args) {
         varTest();
         switchTest();
+        instanceofTest();
+    }
+
+    private static void instanceofTest(){
+        System.out.println("------------- instanceofTest ---------------------------------");
+
+        Student student = new PartTimeStudent(12,"Imran",5.5,12);
+
+        PartTimeStudent partTimeStudent;
+        if(student instanceof PartTimeStudent){
+            partTimeStudent = (PartTimeStudent)student;
+        }
+
+        if(student instanceof PartTimeStudent partTimeStudent1){
+            // partTimeStudent1
+        }
+
     }
 
     private static void switchTest(){
