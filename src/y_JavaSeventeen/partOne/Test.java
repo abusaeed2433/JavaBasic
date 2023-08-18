@@ -8,6 +8,34 @@ public class Test {
         varTest();
         switchTest();
         instanceofTest();
+        multilineString();
+    }
+
+    private static void multilineString(){
+        System.out.println("------------------- multilineString --------------------------");
+
+        String formattedTextEarlier = "This is first line.\n"+
+                "THis is second line.\n"+
+                "Continue like that";
+        System.out.println(formattedTextEarlier);
+
+        String formattedText = """
+                This is first line.
+                THis is second line.
+                Continue like that""";
+        System.out.println(formattedText);
+        /*
+        Output
+        This is first line.
+        THis is second line.
+        Continue like that
+        */
+
+        //invalid
+//        String formattedText2 = """This is first line. // this is invalid. You can write just after first """
+//                THis is second line.
+//                Continue like that""";
+
     }
 
     private static void instanceofTest(){

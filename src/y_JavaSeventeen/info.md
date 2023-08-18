@@ -90,3 +90,36 @@
   class MyPin extends Pin{} // Since Pin class can be inherited by any class
   ```
   
+## Multiline Strings
+- Is done via `TextBlocks`,
+- A `text block` must start
+  - with `three quotation marks`, then
+  - `a new line`, then 
+  - your text as you write normally,
+- Ex(Earlier way):
+  ```
+  String formattedTextEarlier = "This is first line.\n"+
+          "THis is second line.\n"+
+          "Continue like that";
+  System.out.println(formattedTextEarlier);
+  ```
+  New way:
+  ```
+  String formattedText = """
+          This is first line.
+          THis is second line.
+          Continue like that""";
+  System.out.println(formattedText);
+  ```
+  Output:
+  ```
+  This is first line.
+  THis is second line.
+  Continue like that
+  ```
+  Below one is `invalid` since uou can't write just after first `"""`,
+  ```
+  String formattedText2 = """This is first line.
+          THis is second line.
+          Continue like that""";
+  ```
