@@ -156,7 +156,6 @@
   
   PersonRecord record = new PersonRecord("Saeed",2345);
   
-  System.out.println(person.getName() + " - " + record.name());
-  
-  System.out.println(person.getAge() + " - " + record.age());
+  System.out.println(person.getName() + " - " + record.name()); // Saeed - Saeed
+  System.out.println(person.getAge() + " - " + record.age()); // 2345 - 2345
   ```

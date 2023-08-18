@@ -1,14 +1,18 @@
-package g_TheObjectClass;
+package g_TheObjectClass.partTwo;
 
-public class GammaCat {
-    private final String name; // <------- final optional though
+public class Cat implements Cloneable{
+    private String name;
 
-    public GammaCat(String name) {
+    public Cat(String name) {
         this.name = name;
     }
 
     public String getName() {
         return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -25,5 +29,4 @@ public class GammaCat {
     protected void finalize() throws Throwable {
         System.out.println(name);
     }
-
 }

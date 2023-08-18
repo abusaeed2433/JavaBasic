@@ -12,7 +12,7 @@
   - `Object` class is the superclass of all classes,
   - Since variable of superclass can hold object of its subclasses. So,
   - A variable of `Object` class can hold a reference of an object of any class,
-  - Ex: See `Test.java`,
+  - Ex: See `ruleTest1()` in `Test.java`,
     ```
     private static void ruleTest1(){
     
@@ -56,7 +56,7 @@
 
 ## getClass() method
 - Returns the reference of the Class object,
-- Ex: See `Test.java`,
+- Ex: See `testGetClass()` in `Test.java`,
   ```
   private static void testGetClass(){
       Cat cat = new Cat("Cat");

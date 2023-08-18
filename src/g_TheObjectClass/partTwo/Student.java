@@ -1,4 +1,4 @@
-package g_TheObjectClass;
+package g_TheObjectClass.partTwo;
 
 public class Student implements Cloneable{
     private final int roll;
