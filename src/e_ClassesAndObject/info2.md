@@ -30,9 +30,9 @@
   ```
 
 ## Null
-- A special reference type called null type,
+- A `special reference type` called `null type`,
 - It has no name,
-- Assignment compatible with any other reference type. Ex:
+- `Assignment compatible` with any other `reference` type. Ex:
   ```
   String name = null; // ok
   Integer number = null; // ok
