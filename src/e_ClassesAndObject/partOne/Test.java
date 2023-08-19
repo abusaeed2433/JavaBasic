@@ -25,6 +25,21 @@ public class Test {
         anik.showSomeCharacter(); // General characteristics. ok but not recommended
         Hooman.showSomeCharacter(); // General characteristics. best practice
 
+        birdTest();
+    }
+
+    private static void birdTest(){
+        Bird deadBird = new Bird(); // 1
+        deadBird.printDetails(); // Unknown -> Not found -> false
+
+        Bird unknownBird = new Bird(true); // 2
+        unknownBird.printDetails(); // unknown -> Not found -> true
+
+        Bird eagle = new Bird("Eagle", "Eagle", true); // 3
+        eagle.printDetails(); // Eagle -> Eagle -> true
+
+        Bird secondEagle = new Bird(eagle); // 4
+        secondEagle.printDetails(); // Eagle -> Eagle -> true
     }
 
     public int add(int num1, int num2){
