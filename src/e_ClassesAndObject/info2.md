@@ -47,13 +47,13 @@
 
 ## this
 - Extremely useful keyword,
-- Reference to the `current instance` of a class. (Alert it's for `!!!instance`, not class),
-- Can be used only in the context of an instance/object.
-- Ex:
+- Reference to the `current instance` of a class. (Alert it's for `instance`, not class),
+- Can be used only in the context of an `instance/object`,
+- Ex: See `TriState.java`,
   ```
   public class TriState {
       ...
-      private StateEnum state = StateEnum.FIRST;
+      private StateEnum state = StateEnum.FIRST; // will be discussed later
       public TriState(StateEnum state) { // state = SECOND is passed
           System.out.println(this.state); // FIRST
           System.out.println(state); // SECOND
@@ -68,7 +68,7 @@
   System.out.println(triState.state); ---- (b)
   ```
 - `triState.state` in outside is same as `this.state` inside the class for a specific object of the class. See `(b)` and `(a)`.
-- Practice yourself.
+- Practice yourself,
 
 ## final
 - prevent modification on which it is used,
