@@ -13,9 +13,6 @@
     System.out.println(student.getHeight()); // 5.9
     ```
 
-## Records
-
-
 ## Extended switch expressions
 - Cleaner and less error-prone syntax,
 - `case` label followed by `->` followed by one of the following:
