@@ -34,30 +34,30 @@
 - `(Rule-2:)` The Object class has `9` methods, which are available to be used in all classes in Java
   - We can put the methods into two categories:
   - Category - 1:
-    - Can't override these methods,
-    - Implementation is final,
+    - `Can't override` these methods,
+    - Implementation is `final`,
     - Methods are: 
       - `getClass()`, 
       - `notify()`, 
       - `notifyAll()`, 
       - `wait()`
   - Category - 2:
-    - Have a default implementation in the Object class,
-    - Can override these methods,
+    - Have a `default implementation` in the Object class,
+    - `Can override` these methods,
     - Methods are:
       - `toString()`,
       - `equals()`, 
       - `hashCode()`, 
       - `clone()`, 
       - `finalize()`
-  - Details of methods
+  - Details of methods:
   <img src="files/method_of_object_class.jpg">
 
-  - `Implemented` means method have default implementation,
-  - `Customizable` means method can be overridden,
+  - `Implemented` means method have `default implementation`,
+  - `Customizable` means method can be `overridden`,
 
-## getClass() method
-- Returns the reference of the Class object,
+## `getClass()` method
+- Returns the `reference` of the Class object,
 - Ex: See `testGetClass()` in `Test.java`,
   ```
   private static void testGetClass(){
@@ -73,13 +73,13 @@
   ```
 
 ## Hash code
-- Learn `Hashing` or ignore it, since it is already implemented & you may never override it, 
+- Learn `Hashing` or ignore it, since it is already implemented & you may never `override` it, 
 - By using an `algo`, form a `piece of info`, an `integer value` is generated(`hashing`),
 - Every object has a `hash-value`,
 - Used for efficiently retrieving data from hash based collections like `Hashtable`, `HashMap` etc,
 - The Object class has a `hashCode()` method that returns an `int`, which is the hash code of the object,
-- `hashCode()` is already implemented, but you can override it,(`no need to override`),
-- Rules when you override the hashCode() method in your class:
+- `hashCode()` is already implemented, but you can `override` it,(`no need to override`),
+- Rules when you `override` the `hashCode()` method in your class:
   - Suppose you have `2` variables `x`, `y` referring object of your class,
   - If `x.equals(y)` returns `true`, then
     - Hash of `x` and `y` must be same. i.e.,
@@ -135,8 +135,8 @@
 
 
 ## Comparing Objects for Equality
-- All objects have a unique identity,
-- The memory address at which an object is allocated can be treated as its identity,
+- All objects have a `unique identity`,
+- The `memory address` at which an object is allocated can be treated as its `identity`,
 - Ex: See `Student.java`,
   ```
   public class Student {
@@ -191,9 +191,8 @@
   ```
 
 ## String Representation of an Object
-- The k_String representation of an object,
-- Contain enough information about the state of the object,
-- Used for debugging purpose(Advanced debugging tools are available though),
+- Contains enough information about the `state of the object`,
+- Used for `debugging` purpose(Advanced debugging tools are available though),
 - Has a default implementation, but not much useful,
   - Ex: See `defaultEqualsTo()` of `Test.java`,
     ```
@@ -206,7 +205,7 @@
         //above two statements are equivalent
     }
     ```
-- Let's override according to our need,
+- Let's `override` according to our need,
 - Ex(custom implementation): See `Student.java`,
   ```
   public class Student {
