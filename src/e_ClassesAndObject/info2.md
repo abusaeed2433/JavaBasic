@@ -5,27 +5,26 @@
 ## Local variable
 - Variable declared inside `method`, `constructor`, `block`,
 - Formal parameters for a method are treated as local variables,
-- `Not` initialized by default,
-- Can't be used until it is assigned a value. Will show error instead of garbage value,
+- `Not initialized` by default,
+- Can't be used until it is assigned a value. Will show `error` instead of garbage value,
 - Must be declared before it is used,
 - If variables having same name found, local variable get precedence,
 - See `LocalVariable.java` for full code,
   ```
   public class LocalVariable {
-      private static int counter; // 0
-      private String name; // null
-      private int num; // 0
-      public static void main(String[] args) {...}
+      ...
+      private int num; // global, value = 0
+      ...
   
       public void assignMust(){
-          int num;
+          int num; // local, no default value
           //System.out.println(num); // error. Not initialized.
       }
   
       public int calculateDifference(int num2){
           int num = 1001; // local
-          System.out.println(num); // 1001
-          return this.num - num2; // `this` later
+          System.out.println(num); // 1001 since local get precedence
+          return this.num - num2; // this.num refers to global num
       }
   }
   ```
