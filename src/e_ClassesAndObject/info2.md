@@ -142,52 +142,57 @@
   ```
 
 ## Varargs
-- Full form: `variable-length arguments`,
-- Can be used both in method and constructor,
-- `...` is used,
-- We can pass any number of arguments, parameter will work like array. But we don't have to pass array explicitly, 
-- Ex: ( See `Test.java` ),
+- Full form is `variable-length arguments`,
+- Can be used both in method and `constructor`,
+- 3dots(`...`) is used,
+- We can pass any number of arguments, parameter will work like `array`. But we don't have to pass array explicitly,
+- Ex: See `max()` in `Test.java`,
   ```
-   private static int max(int... arr){
-      ...
-   }
+  private static int max(int... arr){
+      if(arr.length == 0) return 0;
+      int mx = Integer.MIN_VALUE;
+      for(int num : arr){
+          if(num > mx) mx = num;
+      }
+      return mx;
+  }
   ```
-- Can call like this:
+  Using like this:
   ```
   System.out.println( max() ); // 0
   System.out.println( max(1,22) ); // 22
   System.out.println( max(1,2,3,4,5,6,7,8,10) ); // 10
   ```
 - Isn't it awesome?
-- There is two restriction
-  - A varargs method can have a maximum of one varargs,
+- There is `2` restriction:
+  - A varargs method can have `maximum one varargs`,
      ```
      // n1 has infinite length, so n2 is not needed. error
       void m1(String str, int...n1, int...n2) {
        ...
      }
      ```
-  - The varargs must be the last argument in the argument. Same reason even though parameter type is different.
+  - The varargs `must be the last argument` in the argument-list. Same reason even though parameter type is different.
      ```
      void m2(int...n1, String str) {
       ...
      }
     ```
-  - This is perfectly valid: ( see `Test.java`)
+    This is perfectly valid: See `findMinMax()` `Test.java`,
      ```
      private static int findMinMax(boolean findMax, int ...arr){...}
      ```
 
 ## Generic class
-- Allows for writing true polymorphic code(Works for any types),
+- Allows for writing `true polymorphic` code(Works for any types),
 - Structure:
   ```
   public class Wrapper<T> {
    // Code for the Wrapper class goes here
   }
   ```
-- `T` is a type variable. It can be of any type, but must be reference type,
-- Ex: see `MyList.java`:
+- `T` is a `type variable`. It can be of any type, but must be reference type,
+- Ex: See `MyList.java`,
   ```
   public class MyList <T>{
       private final List<T> list = new ArrayList<>();
@@ -202,7 +207,7 @@
   
   }
   ```
-- Can be used like( see `Test.java` ):
+  Using like this: See `simpleGenericTest()` in  `Test.java` ,
   ```
   private static void simpleGenericTest(){
     MyList<Integer> myList = new MyList<>();
@@ -218,5 +223,5 @@
   }
   
   ```
-- This is simple example. Learn more by yourself if you want to.
+- Above one is a simple example. Learn more by yourself if you want to,
 
