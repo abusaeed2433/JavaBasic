@@ -71,24 +71,25 @@
 - Practice yourself,
 
 ## final
-- prevent modification on which it is used,
-- For declaring constant,
-- Can be used in the following three contexts:
-  - Variable
-    - Can be assigned a value only once,
-    - Can't reassign after assigning,
+- `prevent modification` on which it is used,
+- For declaring `constant`,
+- Can be used in the following `3` contexts:
+  - `Variable`
+    - Can be `assigned` a value `only once`,
+    - `Can't reassign` after assigning,
     - Can be assigned while declaration or later,
-    - If you do not initialize a final variable at the time of its declaration, such a variable is known as a blank final variable. Ex: 
-    ```
-    final int total;
-    ```
-  - Class:
-    - Class can't be extended or inherited,
-  - Method:
-    - Can't be redefined (overridden or hidden) in the subclasses,
+    - If you do not initialize a final variable at the time of its declaration, such a variable is known as a `blank final` variable,
+    - Ex: 
+      ```
+      final int total;
+      ```
+  - `Class`:
+    - final class can't be `extended` or `inherited`,
+  - `Method`:
+    - final method can't be `redefined` (`overridden` or `hidden`) in the `subclasses`,
 
 ## final local variable && final parameter
-  - see `getArea()` of `Test.java`:
+  - Ex: See `getArea()` of `Test.java`:
     ```
     private static double getArea(final double r){ // final parameter
        final double pi = 3.1415; // final local variable
@@ -99,12 +100,12 @@
     ```
 
 ## final instance variable
-- Can be final or blank final,
-  - Rules apply for initializing a blank final instance variable:
-  - Must be initialized in `one of the` instance initializers or `all` constructors,
-  - Don't be confused. Just remember that you can only assign value at once, if you try to reassign it, you will get error.
-- All blank final variables and final reference variables are runtime constants. i.e. they are calculated at runtime,
-- `Circle.java`
+- Can be `final` or `blank final`,
+- `Rules` apply for `initializing` a `blank final` instance variable:
+  - Must be initialized in `one of the instance initializers` or in `all` constructors,
+  - Don't be confused. Just remember that you can only `assign value at once`. If you try to reassign it, you will get error,
+- All `blank final` variables and `final reference variables` are runtime constants. i.e. they are calculated at runtime,
+- Ex: See `Circle.java`,
   ```
   public final class Circle {
   
@@ -121,7 +122,7 @@
       }
   
       public Circle(Circle c){
-          this(c.r); // this will assign value
+          this(c.r); // it will assign value
           //this.r = c.r; // error, since already assigned in previous line
       }
   
@@ -134,7 +135,8 @@
   ```
 ## final class variable
 - Same like previous,
-- Good practice to use capital letter for variable naming:
+- Good practice to use `capital letter` for variable naming,
+- Ex:
   ```
   public static final double PI = 3.14159;
   ```
