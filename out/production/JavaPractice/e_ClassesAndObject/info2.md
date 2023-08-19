@@ -5,35 +5,34 @@
 ## Local variable
 - Variable declared inside `method`, `constructor`, `block`,
 - Formal parameters for a method are treated as local variables,
-- `Not` initialized by default,
-- Can't be used until it is assigned a value. Will show error instead of garbage value,
+- `Not initialized` by default,
+- Can't be used until it is assigned a value. Will show `error` instead of garbage value,
 - Must be declared before it is used,
 - If variables having same name found, local variable get precedence,
 - See `LocalVariable.java` for full code,
   ```
   public class LocalVariable {
-      private static int counter; // 0
-      private String name; // null
-      private int num; // 0
-      public static void main(String[] args) {...}
+      ...
+      private int num; // global, value = 0
+      ...
   
       public void assignMust(){
-          int num;
+          int num; // local, no default value
           //System.out.println(num); // error. Not initialized.
       }
   
       public int calculateDifference(int num2){
           int num = 1001; // local
-          System.out.println(num); // 1001
-          return this.num - num2; // `this` later
+          System.out.println(num); // 1001 since local get precedence
+          return this.num - num2; // this.num refers to global num
       }
   }
   ```
 
 ## Null
-- A special reference type called null type,
+- A `special reference type` called `null type`,
 - It has no name,
-- Assignment compatible with any other reference type. Ex:
+- `Assignment compatible` with any other `reference` type. Ex:
   ```
   String name = null; // ok
   Integer number = null; // ok
@@ -48,13 +47,13 @@
 
 ## this
 - Extremely useful keyword,
-- Reference to the `current instance` of a class. (Alert it's for `!!!instance`, not class),
-- Can be used only in the context of an instance/object.
-- Ex:
+- Reference to the `current instance` of a class. (Alert it's for `instance`, not class),
+- Can be used only in the context of an `instance/object`,
+- Ex: See `TriState.java`,
   ```
   public class TriState {
       ...
-      private StateEnum state = StateEnum.FIRST;
+      private StateEnum state = StateEnum.FIRST; // will be discussed later
       public TriState(StateEnum state) { // state = SECOND is passed
           System.out.println(this.state); // FIRST
           System.out.println(state); // SECOND
@@ -69,27 +68,28 @@
   System.out.println(triState.state); ---- (b)
   ```
 - `triState.state` in outside is same as `this.state` inside the class for a specific object of the class. See `(b)` and `(a)`.
-- Practice yourself.
+- Practice yourself,
 
 ## final
-- prevent modification on which it is used,
-- For declaring constant,
-- Can be used in the following three contexts:
-  - Variable
-    - Can be assigned a value only once,
-    - Can't reassign after assigning,
+- `prevent modification` on which it is used,
+- For declaring `constant`,
+- Can be used in the following `3` contexts:
+  - `Variable`
+    - Can be `assigned` a value `only once`,
+    - `Can't reassign` after assigning,
     - Can be assigned while declaration or later,
-    - If you do not initialize a final variable at the time of its declaration, such a variable is known as a blank final variable. Ex: 
-    ```
-    final int total;
-    ```
-  - Class:
-    - Class can't be extended or inherited,
-  - Method:
-    - Can't be redefined (overridden or hidden) in the subclasses,
+    - If you do not initialize a final variable at the time of its declaration, such a variable is known as a `blank final` variable,
+    - Ex: 
+      ```
+      final int total;
+      ```
+  - `Class`:
+    - final class can't be `extended` or `inherited`,
+  - `Method`:
+    - final method can't be `redefined` (`overridden` or `hidden`) in the `subclasses`,
 
 ## final local variable && final parameter
-  - see `getArea()` of `Test.java`:
+  - Ex: See `getArea()` of `Test.java`:
     ```
     private static double getArea(final double r){ // final parameter
        final double pi = 3.1415; // final local variable
@@ -100,12 +100,12 @@
     ```
 
 ## final instance variable
-- Can be final or blank final,
-  - Rules apply for initializing a blank final instance variable:
-  - Must be initialized in `one of the` instance initializers or `all` constructors,
-  - Don't be confused. Just remember that you can only assign value at once, if you try to reassign it, you will get error.
-- All blank final variables and final reference variables are runtime constants. i.e. they are calculated at runtime,
-- `Circle.java`
+- Can be `final` or `blank final`,
+- `Rules` apply for `initializing` a `blank final` instance variable:
+  - Must be initialized in `one of the instance initializers` or in `all` constructors,
+  - Don't be confused. Just remember that you can only `assign value at once`. If you try to reassign it, you will get error,
+- All `blank final` variables and `final reference variables` are runtime constants. i.e. they are calculated at runtime,
+- Ex: See `Circle.java`,
   ```
   public final class Circle {
   
@@ -122,7 +122,7 @@
       }
   
       public Circle(Circle c){
-          this(c.r); // this will assign value
+          this(c.r); // it will assign value
           //this.r = c.r; // error, since already assigned in previous line
       }
   
@@ -135,58 +135,64 @@
   ```
 ## final class variable
 - Same like previous,
-- Good practice to use capital letter for variable naming:
+- Good practice to use `capital letter` for variable naming,
+- Ex:
   ```
   public static final double PI = 3.14159;
   ```
 
 ## Varargs
-- Full form: `variable-length arguments`,
-- Can be used both in method and constructor,
-- `...` is used,
-- We can pass any number of arguments, parameter will work like array. But we don't have to pass array explicitly, 
-- Ex: ( See `Test.java` ),
+- Full form is `variable-length arguments`,
+- Can be used both in method and `constructor`,
+- 3dots(`...`) is used,
+- We can pass any number of arguments, parameter will work like `array`. But we don't have to pass array explicitly,
+- Ex: See `max()` in `Test.java`,
   ```
-   private static int max(int... arr){
-      ...
-   }
+  private static int max(int... arr){
+      if(arr.length == 0) return 0;
+      int mx = Integer.MIN_VALUE;
+      for(int num : arr){
+          if(num > mx) mx = num;
+      }
+      return mx;
+  }
   ```
-- Can call like this:
+  Using like this:
   ```
   System.out.println( max() ); // 0
   System.out.println( max(1,22) ); // 22
   System.out.println( max(1,2,3,4,5,6,7,8,10) ); // 10
   ```
 - Isn't it awesome?
-- There is two restriction
-  - A varargs method can have a maximum of one varargs,
+- There is `2` restriction:
+  - A varargs method can have `maximum one varargs`,
      ```
      // n1 has infinite length, so n2 is not needed. error
       void m1(String str, int...n1, int...n2) {
        ...
      }
      ```
-  - The varargs must be the last argument in the argument. Same reason even though parameter type is different.
+  - The varargs `must be the last argument` in the argument-list. Same reason even though parameter type is different.
      ```
      void m2(int...n1, String str) {
       ...
      }
     ```
-  - This is perfectly valid: ( see `Test.java`)
+    This is perfectly valid: See `findMinMax()` `Test.java`,
      ```
      private static int findMinMax(boolean findMax, int ...arr){...}
      ```
 
 ## Generic class
-- Allows for writing true polymorphic code(Works for any types),
+- Allows for writing `true polymorphic` code(Works for any types),
 - Structure:
   ```
   public class Wrapper<T> {
    // Code for the Wrapper class goes here
   }
   ```
-- `T` is a type variable. It can be of any type, but must be reference type,
-- Ex: see `MyList.java`:
+- `T` is a `type variable`. It can be of any type, but must be reference type,
+- Ex: See `MyList.java`,
   ```
   public class MyList <T>{
       private final List<T> list = new ArrayList<>();
@@ -201,7 +207,7 @@
   
   }
   ```
-- Can be used like( see `Test.java` ):
+  Using like this: See `simpleGenericTest()` in  `Test.java` ,
   ```
   private static void simpleGenericTest(){
     MyList<Integer> myList = new MyList<>();
@@ -217,5 +223,5 @@
   }
   
   ```
-- This is simple example. Learn more by yourself if you want to.
+- Above one is a simple example. Learn more by yourself if you want to,
 

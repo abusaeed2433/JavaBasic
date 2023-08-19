@@ -280,29 +280,32 @@
   ```
   Creating object like this: See `birdTest()` in `Test.java`:
   ```
-    Bird deadBird = new Bird(); // 1
-    deadBird.printDetails(); // Unknown -> Not found -> false
+  private static void birdTest(){
+      Bird deadBird = new Bird(); // 1
+      deadBird.printDetails(); // Unknown -> Not found -> false
   
-    Bird unknownBird = new Bird(true); // 2
-    unknownBird.printDetails(); // Eagle -> Eagle -> true
+      Bird unknownBird = new Bird(true); // 2
+      unknownBird.printDetails(); // unknown -> Not found -> true
   
-    Bird eagle = new Bird("Eagle", "Eagle", true); // 3
-    eagle.printDetails(); // Eagle -> Eagle -> true
+      Bird eagle = new Bird("Eagle", "Eagle", true); // 3
+      eagle.printDetails(); // Eagle -> Eagle -> true
   
-    Bird secondEagle = new Bird(eagle); // 4
-    secondEagle.printDetails(); // Eagle -> Eagle -> true
+      Bird secondEagle = new Bird(eagle); // 4
+      secondEagle.printDetails(); // Eagle -> Eagle -> true
+  }
   ```
 
 ## Creating instance of a class
 - Object can be created by calling its constructor.
-- Ex: `new Hooman();`. This object will be automatically deleted, since we are not assigning it in any variable.
-- When you create an object using `new` keyword, it allocates memory for each `instance field` of the class.
-- Java runtime takes care of memory allocation, you don't need it.
+- Ex: `new Hooman();`, This object will be automatically deleted, since we are not assigning it in any variable.
+- When you create an object using `new` keyword, it allocates memory for each `instance field` of the class,
+- Java runtime takes care of memory allocation, you don't need it,
 - Creating object and calling method:
   ```
   Hooman saeed = new Hooman("Saeed",21);
   System.out.println(saeed.isAdult()); // true
   ```
-  
+
+
 >> THERE IS NO SHORTCUT OTHER THAN PRACTICING
 
