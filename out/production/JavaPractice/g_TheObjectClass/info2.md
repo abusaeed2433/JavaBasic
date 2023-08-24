@@ -14,12 +14,12 @@
   protected Object clone() throws CloneNotSupportedException
   ```
 - `clone()` method
-  - It is protected, so you must `override` it for using in your class,
-  - Return type is Object. So, you have to cast if after cloning,
+  - It is `protected`, so you must `override` it for using in your class,
+  - Return type is `Object`. So, you have to cast it after cloning,
   - You do not need to know any internal details of it, 
   - The `clone()` method in the Object class has all the code that is needed to clone an object,
   - Just call the `clone()` method of your class,
-  - It will make a bitwise copy of the original object and return the reference of the copy,
+  - It will make a `bitwise copy` of the original object and return the reference of the copy,
   
 - Ex-1: See `Student.java`,
   ```
@@ -136,7 +136,7 @@
 
 ## Finalizing an Object
 - Sometimes an object uses resources that need to be released when the object is destroyed,
-- In Java, you create objects, but you cannot destroy objects,
+- In Java, you create objects, but you `cannot destroy objects`,
 - `Garbage Collector` handles object destruction part. But,
 - It gives a trigger before destroying object by calling `finalize()` method,
 - `finalize()` method:
@@ -147,14 +147,14 @@
   - Doesn't do anything,
   - is called when `garbage collector` determines that no reference exists for the object,
   - **It is not even guaranteed that a finalizer will run at all. So avoid relying on it for cleanup,**
-  - Deprecated and will be removed in the future,
+  - `Deprecated` and will be `removed` in the future,
 - Ex: Try yourself like `finalizeTest()` in `Test.java`,
 
 
 ## Immutable objects
 - Object whose state `cannot be changed` after it is created,
 - A class whose objects are `immutable` is called an `immutable-class`,
-- If an object’s state `can be changed` after it has been created, it is called a mutable object, and its class is called a `mutable-class`,
+- If an object’s state `can be changed` after it has been created, it is called a `mutable object`, and its class is called a `mutable-class`,
 - Two views of an object’s state:
   - `internal`: Defined by the actual values of its instance variables at a point in time,
   - `external`: Defined by the values that the users of the object see at a point in time, 

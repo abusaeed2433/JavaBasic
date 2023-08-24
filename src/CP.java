@@ -1,7 +1,13 @@
+import javax.crypto.*;
+import javax.crypto.spec.SecretKeySpec;
 import java.io.DataInputStream;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.time.*;
+import java.time.temporal.ChronoField;
 import java.util.*;
 import java.util.function.Function;
 import java.util.regex.Matcher;
@@ -11,24 +17,70 @@ import java.util.regex.Pattern;
 public class CP {
 
     public static void main(String[] args) throws IOException {
-        List<Integer> list = new ArrayList<>();
-        list.add(0);
-        list.add(3);
-        list.add(2);
-        list.add(3);
-        list.add(4);
 
-        List<String> strings = new ArrayList<>();
-        strings.add("legal");
-        strings.add("legal");
-        strings.add("illegal");
-        strings.add("legal");
-        strings.add("legal");
+        String message = "Hello. THis is saeed";
+        String userKey = "abcd";//567887654321";
 
-        // 0 3 2 3 4
-        // l l i l l
 
-        System.out.println( maxCost(list,strings,1));
+        String key = getKeyOfProperLength(userKey);
+        System.out.println( key );
+
+        String encoded = encryptMessage(message,key);
+        System.out.println( encoded );
+        System.out.println( decryptMessage(encoded,key) );
+
+    }
+
+    private static String getKeyOfProperLength(String userKey){
+        StringBuilder builder = new StringBuilder();
+
+        while (builder.length() < 16){
+            int varLength = builder.length();
+            int staLength = userKey.length();
+
+            int toBeTaken = userKey.length();
+            if( varLength + staLength >= 16) {
+                toBeTaken = 16 - varLength;
+            }
+
+            builder.append(userKey, 0, toBeTaken);
+        }
+
+        return builder.toString();
+    }
+
+
+    private static String decryptMessage(String encoded, String key){
+        try {
+            byte[] keyBytes = key.getBytes();
+            SecretKey secretKey = new SecretKeySpec(keyBytes, "AES");
+
+            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            cipher.init(Cipher.DECRYPT_MODE, secretKey);
+            byte[] decryptedBytes = cipher.doFinal(Base64.getDecoder().decode(encoded));
+
+            return new String(decryptedBytes);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private static String encryptMessage(String message, String key){
+        try {
+            byte[] keyBytes = key.getBytes();
+            SecretKey secretKey = new SecretKeySpec(keyBytes, "AES");
+
+            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
+            byte[] encryptedBytes = cipher.doFinal(message.getBytes());
+
+            return Base64.getEncoder().encodeToString(encryptedBytes);
+        }catch (NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException | BadPaddingException | InvalidKeyException e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public static int maxCost(List<Integer> cost, List<String> labels, int dailyCount) {
