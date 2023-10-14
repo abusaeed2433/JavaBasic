@@ -177,15 +177,15 @@
   ```
   private static void comparableTest(){
       // using Bard
-      Student student1 = new Student(112, "Rakib Hasan", "rakibhasan@gmail.com", 1.75);
-      Student student2 = new Student(23, "Sadia Akter", "sadiaakter@gmail.com", 1.65);
+      Student studentOne1 = new Student(112, "Rakib Hasan", "rakibhasan@gmail.com", 1.75);
+      Student studentOne2 = new Student(23, "Sadia Akter", "sadiaakter@gmail.com", 1.65);
       Student student3 = new Student(34, "Ariful Islam", "arifulislam@gmail.com", 1.80);
       Student student4 = new Student(4, "Tasnim Akhter", "tasnimakhter@gmail.com", 1.55);
       Student student5 = new Student(54, "Rafi Ahmed", "rafi@gmail.com", 1.70);
       Student student6 = new Student(15, "Sumaiya Khatun", "sumaiya@gmail.com", 1.60);
   
       List<Student> students = new ArrayList<>();
-      students.add(student1); students.add(student2); students.add(student3);
+      students.add(studentOne1); students.add(studentOne2); students.add(student3);
       students.add(student4); students.add(student5); students.add(student6);
   
       printRolls(students); // Rakib(112) Sadia(23) Ariful(34) Tasnim(4) Rafi(54) Sumaiya(15)

@@ -1,1 +1,5 @@
+*.class
 src/classmate
+src/stego
+src/train
+src/train2

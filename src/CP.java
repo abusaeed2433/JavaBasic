@@ -1,3 +1,5 @@
+import jdk.jshell.EvalException;
+
 import javax.crypto.*;
 import javax.crypto.spec.SecretKeySpec;
 import java.io.DataInputStream;
@@ -18,118 +20,40 @@ public class CP {
 
     public static void main(String[] args) throws IOException {
 
-        String message = "Hello. THis is saeed";
-        String userKey = "abcd";//567887654321";
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        pq.add(1); pq.add(2); pq.add(454); pq.add(-1);
 
-
-        String key = getKeyOfProperLength(userKey);
-        System.out.println( key );
-
-        String encoded = encryptMessage(message,key);
-        System.out.println( encoded );
-        System.out.println( decryptMessage(encoded,key) );
-
-    }
-
-    private static String getKeyOfProperLength(String userKey){
-        StringBuilder builder = new StringBuilder();
-
-        while (builder.length() < 16){
-            int varLength = builder.length();
-            int staLength = userKey.length();
-
-            int toBeTaken = userKey.length();
-            if( varLength + staLength >= 16) {
-                toBeTaken = 16 - varLength;
-            }
-
-            builder.append(userKey, 0, toBeTaken);
+        while (!pq.isEmpty()){
+            System.out.println(pq.poll());
         }
+        call();
 
-        return builder.toString();
+//        Map<String, String> map = new HashMap<>();
+//        map.computeIfAbsent("key", new Function<String, String>() {
+//            @Override
+//            public String apply(String s) {
+//                return "aas";
+//            }
+//        });
+//
+//        Map<String, List<String>> map1 = new HashMap<>();
+//        map1.computeIfAbsent("a", s -> null);
+//        map1.computeIfAbsent("a", arr -> new ArrayList<>()).add("a");
+
     }
 
-
-    private static String decryptMessage(String encoded, String key){
-        try {
-            byte[] keyBytes = key.getBytes();
-            SecretKey secretKey = new SecretKeySpec(keyBytes, "AES");
-
-            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-            cipher.init(Cipher.DECRYPT_MODE, secretKey);
-            byte[] decryptedBytes = cipher.doFinal(Base64.getDecoder().decode(encoded));
-
-            return new String(decryptedBytes);
+    private static void call(){
+        try{
+            System.out.println("try");
+            int y = 10/0;
         }
         catch (Exception e){
-            e.printStackTrace();
-            return null;
+            System.out.println(e.getMessage());
+            return;
         }
-    }
-
-    private static String encryptMessage(String message, String key){
-        try {
-            byte[] keyBytes = key.getBytes();
-            SecretKey secretKey = new SecretKeySpec(keyBytes, "AES");
-
-            Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-            cipher.init(Cipher.ENCRYPT_MODE, secretKey);
-            byte[] encryptedBytes = cipher.doFinal(message.getBytes());
-
-            return Base64.getEncoder().encodeToString(encryptedBytes);
-        }catch (NoSuchAlgorithmException | NoSuchPaddingException | IllegalBlockSizeException | BadPaddingException | InvalidKeyException e){
-            e.printStackTrace();
-            return null;
+        finally {
+            System.out.println("finally");
         }
-    }
-
-    public static int maxCost(List<Integer> cost, List<String> labels, int dailyCount) {
-        // Write your code here
-        int ans = 0;
-        long cur = 0;
-        int count = 0;
-        for(int i=0; i<cost.size();i++){
-
-            cur += cost.get(i);
-            if( labels.get(i).equals("illegal") ) continue;
-
-            count++;
-            if(count == dailyCount){
-                ans =(int) Math.max(ans,cur);
-                count = 0;
-                cur = 0;
-            }
-
-        }
-        return ans;
-
-    }
-
-    public static void typeCounter(String sentence) {
-
-        String regex = "\\b[a-z]+\\b";
-        long sc = getCount(sentence,regex);
-
-        regex = "\\b[0-9^\\.^a-z]+\\b";
-        long ic = getCount(sentence,regex);
-
-
-        regex = "\\b[0-9]*\\.[0-9]+\\b";
-        long dc = getCount(sentence,regex);
-
-        System.out.println("string "+sc+"\n"+"integer "+ic+"\n"+"double "+dc);
-
-
-    }
-
-    private static long getCount(String inp,String regex){
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(inp);
-
-        long count = 0;
-        while (matcher.find()) count++;
-
-        return count;
     }
 
     static String isBalanced(String s)
