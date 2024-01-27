@@ -1,5 +1,10 @@
 package z_Others;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+
 public class Test {
     public static void main(String[] args) {
 
@@ -30,4 +35,18 @@ class B extends A{
     public void m2(){
         System.out.println("B.m2()");
     }
+
+
+    public static void main(String[] args) {
+
+        Map<Integer, List<Integer>> map = new HashMap<>();
+
+        for(int i=0;i<10;i++){
+            map.computeIfAbsent(i+100,v-> new LinkedList<>()).add(i);
+        }
+
+        System.out.println(map);
+
+    }
+
 }

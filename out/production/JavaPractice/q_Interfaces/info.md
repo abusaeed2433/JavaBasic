@@ -13,8 +13,8 @@
 - We have a method named `letThemWalk(Person[])` defined as:
     ```
     public static void letThemWalk(Person[] list){
-        for(Person person : list) {
-            person.walk();
+        for(Person student : list) {
+            student.walk();
         }
     }
     ```
@@ -32,7 +32,7 @@
 - So, there can have many such class(`Dog`,`Cat`...) that can have `walk()` method,
 - But we can't use them based on this property(`Walkable`) only, since all are different classes,
   ```
-  Person person = new Duck("Duck1"); // compile time error
+  Person student = new Duck("Duck1"); // compile time error
   ```
 
 ## Some Solution of above problem
@@ -79,9 +79,9 @@
     ```
     ```
     private static void letPersonWalk(Person[] list){
-        for(Person person : list) {
-            if(person == null) continue;
-            person.walk();
+        for(Person student : list) {
+            if(student == null) continue;
+            student.walk();
         }
     }
     ```
@@ -155,7 +155,7 @@
   
       @Override
       public void walk() {
-          System.out.println(name + " (a person) is walking.");
+          System.out.println(name + " (a student) is walking.");
       }
   
   }

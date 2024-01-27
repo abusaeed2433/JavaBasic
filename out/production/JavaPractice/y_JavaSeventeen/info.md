@@ -149,10 +149,10 @@
   ```
   Using like this:
   ```
-  Person person = new Person("Saeed",2345);
+  Person student = new Person("Saeed",2345);
   
   PersonRecord record = new PersonRecord("Saeed",2345);
   
-  System.out.println(person.getName() + " - " + record.name()); // Saeed - Saeed
-  System.out.println(person.getAge() + " - " + record.age()); // 2345 - 2345
+  System.out.println(student.getName() + " - " + record.name()); // Saeed - Saeed
+  System.out.println(student.getAge() + " - " + record.age()); // 2345 - 2345
   ```

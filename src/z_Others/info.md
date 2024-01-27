@@ -1,6 +1,6 @@
 
 
-### Java Stack Memory vs Heap Memory
+## --- Java Stack Memory vs Heap Memory ---
 
 #### Stack Memory 
 - Holds the values of the primitive type variables. (int, float, double, char, boolean, etc.),
@@ -14,7 +14,9 @@
 </div>
 Image Source: Scalar
 
-### Find output of this program
+<hr>
+
+## --- Find output of this program ---
 ```
 class A{
 

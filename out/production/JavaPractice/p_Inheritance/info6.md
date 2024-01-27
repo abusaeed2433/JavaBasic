@@ -92,7 +92,7 @@
   }
   
   ```
-  At line `(a)`, `Person` class has an `Address` variable for storing `Address` info of the person,
+  At line `(a)`, `Person` class has an `Address` variable for storing `Address` info of the student,
 - This is `has-a` relationship. Since above relation can be expressed as `Person has an Address`,
 - In above example, instead of `Address` field in `Person` class, we can use all fields of `Address` class. But,
   - It will make code hard to understand, &

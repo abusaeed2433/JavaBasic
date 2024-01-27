@@ -75,7 +75,7 @@
 - There is no problem in this example,
 
 ## Example-2
-- It is possible that the same person is a `Singer` as well as a `Writer`,
+- It is possible that the same student is a `Singer` as well as a `Writer`,
   ```
   interface SingerWriter extends Singer, Writer {
       // No code
@@ -123,7 +123,7 @@
 
 
 ## Example-3
-- It is possible that the same person is a `Singer` as well as a `Player`,
+- It is possible that the same student is a `Singer` as well as a `Player`,
   ```
   interface SingerPlayer extends Singer, Player{
           

@@ -20,7 +20,7 @@ public class Test {
     }
 
     private static void logicalTest(){
-        int i = 24;
+        int i = 25;
         int j = 48;
         int k = 57;
 
@@ -33,7 +33,7 @@ public class Test {
         System.out.println(outputFromShortCircuit + " -> " + count); // true -> 1
 
         boolean outputAnd = (i == j) && (i++ ==k);
-        System.out.println(outputAnd+" "+i); // false 24
+        System.out.println(outputAnd+" "+i); // false 25
 
         boolean outputShortAnd = (i == j) & (i++ ==k);
         System.out.println(outputShortAnd+" "+i); // false 25

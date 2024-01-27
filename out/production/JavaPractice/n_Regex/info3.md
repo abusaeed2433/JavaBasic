@@ -87,7 +87,7 @@
 - We are given this input:
   ```
   A train carrying 125 men and women was traveling at the speed of 
-  100 miles per hour. The train fare was 75 dollars per person.
+  100 miles per hour. The train fare was 75 dollars per student.
   ```
 - We want to replace number by text like this:
   - `100` by `a hundred`,
@@ -96,7 +96,7 @@
 - Our output will be:
   ```
   A train carrying more than a hundred men and women was traveling at the speed of 
-  a hundred miles per hour. The train fare was less than a hundred dollars per person.
+  a hundred miles per hour. The train fare was less than a hundred dollars per student.
   ```
 - For accomplishing that we have `2` methods in `Matcher` class,
   - `Matcher appendReplacement(StringBuilder sb, String replacement)`:
@@ -114,7 +114,7 @@
   private static void solution(){
   
       String input = "A train carrying 125 men and women was traveling at the speed of 100 miles per hour. "+
-              "The train fare was 75 dollars per person.";
+              "The train fare was 75 dollars per student.";
   
       String regex = "\\b\\d+\\b";
       Pattern pattern = Pattern.compile(regex);
@@ -136,7 +136,7 @@
       }
   
       matcher.appendTail(output); // rest of the part <-----------(a)
-      System.out.println(output); // A train carrying more than a hundred men and women was traveling at the speed of a hundred miles per hour. The train fare was less than a hundred dollars per person.
+      System.out.println(output); // A train carrying more than a hundred men and women was traveling at the speed of a hundred miles per hour. The train fare was less than a hundred dollars per student.
   }
   ```
 - In above solution, body of while loop will be executed 3 times,
@@ -155,7 +155,7 @@
   ```
 - Outside while loop, at point `(a)`,
   ```
-  A train carrying more than a hundred men and women was traveling at the speed of a hundred miles per hour. The train fare was less than a hundred dollars per person.
+  A train carrying more than a hundred men and women was traveling at the speed of a hundred miles per hour. The train fare was less than a hundred dollars per student.
   ```
 
 >> Do you still remember the image while starting regex? 🐱
