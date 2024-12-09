@@ -100,9 +100,7 @@ public class Test {
     }
 
     private static void ruleTest1(){
-
         Object myObj = new Object();
-
 
         String name = "hello";
         Object nameObj = name; // ok
@@ -114,7 +112,5 @@ public class Test {
         Exception exception = new Exception("anything");
         Object ex = exception;
     }
-
-
 
 }

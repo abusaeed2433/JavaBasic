@@ -145,7 +145,7 @@
   ```
 
 ## Overriding summary
-- Main things 
+- CF things 
   - Name of the method: `same`,
   - Number of parameters: `same`,
   - Type of parameters: `same`,

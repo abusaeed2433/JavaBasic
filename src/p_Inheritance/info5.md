@@ -9,7 +9,7 @@
 - A final method cannot be `overridden` or `hidden` by a `subclass`,
 - Ex: `String` class is `final`,
 - Why to disable inheritance? 
-  - Main reasons are `security`, `correctness`, & `performance`,
+  - CF reasons are `security`, `correctness`, & `performance`,
   - If your class is important for security reasons, you do not want someone to inherit from your class and mess with the security that your class is supposed to implement,
   - A `final` method may result in better performance at runtime because a code optimizer is free to inline the final method calls,
 - Ex of `final-class`: 

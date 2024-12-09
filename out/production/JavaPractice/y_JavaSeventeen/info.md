@@ -1,5 +1,5 @@
 
-# Main changes from java-8 to java-17
+# CF changes from java-8 to java-17
 
 ## New `var` keyword
 - A new `var` keyword was added that allows local variables to be declared in a more concise manner,

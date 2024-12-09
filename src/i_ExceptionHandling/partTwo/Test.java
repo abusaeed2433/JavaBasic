@@ -16,7 +16,6 @@ public class Test {
             m2();
         }
         catch(Exception e) {
-
             e.fillInStackTrace(); // hide trace here
             throw e; // rethrowing
         }

@@ -1,5 +1,6 @@
 *.class
 src/classmate
+src/compress
 src/stego
 src/train
 src/train2
@@ -15,6 +16,10 @@ src/trainNew5
 src/trainNew6
 src/trainNew7
 src/trainNew8
+src/trainNew9
+src/trainNew10
+src/trainNew11
+src/trainNew12
 src/trainNewKotlin1
 src/trainNewKotlin2
 src/trainNewKotlin3
@@ -22,4 +27,5 @@ src/trainNewKotlin4
 src/trainNewKotlin5
 src/trainNewKotlin6
 src/trainNewKotlin7
+src/trainNewKotlin8
 src/z_Kotlin
