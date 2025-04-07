@@ -1,9 +1,0 @@
-John cse 15
-Smith me 14
-John eee 15
-Smith ce 14
-John eee 20
-John math 10
-Smith me 18
-John me 10
-Smith hum 10

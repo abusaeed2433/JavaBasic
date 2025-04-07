@@ -1,80 +1,91 @@
 package z_medium;
 
+interface TV {
+    void showNextChannel();
+    void switchToChannel(int channelId);
+    void adjustVolume(int delta);
+}
+
+class AppleTV implements TV{
+    int volume = 12;
+    @Override
+    public void showNextChannel(){
+        System.out.println("Switching...");
+    }
+    @Override
+    public void switchToChannel(int channelId){
+        System.out.println(channelId +" switching done");
+    }
+    @Override
+    public void adjustVolume(int delta){
+        volume += delta;
+        if(volume < 0) volume = 0;
+        if(volume > 100) volume = 100;
+
+        System.out.println("Volume set to "+volume);
+    }
+
+    public void startCamera(){
+        System.out.println("Camera started");
+    }
+}
+
+class SamsungTV implements TV{
+    int volume = 12;
+    @Override
+    public void showNextChannel(){
+        System.out.println("Switched to next channel");
+    }
+    @Override
+    public void switchToChannel(int channelId){
+        System.out.println("Switched to channel" + channelId);
+    }
+    @Override
+    public void adjustVolume(int delta){
+        volume += delta;
+        volume = Math.max( Math.min(volume, 100), 0 );
+        System.out.println(volume);
+    }
+
+    public void startBixby(){
+        System.out.println("Voice command enabled");
+    }
+}
+
+class ChineseRemote{
+    private TV tv;
+
+    public ChineseRemote(TV tv){
+        this.tv = tv;
+    }
+
+    public void pressNextChannelButton(){
+        tv.showNextChannel();
+    }
+
+    public void pressIncreaseVolume(){
+        tv.adjustVolume(1);
+    }
+    public void pressDecreaseVolume(){
+        tv.adjustVolume(-1);
+    }
+}
+
 public class Medium {
 
-    static class Point {
-        int x, y;
+    public static void main(String... args){
+        TV samsungTV = new SamsungTV();
+        TV appleTV = new AppleTV();
+        ChineseRemote samsungRemote = new ChineseRemote(samsungTV);
+        ChineseRemote appleRemote = new ChineseRemote(appleTV);
+        // ChineseRemote remote = new ChineseRemote(appleTV); // both are valid
 
-        public Point(int x, int y) { this.x = x; this.y = y; }
 
-        @Override
-        public String toString() {
-            return "("+x+", "+y+")";
-        }
-
+        samsungRemote.pressIncreaseVolume();
+        samsungRemote.pressNextChannelButton();
+        System.out.println("-------------------------");
+        appleRemote.pressIncreaseVolume();
+        appleRemote.pressNextChannelButton();
     }
-
-    static class Artist {
-        private final Point point = new Point(0,0);
-        private boolean isCurrentPointDrawn = true;
-
-        public synchronized void productNextPoint(int value) {
-            while (!isCurrentPointDrawn) {
-                try {
-                    wait(); // Wait if current point isn't drawn yet
-                } catch (Exception e) {
-                    Thread.currentThread().interrupt();
-                }
-            }
-
-            //try{ Thread.sleep(2000); }catch (InterruptedException e){}
-            point.x += value;
-            point.y += value;
-            System.out.println("Produced: " + point);
-            isCurrentPointDrawn = false;
-            notify(); // Notify that point is available to draw
-        }
-
-
-        public synchronized void drawCurrentPoint() {
-            while (isCurrentPointDrawn) {
-                try {
-                    //System.out.println("whiellll");
-                    wait(); // Wait if no point is available to draw
-                } catch (Exception e) {
-                    Thread.currentThread().interrupt();
-                }
-            }
-            System.out.println("Drawn: " + point);
-            isCurrentPointDrawn = true;
-            notify(); // Notify the waiting producer that point has been drawn
-        }
-    }
-
-     public static void main(String[] args) {
-         final Artist resource = new Artist();
-         final int noOfPoints = 3;
-
-         Thread producerThread = new Thread(new Runnable() {
-             @Override
-             public void run() {
-                 for (int i = 0; i < noOfPoints; i++) {
-                     resource.productNextPoint(i);
-                 }
-             }
-         });
-         Thread consumerThread = new Thread(new Runnable() {
-             @Override
-             public void run() {
-                 for (int i = 0; i < noOfPoints; i++) {
-                     resource.drawCurrentPoint();
-                 }
-             }
-         });
-
-         producerThread.start();
-         consumerThread.start();
-
-     }
 
 }

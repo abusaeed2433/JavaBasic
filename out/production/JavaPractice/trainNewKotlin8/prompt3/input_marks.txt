@@ -1,4 +1,0 @@
-John 80 200
-Smith 100 180
-Jane 60 130
-Bill 70 90

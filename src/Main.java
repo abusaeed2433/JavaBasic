@@ -6,42 +6,59 @@ public class Main {
     public static final int INF = Integer.MAX_VALUE;
 
     static InputReader scanner;
+//    static Scanner scanner;
     static PrintWriter out;
 
     public static void main(String[] args) {
         scanner = new InputReader(System.in);
+        //scanner = new Scanner(System.in);
         out = new PrintWriter(System.out);
 
-        int t = scanner.nextInt();
-        while (t-- > 0) {
-            solve();
+        int t = 1;//scanner.nextInt();
+        for(int i=1; i<=t; i++){
+            solve(t);
         }
+
         out.close();
     }
 
-    private static void solve() {
-        final int n = scanner.nextInt();
+
+    private static void solve(int caseNo) {
+        final String str = "abcabcabc";//"aabbbbcccbbaa";
+        final int k = 3;
+
+        final Stack<Pair> stack = new Stack<>();
+
+        for(int i=0; i<str.length(); i++){
+            if(stack.isEmpty()){
+                stack.push( new Pair(str.charAt(i),1) );
+            }
+            else {
+                final Pair top = stack.peek();
+                if(top.first == str.charAt(i)){
+                    top.second++;
+                }
+                else{
+                    stack.push(new Pair(str.charAt(i),1));
+                }
+            }
+
+            final Pair top = stack.peek();
+            if(top.second == k){
+                stack.pop();
+            }
+        }
 
         final StringBuilder builder = new StringBuilder();
-
-        int numOne = n;
-        int numTwo = 3*n;
-
-        for(int i=0; i<n; i++){
-            int num = numOne;
-            if(i % 2 == 1){
-                num = numTwo;
-            }
-            builder.append(num).append(' ');
+        while (!stack.isEmpty()){
+            final Pair top = stack.pop();
+            builder.append(String.valueOf(top.first).repeat(top.second));
         }
-        builder.deleteCharAt(builder.length()-1);
-        out.println(builder);
+
+        System.out.println(builder.reverse().toString());
+
     }
 
-    private static long gcd(long a, long b) {
-        if (b==0) return a;
-        return gcd(b,a%b);
-    }
 
     private static int[] take(int n){
         final int[] arr = new int[n];
@@ -52,10 +69,10 @@ public class Main {
     }
 
     static class Pair implements Comparable<Pair> {
-        int first;
+        char first;
         int second;
 
-        public Pair(int first, int second) {
+        public Pair(char first, int second) {
             this.first = first;
             this.second = second;
         }

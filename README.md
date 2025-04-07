@@ -1,5 +1,5 @@
 
-## CF java topic in simple & short ways
+![SavePalestine](https://raw.githubusercontent.com/OneDroid/.github/refs/heads/main/images/badge/save-palestine.svg)
 
 ### Prerequisites:
 - Basic programming knowledge in languages such as `C` or `C++`,

@@ -1,4 +1,0 @@
-John 264
-Smith 260
-Jane 178
-Bill 146

@@ -1,6 +1,5 @@
 package z_Others;
 
-import train6.prompt5.AppleReplacer;
 
 public class Fuzzy {
     record NoOfEmptyCellR(double LOW, double MEDIUM, double HIGH){}
